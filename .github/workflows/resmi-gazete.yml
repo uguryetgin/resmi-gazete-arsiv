@@ -52,7 +52,7 @@ jobs:
           # Ustbilgi/altbilgi satiri (ornegin "Sayfa : 2  RESMI GAZETE  ...") her sayfada
           # cikar, o yuzden esik onu asacak kadar yuksek.
           SPARSE_LIMIT = 200
-          OCR_MAX_PAGES = 80   # guvenlik siniri; asilirsa kalanlar OCR'lanmaz ama not dusulur
+          OCR_MAX_PAGES = 250  # pratikte sinirsiz; public repoda Actions dakikasi ucretsiz
 
           def url_for(ymd, suffix=""):
               return f"{BASE}/{ymd[:4]}/{ymd[4:6]}/{ymd}{suffix}.pdf"
@@ -89,21 +89,38 @@ jobs:
               s = re.sub(r"\d{1,2}\s+\w+\s+\d{4}\s*[–-]\s*Say[ıi]\s*:\s*\d+", " ", s)
               return re.sub(r"\s+", " ", s).strip()
 
-          def ocr_page(path, n):
+          def to_ranges(nums):
+              """[2,3,16,39,40,41] -> [(2,3),(16,16),(39,41)] — bitisik sayfalari grupla."""
+              out = []
+              for n in sorted(nums):
+                  if out and n == out[-1][1] + 1:
+                      out[-1][1] = n
+                  else:
+                      out.append([n, n])
+              return [tuple(r) for r in out]
+
+          def ocr_range(path, a, b):
+              """a..b sayfalarini TEK pdftoppm cagrisiyla render edip OCR'la.
+                 32 MB'lik PDF her sayfa icin yeniden acilmasin diye aralik halinde."""
+              res = {}
               with tempfile.TemporaryDirectory() as td:
                   pre = os.path.join(td, "pg")
-                  r = subprocess.run(["pdftoppm", "-r", "300", "-png", "-f", str(n), "-l", str(n),
-                                      path, pre], capture_output=True, timeout=180)
+                  r = subprocess.run(["pdftoppm", "-r", "300", "-png", "-f", str(a), "-l", str(b),
+                                      path, pre], capture_output=True, timeout=900)
                   if r.returncode != 0:
-                      return ""
-                  pngs = sorted(Path(td).glob("pg*.png"))
-                  if not pngs:
-                      return ""
-                  r = subprocess.run(["tesseract", str(pngs[0]), "-", "-l", "tur"],
-                                     capture_output=True, timeout=300)
-                  if r.returncode != 0:
-                      return ""
-                  return r.stdout.decode("utf-8", "replace")
+                      print(f"    pdftoppm hatasi {a}-{b}:", r.stderr[:200], file=sys.stderr)
+                      return res
+                  for png in sorted(Path(td).glob("pg*.png")):
+                      m = re.search(r"pg-?0*(\d+)\.png$", png.name)
+                      if not m:
+                          continue
+                      n = int(m.group(1))
+                      t = subprocess.run(["tesseract", str(png), "-", "-l", "tur"],
+                                         capture_output=True, timeout=300)
+                      if t.returncode == 0:
+                          res[n] = t.stdout.decode("utf-8", "replace")
+                      png.unlink(missing_ok=True)
+              return res
 
           def build_text(path, label=""):
               """Sayfa sayfa metin; bos/seyrek sayfalari OCR ile doldur.
@@ -114,16 +131,20 @@ jobs:
                   pages.pop()
               sparse = [i for i, p in enumerate(pages, 1) if len(strip_chrome(p)) < SPARSE_LIMIT]
               print(f"  {label}toplam {len(pages)} sayfa, {len(sparse)} tanesi seyrek/taranmis")
-              ocred, capped = [], False
-              for i in sparse:
-                  if len(ocred) >= OCR_MAX_PAGES:
-                      capped = True
-                      break
-                  txt = ocr_page(path, i)
-                  if len(strip_chrome(txt)) > len(strip_chrome(pages[i-1])):
-                      pages[i-1] = txt
-                      ocred.append(i)
-                      print(f"    OCR s.{i}: {len(txt)} karakter")
+              todo = sparse[:OCR_MAX_PAGES]
+              capped = len(sparse) > len(todo)
+              ocred = []
+              rngs = to_ranges(todo)
+              print(f"  {label}{len(todo)} sayfa OCR'lanacak, {len(rngs)} aralikta")
+              for k, (a, b) in enumerate(rngs, 1):
+                  got = ocr_range(path, a, b)
+                  for n, txt in got.items():
+                      if n - 1 < len(pages) and len(strip_chrome(txt)) > len(strip_chrome(pages[n-1])):
+                          pages[n-1] = txt
+                          ocred.append(n)
+                  print(f"    [{k}/{len(rngs)}] s.{a}-{b} bitti (toplam OCR: {len(ocred)})",
+                        flush=True)
+              ocred.sort()
               if capped:
                   print(f"    UYARI: OCR siniri ({OCR_MAX_PAGES}) asildi, kalan sayfalar atlandi")
               out = []
