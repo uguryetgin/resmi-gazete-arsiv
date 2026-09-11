@@ -21,16 +21,17 @@ permissions:
 jobs:
   indir:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
       - name: Araçları kur
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq poppler-utils
+          sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-tur
           pip install --quiet requests
 
-      - name: Gazeteyi indir ve metni çıkar
+      - name: Gazeteyi indir, metni çıkar, taranmış sayfaları OCR'la
         id: indir
         run: |
           cat > /tmp/fetch_rg.py <<'PYEOF'
@@ -47,6 +48,12 @@ jobs:
           ROOT = Path(".")
           TRT = timezone(timedelta(hours=3))
 
+          # Bir sayfada bu kadardan az "gercek" metin varsa taranmis kabul edilir.
+          # Ustbilgi/altbilgi satiri (ornegin "Sayfa : 2  RESMI GAZETE  ...") her sayfada
+          # cikar, o yuzden esik onu asacak kadar yuksek.
+          SPARSE_LIMIT = 200
+          OCR_MAX_PAGES = 80   # guvenlik siniri; asilirsa kalanlar OCR'lanmaz ama not dusulur
+
           def url_for(ymd, suffix=""):
               return f"{BASE}/{ymd[:4]}/{ymd[4:6]}/{ymd}{suffix}.pdf"
 
@@ -62,33 +69,78 @@ jobs:
               print(f"  YOK  {url}  (durum {r.status_code})")
               return None
 
-          def pdf_to_text(pdf_bytes):
-              with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
-                  f.write(pdf_bytes)
-                  path = f.name
-              try:
-                  out = subprocess.run(
-                      ["pdftotext", "-layout", "-enc", "UTF-8", path, "-"],
-                      capture_output=True, timeout=600)
-                  if out.returncode != 0:
-                      print("  pdftotext hatasi:", out.stderr[:300], file=sys.stderr)
+          def save_tmp(pdf_bytes):
+              f = tempfile.NamedTemporaryFile(suffix=".pdf", delete=False)
+              f.write(pdf_bytes); f.close()
+              return f.name
+
+          def pdf_to_text(path):
+              out = subprocess.run(["pdftotext", "-layout", "-enc", "UTF-8", path, "-"],
+                                   capture_output=True, timeout=900)
+              if out.returncode != 0:
+                  print("  pdftotext hatasi:", out.stderr[:300], file=sys.stderr)
+                  return ""
+              return out.stdout.decode("utf-8", "replace")
+
+          def strip_chrome(s):
+              """Her sayfada tekrarlayan ustbilgi/altbilgiyi at, geriye kalan gercek metni olc."""
+              s = re.sub(r"Sayfa\s*:\s*\d+", " ", s)
+              s = re.sub(r"RESM[İI]\s*GAZETE", " ", s, flags=re.I)
+              s = re.sub(r"\d{1,2}\s+\w+\s+\d{4}\s*[–-]\s*Say[ıi]\s*:\s*\d+", " ", s)
+              return re.sub(r"\s+", " ", s).strip()
+
+          def ocr_page(path, n):
+              with tempfile.TemporaryDirectory() as td:
+                  pre = os.path.join(td, "pg")
+                  r = subprocess.run(["pdftoppm", "-r", "300", "-png", "-f", str(n), "-l", str(n),
+                                      path, pre], capture_output=True, timeout=180)
+                  if r.returncode != 0:
                       return ""
-                  return out.stdout.decode("utf-8", "replace")
-              finally:
-                  os.unlink(path)
+                  pngs = sorted(Path(td).glob("pg*.png"))
+                  if not pngs:
+                      return ""
+                  r = subprocess.run(["tesseract", str(pngs[0]), "-", "-l", "tur"],
+                                     capture_output=True, timeout=300)
+                  if r.returncode != 0:
+                      return ""
+                  return r.stdout.decode("utf-8", "replace")
+
+          def build_text(path, label=""):
+              """Sayfa sayfa metin; bos/seyrek sayfalari OCR ile doldur.
+                 Doner: (isaretli tam metin, ocr'lanan sayfa numaralari, toplam sayfa)"""
+              raw = pdf_to_text(path)
+              pages = raw.split("\f")
+              if pages and not pages[-1].strip():
+                  pages.pop()
+              sparse = [i for i, p in enumerate(pages, 1) if len(strip_chrome(p)) < SPARSE_LIMIT]
+              print(f"  {label}toplam {len(pages)} sayfa, {len(sparse)} tanesi seyrek/taranmis")
+              ocred, capped = [], False
+              for i in sparse:
+                  if len(ocred) >= OCR_MAX_PAGES:
+                      capped = True
+                      break
+                  txt = ocr_page(path, i)
+                  if len(strip_chrome(txt)) > len(strip_chrome(pages[i-1])):
+                      pages[i-1] = txt
+                      ocred.append(i)
+                      print(f"    OCR s.{i}: {len(txt)} karakter")
+              if capped:
+                  print(f"    UYARI: OCR siniri ({OCR_MAX_PAGES}) asildi, kalan sayfalar atlandi")
+              out = []
+              for i, p in enumerate(pages, 1):
+                  if not p.strip():
+                      continue
+                  tag = " (OCR)" if i in ocred else ""
+                  out.append(f"\n=== Sayfa {i}{tag} ===\n{p}")
+              return "\n".join(out), ocred, len(pages)
 
           def find_sayi(text):
-              head = text[:6000]
+              head = text[:8000]
               for pat in (r"Say[ıi]\s*[:=]\s*(\d{4,6})", r"(\d{5})\s*Say[ıi]l[ıi]"):
                   m = re.search(pat, head)
                   if m:
                       return int(m.group(1))
               return None
-
-          def mark_pages(text):
-              pages = text.split("\f")
-              return "\n".join(f"\n=== Sayfa {i} ===\n{p}"
-                               for i, p in enumerate(pages, 1) if p.strip())
 
           def main():
               ymd = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else datetime.now(TRT).strftime("%Y%m%d")
@@ -109,9 +161,11 @@ jobs:
                       break
                   mukerrer.append((i, data))
 
-              raw = pdf_to_text(main_pdf)
-              text = mark_pages(raw)
-              page_count = text.count("=== Sayfa ")
+              path = save_tmp(main_pdf)
+              try:
+                  text, ocred, page_count = build_text(path)
+              finally:
+                  os.unlink(path)
               sayi = find_sayi(text)
 
               outdir = ROOT / "data" / ymd[:4] / ymd[4:6]
@@ -120,22 +174,29 @@ jobs:
               with gzip.open(outdir / f"{ymd}.txt.gz", "wt", encoding="utf-8") as f:
                   f.write(text)
 
-              fihrist = "\f".join(raw.split("\f")[:6])
-              (outdir / f"{ymd}.fihrist.txt").write_text(fihrist, encoding="utf-8")
+              # ICINDEKILER Resmi Gazete'de SON sayfadadir -> son 3 sayfayi fihrist olarak sakla
+              parts = re.split(r"\n=== Sayfa \d+(?: \(OCR\))? ===\n", text)
+              (outdir / f"{ymd}.fihrist.txt").write_text(
+                  "\n".join(parts[-3:]), encoding="utf-8")
 
               muk_meta = []
               for i, data in mukerrer:
-                  mtext = mark_pages(pdf_to_text(data))
+                  mp = save_tmp(data)
+                  try:
+                      mtext, mocr, mpages = build_text(mp, label=f"M{i} ")
+                  finally:
+                      os.unlink(mp)
                   with gzip.open(outdir / f"{ymd}M{i}.txt.gz", "wt", encoding="utf-8") as f:
                       f.write(mtext)
                   muk_meta.append({
                       "no": i, "url": url_for(ymd, f"M{i}"),
-                      "pdf_bytes": len(data), "pages": mtext.count("=== Sayfa "),
+                      "pdf_bytes": len(data), "pages": mpages, "ocr_pages": mocr,
                       "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.txt.gz"})
 
               meta = {
                   "tarih": f"{ymd[6:8]}.{ymd[4:6]}.{ymd[:4]}", "ymd": ymd, "sayi": sayi,
                   "pdf_url": url_for(ymd), "pdf_bytes": len(main_pdf), "pages": page_count,
+                  "ocr_pages": ocred,
                   "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.txt.gz",
                   "fihrist_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.fihrist.txt",
                   "mukerrer": muk_meta,
@@ -145,7 +206,8 @@ jobs:
               (ROOT / "data" / "latest.json").write_text(
                   json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
-              print(f"\nBitti: sayi {sayi}, {page_count} sayfa, {len(mukerrer)} mukerrer")
+              print(f"\nBitti: sayi {sayi}, {page_count} sayfa, "
+                    f"{len(ocred)} sayfa OCR, {len(mukerrer)} mukerrer")
               return 0
 
           sys.exit(main())
