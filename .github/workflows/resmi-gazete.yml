@@ -1,0 +1,178 @@
+name: Resmî Gazete indir
+
+on:
+  schedule:
+    - cron: "15 5 * * *"
+    - cron: "15 8 * * *"
+  workflow_dispatch:
+    inputs:
+      tarih:
+        description: "Tarih (YYYYAAGG). Boş = bugün."
+        required: false
+        default: ""
+
+concurrency:
+  group: resmi-gazete
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  indir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Araçları kur
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils
+          pip install --quiet requests
+
+      - name: Gazeteyi indir ve metni çıkar
+        id: indir
+        run: |
+          cat > /tmp/fetch_rg.py <<'PYEOF'
+          import gzip, json, os, re, subprocess, sys, tempfile
+          from datetime import datetime, timedelta, timezone
+          from pathlib import Path
+          import requests, urllib3
+
+          urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+          BASE = "https://www.resmigazete.gov.tr/eskiler"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+          TIMEOUT = 120
+          ROOT = Path(".")
+          TRT = timezone(timedelta(hours=3))
+
+          def url_for(ymd, suffix=""):
+              return f"{BASE}/{ymd[:4]}/{ymd[4:6]}/{ymd}{suffix}.pdf"
+
+          def download(url):
+              try:
+                  r = requests.get(url, headers=HEADERS, verify=False, timeout=TIMEOUT)
+              except Exception as e:
+                  print(f"  HATA {url}: {e}", file=sys.stderr)
+                  return None
+              if r.status_code == 200 and r.content[:4] == b"%PDF":
+                  print(f"  OK   {url}  ({len(r.content):,} bayt)")
+                  return r.content
+              print(f"  YOK  {url}  (durum {r.status_code})")
+              return None
+
+          def pdf_to_text(pdf_bytes):
+              with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
+                  f.write(pdf_bytes)
+                  path = f.name
+              try:
+                  out = subprocess.run(
+                      ["pdftotext", "-layout", "-enc", "UTF-8", path, "-"],
+                      capture_output=True, timeout=600)
+                  if out.returncode != 0:
+                      print("  pdftotext hatasi:", out.stderr[:300], file=sys.stderr)
+                      return ""
+                  return out.stdout.decode("utf-8", "replace")
+              finally:
+                  os.unlink(path)
+
+          def find_sayi(text):
+              head = text[:6000]
+              for pat in (r"Say[ıi]\s*[:=]\s*(\d{4,6})", r"(\d{5})\s*Say[ıi]l[ıi]"):
+                  m = re.search(pat, head)
+                  if m:
+                      return int(m.group(1))
+              return None
+
+          def mark_pages(text):
+              pages = text.split("\f")
+              return "\n".join(f"\n=== Sayfa {i} ===\n{p}"
+                               for i, p in enumerate(pages, 1) if p.strip())
+
+          def main():
+              ymd = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else datetime.now(TRT).strftime("%Y%m%d")
+              if not re.fullmatch(r"\d{8}", ymd):
+                  print("Gecersiz tarih:", ymd, file=sys.stderr)
+                  return 1
+
+              print("Resmi Gazete indiriliyor:", ymd)
+              main_pdf = download(url_for(ymd))
+              if main_pdf is None:
+                  print("Gazete henuz yayimlanmamis gorunuyor.")
+                  return 20
+
+              mukerrer = []
+              for i in range(1, 11):
+                  data = download(url_for(ymd, f"M{i}"))
+                  if data is None:
+                      break
+                  mukerrer.append((i, data))
+
+              raw = pdf_to_text(main_pdf)
+              text = mark_pages(raw)
+              page_count = text.count("=== Sayfa ")
+              sayi = find_sayi(text)
+
+              outdir = ROOT / "data" / ymd[:4] / ymd[4:6]
+              outdir.mkdir(parents=True, exist_ok=True)
+
+              with gzip.open(outdir / f"{ymd}.txt.gz", "wt", encoding="utf-8") as f:
+                  f.write(text)
+
+              fihrist = "\f".join(raw.split("\f")[:6])
+              (outdir / f"{ymd}.fihrist.txt").write_text(fihrist, encoding="utf-8")
+
+              muk_meta = []
+              for i, data in mukerrer:
+                  mtext = mark_pages(pdf_to_text(data))
+                  with gzip.open(outdir / f"{ymd}M{i}.txt.gz", "wt", encoding="utf-8") as f:
+                      f.write(mtext)
+                  muk_meta.append({
+                      "no": i, "url": url_for(ymd, f"M{i}"),
+                      "pdf_bytes": len(data), "pages": mtext.count("=== Sayfa "),
+                      "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.txt.gz"})
+
+              meta = {
+                  "tarih": f"{ymd[6:8]}.{ymd[4:6]}.{ymd[:4]}", "ymd": ymd, "sayi": sayi,
+                  "pdf_url": url_for(ymd), "pdf_bytes": len(main_pdf), "pages": page_count,
+                  "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.txt.gz",
+                  "fihrist_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.fihrist.txt",
+                  "mukerrer": muk_meta,
+                  "fetched_at": datetime.now(timezone.utc).isoformat()}
+              (outdir / f"{ymd}.json").write_text(
+                  json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+              (ROOT / "data" / "latest.json").write_text(
+                  json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+
+              print(f"\nBitti: sayi {sayi}, {page_count} sayfa, {len(mukerrer)} mukerrer")
+              return 0
+
+          sys.exit(main())
+          PYEOF
+          set +e
+          python /tmp/fetch_rg.py "${{ github.event.inputs.tarih }}"
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ $code -eq 20 ]; then exit 0; fi
+          exit $code
+
+      - name: Sonucu depoya işle
+        if: steps.indir.outputs.code == '0'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "Degisiklik yok."
+          else
+            git commit -m "Resmi Gazete $(date -u -d '+3 hours' +%d.%m.%Y)"
+            for i in 1 2 3; do
+              git pull --rebase --autostash && git push && break
+              sleep 5
+            done
+          fi
+
+      - name: Yayımlanmadıysa bildir
+        if: steps.indir.outputs.code == '20'
+        run: echo "::notice::Resmi Gazete bu calismada henuz yayimlanmamisti."
