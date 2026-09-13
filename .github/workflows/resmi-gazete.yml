@@ -2,14 +2,27 @@ name: Resmî Gazete indir
 
 on:
   schedule:
-    - cron: "15 5 * * *"
-    - cron: "15 8 * * *"
+    # GitHub zamanlanmis kosumlari paylasimli kuyrukta bekletiyor (bu depoda
+    # 4-5 saat gecikme olculdu), o yuzden tek slot yerine alti slot var:
+    # hangisi once kosarsa gazeteyi o indirir, kalanlar "zaten islenmis"
+    # deyip 20 saniyede cikar. Yuvarlak dakikalardan kacinildi (:00/:15/:30
+    # kuyrugun en kalabalik oldugu anlar).
+    - cron: "23 21 * * *"   # 00:23 TR (ertesi gun)
+    - cron: "17 23 * * *"   # 02:17 TR
+    - cron: "7 1 * * *"     # 04:07 TR
+    - cron: "43 2 * * *"    # 05:43 TR
+    - cron: "29 4 * * *"    # 07:29 TR
+    - cron: "11 6 * * *"    # 09:11 TR (emniyet slotu)
   workflow_dispatch:
     inputs:
       tarih:
         description: "Tarih (YYYYAAGG). Boş = bugün."
         required: false
         default: ""
+      yeniden:
+        description: "Zaten islenmis olsa bile bastan indir (true/false)"
+        required: false
+        default: "false"
 
 concurrency:
   group: resmi-gazete
@@ -89,6 +102,35 @@ jobs:
               s = re.sub(r"\d{1,2}\s+\w+\s+\d{4}\s*[–-]\s*Say[ıi]\s*:\s*\d+", " ", s)
               return re.sub(r"\s+", " ", s).strip()
 
+          TR_KELIME = re.compile(
+              r"\b(ve|bir|bu|için|ile|olarak|madde|sayılı|tarihli|kanun\w*|yönetmelik|"
+              r"karar\w*|gazete|bakanlığı\w*|başkanlığı\w*|ilan\w*|üzere|göre|olan|edilmek)\b",
+              re.I)
+          OCR_ESIK = 2.0   # 100 kelimede bu kadar Turkce belirtec altinda kalirsa cikti supheli
+
+          def tr_skor(s):
+              """Metnin ne kadar 'Turkce metin' gorundugu. Dondurulmus sayfada
+                 varsayilan OCR anlamsiz harf dizisi uretir ve bu skor sifira yakin cikar."""
+              kel = s.split()
+              if not kel:
+                  return 0.0
+              return 100.0 * len(TR_KELIME.findall(s)) / len(kel)
+
+          def ocr_png(png):
+              """Once --psm 1 (OSD: dondurulmus/yatay sayfayi otomatik cevirir).
+                 Sonuc supheliyse varsayilan segmentasyonla tekrar dener, iyisini alir.
+                 Resmi Gazete'nin ILAN bolumundeki yatay tablolar 90/270 derece
+                 dondurulmus geliyor; OSD olmadan tamamen cop metin cikiyor."""
+              def kos(*ek):
+                  r = subprocess.run(["tesseract", str(png), "-", "-l", "tur", *ek],
+                                     capture_output=True, timeout=600)
+                  return r.stdout.decode("utf-8", "replace") if r.returncode == 0 else ""
+              a = kos("--psm", "1")
+              if tr_skor(a) >= OCR_ESIK:
+                  return a
+              b = kos()
+              return a if tr_skor(a) >= tr_skor(b) else b
+
           def to_ranges(nums):
               """[2,3,16,39,40,41] -> [(2,3),(16,16),(39,41)] — bitisik sayfalari grupla."""
               out = []
@@ -115,10 +157,7 @@ jobs:
                       if not m:
                           continue
                       n = int(m.group(1))
-                      t = subprocess.run(["tesseract", str(png), "-", "-l", "tur"],
-                                         capture_output=True, timeout=300)
-                      if t.returncode == 0:
-                          res[n] = t.stdout.decode("utf-8", "replace")
+                      res[n] = ocr_png(png)
                       png.unlink(missing_ok=True)
               return res
 
@@ -169,39 +208,70 @@ jobs:
                   print("Gecersiz tarih:", ymd, file=sys.stderr)
                   return 1
 
-              print("Resmi Gazete indiriliyor:", ymd)
-              main_pdf = download(url_for(ymd))
-              if main_pdf is None:
-                  print("Gazete henuz yayimlanmamis gorunuyor.")
-                  return 20
+              force = os.environ.get("YENIDEN", "").strip().lower() in ("1", "true", "yes", "evet")
+              outdir = ROOT / "data" / ymd[:4] / ymd[4:6]
+              meta_path = outdir / f"{ymd}.json"
 
-              mukerrer = []
+              # Ayni gun icin birden fazla slot kosuyor. Ana sayi zaten indirilmisse
+              # 118 MB'lik PDF'i tekrar indirip yuzlerce sayfayi tekrar OCR'lamanin
+              # anlami yok; yalniz "yeni mukerrer cikmis mi" diye bakilir.
+              existing = None
+              if meta_path.exists() and not force:
+                  try:
+                      existing = json.loads(meta_path.read_text(encoding="utf-8"))
+                      print(f"{ymd} daha once islenmis (sayi {existing.get('sayi')}, "
+                            f"{existing.get('pages')} sayfa) - ana sayi yeniden indirilmeyecek.")
+                  except Exception as e:
+                      print("  Mevcut meta okunamadi, bastan islenecek:", e, file=sys.stderr)
+                      existing = None
+
+              outdir.mkdir(parents=True, exist_ok=True)
+
+              # ---------- ANA SAYI ----------
+              if existing:
+                  meta = dict(existing)
+              else:
+                  print("Resmi Gazete indiriliyor:", ymd)
+                  main_pdf = download(url_for(ymd))
+                  if main_pdf is None:
+                      print("Gazete henuz yayimlanmamis gorunuyor.")
+                      return 20
+
+                  path = save_tmp(main_pdf)
+                  try:
+                      text, ocred, page_count = build_text(path)
+                  finally:
+                      os.unlink(path)
+                  sayi = find_sayi(text)
+
+                  with gzip.open(outdir / f"{ymd}.txt.gz", "wt", encoding="utf-8") as f:
+                      f.write(text)
+
+                  # ICINDEKILER Resmi Gazete'de SON sayfadadir -> son 3 sayfayi fihrist olarak sakla
+                  parts = re.split(r"\n=== Sayfa \d+(?: \(OCR\))? ===\n", text)
+                  (outdir / f"{ymd}.fihrist.txt").write_text(
+                      "\n".join(parts[-3:]), encoding="utf-8")
+
+                  meta = {
+                      "tarih": f"{ymd[6:8]}.{ymd[4:6]}.{ymd[:4]}", "ymd": ymd, "sayi": sayi,
+                      "pdf_url": url_for(ymd), "pdf_bytes": len(main_pdf), "pages": page_count,
+                      "ocr_pages": ocred,
+                      "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.txt.gz",
+                      "fihrist_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.fihrist.txt",
+                      "mukerrer": []}
+
+              # ---------- MUKERRER ----------
+              # Mukerrer sayilar gun icinde sonradan yayimlanabilir; ana sayi islenmis
+              # olsa bile her kosumda bakilir, yalniz YENI olanlar indirilip OCR'lanir.
+              muk_meta = list(meta.get("mukerrer") or [])
+              mevcut = {m["no"] for m in muk_meta}
+              yeni = 0
               for i in range(1, 11):
+                  if i in mevcut:
+                      continue
                   data = download(url_for(ymd, f"M{i}"))
                   if data is None:
                       break
-                  mukerrer.append((i, data))
-
-              path = save_tmp(main_pdf)
-              try:
-                  text, ocred, page_count = build_text(path)
-              finally:
-                  os.unlink(path)
-              sayi = find_sayi(text)
-
-              outdir = ROOT / "data" / ymd[:4] / ymd[4:6]
-              outdir.mkdir(parents=True, exist_ok=True)
-
-              with gzip.open(outdir / f"{ymd}.txt.gz", "wt", encoding="utf-8") as f:
-                  f.write(text)
-
-              # ICINDEKILER Resmi Gazete'de SON sayfadadir -> son 3 sayfayi fihrist olarak sakla
-              parts = re.split(r"\n=== Sayfa \d+(?: \(OCR\))? ===\n", text)
-              (outdir / f"{ymd}.fihrist.txt").write_text(
-                  "\n".join(parts[-3:]), encoding="utf-8")
-
-              muk_meta = []
-              for i, data in mukerrer:
                   mp = save_tmp(data)
                   try:
                       mtext, mocr, mpages = build_text(mp, label=f"M{i} ")
@@ -213,31 +283,53 @@ jobs:
                       "no": i, "url": url_for(ymd, f"M{i}"),
                       "pdf_bytes": len(data), "pages": mpages, "ocr_pages": mocr,
                       "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.txt.gz"})
+                  yeni += 1
 
-              meta = {
-                  "tarih": f"{ymd[6:8]}.{ymd[4:6]}.{ymd[:4]}", "ymd": ymd, "sayi": sayi,
-                  "pdf_url": url_for(ymd), "pdf_bytes": len(main_pdf), "pages": page_count,
-                  "ocr_pages": ocred,
-                  "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.txt.gz",
-                  "fihrist_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.fihrist.txt",
-                  "mukerrer": muk_meta,
-                  "fetched_at": datetime.now(timezone.utc).isoformat()}
-              (outdir / f"{ymd}.json").write_text(
-                  json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
-              (ROOT / "data" / "latest.json").write_text(
+              if existing and yeni == 0:
+                  print("Degisiklik yok: bu sayi zaten islenmis, yeni mukerrer cikmamis.")
+                  return 21
+
+              muk_meta.sort(key=lambda m: m["no"])
+              meta["mukerrer"] = muk_meta
+              meta["fetched_at"] = datetime.now(timezone.utc).isoformat()
+
+              meta_path.write_text(
                   json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
-              print(f"\nBitti: sayi {sayi}, {page_count} sayfa, "
-                    f"{len(ocred)} sayfa OCR, {len(mukerrer)} mukerrer")
+              # latest.json yalniz ILERI giderek guncellenir: gecmise donuk bir
+              # backfill kosumu (workflow_dispatch + tarih) "bugunku sayi" isaretini
+              # eski bir gune cevirmesin.
+              latest_path = ROOT / "data" / "latest.json"
+              onceki = None
+              if latest_path.exists():
+                  try:
+                      onceki = json.loads(latest_path.read_text(encoding="utf-8")).get("ymd")
+                  except Exception:
+                      onceki = None
+              if onceki is None or str(ymd) >= str(onceki):
+                  latest_path.write_text(
+                      json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+              else:
+                  print(f"latest.json guncellenmedi (kayitli {onceki} daha yeni).")
+
+              print(f"\nBitti: sayi {meta.get('sayi')}, {meta.get('pages')} sayfa, "
+                    f"{len(meta.get('ocr_pages') or [])} sayfa OCR, "
+                    f"{len(muk_meta)} mukerrer" + (f" ({yeni} yeni)" if yeni else ""))
               return 0
 
           sys.exit(main())
           PYEOF
+          TARIH="${{ github.event.inputs.tarih }}"
+          if [ -z "$TARIH" ]; then TARIH=$(TZ=Europe/Istanbul date +%Y%m%d); fi
+          echo "ymd=$TARIH" >> "$GITHUB_OUTPUT"
+
           set +e
-          python /tmp/fetch_rg.py "${{ github.event.inputs.tarih }}"
+          YENIDEN="${{ github.event.inputs.yeniden }}" python /tmp/fetch_rg.py "$TARIH"
           code=$?
           echo "code=$code" >> "$GITHUB_OUTPUT"
-          if [ $code -eq 20 ]; then exit 0; fi
+          # 20 = gazete henuz yayimlanmamis, 21 = zaten islenmis.
+          # Ikisi de normal durum, is basarisiz sayilmaz.
+          if [ $code -eq 20 ] || [ $code -eq 21 ]; then exit 0; fi
           exit $code
 
       - name: Sonucu depoya işle
@@ -249,7 +341,8 @@ jobs:
           if git diff --staged --quiet; then
             echo "Degisiklik yok."
           else
-            git commit -m "Resmi Gazete $(date -u -d '+3 hours' +%d.%m.%Y)"
+            YMD="${{ steps.indir.outputs.ymd }}"
+            git commit -m "Resmi Gazete ${YMD:6:2}.${YMD:4:2}.${YMD:0:4}"
             for i in 1 2 3; do
               git pull --rebase --autostash && git push && break
               sleep 5
@@ -259,3 +352,7 @@ jobs:
       - name: Yayımlanmadıysa bildir
         if: steps.indir.outputs.code == '20'
         run: echo "::notice::Resmi Gazete bu calismada henuz yayimlanmamisti."
+
+      - name: Zaten işlenmişse bildir
+        if: steps.indir.outputs.code == '21'
+        run: echo "::notice::Bu sayi daha onceki bir slotta islenmis, yeni mukerrer yok."
