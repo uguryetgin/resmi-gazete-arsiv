@@ -1,0 +1,141 @@
+Sayfa : 86 RESMİ GAZETE 13 Eylül 2026 — Sayı : 33369
+
+TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
+VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 13.09.2026 TARİHİNDEKİ
+GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
+
+2- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN TÜKETİCİ
+FİYATLARINA ENDEKSLİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
+KİRA GETİRİSİ DAHİL
+
+VADE REEL KİRA BUGÜNKÜ DEĞER
+TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (100.-TL ÜZERİNDEN)
+28.05.2031 121D2D TRD280531T12 1.59 811.332
+28.05.2031 121D02D TRD280531T20 1.59 811.332
+28.05.2031 12102DA280531 TRD280531A13 1.59 693.710
+02.12.2026 121020K11280531 TRDO21226K195 1.59 12.522
+02.06.2027 121020K12280531 TRDO20627K1$ 1.59 12.347
+01.12.2027 121020K13280531 TRDO11227K19 1.59 12.174
+31.05.2028 12102D0K14280531 TRD310528K11 1.59 12.004
+29.11.2028 121020K15280531 TRD291128K17 1.59 11.836
+30.05.2029 121020K16280531 TRD300529K11 1.59 11.670
+28.11.2029 12102D0K17280531 TRD281129K17 1.59 11.507
+29.05.2030 121020K18280531 TRD290530K11 1.59 11.345
+27.11.2030 121020K19280531 TRD271130K15 1.59 11.187
+28.05.2031 121020K20280531 TRD280531k11 1.59 11.030
+07.04.2032 121D02D TRDO70432T17 0.09 426.128
+07.04.2032 12102D TRD070432T25 0.00 426.128
+07.04.2032 12102DA070432 TRDO70432A18 0.00 426.128
+14.10.2026 121020K9070432 TRD141026Kk17 0.00 0.000
+14.04.2027 121020K10070432 TRD140427K14 0.09 0.000
+13.10.2027 121020K11070432 TRDI131027K17 90.00 0.000
+12.04.2028 121020K12070432 TRDI120428K15 0.00 0.000
+11.10.2028 121020K13070432 TRD111028K18 0.00 0.000
+11.04.2029 121020K14070432 TRD110429K15 0.00 0.000
+10.10.2029 121020K15070432 TRD101029K18 0.00 0.000
+10.04.2030 121020K16070432 TRD100430K13 0.00 0.000
+09.10.2030 121020K17070432 TRDO91030K18 0.00 0.000
+09.04.2031 121020K18070432 TRDO90431K15 0.00 0.000
+08.10.2031 12102DK19070432 TRDO81031K18 0.09 0.000
+07.04.2032 121020K20070432 TRDO70432K16 0.00 0.000
+02.06.2027 36D2D TRDO20627T17 1.63 195.729
+02.06.2027 36D2D TRDO020627T25 1.63 195.729
+02.06.2027 36D2DA020627 TRDM20627A18 1.63 189.501
+02.12.2026 36D2DK5020627 TRD021226K27 1.63 3.1393
+02.06.2027 36D20K6020627 TRD0O20627K24 1.63 3.089
+20.01.2027 61D2D TRD200127T10 0.00 685.324
+20.01.2027 61D2D TRD200127T28 0.00 685.324
+20.01.2027 61D2DA200127 TRD200127A11 0.09 685.324
+20.01.2027 61D20K10200127 TRD200127K19 0.00 0.000
+
+3- (b) HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN ALTINA
+DAYALI KİRA SERTİFİKALARININ 1 ADET SERTİFİKA İÇİN DEĞERLERİ AŞAĞIDADIR.
+KİRA GETİRİSİ DAHİL
+
+VADE KİRA BUGÜNKÜ DEĞER
+TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1 ADET ÜZERİNDEN)
+27.01.2027 I2DA2 TRD270127T13 90.40 6,7180.559164
+18.08.2027 18DA2 TRD180827T17 0.30 6,776.502381
+17.11.2027 18DA2 TRD1711271T39 0.40 6,190.980258
+07.10.2026 24DAZ2 TRD071026T17 0.75 6,817.814575
+15.03.2028 24DAZ TRD150328T14 90.40 6,800.353243
+12.04.2028 24DA2 TRD120428T32 0.40 6,796.190805
+09.06.2028 24DAZ2 TRDO90628T19 0.42 6,7188.248443
+30.06.2028 24DAZ TRD300628T12 0.40 6,184.423856
+
+4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
+DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
+KİRA GETİRİSİ DAHİL
+
+VADE KİRA BUGÜNKÜ DEĞER
+TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1090 ABD Doları KARŞ.)
+03.02.2027 120201 TRDO30227F16 2411 48,737.10
+09.06.2027 120201 TRDO90627F16 2.60 49,176.19
+20.08.2027 120201 TRD200827F19 2.72 48, 684.70
+19.11.2027 240201 TRD191127F17 2.10 49,155.81
+
+10.05.2028 240201 TRD100528F13 2.60 49,370.26
+
+
+13 Eylül 2026 — Sayı : 33369 RESMİ GAZETE Sayfa:
+
+87
+
+TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
+VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 13.09.2026 TARİHİNDEKİ
+GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
+
+4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
+DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
+KİRA GETİRİSİ DAHİL
+VADE KİRA BUGÜNKÜ DEĞER
+TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ABD Doları KARŞ.)
+
+19.07.2028 240201 TRD190728F12 2.75 48,906.43
+
+
+Sayfa : 88                   RESMÎ GAZETE                      13 Eylül 2026 – Sayı : 33369
+
+
+
+                               İÇİNDEKİLER
+
+
+ YÜRÜTME VE İDARE BÖLÜMÜ
+                                                                                      Sayfa
+ YÖNETMELİKLER
+ –– Haliç Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim Yönetmeliğinde Değişiklik
+    Yapılmasına Dair Yönetmelik                                                         1
+ –– İstanbul Atlas Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav
+    Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik                               2
+ –– Konya Gıda ve Tarım Üniversitesi Lisansüstü Eğitim-Öğretim Yönetmeliği              5
+ –– Mersin Üniversitesi Bölgesel İzleme Uygulama ve Araştırma Merkezi
+    Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik                          20
+ –– Mersin Üniversitesi Çocuk Koruma Uygulama ve Araştırma Merkezi
+    Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik                          20
+ –– Mersin Üniversitesi Gıda Araştırmaları Uygulama ve Araştırma Merkezi
+    Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik                          20
+ –– Mersin Üniversitesi Görsel-İşitsel Yapımlar Uygulama ve Araştırma Merkezi
+    Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik                          20
+ –– Mersin Üniversitesi Özel Yetenekliler Eğitimi Uygulama ve Araştırma Merkezi
+    Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik                          20
+
+ İLÂN BÖLÜMÜ
+ a - Yargı İlânı                                                                       21
+ b - Artırma, Eksiltme ve İhale İlânları                                               21
+ c - Çeşitli İlânlar                                                                   35
+ – T.C. Merkez Bankasınca Belirlenen Devlet İç Borçlanma Senetlerinin Günlük
+    Değerleri                                                                          70
+
+
+
+                                      DUYURU
+
+             Yürürlükteki Kanunlar, KHK’ler, Cumhurbaşkanlığı Kararnameleri,
+                           Tüzükler, Yönetmelikler ve Tebliğlere
+
+                              e - Mevzuat,
+                               Günlük Resmî Gazete’ye ise
+
+                       e - Resmi Gazete ile
+                     abone olmadan ve ücretsiz olarak erişebilirsiniz.
