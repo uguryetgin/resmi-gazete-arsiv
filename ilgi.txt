@@ -1,0 +1,6 @@
+# Ilgi alanlari: "Alan: anahtar, anahtar, ..." (buyuk/kucuk harf ve Turkce karakter fark etmez).
+# Anahtar kelime kelime basinda aranir: "banka" -> "Bankası", "destek" -> "Desteklenmesine".
+# Yalniz kalem basliklarina bakilir. Eslesme olan gunlerde Claude Routine tetiklenir.
+Ekonomi ve Finans: Mali Suçları, MASAK, Merkez Bankası, TCMB, ödeme, elektronik para, banka, bankacılık, sermaye piyasası, SPK, vergi, katma değer, gelir vergisi, kurumlar vergisi, harç, bütçe, hazine, sigorta, finans, kredi
+Sanayi, Dış Ticaret ve Enerji: ithalat, ihracat, damping, haksız rekabet, gümrük, dış ticaret, enerji, elektrik, doğal gaz, petrol, EPDK, maden, sanayi, yatırım
+Tarım ve Destekleme: tarım, tarımsal, hayvancılık, balık, avcılık, su ürünleri, gıda, orman, destek, hibe
