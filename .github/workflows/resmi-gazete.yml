@@ -289,7 +289,7 @@ jobs:
                   fih = "\n".join(re.sub(r"[ \t]{2,}", "  ", l).strip() for l in fih.splitlines())
                   fih = re.sub(r"\n{3,}", "\n\n", fih).strip()
                   if fih:
-                      govde += ["", "İÇİNDEKİLER", "", fih]
+                      govde += ["", fih]
               (d / "konu.txt").write_text(konu, encoding="utf-8")
               (d / "govde.txt").write_text("\n".join(govde) + "\n", encoding="utf-8")
               print(f"Mail hazir: {konu} ({len(ekler)} ek)")
