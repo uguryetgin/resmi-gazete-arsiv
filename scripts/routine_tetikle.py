@@ -24,15 +24,20 @@ def norm(s):
     return re.sub(r"[^A-Z0-9]+", " ", s.translate(_TR_ASCII).upper())
 
 def ilgi_alanlari(yol=ROOT / "ilgi.txt"):
-    alanlar = []
+    """[(alan, desen)] ve haric deseni (yoksa None)."""
+    alanlar, haric = [], None
     for l in yol.read_text(encoding="utf-8").splitlines():
         l = l.strip()
         if not l or l.startswith("#") or ":" not in l:
             continue
         ad, kel = l.split(":", 1)
-        desen = [r"\b" + r"\s+".join(norm(k).split()) for k in kel.split(",") if norm(k).strip()]
-        alanlar.append((ad.strip(), re.compile("|".join(desen))))
-    return alanlar
+        desen = re.compile("|".join(r"\b" + r"\s+".join(norm(k).split())
+                                    for k in kel.split(",") if norm(k).strip()))
+        if norm(ad).strip() == "HARIC":
+            haric = desen
+        else:
+            alanlar.append((ad.strip(), desen))
+    return alanlar, haric
 
 def kalemler(notlar):
     """notlar.md'deki '- Baslik (s. N)' satirlari ('---' ayracindan onceki kisim)."""
@@ -60,12 +65,15 @@ def main():
         return 0
     notlar = (d / "notlar.md").read_text(encoding="utf-8")
     baslik = (d / "baslik.txt").read_text(encoding="utf-8").strip()
-    alanlar = ilgi_alanlari()
+    alanlar, haric = ilgi_alanlari()
 
     eslesen = {}                       # baslik satiri -> alan adi
     for k in kalemler(notlar):
+        n = norm(re.sub(r"\(s\. \d+\)$", "", k))
+        if haric and haric.search(n):
+            continue
         for ad, desen in alanlar:
-            if desen.search(norm(re.sub(r"\(s\. \d+\)$", "", k))):
+            if desen.search(n):
                 eslesen[k] = ad
                 break
     bekleyen = yukle()
