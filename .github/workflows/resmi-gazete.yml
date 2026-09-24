@@ -109,8 +109,12 @@ jobs:
         if: steps.indir.outputs.code == '0'
         env:
           GH_TOKEN: ${{ github.token }}
+          YMD: ${{ steps.indir.outputs.ymd }}
         run: |
           D="$RUNNER_TEMP/rg_release"
+          # Gecmis bir gun islenirken GitHub'in "Latest" isareti o gune kaymasin
+          LATEST="--latest"
+          if [ "$YMD" \< "$(TZ=Europe/Istanbul date +%Y%m%d)" ]; then LATEST="--latest=false"; fi
           if [ ! -f "$D/etiket.txt" ]; then
             echo "Release bilgisi yok."
             exit 0
@@ -126,7 +130,7 @@ jobs:
               gh release upload "$ETIKET" "${PDFLER[@]}" --clobber
             fi
           else
-            gh release create "$ETIKET" "${PDFLER[@]}" --title "$BASLIK" --notes-file "$D/notlar.md"
+            gh release create "$ETIKET" "${PDFLER[@]}" --title "$BASLIK" --notes-file "$D/notlar.md" "$LATEST"
           fi
 
       - name: Yayımlanmadıysa bildir
