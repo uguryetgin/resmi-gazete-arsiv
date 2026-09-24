@@ -14,7 +14,10 @@ Yeniden yazma ve kaldirmada degistirilen mevzuatin ONCEKI metnini su sirayla ara
    mevzuat.gov.tr'deki onceki notlardan eski degilse "guncel", eskiyse "eski olabilir".
 
 "X ibaresi Y seklinde degistirilmistir" turunde eski/yeni ibare gazetede yazilidir;
-kaynak yalniz baglam (onceki cumle) icin kullanilir. Hic tahmin yapilmaz.
+kaynak yalniz baglam (onceki cumle) icin kullanilir. Yeniden yazilan birimin eski ve
+yeni metni birlikte bulunursa kelime duzeyinde degisen kisimlar ("Fark") da yazilir.
+Istenen birim (fikra, bent, alt bent, cumle) kaynakta ayrilamazsa bu etikette soylenir.
+Hic tahmin yapilmaz.
 
 Ciktilar: data/YYYY/AA/YYYYAAGG[Mn].karsilastirma.json ve RG_RELEASE_DIR/notlar.md'de
 ilgili kalemin altina girintili "⇄" satirlari (Routine yukune de boylece girer).
@@ -47,10 +50,11 @@ TRT = dt.timezone(dt.timedelta(hours=3))
 MAX_KALEM = 8          # gunde en fazla bu kadar degisiklik kalemi icin kaynak sorgulanir
 MAX_DEGISIKLIK = 8     # kalem basina en fazla bu kadar degisiklik maddesi
 ALINTI = 600           # eski/yeni metin basina karakter
-TALIMAT = 300          # gosterilen talimat uzunlugu
+TALIMAT = 450          # gosterilen talimat uzunlugu
 BUTCE = 7000           # notlar.md'ye eklenen karsilastirma satirlarinin toplam siniri
 SURE_SINIRI = 240      # saniye; asilinca kalan kalemler yalniz gazeteden ayristirilir
-AG_PAYI = 45           # bu kadar sure kalmadiysa yeni ag istegine baslanmaz
+AG_PAYI = 45           # bu kadar sure kalmadiysa yeni ag istegine (ya da yeniden denemeye) baslanmaz;
+                       # tek istegin en kotu suresinden (10 + 30 sn) buyuk olmali
 
 BIRLER = {"birinci": 1, "ikinci": 2, "üçüncü": 3, "dördüncü": 4, "beşinci": 5, "altıncı": 6,
           "yedinci": 7, "sekizinci": 8, "dokuzuncu": 9}
@@ -81,15 +85,17 @@ def tarih(ymd):
 def maddeler(metin):
     """Degisiklik metnini kendi maddelerine bol: [(no, metin)].
        Sinir: sirasi gelen "MADDE n-" ve son sinirdan beri tirnak dengesi <= 0, ya da
-       satir basinda olup "(1)" ile baslamamasi (acik kalan OCR tirnagi sonraki
-       maddeleri yutmasin; tirnak icindeki yeni "MADDE 3- (1)" sinir sayilmasin)."""
+       satir basinda olup talimat gibi baslamasi ("Aynı ...", "g/a/yyyy tarihli", "Bu ...")
+       (acik kalan OCR tirnagi sonraki maddeleri yutmasin; tirnak icindeki yeni
+       "MADDE 3- (1)" sinir sayilmasin)."""
     bulunan, beklenen, son = [], 1, 0
     for m in re.finditer(r"MADDE\s*(\d+)\s*\S?\s*[-–—]", metin):   # OCR: "MADDE 8$-"
         if int(m.group(1)) != beklenen:
             continue
         derinlik = metin.count("“", son, m.start()) - metin.count("”", son, m.start())
         satir = metin[metin.rfind("\n", 0, m.start()) + 1: m.start()]
-        if derinlik <= 0 or (not satir.strip() and not re.match(r"\s*\(1\)", metin[m.end():])):
+        talimat_gibi = re.match(r"\s*(?:Aynı\b|\d{1,2}/\d{1,2}/\d{4}|Bu\s)", metin[m.end():])
+        if derinlik <= 0 or (not satir.strip() and talimat_gibi):
             bulunan.append((beklenen, m.start()))
             beklenen += 1
             son = m.start()
@@ -140,6 +146,12 @@ def hedef_birim(yer):
     m = re.search(r"\(([a-zçğıöşü])\)\s*bend", yer)
     if m:
         birim["bent"] = m.group(1)
+    m = re.search(r"\((\d+)\)\s*numaralı\s*alt\s*bend", yer)
+    if m:
+        birim["alt"] = int(m.group(1))
+    m = re.search(r"(?<![a-zçğıöşü])(son|" + "|".join(BIRLER) + r")\s*cümle", yer)
+    if m:
+        birim["cumle"] = "son" if m.group(1) == "son" else BIRLER[m.group(1)]
     return birim
 
 def coklu_mu(yer):
@@ -159,6 +171,9 @@ def birlestir(taban, yeni):
         b.pop("bent", None)
     if "bent" in yeni:
         b["bent"] = yeni["bent"]
+    for k in ("alt", "cumle"):
+        if k in yeni:
+            b[k] = yeni[k]
     return b
 
 def son_birim(taban, parca):
@@ -168,6 +183,15 @@ def son_birim(taban, parca):
     for yan in re.split(r",\s|\sve\s|;\s", parca):
         b = birlestir(b, hedef_birim(yan))
     return b
+
+def ilk_birim(parca):
+    """Birim atfi iceren ilk yan cumlenin birimi. '11 inci maddesinin birinci fıkrasına ... eklenmiş,
+       ikinci fıkrasının ikinci cümlesi ...' -> 11. madde, 1. fıkra (2. cümle ikinci yan cumleye ait)."""
+    for yan in re.split(r",\s|\sve\s|;\s", parca):
+        b = hedef_birim(yan)
+        if "madde" in b or "ondalik" in b:
+            return b
+    return hedef_birim(parca)
 
 def tirnakli(s):
     """Ilk “ ile son ” arasi (icte tirnak olabilir)."""
@@ -188,12 +212,12 @@ def degisiklik_ayristir(no, metin):
     # gibi cumlelerde ibare ciftleri de talimattadir.
     blok_bas = None
     if asagi:
-        b = re.search(r"[.:]\s*“", govde[asagi.end():])
+        b = re.search(r"[.:]\s*“", govde[asagi.end():]) or re.search(r"“", govde[asagi.end():])
         blok_bas = asagi.end() + b.end() - 1 if b else None
     talimat = govde[:blok_bas] if blok_bas is not None else govde
     ilk = re.sub(r"“[^”]{1,120}”\s*başlıklı", "başlıklı", talimat)
     ilk = ilk[:ilk.find("“")] if "“" in ilk else ilk
-    k = {"madde": no, "talimat": kisalt(talimat, TALIMAT), "birim": hedef_birim(ilk),
+    k = {"madde": no, "talimat": kisalt(talimat, TALIMAT), "birim": ilk_birim(ilk),
          "coklu": coklu_mu(talimat), "turler": []}
 
     # "X" ibaresi "Y" seklinde (listede her cift ayri; birimi kendinden onceki atiftan)
@@ -231,10 +255,12 @@ def degisiklik_ayristir(no, metin):
         y = tirnakli(govde[blok_bas:])
         if y:
             k["yeni_metin"] = kisalt(y)
+            k["_yeni_tam"] = y
     if re.search(r"(?:madde|fıkra|bent|bend|cümle)\S*\s+(?:ile\s+.{0,60})?yürürlükten\s+kald[ıi]r[ıi]lm[ıi]ş(?:t[ıi]r)?\b", talimat):
         k["turler"].append("mulga")
     if not k["turler"]:
         k["turler"].append("diger")
+    k["talimat_goster"] = talimat_goster(k, talimat)
     return k
 
 def degisiklik_kalemi(kalem_metni):
@@ -282,14 +308,14 @@ class Kaynak:
             try:
                 r = self.rq.post(BED + yol, json=govde, headers=BED_H, timeout=(10, 30))
             except Exception as e:
-                if deneme:
+                if deneme or self.sure_doldu(AG_PAYI):
                     self._hata("bedesten", e)
                     self.kapali.add("bedesten")
                     return None
                 time.sleep(2)
                 continue
             if r.status_code >= 500 or r.status_code == 429:
-                if deneme:
+                if deneme or self.sure_doldu(AG_PAYI):
                     self._hata("bedesten", f"HTTP {r.status_code}")
                     return None
                 time.sleep(3)
@@ -307,7 +333,9 @@ class Kaynak:
         return None
 
     def bed_ara(self, ref, baslik):
-        """Temel mevzuati Bedesten'de RG sayisi ve baslikla bul (Jaccard >= 0.8, numara eslesmesi)."""
+        """Temel mevzuati Bedesten'de RG sayisi ve baslikla bul. Birebir baslik yoksa Jaccard >= 0.8
+           ve farkli kelimelerin hepsi karsi tarafta yazim farki kadar yakin olmali (ayni sayida
+           yayimlanan 'Çocuk Sağlığı' / 'Kadın Sağlığı' yonetmelikleri karismasin); esitlikte bulunmaz."""
         if self.turler is None:
             d = self.bed("mevzuatTypes", {})
             self.turler = [t.get("mevzuatTur") for t in (d if isinstance(d, list) else []) if t.get("mevzuatTur")]
@@ -326,7 +354,8 @@ class Kaynak:
         hedef_n = rt.norm(baslik)
         hedef = set(w for w in hedef_n.split() if len(w) > 2)
         no = re.search(r"\bNO\s+(\d+(?:\s\d+)?)\b", hedef_n)   # "Tebliğ No: 2024/8" -> "2024 8"
-        en_iyi, puan = None, 0.0
+        en_iyi, puan, esit = None, 0.0, False
+        yakin = lambda w, kume: any(difflib.SequenceMatcher(None, w, x).ratio() >= 0.75 for x in kume)
         for s in satirlar:
             ad = rt.norm(str(s.get("mevzuatAdi") or ""))
             if "DEGISIKLIK YAPILMASINA" in ad or str(s.get("resmiGazeteSayisi")) != ref["rg_sayi"]:
@@ -336,10 +365,14 @@ class Kaynak:
             if " ".join(ad.split()) == " ".join(hedef_n.split()):
                 return s
             kel = set(w for w in ad.split() if len(w) > 2)
+            if not (all(yakin(w, kel) for w in hedef - kel) and all(yakin(w, hedef) for w in kel - hedef)):
+                continue
             p = len(hedef & kel) / max(1, len(hedef | kel))
             if p > puan:
-                en_iyi, puan = s, p
-        return en_iyi if puan >= 0.8 else None
+                en_iyi, puan, esit = s, p, False
+            elif p == puan and en_iyi is not None:
+                esit = True
+        return en_iyi if puan >= 0.8 and not esit else None
 
     def bed_metin(self, mid):
         import base64
@@ -375,13 +408,22 @@ class Kaynak:
             return None
         iframe = (f"{MG}/anasayfa/MevzuatFihristDetayIframe?MevzuatTur={q['mevzuattur']}"
                   f"&MevzuatNo={q['mevzuatno']}&MevzuatTertip={q['mevzuattertip']}")
-        try:
-            r = self.mg.get(iframe, timeout=(10, 20), headers={
-                "User-Agent": BROWSER_UA, "Referer": MG + "/", "Accept-Language": "tr-TR,tr;q=0.9"})
-        except Exception as e:
-            self._hata("mevzuat.gov.tr", e)
-            self.kapali.add("mevzuat.gov.tr")
-            return None
+        for deneme in range(3):
+            try:
+                r = self.mg.get(iframe, timeout=(8, 20), headers={
+                    "User-Agent": BROWSER_UA, "Referer": MG + "/", "Accept-Language": "tr-TR,tr;q=0.9"})
+                break
+            except Exception as e:
+                # Sunucu yeni baglantilarin bir kismini rastgele dusuruyor (GitHub runner'da
+                # olculdu; ardindan gelen istek basarili). Baglanti kurulamadiysa yeniden
+                # denenir; okuma zaman asimi ya da ucuncu hata: bu kosuda kaynak kapatilir.
+                if (deneme < 2 and type(e).__name__ in ("ConnectTimeout", "ConnectionError")
+                        and not self.sure_doldu(AG_PAYI)):
+                    time.sleep(3)
+                    continue
+                self._hata("mevzuat.gov.tr", e)
+                self.kapali.add("mevzuat.gov.tr")
+                return None
         if r.status_code != 200:
             self._hata("mevzuat.gov.tr", f"HTTP {r.status_code}")
             return None
@@ -420,8 +462,14 @@ def html_satirlar(html):
 MADDE_BASI = r"(?mi)^\s*(?:GEÇİCİ\s+|EK\s+)?MADDE\s+\d+[^\n]{0,4}[-–—]"
 
 def _baslik_at(parca):
-    """Sonraki maddenin basligi (or. 'Yürürlük', 'Tip Emisyon Belgesi') parcanin sonuna tasmasin."""
-    return re.sub(r"\n(?![a-zçğıöşü]\)|\(\d+\))[A-ZÇĞİÖŞÜ][^\n.,:;|]{0,59}\n?$", "\n", parca)
+    """Sonraki maddenin basligi ve bolum basliklari (or. 'İKİNCİ BÖLÜM / Denetim ve Yaptırımlar /
+       Denetim') parcanin sonuna tasmasin: noktalama ile bitmeyen, isaretle baslamayan kisa son
+       satirlar tek tek atilir."""
+    while True:
+        yeni = re.sub(r"\n(?![a-zçğıöşü]\)|\(\d+\)|\d+\))[A-ZÇĞİÖŞÜ][^\n|]{0,79}(?<![.:;,])[ \t]*\n?$", "\n", parca)
+        if yeni == parca:
+            return parca
+        parca = yeni
 
 def madde_parcasi(metin, birim):
     """Kaynak metinden maddeyi (ya da ondalik birimi) cikar; bulunamazsa None."""
@@ -445,22 +493,39 @@ def madde_parcasi(metin, birim):
     return _baslik_at(metin[m.start(): m.end() + (s.start() if s else 5000)])
 
 def birim_ayikla(metin, birim):
-    """Kaynak metinden hedef birimi (madde > fikra > bent) cikar; bulunamazsa None.
-       Fikra/bent isaretleri yalniz satir basinda (ya da madde tiresinden hemen sonra)
-       sayilir: metin icindeki '(2) numaralı', dipnot '(4)' kesme noktasi olmaz."""
+    """Kaynak metinden hedef birimi (madde > fikra > bent > alt bent) cikar; bulunamazsa None."""
+    return birim_ayikla_tam(metin, birim)[0]
+
+def birim_ayikla_tam(metin, birim):
+    """(parca, eksik, bulunan): eksik, istenip metinde ayrilamayan alt birimlerin adlari
+       (or. numarasiz fikrali eski yonetmelikte '3. fıkra', her zaman 'N. cümle'); bulunan,
+       parcanin gercekte karsiladigi birim. Fikra/bent isaretleri yalniz satir basinda (ya da
+       madde tiresinden hemen sonra) sayilir: metin icindeki '(2) numaralı', dipnot '(4)'
+       kesme noktasi olmaz."""
     if not metin:
-        return None
+        return None, [], {}
     parca = madde_parcasi(metin, birim)
-    if parca is None or "ondalik" in birim:
-        return parca
+    if parca is None:
+        return None, [], {}
+    bulunan = {k: v for k, v in birim.items() if k in ("madde", "ondalik", "gecici", "ek")}
+    eksik = []
     if "fikra" in birim:
         f = birim["fikra"]
-        bas = rf"(?m)(?:^[ \t]*|^[ \t]*(?:GEÇİCİ\s+|EK\s+)?MADDE\s+[^\n]{{0,12}}?[-–—][ \t]*)"
-        a = re.search(bas + rf"\({f}\)(?=\s|\(|$)", parca, re.I)
+        not_ = r"(?:\([^)\n]*RG-[^)\n]*\)(?:\(\d+\)|\[\d+\])?[ \t]*)*"   # "(Değişik:RG-..)(3) "
+        bas = rf"(?m)(?:^[ \t]*|^[ \t]*(?:GEÇİCİ\s+|EK\s+)?MADDE\s+[^\n]{{0,12}}?[-–—][ \t]*{not_})"
+        a = re.search(bas + rf"(\({f}\))(?=\s|\(|$)", parca, re.I)
         if a:
-            fa = parca.find(f"({f})", a.start())
+            fa = a.start(1)
             b = re.search(rf"(?m)^[ \t]*\({f + 1}\)(?=\s|\(|$)", parca[fa + 1:])
             parca = parca[fa: fa + 1 + (b.start() if b else len(parca))]
+            bulunan["fikra"] = f
+        elif f == 1 and "bent" in birim:
+            pass        # numarasiz paragraf (or. MASAK 2.2.11): ilk "a)" zaten birinci paragraftadir
+        else:
+            # fikra ayrilamadiysa bent/alt bent harfi baska fikradan gelebilir: daha fazla daraltilmaz
+            eksik.append(f"{f}. fıkra")
+            eksik += [birim_adi({k: birim[k]}) for k in ("bent", "alt", "cumle") if k in birim]
+            return parca, eksik, bulunan
     if "bent" in birim:
         h = birim["bent"]
         a = re.search(rf"(?m)^[ \t]*{re.escape(h)}\)\s", parca)
@@ -468,7 +533,22 @@ def birim_ayikla(metin, birim):
             sonraki = HARFLER[HARFLER.index(h) + 1] if h in HARFLER[:-1] else None
             b = re.search(rf"(?m)^[ \t]*{sonraki}\)\s", parca[a.end():]) if sonraki else None
             parca = parca[a.start(): a.end() + (b.start() if b else len(parca))]
-    return parca
+            bulunan["bent"] = h
+        else:
+            eksik += [birim_adi({k: birim[k]}) for k in ("bent", "alt", "cumle") if k in birim]
+            return parca, eksik, bulunan
+    if "alt" in birim:
+        n = birim["alt"]
+        a = re.search(rf"(?m)^[ \t]*\(?{n}\)\s", parca)
+        if a:
+            b = re.search(rf"(?m)^[ \t]*\(?{n + 1}\)\s", parca[a.end():])
+            parca = parca[a.start(): a.end() + (b.start() if b else len(parca))]
+            bulunan["alt"] = n
+        else:
+            eksik.append(birim_adi({"alt": n}))
+    if "cumle" in birim:        # cumleler guvenilir bolunemez (kisaltma noktalari): birim butun verilir
+        eksik.append(birim_adi({"cumle": birim["cumle"]}))
+    return parca, eksik, bulunan
 
 def notlar_(metin):
     """Metindeki 'RG-g/a/yyyy' degisiklik notlari: [(yyyy, a, g)] sirali."""
@@ -483,31 +563,40 @@ def islenmis(metin, sinir):
     return any(n >= sinir for n in notlar_(metin))
 
 def onceki_birim(kaynak, satir, birim, ymd):
-    """(metin, etiket) ya da (None, sebep). Sirayla mevzuat.gov.tr, Bedesten."""
+    """(metin, etiket, not) ya da (None, sebep, None). Sirayla mevzuat.gov.tr, Bedesten.
+       not: istenen birim ayrilamadiysa metnin gercekte hangi birim oldugu (yoksa None)."""
     sinir = tarih(ymd)
+
+    def sonuc(metin, etiket, eksik, bulunan):
+        return metin, etiket, (f"{', '.join(eksik)} kaynakta ayrılamadı, {birim_adi(bulunan)} gösteriliyor"
+                               if eksik else None)
+
     mg = kaynak.mg_metin(satir.get("url"))
-    mg_birim = birim_ayikla(mg, birim) if mg else None
+    mg_birim, mg_eksik, mg_bulunan = birim_ayikla_tam(mg, birim)
     if mg_birim and not islenmis(mg, sinir):
-        return mg_birim, "mevzuat.gov.tr (değişiklikten önceki güncel metin)"
+        return sonuc(mg_birim, "mevzuat.gov.tr (değişiklikten önceki güncel metin)", mg_eksik, mg_bulunan)
     bed = kaynak.bed_metin(satir.get("mevzuatId"))
-    bed_birim = birim_ayikla(bed, birim) if bed else None
+    bed_birim, bed_eksik, bed_bulunan = birim_ayikla_tam(bed, birim)
     if bed_birim and not islenmis(bed, sinir):
         if not mg:
-            return bed_birim, "Bedesten (güncelliği doğrulanamadı)"
+            return sonuc(bed_birim, "Bedesten (güncelliği doğrulanamadı)", bed_eksik, bed_bulunan)
         madde = {k: v for k, v in birim.items() if k in ("madde", "ondalik", "gecici", "ek")}
         mg_madde, bed_madde = madde_parcasi(mg, madde) or "", madde_parcasi(bed, madde) or ""
         guncel = son_not(bed_madde, sinir) >= son_not(mg_madde, sinir) and son_not(bed, sinir) >= son_not(mg, sinir)
         if guncel:
-            return bed_birim, "Bedesten (güncel)"
+            return sonuc(bed_birim, "Bedesten (güncel)", bed_eksik, bed_bulunan)
         t = lambda n: f"{n[2]}/{n[1]}/{n[0]}" if n != (0, 0, 0) else "yok"
-        return bed_birim, (f"Bedesten (eski olabilir: son değişiklik notu {t(son_not(bed, sinir))}, "
-                           f"mevzuat.gov.tr'de {t(son_not(mg, sinir))})")
+        return sonuc(bed_birim, (f"Bedesten (eski olabilir: son değişiklik notu {t(son_not(bed, sinir))}, "
+                                 f"mevzuat.gov.tr'de {t(son_not(mg, sinir))})"), bed_eksik, bed_bulunan)
     if mg_birim or bed_birim:
-        return None, "kaynaklar değişikliği zaten işlemiş"
+        return None, "kaynaklar değişikliği zaten işlemiş", None
     if (satir.get("url") and mg is None) or bed is None:
         if kaynak.hatalar:
-            return None, "kaynaklara erişilemedi"
-    return None, "hedef birim kaynaklarda bulunamadı"
+            return None, "kaynaklara erişilemedi", None
+    return None, "hedef birim kaynaklarda bulunamadı", None
+
+SAYI = (r"(?:\d|bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on|yirmi|otuz|kırk|elli|altmış|yetmiş|seksen|"
+        r"doksan|yüz|bin|milyon|milyar)")
 
 NOT_KALIBI = re.compile(r"\((?:Değişik|Ek|Mülga)[^)]*RG-[^)]*\)(?:\(\d+\)|\[\d+\])?", re.I)
 
@@ -520,9 +609,16 @@ def baglam(metin, ifade, pay=160):
     kucuk, hedef = tr_lower(d), tr_lower(_normal(ifade))
     if not hedef:
         return None, None
-    m = re.search(r"(?<![\wçğıöşü])" + re.escape(hedef) + r"(?![\wçğıöşü])", kucuk)
+    m, atlanan = None, False
+    for aday in re.finditer(r"(?<![\wçğıöşü])" + re.escape(hedef) + r"(?![\wçğıöşü])", kucuk):
+        once = kucuk[:aday.start()].split()[-1:] or [""]
+        if re.match(SAYI, hedef) and (re.fullmatch(SAYI + r"|[\d.,]+", once[0])):
+            atlanan = True          # "bin TL'yi" -> "on bin TL'yi" icindeki gecis baska tutardir
+            continue
+        m = aday
+        break
     bas, son, kaynaktaki = (m.start(), m.end(), None) if m else (None, None, None)
-    if bas is None and len(d) <= 6000 and len(hedef) >= 8:
+    if bas is None and not atlanan and len(d) <= 6000 and len(hedef) >= 8:
         en, n = (0.0, None), len(hedef)
         for i in range(0, max(1, len(kucuk) - n + 1)):
             for w in (n - 3, n, n + 3):
@@ -534,10 +630,57 @@ def baglam(metin, ifade, pay=160):
                         en = (r, (i, i + w))
         if en[0] >= 0.9:
             bas, son = en[1]
-            kaynaktaki = d[bas:son]
+            while bas > 0 and not kucuk[bas - 1].isspace():
+                bas -= 1
+            while son < len(kucuk) and not kucuk[son].isspace():
+                son += 1
+            # "200.000" ile "125.000" benzer gorunur ama farkli ibaredir: rakamlar birebir ayni olmali
+            if re.findall(r"\d+", hedef) == re.findall(r"\d+", kucuk[bas:son]):
+                kaynaktaki = d[bas:son].strip("…")
+            else:
+                bas = None
     if bas is None:
         return None, None
     return ("…" if bas > pay else "") + d[max(0, bas - pay): son + pay] + "…", kaynaktaki
+
+FARK_ORAN = 0.5        # benzerlik bundan dusukse metin bastan yazilmistir, fark gosterilmez
+FARK_PARCA = 4         # gosterilen en fazla degisen kisim
+FARK_UZUNLUK = 160     # kisim basina karakter
+FARK_METIN = 200       # fark gosterildiginde eski/yeni metinden gosterilen kisim
+
+def fark(eski, yeni):
+    """Eski ve yeni metnin degisen kisimlari: [(eski_parca, yeni_parca)] ya da None.
+       Degisiklik notlari, noktalama, tirnak ve şapka farki yok sayilir; yakin kisimlar birlesir."""
+    def kelimeler(s):
+        out = []
+        for w in _normal(s).split():
+            a = re.sub(r"[^\wçğıöşü]", "", tr_lower(w).translate(str.maketrans("âîû", "aiu")))
+            if a:
+                out.append((a, w))
+        return out
+    a, b = kelimeler(eski), kelimeler(yeni)
+    if not a or not b:
+        return None
+    sm = difflib.SequenceMatcher(None, [x for x, _ in a], [x for x, _ in b], autojunk=False)
+    if sm.ratio() < FARK_ORAN:
+        return None
+    parcalar = []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "equal":
+            continue
+        if parcalar and i1 - parcalar[-1][1] <= 2 and j1 - parcalar[-1][3] <= 2:
+            parcalar[-1][1], parcalar[-1][3] = i2, j2
+        else:
+            parcalar.append([i1, i2, j1, j2])
+    if not parcalar:
+        return None
+    out = []
+    for i1, i2, j1, j2 in parcalar:
+        i1, j1 = max(0, i1 - 2), max(0, j1 - 2)     # onceki iki (ortak) kelime yeri gostersin
+        e = " ".join(w for _, w in a[i1:i2])
+        y = " ".join(w for _, w in b[j1:j2])
+        out.append((kisalt(e, FARK_UZUNLUK), kisalt(y, FARK_UZUNLUK)))
+    return out
 
 # ---------------------------------------------------------------- ana akis
 
@@ -551,18 +694,33 @@ def birim_adi(b):
         p.append(f"{b['fikra']}. fıkra")
     if "bent" in b:
         p.append(f"({b['bent']}) bendi")
+    if "alt" in b:
+        p.append(f"({b['alt']}) numaralı alt bendi")
+    if "cumle" in b:
+        p.append("son cümle" if b["cumle"] == "son" else f"{b['cumle']}. cümle")
     return ", ".join(p) or "hedef belirsiz"
 
-def talimat_goster(d):
-    """Ayristirmanin kacirmis olabilecegi islem varsa talimatin kendisi de gosterilir."""
-    t = d["talimat"]
+def talimat_goster(d, talimat=None):
+    """Ayristirmanin kacirmis olabilecegi islem varsa talimatin kendisi de gosterilir.
+       Karar kisaltilmamis talimat uzerinden verilir (ayristirma aninda; kayitli JSON'da hazir)."""
+    if talimat is None:
+        if "talimat_goster" in d:
+            return d["talimat_goster"]
+        talimat = d["talimat"]
+    t = talimat
     fiiller = len(set(re.findall(r"(de[gğ]iştiril|kald[ıi]r[ıi]l|eklen|ç[ıi]kar[ıi]l)", t)))
     ibare_sayisi = len(re.findall(r"ibare(?:si|leri)\b", t))
     yakalanan = (sum(len(c["birimler"]) for c in d.get("ibareler", [])) + len(d.get("kaldirilan_ibareler", []))
                  + len(d.get("eklenen_ibareler", [])))
     birimler = {json.dumps(b, sort_keys=True) for c in d.get("ibareler", []) for b in c["birimler"]}
-    return (fiiller > 1 or ibare_sayisi > yakalanan or d.get("coklu") or len(birimler) > 1
-            or "diger" in d["turler"])
+    # Yakalanmayan tirnakli ifade (liste bicimli ekleme/kaldirma, "Lagos" satiri, basliklar)
+    yakalanan_ifade = ({c["eski"] for c in d.get("ibareler", [])} | {c["yeni"] for c in d.get("ibareler", [])}
+                       | set(d.get("kaldirilan_ibareler", []))
+                       | {e[x] for e in d.get("eklenen_ibareler", []) for x in ("yer", "eklenen")})
+    kalan = [q for q in re.findall(r"“([^”]{1,300})”(?!\s*başlıklı)", t) if q not in yakalanan_ifade]
+    return bool(fiiller > 1 or ibare_sayisi > yakalanan or d.get("coklu") or len(birimler) > 1
+                or "diger" in d["turler"] or kalan
+                or re.search(r"başlığı|satırı|sütun|dipnot", t))
 
 def isle(ymd, text, sadece_ilgi=True, ag=True, kaynak=None):
     pages = rg.sayfalar(text)
@@ -594,6 +752,8 @@ def isle(ymd, text, sadece_ilgi=True, ag=True, kaynak=None):
                 kaynakla(kaynak, k, ymd)
             except Exception as e:           # kaynak hatasi karsilastirmayi durdurmasin
                 k["hata"] = f"{type(e).__name__}: {str(e)[:120]}"
+        for d in k["degisiklikler"]:
+            d.pop("_yeni_tam", None)
         sonuc.append(k)
     return sonuc
 
@@ -605,7 +765,11 @@ def kaynakla(kaynak, k, ymd):
         return
     satir = kaynak.bed_ara(k["temel"], k["temel_baslik"])
     if not satir:
-        k["temel"]["bulunamadi"] = True
+        erisim = "bedesten" in kaynak.kapali or any(h.startswith("bedesten") for h in kaynak.hatalar)
+        k["temel"]["erisilemedi" if erisim else "bulunamadi"] = True
+        for d in gerekli:
+            if {"yeniden", "mulga"} & set(d["turler"]) and not d.get("coklu"):
+                d["onceki_kaynak"] = "kaynaklara erişilemedi" if erisim else "değiştirilen mevzuat kaynaklarda bulunamadı"
         return
     k["temel"].update({"mevzuatId": satir.get("mevzuatId"), "url": satir.get("url"),
                        "ad": duz(str(satir.get("mevzuatAdi") or ""))})
@@ -615,16 +779,25 @@ def kaynakla(kaynak, k, ymd):
         if {"yeniden", "mulga"} & set(d["turler"]) and not d.get("coklu"):
             hedef = d.get("yeniden_birim") or d["birim"]
             if hedef:
-                eski, etiket = onceki_birim(kaynak, satir, hedef, ymd)
-                d["onceki_kaynak"] = etiket
+                eski, etiket, eksik = onceki_birim(kaynak, satir, hedef, ymd)
+                d["onceki_kaynak"] = etiket + (f"; {eksik}" if eksik else "")
                 if eski is not None:
                     d["eski_metin"] = kisalt(eski)
+                    if not eksik and d.get("_yeni_tam") and "yeniden" in d["turler"]:
+                        # Blokta birden cok tirnakli parca varsa (yeniden yazma + ekleme) ilki yeniden yazilan birimdir
+                        f = fark(eski, re.split(r"”\s*“", d["_yeni_tam"])[0])
+                        if f:
+                            d["fark"] = f
         for c in d.get("ibareler", []):
             b = c["birimler"][0]
-            eski, etiket = onceki_birim(kaynak, satir, b, ymd) if b else (None, None)
+            eski, etiket, eksik = onceki_birim(kaynak, satir, b, ymd) if b else (None, None, None)
+            if eski is not None and eksik and tr_lower(_normal(eski)).count(tr_lower(_normal(c["eski"]))) > 1:
+                continue        # hangi gecisin degistigi bilinemez: yanlis cumle gostermektense hic gosterme
             if eski is not None:
                 c["baglam"], c["kaynaktaki"] = baglam(eski, c["eski"])
                 c["baglam_kaynak"] = etiket
+                if not c["baglam"]:
+                    c["kaynakta_yok"] = etiket
 
 def satirlar(k):
     """notlar.md'de kalemin altina eklenecek girintili satirlar."""
@@ -632,6 +805,8 @@ def satirlar(k):
     for d in k["degisiklikler"]:
         tur = "/".join(d["turler"])
         hedef = d.get("yeniden_birim") or d["birim"]
+        if d.get("coklu"):
+            hedef = {k2: v for k2, v in hedef.items() if k2 in ("madde", "ondalik", "gecici", "ek")}
         out.append(f"  ⇄ Değişiklik MADDE {d['madde']} → {birim_adi(hedef)}"
                    + (" (birden fazla birim)" if d.get("coklu") else "") + f" [{tur}]")
         if talimat_goster(d):
@@ -643,50 +818,72 @@ def satirlar(k):
                 out.append(f"    Kaynakta yazılışı: “{c['kaynaktaki']}”")
             if c.get("baglam"):
                 out.append(f"    Önceki cümle ({c.get('baglam_kaynak')}): {c['baglam']}")
+            elif c.get("kaynakta_yok"):
+                out.append(f"    Önceki cümle: eski ibare kaynak metinde birebir bulunamadı ({c['kaynakta_yok']})")
         for e in d.get("kaldirilan_ibareler", []):
             out.append(f"    Kaldırılan ibare: “{e}”")
         for e in d.get("eklenen_ibareler", []):
             out.append(f"    Eklenen ibare: “{e['eklenen']}” (“{e['yer']}” ibaresine bitişik)")
+        # Fark bulunduysa degisen kisimlar onda; eski/yeni metnin yalniz basi (yer tespiti icin) kalir
+        n = FARK_METIN if d.get("fark") else ALINTI
         if d.get("eski_metin"):
-            out.append(f"    Eski metin ({d['onceki_kaynak']}): {d['eski_metin']}")
+            out.append(f"    Eski metin ({d['onceki_kaynak']}): {kisalt(d['eski_metin'], n)}")
         elif ({"yeniden", "mulga"} & set(d["turler"])) and d.get("onceki_kaynak"):
             out.append(f"    Eski metin: yok ({d['onceki_kaynak']})")
         if d.get("yeni_metin"):
-            out.append(f"    Yeni metin: {d['yeni_metin']}")
+            out.append(f"    Yeni metin: {kisalt(d['yeni_metin'], n)}")
+        for e, y in d.get("fark", [])[:FARK_PARCA]:
+            out.append(f"    Fark: {f'“{e}”' if e else '—'} → {f'“{y}”' if y else '— (çıkarıldı)'}")
+        if len(d.get("fark", [])) > FARK_PARCA:
+            out.append(f"    Fark: … ve {len(d['fark']) - FARK_PARCA} kısım daha")
     if k.get("kesilen"):
         out.append(f"  ⇄ … ve {k['kesilen']} değişiklik maddesi daha (gazete metnine bakın)")
     return out
 
-def notlara_ekle(notlar_yolu, sonuc, dosya=""):
+def notlara_ekle(notlar_yolu, sonuc, dosya="", butce=BUTCE):
     """Her kalemin notlar.md satirinin altindaki duz alintiyi karsilastirma blogu ile degistir.
-       Butce asilirsa blok kesilir ve devaminin JSON dosyasinda oldugu yazilir."""
+       Butce (ayni notlar.md'ye yazan ana sayi ve mukerrerler icin ortak) asilirsa blok kesilir ve
+       devaminin JSON dosyasinda oldugu yazilir; ilk degisiklik bile sigmiyorsa alinti kalir, altina
+       yalniz dosyanin yeri eklenir. (eklenen, kalan_butce) dondurur."""
     if not sonuc or not notlar_yolu.exists():
-        return 0
+        return 0, butce
     satir = notlar_yolu.read_text(encoding="utf-8").split("\n")
-    butce, eklenen = BUTCE, 0
+    eklenen, yer = 0, dosya or "karşılaştırma dosyasında"
     for k in sonuc:
         ek = satirlar(k)
-        if not ek or butce <= 200:
+        if not ek:
             continue
         j = next((j for j, l in enumerate(satir) if l.startswith("- ") and l[2:].startswith(k["baslik"])), None)
         if j is None:
             continue
-        sigan, uzunluk = [], 0
-        for x in ek:
-            if uzunluk + len(x) + 1 > butce - 120:
-                sigan.append(f"    … (devamı {dosya or 'karşılaştırma dosyasında'})")
-                break
-            sigan.append(x)
-            uzunluk += len(x) + 1
-        # Kalemin duz alintisi ayni bilgiyi tasir: karsilastirma blogu onun yerini alir (token)
         n = j + 1
         while n < len(satir) and satir[n].startswith("  "):
             n += 1
+        ilk = 1
+        while ilk < len(ek) and not ek[ilk].startswith("  ⇄"):
+            ilk += 1
+        boy = lambda xs: sum(len(x) + 1 for x in xs)
+        if boy(ek) <= butce:
+            sigan = ek
+        elif boy(ek[:ilk]) <= butce - 120:
+            sigan = []
+            for x in ek:
+                if boy(sigan) + len(x) + 1 > butce - 120:
+                    break
+                sigan.append(x)
+            sigan.append(f"    … (devamı {yer})")
+        else:
+            isaret = f"  ⇄ karşılaştırma: {yer}"
+            if len(isaret) + 1 <= butce:
+                satir[n:n] = [isaret]
+                butce -= len(isaret) + 1
+            continue
+        # Kalemin duz alintisi ayni bilgiyi tasir: karsilastirma blogu onun yerini alir (token)
         satir[j + 1:n] = sigan
-        butce -= uzunluk
+        butce -= boy(sigan)
         eklenen += 1
     notlar_yolu.write_text("\n".join(satir), encoding="utf-8")
-    return eklenen
+    return eklenen, butce
 
 def metin_oku(ymd, ek=""):
     yol = ROOT / "data" / ymd[:4] / ymd[4:6] / f"{ymd}{ek}.txt.gz"
@@ -699,7 +896,7 @@ def gunluk(ymd):
     yeniden = os.environ.get("YENIDEN", "").strip().lower() in ("1", "true", "yes", "evet")
     rel = os.environ.get("RG_RELEASE_DIR", "").strip()
     notlar = Path(rel) / "notlar.md" if rel else None
-    kaynak = Kaynak()
+    kaynak, butce = Kaynak(), BUTCE
     for ek in [""] + [p.name[len(ymd):-len(".txt.gz")] for p in sorted(klasor.glob(f"{ymd}M*.txt.gz"))]:
         t = metin_oku(ymd, ek)
         if not t:
@@ -716,11 +913,13 @@ def gunluk(ymd):
                 continue
             cikti.write_text(json.dumps(sonuc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
             for k in sonuc:
+                if k.get("hata"):
+                    print(f"::warning::karsilastirma kalem hatasi ({k['baslik'][:60]}): {k['hata']}")
                 print(f"- {k['baslik'][:100]}: " + ", ".join(
                     f"M{d['madde']} {'/'.join(d['turler'])} [{d.get('onceki_kaynak') or '-'}]"
                     for d in k["degisiklikler"]))
         if notlar:
-            n = notlara_ekle(notlar, sonuc, f"data/{ymd[:4]}/{ymd[4:6]}/{cikti.name}")
+            n, butce = notlara_ekle(notlar, sonuc, f"data/{ymd[:4]}/{ymd[4:6]}/{cikti.name}", butce)
             print(f"{ymd}{ek}: {len(sonuc)} degisiklik kalemi, {n} tanesi release aciklamasina eklendi.")
     for h in sorted(set(kaynak.hatalar)):
         print(f"::warning::karsilastirma kaynak hatasi: {h}")

@@ -11,7 +11,7 @@ Kaynaklar:
 
 Deneme vakalari 23.09.2026 (Sayi 33379) degisiklikleridir; her biri icin degisen
 birim ayiklanir ve eski/yeni ibareye gore PRE / CONSOLIDATED / AMBIGUOUS denir."""
-import base64, datetime as dt, hashlib, io, json, os, re, subprocess, sys, time
+import base64, datetime as dt, hashlib, io, json, os, re, subprocess, time
 from pathlib import Path
 import certifi, requests
 from bs4 import BeautifulSoup
