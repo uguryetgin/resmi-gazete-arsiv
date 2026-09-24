@@ -288,9 +288,44 @@ def _govde(p):
     return "\n".join(l for l in p.splitlines()
                      if not re.search(r"RESM[İIÎ]\s*GAZETE|^\s*Sayfa\s*:?\s*\d+\s*$|Kuruluşu\s*:|İçindekiler\s*\d+\s*\.", l))
 
-def ozet_girdisi(text):
+def sayfalar(text):
+    """{sayfa no: metin}"""
     parts = re.split(r"\n=== Sayfa (\d+)(?: \(OCR\))? ===\n", text)
-    pages = {int(parts[i]): parts[i + 1] for i in range(1, len(parts) - 1, 2)}
+    return {int(parts[i]): parts[i + 1] for i in range(1, len(parts) - 1, 2)}
+
+def kalem_metni(pages, kalemler, i, son_sayfa, ek_sayfa=2):
+    """i. kalemin gazetedeki metni: basligindan, sonraki kalemin basligina ya da
+       "—— • ——" ayracina kadar; kendi sayfasindan en fazla ek_sayfa sonrasina.
+       Baslik bulunamaz ve ayni sayfada onceki bir kalem varsa (onun metni
+       karismasin diye) None."""
+    _, baslik, s = kalemler[i]
+    bitis = kalemler[i + 1][2] if i + 1 < len(kalemler) else son_sayfa
+    govde, sonraki_bas = "", None
+    for n in range(s, min(bitis, s + ek_sayfa) + 1):
+        if n == bitis and n > s:
+            sonraki_bas = len(govde)   # sonraki kalemin sayfasi burada basliyor
+        govde += _govde(pages.get(n, "")) + "\n"
+    bas = _konum(govde, baslik)
+    if bas is None:
+        if i and kalemler[i - 1][2] == s:
+            return None
+        bas = 0
+    # Sonraki kalemin basligi yalniz onun sayfasinda aranir: metin icinde ayni
+    # adla anilan baska bir mevzuati (or. degistirilen teblig) bitis sanmasin.
+    if i + 1 < len(kalemler) and (bitis == s or sonraki_bas is not None):
+        ara = bas + 1 if bitis == s else max(bas + 1, sonraki_bas)
+        son = _konum(govde[ara:], kalemler[i + 1][1])
+        if son is not None:
+            govde = govde[:ara + son]
+    govde = govde[bas:]
+    # Ayni sayfadaki kalemler "—— • ——" ile, ilan bolumu kendi basligiyla ayrilir
+    m = re.search(r"—+\s*•+\s*—+|İL[ÂA]N BÖLÜMÜ", govde[1:])
+    if m:
+        govde = govde[:m.start() + 1]
+    return govde
+
+def ozet_girdisi(text):
+    pages = sayfalar(text)
     kalemler, ilan = icindekiler_kalemleri(fihrist(text))
     if not kalemler:
         return None   # icindekiler cozulemedi (or. bazi mukerrerlerde yok)
@@ -303,32 +338,9 @@ def ozet_girdisi(text):
         satirlar.append(f"• {baslik} (s. {s})")
         if butce <= 0:
             continue
-        # Kalemin metni: kendi sayfasindan bir sonraki kalemin sayfasina kadar (en fazla 3 sayfa)
-        bitis = kalemler[i + 1][2] if i + 1 < len(kalemler) else son_sayfa
-        govde, sonraki_bas = "", None
-        for n in range(s, min(bitis, s + 2) + 1):
-            if n == bitis and n > s:
-                sonraki_bas = len(govde)   # sonraki kalemin sayfasi burada basliyor
-            govde += _govde(pages.get(n, "")) + "\n"
-        bas = _konum(govde, baslik)
-        if bas is None:
-            # Baslik metinde bulunamadi; ayni sayfada onceki bir kalem varsa onun
-            # metnini tekrar almamak icin alinti yok.
-            if i and kalemler[i - 1][2] == s:
-                continue
-            bas = 0
-        # Sonraki kalemin basligi yalniz onun sayfasinda aranir: metin icinde ayni
-        # adla anilan baska bir mevzuati (or. degistirilen teblig) bitis sanmasin.
-        if i + 1 < len(kalemler) and (bitis == s or sonraki_bas is not None):
-            ara = bas + 1 if bitis == s else max(bas + 1, sonraki_bas)
-            son = _konum(govde[ara:], kalemler[i + 1][1])
-            if son is not None:
-                govde = govde[:ara + son]
-        govde = govde[bas:]
-        # Ayni sayfadaki kalemler "—— • ——" ile, ilan bolumu kendi basligiyla ayrilir
-        m = re.search(r"—+\s*•+\s*—+|İL[ÂA]N BÖLÜMÜ", govde[1:])
-        if m:
-            govde = govde[:m.start() + 1]
+        govde = kalem_metni(pages, kalemler, i, son_sayfa)
+        if govde is None:
+            continue
         # Ilk madde varsa oradan basla: baslik/imza/yururluk kalibini atlar
         m = re.search(r"MADDE\s*1\s*[-–—]", govde)
         if m:
@@ -541,4 +553,5 @@ def main():
           f"{len(muk_meta)} mukerrer" + (f" ({yeni} yeni)" if yeni else ""))
     return 0
 
-sys.exit(main())
+if __name__ == "__main__":
+    sys.exit(main())

@@ -39,6 +39,13 @@ def ilgi_alanlari(yol=ROOT / "ilgi.txt"):
             alanlar.append((ad.strip(), desen))
     return alanlar, haric
 
+def alan_bul(baslik, alanlar, haric):
+    """Basligin ilk eslestigi ilgi alani (yoksa None)."""
+    n = norm(re.sub(r"\(s\. \d+\)$", "", baslik))
+    if haric and haric.search(n):
+        return None
+    return next((ad for ad, desen in alanlar if desen.search(n)), None)
+
 def kalemler(notlar):
     """notlar.md'deki '- Baslik (s. N)' satirlari ('---' ayracindan onceki kisim)."""
     govde = notlar.split("\n---\n", 1)[0]
@@ -69,13 +76,9 @@ def main():
 
     eslesen = {}                       # baslik satiri -> alan adi
     for k in kalemler(notlar):
-        n = norm(re.sub(r"\(s\. \d+\)$", "", k))
-        if haric and haric.search(n):
-            continue
-        for ad, desen in alanlar:
-            if desen.search(n):
-                eslesen[k] = ad
-                break
+        ad = alan_bul(k, alanlar, haric)
+        if ad:
+            eslesen[k] = ad
     bekleyen = yukle()
 
     if not eslesen:
