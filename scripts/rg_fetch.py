@@ -3,6 +3,7 @@
 Kullanim: python3 rg_fetch.py [YYYYAAGG]   (bos = bugun, Istanbul saati)
 Cikis kodlari: 0 basarili | 20 gazete henuz yayimlanmamis | 1 hata"""
 import gzip, json, os, re, subprocess, sys, tempfile, time
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import requests, urllib3
@@ -61,6 +62,22 @@ def tr_skor(s):
         return 0.0
     return 100.0 * len(TR_KELIME.findall(s)) / len(kel)
 
+# Bazi sayfalarda PDF'in metin katmani bozuk (fontun karakter eslemesi yok):
+# pdftotext sayfayi dolu gosterir ama cikan sey "6.8730(086-6,8!8243+8/855"
+# gibi anlamsiz dizilerdir, bu yuzden SPARSE_LIMIT onlari yakalamaz.
+# Kelimelerin cogu duz harf/sayi degilse sayfa bozuk sayilir ve OCR'lanir.
+HARF = "A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛûÊê"
+TEMIZ_KELIME = re.compile(
+    rf"^[(\[“\"'‘«]*(?:[{HARF}]+(?:[-'’][{HARF}]+)*|[\d.,/:%-]*\d[\d.,/:%-]*)"
+    rf"[)\]”\"'’».,;:!?%-]*$")
+BOZUK_ESIK = 0.5
+
+def temiz_oran(s):
+    kel = s.split()
+    if not kel:
+        return 1.0
+    return sum(1 for w in kel if TEMIZ_KELIME.match(w)) / len(kel)
+
 def ocr_png(png):
     """Once --psm 1 (OSD: dondurulmus/yatay sayfayi otomatik cevirir).
        Sonuc supheliyse varsayilan segmentasyonla tekrar dener, iyisini alir.
@@ -102,13 +119,17 @@ def build_text(path,label=""):
     pages=pdf_to_text(path).split("\f")
     if pages and not pages[-1].strip(): pages.pop()
     sparse=[i for i,p in enumerate(pages,1) if len(strip_chrome(p))<SPARSE_LIMIT]
-    print(f"  {label}{len(pages)} sayfa, {len(sparse)} taranmis -> OCR")
-    todo=sparse[:OCR_MAX_PAGES]; ocred=[]
+    bozuk=[i for i,p in enumerate(pages,1) if i not in sparse and temiz_oran(p)<BOZUK_ESIK]
+    print(f"  {label}{len(pages)} sayfa, {len(sparse)} taranmis, {len(bozuk)} bozuk -> OCR")
+    todo=sorted((bozuk+sparse)[:OCR_MAX_PAGES]); ocred=[]
     rngs=to_ranges(todo)
     for k,(a,b) in enumerate(rngs,1):
         for n,txt in ocr_range(path,a,b).items():
-            if n-1<len(pages) and len(strip_chrome(txt))>len(strip_chrome(pages[n-1])):
-                pages[n-1]=txt; ocred.append(n)
+            if n-1>=len(pages): continue
+            eski=pages[n-1]
+            if n in bozuk: iyi=bool(strip_chrome(txt)) and temiz_oran(txt)>temiz_oran(eski)
+            else: iyi=len(strip_chrome(txt))>len(strip_chrome(eski))
+            if iyi: pages[n-1]=txt; ocred.append(n)
         print(f"    [{k}/{len(rngs)}] s.{a}-{b} bitti (OCR {len(ocred)})",flush=True)
     ocred.sort()
     out=[]
@@ -118,10 +139,22 @@ def build_text(path,label=""):
     return "\n".join(out),ocred,len(pages)
 
 def find_sayi(t):
-    for pat in (r"Say[ıi]\s*[:=]\s*(\d{4,6})", r"(\d{5})\s*Say[ıi]l[ıi]"):
-        m=re.search(pat,t[:8000])
-        if m: return int(m.group(1))
-    return None
+    # Her sayfanin ustbilgisinde tekrarlanir; kapak bozuk olabilir, en sik geceni al
+    say=Counter(re.findall(r"Say[ıi]\s*[:=]\s*(\d{4,6})\b",t))
+    if say: return int(say.most_common(1)[0][0])
+    m=re.search(r"(\d{5})\s*Say[ıi]l[ıi]",t[:8000])
+    return int(m.group(1)) if m else None
+
+def fihrist(t):
+    """Kapakta "Icindekiler 152. Sayfadadir" yazar: o sayfadan sona kadar al.
+       Bulunamazsa son 3 sayfa."""
+    parts=re.split(r"\n=== Sayfa (\d+)(?: \(OCR\))? ===\n",t)
+    pages={int(parts[i]):parts[i+1] for i in range(1,len(parts)-1,2)}
+    nums=sorted(pages)
+    m=re.search(r"[İIi][çc][iİı]ndek[iİı]ler\s*:?\s*(\d+)\s*\.?\s*Sayfada",pages.get(1,""),re.I)
+    bas=int(m.group(1)) if m else 0
+    secili=[n for n in nums if n>=bas] if bas>1 and bas in pages else nums[-3:]
+    return "\n".join(pages[n] for n in secili)
 
 def main():
     ymd = sys.argv[1] if len(sys.argv)>1 and sys.argv[1] else datetime.now(TRT).strftime("%Y%m%d")
@@ -135,8 +168,7 @@ def main():
     try: text,ocred,pages=build_text(p)
     finally: os.unlink(p)
     (OUT/f"{ymd}.txt").write_text(text,encoding="utf-8")
-    parts=re.split(r"\n=== Sayfa \d+(?: \(OCR\))? ===\n",text)
-    (OUT/f"{ymd}.fihrist.txt").write_text("\n".join(parts[-3:]),encoding="utf-8")
+    (OUT/f"{ymd}.fihrist.txt").write_text(fihrist(text),encoding="utf-8")
     muk=[]
     for i in range(1,11):
         d=download(url_for(ymd,f"M{i}"))
