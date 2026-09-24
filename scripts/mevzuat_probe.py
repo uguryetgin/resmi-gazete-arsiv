@@ -82,7 +82,8 @@ def birim_ayikla(metin, birim):
     return metin[m.start(): m.end() + (s.start() if s else 3000)]
 
 def durum(parca, eski, yeni):
-    p = tr_lower(parca)
+    # Kaynak HTML cumle ortasinda satir sonu iceriyor ("200.000\nadede kadar"): tum bosluklari tekle
+    p = re.sub(r"\s+", " ", tr_lower(parca))
     has = lambda w: re.search(rf"(?<![a-zçğıöşü]){re.escape(tr_lower(w))}(?![a-zçğıöşü])", p) is not None
     e, y = [w for w in eski if has(w)], [w for w in yeni if has(w)]
     if y or "33379" in p or "23/9/2026" in p:
@@ -91,14 +92,29 @@ def durum(parca, eski, yeni):
         return "PRE", e, y
     return "AMBIGUOUS", e, y
 
+def baglam(metin, ifadeler, pay=140):
+    """Eslesen ifadelerin cevresi (kanit icin); en fazla 4 parca."""
+    duz = re.sub(r"\s+", " ", metin)
+    kucuk, out = tr_lower(duz), []
+    for w in ifadeler:
+        for m in re.finditer(re.escape(tr_lower(w)), kucuk):
+            out.append(duz[max(0, m.start() - pay): m.end() + pay])
+            break
+    return out[:4]
+
 def siniflandir(kaynak, vaka, metin):
     parca = birim_ayikla(metin, vaka["birim"])
     hedef = parca if parca else metin
     d, e, y = durum(hedef, vaka["eski"], vaka["yeni"])
+    # Birimdeki degisiklik notlari (or. "Degisik: RG-2/1/2010-27450"): kaynagin guncelligini gosterir
+    notlar = sorted({(int(y_), int(a), int(g)) for g, a, y_ in
+                     re.findall(r"RG[-\s]*(\d{1,2})/(\d{1,2})/(\d{4})", hedef)})
     (OUT / f"{vaka['ad']}.{kaynak}.birim.txt").write_text(parca or "(ayiklanamadi)", encoding="utf-8")
     kaydet(f"{kaynak}:siniflandir", vaka=vaka["ad"], birim_bulundu=bool(parca),
            birim_uzunluk=len(parca or ""), durum=d if parca else d + "(tum-metin)",
-           eski_bulunan=e, yeni_bulunan=y, birim_ornek=(parca or "")[:600])
+           son_degisiklik_notu=("%02d/%02d/%d" % (notlar[-1][2], notlar[-1][1], notlar[-1][0])) if notlar else None,
+           eski_bulunan=e, yeni_bulunan=y, baglam=baglam(hedef, vaka["eski"] + vaka["yeni"] + ["33379"]),
+           birim_ornek=(parca or "")[:400])
     return d
 
 # ---------------- Bedesten ----------------
