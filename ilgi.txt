@@ -1,6 +1,9 @@
 # Ilgi alanlari: "Alan: anahtar, anahtar, ..." (buyuk/kucuk harf ve Turkce karakter fark etmez).
-# Anahtar kelime kelime basinda aranir: "banka" -> "Bankası", "destek" -> "Desteklenmesine".
-# Yalniz kalem basliklarina bakilir. Eslesme olan gunlerde Claude Routine tetiklenir.
-Ekonomi ve Finans: Mali Suçları, MASAK, Merkez Bankası, TCMB, ödeme, elektronik para, banka, bankacılık, sermaye piyasası, SPK, vergi, katma değer, gelir vergisi, kurumlar vergisi, harç, bütçe, hazine, sigorta, finans, kredi
-Sanayi, Dış Ticaret ve Enerji: ithalat, ihracat, damping, haksız rekabet, gümrük, dış ticaret, enerji, elektrik, doğal gaz, petrol, EPDK, maden, sanayi, yatırım
-Tarım ve Destekleme: tarım, tarımsal, hayvancılık, balık, avcılık, su ürünleri, gıda, orman, destek, hibe
+# Anahtar kelime kelime basinda aranir: "banka" -> "Bankası", "teşvik" -> "Teşvikine".
+# Yalniz Yurutme ve Idare / Yargi bolumu kalem basliklarina bakilir (ilan bolumu haric).
+# Eslesme olan gunlerde Claude Routine tetiklenir. Sira onceliktir: bir kalem ilk eslesen alana yazilir.
+# "Hariç:" satirindaki kelimelerden biri baslikta varsa kalem hic eslesmez.
+Enerji Piyasaları: EPDK, Enerji Piyasası Düzenleme, Enerji Piyasaları İşletme, EPİAŞ, elektrik, doğal gaz, TEİAŞ, Türkiye Elektrik İletim, iletim sistemi, dengeleme, yan hizmet, şebeke, EÜAŞ, Elektrik Üretim, enerji, yenilenebilir, YEKDEM, petrol piyasası, tarife
+Sanayi ve Teknoloji: sanayi, teşvik, yatırım, üretim, standart, teknik düzenleme, Türk Standartları, TSE, Ar-Ge, araştırma ve geliştirme, teknoloji, teknopark, organize sanayi, serbest bölge
+Ekonomi ve Finans: Merkez Bankası, TCMB, BDDK, Bankacılık Düzenleme, banka, bankacılık, SPK, Sermaye Piyasası, MASAK, Mali Suçları, Devlet İç Borçlanma, borçlanma, kira sertifika, Hazine, faiz, döviz, finansal, finansman, ödeme, elektronik para, taksonomi, sürdürülebilir, emisyon, karbon, ithalat, ihracat, haksız rekabet, damping, sübvansiyon, gözetim, korunma önlem, gümrük, dış ticaret
+Hariç: Üniversitesi, Üniversitesinden
