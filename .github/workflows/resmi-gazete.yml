@@ -42,7 +42,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-tur
-          pip install --quiet requests beautifulsoup4
+          pip install --quiet requests
 
       - name: Gazeteyi indir, metni çıkar, taranmış sayfaları OCR'la
         id: indir
@@ -73,7 +73,10 @@ jobs:
         timeout-minutes: 8
         env:
           YMD: ${{ steps.indir.outputs.ymd }}
-        run: RG_RELEASE_DIR="$RUNNER_TEMP/rg_release" python scripts/karsilastir.py "$YMD"
+          YENIDEN: ${{ github.event.inputs.yeniden }}
+        run: |
+          pip install --quiet beautifulsoup4 || true
+          RG_RELEASE_DIR="$RUNNER_TEMP/rg_release" python scripts/karsilastir.py "$YMD"
 
       # Yalniz gunluk kosumlarda (zamanlanmis ya da tarihsiz elle): gecmis gunleri
       # yeniden islemek Routine'i tetiklemesin. bekleyen.json'u degistirebildigi
