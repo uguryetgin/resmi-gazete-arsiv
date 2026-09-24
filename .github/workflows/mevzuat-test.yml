@@ -24,11 +24,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Araçları kur
         run: pip install --quiet requests beautifulsoup4 pypdf certifi
-      - name: Kaynakları dene
-        run: python scripts/mevzuat_probe.py
+      # Karsilastirma once: gunluk isteki gibi mevzuat.gov.tr'ye ilk istegi o yapsin
+      # (probe'un tarayici olmayan UA denemesi sunucuda gecici engele yol acabiliyor).
       - name: Karşılaştırmayı arşivdeki değişikliklerle dene
-        if: always()
         run: python scripts/karsilastir.py --test 20260923 20260918 20260922 20260916 20260917 20260911
+      - name: Kaynakları dene
+        if: always()
+        run: python scripts/mevzuat_probe.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
