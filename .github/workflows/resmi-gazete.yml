@@ -35,9 +35,6 @@ jobs:
   indir:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    env:
-      # Secret tanimli degilse bos kalir ve mail adimi atlanir.
-      GMAIL_USER: ${{ secrets.GMAIL_USER }}
     steps:
       - uses: actions/checkout@v4
 
@@ -71,11 +68,11 @@ jobs:
           SPARSE_LIMIT = 200
           OCR_MAX_PAGES = 250  # pratikte sinirsiz; public repoda Actions dakikasi ucretsiz
 
-          # Mail: RG_MAIL_DIR verilmisse konu, govde ve ekler oraya yazilir, gonderimi
-          # sonraki adim yapar. Gmail eki 25 MB'ta keser ve ek base64 ile ~%33 buyur,
-          # o yuzden 18 MB'tan buyuk PDF'ler eklenmez, yalniz resmi linki verilir.
-          MAIL_DIR = os.environ.get("RG_MAIL_DIR", "").strip()
-          EK_SINIR = 18 * 1024 * 1024
+          # Release: RG_RELEASE_DIR verilmisse yeni PDF'ler ile etiket, baslik ve aciklama
+          # oraya yazilir, GitHub Release'i sonraki adim olusturur. Depoyu "Watch ->
+          # Releases" ile izleyenlere GitHub her yeni release'te kendisi mail atar;
+          # boylece mail icin sifre/SMTP gerekmez. Release dosyasi 2 GB'a kadar olabilir.
+          RELEASE_DIR = os.environ.get("RG_RELEASE_DIR", "").strip()
 
           def url_for(ymd, suffix=""):
               return f"{BASE}/{ymd[:4]}/{ymd[4:6]}/{ymd}{suffix}.pdf"
@@ -258,41 +255,44 @@ jobs:
           def mb(n):
               return f"{n / 1024 / 1024:.1f} MB"
 
-          def mail_yaz(meta, yeni_ana, yeni_muk, ekler):
-              """Konu, govde ve ekleri MAIL_DIR'e yazar. yeni_muk: bu kosumda eklenen
-                 mukerrer numaralari, ekler: {dosya adi: pdf baytlari}."""
-              d = Path(MAIL_DIR)
+          def release_yaz(meta, yeni_ana, yeni_muk, pdfler):
+              """Etiket, baslik, aciklama ve PDF'leri RELEASE_DIR'e yazar. yeni_muk: bu
+                 kosumda eklenen mukerrer numaralari, pdfler: {dosya adi: pdf baytlari}."""
+              d = Path(RELEASE_DIR)
               d.mkdir(parents=True, exist_ok=True)
-              for ad, veri in ekler.items():
+              for ad, veri in pdfler.items():
                   (d / ad).write_bytes(veri)
+              ymd = meta["ymd"]
               baslik = f"Resmî Gazete {meta['tarih']}"
               if meta.get("sayi"):
                   baslik += f" – Sayı {meta['sayi']}"
-              konu = baslik if yeni_ana else f"{baslik} – yeni mükerrer sayı"
-
-              def satir(etiket, url, bayt, dosya):
-                  durum = "ekte" if dosya in ekler else f"{mb(EK_SINIR)} sınırını aştığı için ekte değil"
-                  return f"{etiket}: {url}\n  ({mb(bayt)}, {durum})"
-
-              govde = [baslik, ""]
               if yeni_ana:
-                  govde.append(satir(f"PDF ({meta.get('pages')} sayfa)", meta["pdf_url"],
-                                     meta["pdf_bytes"], f"{meta['ymd']}.pdf"))
+                  etiket = f"rg-{ymd}"
+              else:
+                  # Mukerrer gun icinde sonradan cikarsa ayri release: izleyenlere yeniden mail gitsin
+                  etiket = f"rg-{ymd}-M{yeni_muk[0]}"
+                  baslik += " – " + ", ".join(f"{n}. Mükerrer" for n in yeni_muk)
+
+              notlar = []
+              if yeni_ana:
+                  notlar.append(f"- **PDF** ({meta.get('pages')} sayfa, {mb(meta['pdf_bytes'])}): "
+                                f"ekteki `{ymd}.pdf` · [resmi link]({meta['pdf_url']})")
               for m in meta.get("mukerrer") or []:
                   if m["no"] in yeni_muk:
-                      govde.append(satir(f"{m['no']}. Mükerrer ({m['pages']} sayfa)", m["url"],
-                                         m["pdf_bytes"], f"{meta['ymd']}M{m['no']}.pdf"))
+                      notlar.append(f"- **{m['no']}. Mükerrer** ({m['pages']} sayfa, {mb(m['pdf_bytes'])}): "
+                                    f"ekteki `{ymd}M{m['no']}.pdf` · [resmi link]({m['url']})")
               if yeni_ana:
                   fp = ROOT / meta["fihrist_file"]
                   fih = fp.read_text(encoding="utf-8") if fp.exists() else ""
-                  # -layout ciktisindaki uzun bosluklar posta istemcisinde tabloyu dagitiyor
-                  fih = "\n".join(re.sub(r"[ \t]{2,}", "  ", l).strip() for l in fih.splitlines())
+                  fih = "\n".join(l.rstrip() for l in fih.splitlines()).replace("```", "` ` `")
                   fih = re.sub(r"\n{3,}", "\n\n", fih).strip()
                   if fih:
-                      govde += ["", fih]
-              (d / "konu.txt").write_text(konu, encoding="utf-8")
-              (d / "govde.txt").write_text("\n".join(govde) + "\n", encoding="utf-8")
-              print(f"Mail hazir: {konu} ({len(ekler)} ek)")
+                      # Kod blogu: -layout ciktisindaki sayfa numarasi hizalamasi korunsun
+                      notlar += ["", "### İçindekiler", "", "```text", fih, "```"]
+              (d / "etiket.txt").write_text(etiket, encoding="utf-8")
+              (d / "baslik.txt").write_text(baslik, encoding="utf-8")
+              (d / "notlar.md").write_text("\n".join(notlar) + "\n", encoding="utf-8")
+              print(f"Release hazir: {etiket} – {baslik} ({len(pdfler)} PDF)")
 
           def main():
               ymd = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else datetime.now(TRT).strftime("%Y%m%d")
@@ -318,7 +318,7 @@ jobs:
                       existing = None
 
               outdir.mkdir(parents=True, exist_ok=True)
-              ekler = {}
+              pdfler = {}
 
               # ---------- ANA SAYI ----------
               if existing:
@@ -336,8 +336,7 @@ jobs:
                   finally:
                       os.unlink(path)
                   sayi = find_sayi(text)
-                  if len(main_pdf) <= EK_SINIR:
-                      ekler[f"{ymd}.pdf"] = main_pdf
+                  pdfler[f"{ymd}.pdf"] = main_pdf
 
                   with gzip.open(outdir / f"{ymd}.txt.gz", "wt", encoding="utf-8") as f:
                       f.write(text)
@@ -376,8 +375,7 @@ jobs:
                       "pdf_bytes": len(data), "pages": mpages, "ocr_pages": mocr,
                       "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.txt.gz"})
                   yeni_muk.append(i)
-                  if sum(map(len, ekler.values())) + len(data) <= EK_SINIR:
-                      ekler[f"{ymd}M{i}.pdf"] = data
+                  pdfler[f"{ymd}M{i}.pdf"] = data
               yeni = len(yeni_muk)
 
               if existing and yeni == 0:
@@ -407,8 +405,8 @@ jobs:
               else:
                   print(f"latest.json guncellenmedi (kayitli {onceki} daha yeni).")
 
-              if MAIL_DIR:
-                  mail_yaz(meta, not existing, yeni_muk, ekler)
+              if RELEASE_DIR:
+                  release_yaz(meta, not existing, yeni_muk, pdfler)
 
               print(f"\nBitti: sayi {meta.get('sayi')}, {meta.get('pages')} sayfa, "
                     f"{len(meta.get('ocr_pages') or [])} sayfa OCR, "
@@ -422,14 +420,10 @@ jobs:
           echo "ymd=$TARIH" >> "$GITHUB_OUTPUT"
 
           set +e
-          YENIDEN="${{ github.event.inputs.yeniden }}" RG_MAIL_DIR=/tmp/rg_mail \
+          YENIDEN="${{ github.event.inputs.yeniden }}" RG_RELEASE_DIR="$RUNNER_TEMP/rg_release" \
             python /tmp/fetch_rg.py "$TARIH"
           code=$?
           echo "code=$code" >> "$GITHUB_OUTPUT"
-          if [ -f /tmp/rg_mail/konu.txt ]; then
-            echo "konu=$(cat /tmp/rg_mail/konu.txt)" >> "$GITHUB_OUTPUT"
-            echo "ekler=$(ls /tmp/rg_mail/*.pdf 2>/dev/null | paste -sd, -)" >> "$GITHUB_OUTPUT"
-          fi
           # 20 = gazete henuz yayimlanmamis, 21 = zaten islenmis.
           # Ikisi de normal durum, is basarisiz sayilmaz.
           if [ $code -eq 20 ] || [ $code -eq 21 ]; then exit 0; fi
@@ -452,22 +446,31 @@ jobs:
             done
           fi
 
-      # Depoya isleme adimindan SONRA: mail gitmese de arsiv kaybolmaz.
-      - name: Mail gönder
-        if: steps.indir.outputs.code == '0' && steps.indir.outputs.konu != '' && env.GMAIL_USER != ''
-        continue-on-error: true
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.GMAIL_USER }}
-          password: ${{ secrets.GMAIL_APP_PASSWORD }}
-          from: Resmî Gazete Arşivi <${{ secrets.GMAIL_USER }}>
-          to: ${{ secrets.GMAIL_USER }}
-          subject: ${{ steps.indir.outputs.konu }}
-          body: file:///tmp/rg_mail/govde.txt
-          attachments: ${{ steps.indir.outputs.ekler }}
+      # Depoya isleme adimindan SONRA: etiket, verinin islendigi commit'i gostersin.
+      # Depoyu "Watch -> Custom -> Releases" ile izleyenlere GitHub mail atar.
+      - name: GitHub Release oluştur
+        if: steps.indir.outputs.code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          D="$RUNNER_TEMP/rg_release"
+          if [ ! -f "$D/etiket.txt" ]; then
+            echo "Release bilgisi yok."
+            exit 0
+          fi
+          ETIKET=$(cat "$D/etiket.txt")
+          BASLIK=$(cat "$D/baslik.txt")
+          shopt -s nullglob
+          PDFLER=("$D"/*.pdf)
+          if gh release view "$ETIKET" >/dev/null 2>&1; then
+            # "yeniden" ile elle kosuldu: mevcut release guncellenir (yeniden mail gitmez)
+            gh release edit "$ETIKET" --title "$BASLIK" --notes-file "$D/notlar.md"
+            if [ ${#PDFLER[@]} -gt 0 ]; then
+              gh release upload "$ETIKET" "${PDFLER[@]}" --clobber
+            fi
+          else
+            gh release create "$ETIKET" "${PDFLER[@]}" --title "$BASLIK" --notes-file "$D/notlar.md"
+          fi
 
       - name: Yayımlanmadıysa bildir
         if: steps.indir.outputs.code == '20'
