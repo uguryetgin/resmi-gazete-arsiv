@@ -305,6 +305,10 @@ def degisiklik_ayristir(no, metin):
             k["nesne"] = True
     if re.search(r"eklenmiştir|eklenmiş\b", talimat) or (asagi and "eklen" in asagi.group(0)):
         k["turler"].append("ekleme")
+        # Eklenen yer: ilk "asagidaki ... eklen" fiiline kadar atiflar ("aynı fıkraya" onceki fikradir)
+        em = re.search(r"aşa[gğ]ıdaki\s+[^“.]{0,60}?eklen", talimat) or re.search(r"eklenmiş", talimat)
+        if em:
+            k["ekleme_birim"] = son_birim(k["birim"], talimat[:em.end()])
     if blok_bas is not None:
         y = tirnakli(govde[blok_bas:])
         if y:
@@ -962,7 +966,7 @@ def kisa_birim(b):
     if "cumle" in b:
         c = b["cumle"]
         s += ", " + ("son cümle" if c == "son" else f"{c}. cümle" if isinstance(c, int) else c)
-    return s.strip(" ,") or "?"
+    return s.strip(" ,") or "birim belirsiz"
 
 def kaynak_notu(etiket):
     """Kaynak etiketinden Eski hucresine eklenecek kisa not ('' = guvenilir)."""
@@ -986,6 +990,23 @@ def _hucre(x):
 def _bloklar(d):
     """Yeni metnin tirnakli parcalari (yeniden yazma + ekleme ayni blokta olabilir)."""
     return [b.strip() for b in re.split(r"”\s*“", d.get("yeni_metin") or "") if b.strip()]
+
+def eklenen_birim(birim, bloklar):
+    """Eklenen metnin kendi numarasi: 'MADDE 6/A-' -> '6/A (yeni madde)', '(14) …' -> '13/14 (yeni fıkra)',
+       'ş) …' -> '17/1-ş (yeni bent)'. Numara okunamazsa talimattaki birim + '(ekleme)'."""
+    ilk = bloklar[0] if bloklar else ""
+    m = re.search(r"\b(GEÇİCİ\s+|EK\s+)?MADDE\s+(\d+(?:\s*/\s*[A-ZÇĞİÖŞÜ])?)\s*[-–—]", ilk[:200])
+    if m:
+        onek = {"G": "geçici ", "E": "ek "}.get((m.group(1) or " ")[0], "")
+        no = re.sub(r"\s+", "", m.group(2))
+        return f"{onek}{no} (yeni {'geçici ' if onek == 'geçici ' else 'ek ' if onek == 'ek ' else ''}madde)"
+    m = re.match(r"\((\d+)\)\s", ilk)
+    if m and ("madde" in birim or "ondalik" in birim):
+        return f"{kisa_birim({k: v for k, v in birim.items() if k in ('madde', 'ondalik', 'gecici', 'ek')})}/{m.group(1)} (yeni fıkra)"
+    m = re.match(r"([a-zçğıöşü])\)\s", ilk)
+    if m and "fikra" in birim:
+        return f"{kisa_birim({k: v for k, v in birim.items() if k in ('madde', 'ondalik', 'gecici', 'ek', 'fikra')})}-{m.group(1)} (yeni bent)"
+    return kisa_birim({k: v for k, v in birim.items() if k not in ("cumle", "alt")}) + " (ekleme)"
 
 def tablo_satirlari(d):
     """Bir degisiklik maddesinin tablo satirlari: [(birim, eski, yeni)]. Gazete ciftleri kesin; kaynaktan
@@ -1041,7 +1062,7 @@ def tablo_satirlari(d):
             eski = "— (bkz. talimat)"
         out.append((hedef, eski, "— (kaldırıldı)"))
     if "ekleme" in d["turler"]:
-        out.append(("birden fazla birim" if coklu else yer(d["birim"]) + " (ekleme)", "—",
+        out.append(("birden fazla birim" if coklu else eklenen_birim(d.get("ekleme_birim") or d["birim"], bloklar), "—",
                     kisalt(" ".join(bloklar), HUCRE) if bloklar else "— (bkz. talimat)"))
     if not out:
         out.append((yer(d["birim"]), "—", "— (bkz. talimat)"))
@@ -1058,9 +1079,9 @@ def satirlar(k):
         for r in tablo_satirlari(d):
             out.append(f"  | {r[0]} | {r[1]} | {r[2]} |")
         for c in d.get("ibareler", []):
-            if c.get("baglam") and c["baglam"] not in gorulen:
-                gorulen.add(c["baglam"])
-                yer = " ve ".join(kisa_birim(b) for b in c["birimler"])
+            yer = " ve ".join(kisa_birim(b) for b in c["birimler"])
+            if c.get("baglam") and yer not in gorulen:      # birim basina tek baglam
+                gorulen.add(yer)
                 notlar_.append(f"  Bağlam ({yer}): {kisalt(c['baglam'], BAGLAM)}")
         if talimat_goster(d):
             notlar_.append(f"  Talimat (MADDE {d['madde']}): {d['talimat']}")
