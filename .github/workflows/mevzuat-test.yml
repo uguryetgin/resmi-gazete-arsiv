@@ -1,0 +1,41 @@
+name: Mevzuat kaynak denemesi
+
+# Degisiklik yapilan mevzuatin onceki halinin hangi kaynaktan (Bedesten,
+# mevzuat.gov.tr, Resmi Gazete ilk metni) alinabildigini dener. data/ altina
+# yazmaz; sonuc probe_report.json olarak artifact'e yuklenir.
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+    paths: ["scripts/mevzuat_probe.py", "scripts/karsilastir.py", ".github/workflows/mevzuat-test.yml"]
+
+concurrency:
+  group: mevzuat-test
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  dene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Araçları kur
+        run: pip install --quiet requests beautifulsoup4 pypdf certifi
+      # Karsilastirma once: gunluk isteki gibi mevzuat.gov.tr'ye ilk istegi o yapsin
+      # (probe'un tarayici olmayan UA denemesi sunucuda gecici engele yol acabiliyor).
+      - name: Karşılaştırmayı arşivdeki değişikliklerle dene
+        run: python scripts/karsilastir.py --test 20260923 20260918 20260922 20260916 20260917 20260911
+      - name: Kaynakları dene
+        if: always()
+        run: python scripts/mevzuat_probe.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mevzuat-probe-${{ github.run_id }}
+          path: |
+            probe_report.json
+            probe_out/
+          retention-days: 14
