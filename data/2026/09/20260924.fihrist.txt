@@ -1,144 +1,55 @@
-Sayfa : 138
+Sayfa : 140 RESMİ GAZETE 24 Eylül 2026 — Sayı : 33380
 
-RESMİ GAZETE
+İÇİNDEKİLER
 
-24 Eylül 2026 — Sayı :33380
+YÜRÜTME VE İDARE BÖLÜMÜ
 
-TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
-VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 24.09.2026 TARİHİNDEKİ
-GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
+Sayfa
 
-2- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN TÜKETİCİ
-FİYATLARINA ENDEKSLİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
+YÖNETMELİKLER
 
-KİRA GETİRİSİ DAHİL
+— Türkiye Yeşil Taksonomisi Yönetmeliği 1
 
-VADE REEL KİRA BUGÜNKÜ DEĞER
-TARİBİ TCMB KODU ISIN KODU GETİRİSİ ORANI (100.-TL ÜZERİNDEN)
-28.05.2031 12102D TRD280531T12 1.59 817.286
-28.05.2031 12102D TRD280531T20 1.59 817.286
-28.05.2031 12102D0A280531 Oo TRD280531A13 1.59 698.799
-02.12.2026 121020K11280531 TRDO21226K19 1.59 12.614
-02.06.2027 121020K12280531 TRDO20627K16 1.53 12.438
-01.12.2027 121020K13280531 TRDO11227K19 1.59 12.264
-31.05.2028 121020K14280531 TRD310528K11 1.59 12.092
-29.11.2028 121020K15280531 TRD291128K17 1.59 11.923
-30.05.2029 121020K16280531 TRD300529K11 1.59 11.756
-28.11.2029 121020K17280531 TRD281129K17 1.59 11.591
-29.05.2030 121020K18280531 TRD290530K11 1.59 11.429
-27.11.2030 121020K19280531 TRD271130K15 1.59 11.269
-28.05.2031 121020K20280531 TRD280531k11 1.59 11.111
-07.04.2032 12102D TRDO70432117 0.00 429.396
-07.04.2032 12102D TRDO70432T25 0.00 429.396
-07.04.2032 12102D0A070432 Oo TRDO70432A18 0.00 429.396
-14.10.2026 121020K9070432 TRD141026K17 0.00 0.000
-14.04.2027 121020K10070432 TRD140427K14 0.00 0.000
-13.10.2027 121020K11070432 TRD131027K17 0.00 0.000
-12.04.2028 121020K12070432 TRD120428K15 0.00 0.000
-11.10.2028 121020K13070432 TRD111028K18 0.00 0.000
-11.04.2029 121020K14070432 TRD110429K15 0.00 0.000
-10.10.2029 12102DK15070432 TRD101029K18 0.00 0.000
-10.04.2030 121020K16070432 TRD100430K13 0.00 0.000
-09.10.2030 121020K17070432 TRDO91030K18 0.00 0.000
-09.04.2031 121020K18070432 TRDO90431K15 0.00 0.000
-08.10.2031 121020K19070432 TRDO81031K18 0.00 0.000
-07.04.2032 121020K20070432 TRDO70432K16 0.00 0.000
-02.06.2027 36D2D TRDO20627T17 1.63 197.190
-02.06.2027 36D2D TRDO20627T25 1.63 197.190
-02.06.2027 36D2DA020627 TRDOM20627A18 1.63 190.915
-02.12.2026 36D20K5020627 Oo TRDO21226K27 1.63 3.163
-02.06.2027 36D2D0K6020627 Oo TRDO20627K24 1.63 3.112
-20.01.2027 61D2D TRD200127T10 0.00 690.468
-20.01.2027 61D2D TRD200127T28 0.00 690.468
-20.01.2027 61D2DA200127 TRD200127A11 0.00 690.468
-20.01.2027 61D20K10200127 TRD200127K19 0.00 0.000
+— İstanbul Atlas Üniversitesi Yabancı Diller Yüksekokulu İngilizce ve Türkçe
+Hazırlık Programı Eğitim ve Öğretim Yönetmeliğinin Yürürlükten
+Kaldırılmasına Dair Yönetmelik 21
 
-3—- (b) HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN ALTINA
-DAYALI KİRA SERTİFİKALARININ 1 ADET SERTİFİKA İÇİN DEĞERLERİ AŞAĞIDADIR.
+TEBLİĞLER
 
-KİRA GETİRİSİ DAHİL
+— Milli Emlak Genel Tebliği (Sıra No: 324)'nde Değişiklik Yapılmasına Dair
+Tebliğ (Sıra No: 426) 22
 
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1 ADET ÜZERİNDEN)
-27.01.2027 12DA2 TAD270127T13 O.40 6,7185.960783
-18.08.2027 18DA2 TRD180827T17 0.30 6,781.492122
-17.11.2027 18DA2 TAD1711271T39 0.40 6,796.387661
-07.10.2026 24DAZ2 TRDO71026T17 0.75 oG6,824.670566
-15.03.2028 24DAZ TRD150328T14 0.40 6,778.661969
-12.04.2028 24DA2 TRD120428T32 0.40 6,801.601099
-09.06.2028 2Z4DA2 TRDO90628T19 0.42 o6,7193.736255
-30.06.2028 24DAZ TRD300628T12 0.40 oG6,789.833624
+— Özelleştirme İdaresi Başkanlığının 22/9/2026 Tarihli ve 2026/ÖİB-K-45 Sayılı
+Kararı 22
 
-4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
-DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
+KURUL KARARLARI
 
-KİRA GETİRİSİ DAHİL
+— Biyogüvenlik Kurulunun 41 Sayılı Kararı 23
 
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ABD Doları KARŞ.)
-03.02.2027 120201 TRDO30227F16 Ze1I 49,120.96
-09.06.2027 120201 TRDO90627F16 2.60 49,577.10
-20.08.2027 120201 TRD200827F19 2.712 49,085.80
-19.11.2027 240201 TRD191127F17 2.10 49,541.94
-10.05.2028 240201 TRD100528F13 2.60 49,772.45
+— Biyogüvenlik Kurulunun 42 Sayılı Kararı 24
 
+İLÂN BÖLÜMÜ
 
-24 Eylül 2026 — Sayı : 33380 RESMİ GAZETE Sayfa : 139
+a - Yargı İlânları 27
 
-TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
-VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 24.09.2026 TARİHİNDEKİ
-GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
+b - Artırma, Eksiltme ve İhale İlânları 31
 
-4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
-DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ARD Doları KARŞ.)
+c - Çeşitli İlânlar 44
 
-19.07.2028 240201 TRD190724F12 2.175 49,309.96
+— T.C. Merkez Bankasınca Belirlenen Döviz Kurları ve Devlet İç Borçlanma
 
+Senetlerinin Günlük Değerleri 121
+DUYURU
 
- ''$#                  !'!!                         %#'! '%%'&' ''"""
+Yürürlükteki Kanunlar, KHK'ler, Cumhurbaşkanlığı Kararnameleri,
 
+Tüzükler, Yönetmelikler ve Tebliğlere
 
+e - Mevzuat,
 
-                                <'<(4;*<8;1
+Günlük Resmi Gazete 'ye ise
 
+e - Resmi Gazete i
 
- /717)5;B;B<4&1;B3+8757
-                                                                                         ??
- /+(;)5;8<*8;1
- && LJN M'EM<N'JFCKCHNFN'E:KMGHMNDN                                                 $
- && @FGK;I' GF' (KNAMLFNGMFN' E;K4' ?NML' EJFMJCJII' @K=NN94M' AM' LJ.M
-    ,9LJ' -LC=LH' !DNGNH' AM' 7DLMGNH' E:KMGHMNDNKNK' ELLJGMK
-    B8LHFK'?NL'E:KMGHMNJ                                                       %$
+abone olmadan ve ücretsiz olarak erişebilirsiniz.
 
- );38<D8;1
- && NN' !HJ' MKM' M;NDN' 1L' 5C' "%#20K8M' ?MDN<NJNJ' E/HFK' ?NL
-    M;ND'1L'5C'#%2                                                                %%
- && 79MM<GNLHM'@8LMFN'><JKDKK'%%6*6%%'LN+N'AM'%%67@>3B3#)' 
-    BLL                                                                               %%
-
- *E1E8B*&1&18&1C
- && >N C=AMKNJ'BILIIKIK'#$' 'BLL                                              %"
- && >N C=AMKNJ'BILIIKIK'#%' 'BLL                                              %#
-
- <8(B3+8757
- ?B.B/?>9B<@,=@?>9                                                        %
- B.B&>69>-?B;0:@6-AB2AB<?@AB<@,=@?>9                                   "$
- "B.B'A:6@:B<@,=@?>                                                       ##
-  )%%B5A>0A#B3?=0?9="?B3A@:>@A=A=B42:#B*>@?>9B2AB4A2@A6B<$B3>$@?=-?
-     A=A6@A>:=:=B!=@!0B4AA>@A>:                                         $%$
-
-
-
-                                                
-
-          &+&+,&%"-%(*)'',)+* ,-+* $+ )%)',*)+)+')$-,-+(
-                           &#&%,-+*'-"$-,(%,-+*-*- ,(,-+-
-
-                                                      
-                                &',&%* -!$*)#-"--*(!-
-
-                         (,-
-                    ) '-*,$))'*-*&+-"!(#*,)+)%*-+(- (,(+!('(#
