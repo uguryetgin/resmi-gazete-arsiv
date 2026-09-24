@@ -1,132 +1,35 @@
-Sayfa : 102 RESMİ GAZETE 22 Eylül 2026 — Sayı: 33378
+Sayfa : 104 RESMİ GAZETE 22 Eylül 2026 — Sayı : 33378
 
-TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
-VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 22.09.2026 TARİHİNDEKİ
-GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
+İÇİNDEKİLER
 
-2- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN TÜKETİCİ
-FİYATLARINA ENDEKSLİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
+YÜRÜTME VE İDARE BÖLÜMÜ
 
-VADE REEL KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (100.-TL ÜZERİNDEN)
-28.05.2031 12102D TRD280531T12 1.59 816.203
-28.05.2031 121D02D TRD2805311T20 1.59 816.203
-28.05.2031 12102DA280531 TRD280531A13 1.59 697.874
-02.12.2026 121020K11280531 TRDO21226K19 1.59 12.598
-02.06.2027 121020K12280531 TRDO20627K16 1.59 12.421
-01.12.2027 12102DK13280531 TRDO11227K19 1.59 12.247
-31.05.2028 121020K14280531 TRD310528K11 1.59 12.076
-29.11.2028 121020K15280531 TRD291128K17 1.59 11.907
-30.05.2029 121020K16280531 TRD300529K11 1.59 11.740
-28.11.2029 121020K17280531 TRD281129K17 1.59 11.576
-29.05.2030 121020K182890531 TRD290530K11 1.53 11.414
-27.11.2030 121020K19280531 TRD271130K15 1.59 11.254
-28.05.2031 121020K20280531 TRD280531kK11 1.59 11.096
-07.04.2032 121D02D TRDO070432T17 0.00 428.801
-07.04.2032 121D2D TRD070432T25 0.00 428.801
-07.04.2032 12102DA070432 TRDO70432A18 0.00 428.801
-14.10.2026 121020K9070432 TRD141026K17 0.00 0.000
-14.04.2027 121020K10070432 TRD140427K14 0.00 0.000
-13.10.2027 121020K11070432 TRD131027K17 0.09 0.000
-12.04.2028 121020K12070432 TRD120428K15 0.00 0.000
-11.10.2028 121020K13070432 TRD111028K18 0.00 0.000
-11.04.2029 121020K14070432 TRDI10429K15 0.00 0.000
-10.10.2029 121020K15070432 TRD101029K18 0.00 0.000
-10.04.2030 12102D0K16070432 TRDL00430K13 0.00 0.000
-03.10.2030 121020K17070432 TRDO91030K18 0.00 0.000
-09.04.2031 121020K18070432 TRDO90431K15 0.00 0.000
-08.10.2031 121020K19070432 TRDO81031K18 0.00 0.000
-07.04.2032 121020K20070432 TRDO70432K16 0.00 0.000
-02.06.2027 36D2D TRDO20627T17 1.63 196.924
-02.06.2027 36D2D TRDO020627T25 1.63 196.924
-02.06.2027 36D2D0A020627 TRDO20627A18 1.63 190.658
-02.12.2026 36D20K5020627 TRDO021226K27 1.63 3.158
-02.06.2027 36D2DK6020627 TRDU20627K24 1.63 3.108
-20.01.2027 61D2D TRD200127T10 0.00 689.532
-20.01.2027 61D2D TRD2001271T28 0.00 689.532
-20.01.2027 61D02DA200127 TRD200127A11 0.00 689.532
-20.01.2027 61020K10200127 TRD200127K1$ 0.00 0.000
+Sayfa
+YÖNETMELİKLER
+— Sosyal Güvenlik Kurumu Personeli Görevde Yükselme ve Unvan Değişikliği
+Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik 1
+— İstanbul Üniversitesi Araştırma Fonu Yönetmeliğinin Yürürlükten
+Kaldırılmasına Dair Yönetmelik 4
+— Kastamonu Üniversitesi Üstün Yetenekliler Eğitim Uygulama ve Araştırma
+Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik 4
+İLÂN BÖLÜMÜ
+a - Yargı İlânları 5
+b - Artırma, Eksiltme ve İhale İlânları 7
+c - Çeşitli İlânlar 23
+— T.C. Merkez Bankasınca Belirlenen Döviz Kurları ve Devlet İç Borçlanma
+Senetlerinin Günlük Değerleri 85
 
-3- (b) HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN ALTINA
-DAYALI KİRA SERTİFİKALARININ 1 ADET SERTİFİKA İÇİN DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
+DUYURU
 
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1 ADET ÜZERİNDEN)
-21.01.2027 12DA2 TRD270127T13 0.40 6,822.570826
-18.08.2027 18DAZ TRD180827T17 0.30 6,818.152741
-17.11.2027 18DAZ TRD171127139 90.49 6,033.054416
-07.10.2026 24DA2 TRDO71026T17 0.75 6,861.229065
-15.03.2028 24DA2 TRD150328T14 0.40 6,815.232312
-12.04.2028 24DAZ2 TRD120428T32 0.40 6,838.296211
-09.06.2028 24DAZ TRDO90628T19 0.42 6,830.373612
-30.06.2028 24DA2 TRD300628T12 90.40 6,826.464731
+Yürürlükteki Kanunlar, KHK'ler, Cumhurbaşkanlığı Kararnameleri,
 
-4— HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
-DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
+Tüzükler, Yönetmelikler ve Tebliğlere
 
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ABD Doları KARŞ.)
-03.02.2027 120201 TRDO30227F16 2.11 49,072.23
-09.06.2027 120201 TRDO90627F16 2.60 49,526.0B8
-20.08.2027 120201 TRD200827F19 2.17 49,034.17
-19.11.2027 240201 TRD191127F17 2.10 49,493.38
+e - Mevzuat,
 
-10.05.2028 24D201 TRD100528F13 2.60 49,721.28
+Günlük Resmi Gazete 'ye ise
 
+e - Resmi Gazete i
 
-22 Eylül 2026 — Sayı :33378 RESMİ GAZETE Sayfa : 103
+abone olmadan ve ücretsiz olarak erişebilirsiniz.
 
-TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
-VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 22.09.2026 TARİHİNDEKİ
-GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
-
-4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
-DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ABD Doları KARŞ.)
-
-19.07.2028 240201 TRD190724F12 2.175 49,258.16
-
-
-$$                   " $     ""                   ##$"$## $ $$$!!!
-
-
-
-
-                                 ;&;'3:);7:0
-
-
- .606(4:A:A;3%0:A2*7646
-                                                                                    >>
- .*':(4:7;)7:0
-    09$ 4?=>8$.3<3:3$+?<90=?>$ 5<?4/?$789?:?$4?$,=4=$2?6>1>8>6>
-    75=?;:?>6>=/?$2?6>1>8>8$7&:9=$2><$75=?;:?>8                               
-    )9;=*3$ -=>4?<9>;?9>$       <1;<:$ (0=3$ 75=?;:?>6>=>=$ 7<<8;?=
-    ./<:9=$2><$75=?;:?>8                                                      
-    .9;:0=3$ -=>4?<9>;?9>$ -9;=$ 7?;?=?8>?<$ "6>;>:$ ,%3:$ 4?$ <1;<:
-       ?<8?'>$75=?;:?>6>=>=$7<<8;?=$./<:9=$2><$75=?;:?>8                 
-
-
- ;7'A2*7646
- >A-A.>=8A;?+<?>=8                                                                     
- A-A%=58=,>A:/9?5,@A1@A;>?@A;?+<?>=8                                                
- !A-A&@95?9A;?+<?>=                                                                  #!
-  ($$A4@=/@"A2></>8<!>A2@?9=?@<@<A319"A)=?>=8A1@A3@1?@5A;#A2=#?><,>
-   @<@5?@=9<9<A <? /A3@@=?@=9                                                      
-
-
-
-                                                
-
-          &+&+,&%"-%(*)'',)+* ,-+* $+ )%)',*)+)+')$-,-+(
-                            &#&%,-+*'-"$-,(%,-+*-*- ,(,-+-
-
-                                                     
-                                 &',&%* -!$*)#-"--*(!-
-
-                           (,-
-                       ) '-*,$))'*-*&+-"!(#*,)+)%*-+(- (,(+!('(#

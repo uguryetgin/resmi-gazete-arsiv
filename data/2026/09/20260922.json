@@ -1,11 +1,15 @@
 {
   "tarih": "22.09.2026",
   "ymd": "20260922",
-  "sayi": null,
+  "sayi": 33378,
   "pdf_url": "https://www.resmigazete.gov.tr/eskiler/2026/09/20260922.pdf",
   "pdf_bytes": 33114372,
   "pages": 104,
   "ocr_pages": [
+    1,
+    2,
+    3,
+    4,
     5,
     6,
     19,
@@ -83,10 +87,12 @@
     100,
     101,
     102,
-    103
+    103,
+    104
   ],
   "text_file": "data/2026/09/20260922.txt.gz",
   "fihrist_file": "data/2026/09/20260922.fihrist.txt",
+  "ozet_file": "data/2026/09/20260922.ozet.txt",
   "mukerrer": [],
-  "fetched_at": "2026-09-22T00:17:20.183662+00:00"
+  "fetched_at": "2026-09-24T14:53:19.220658+00:00"
 }
