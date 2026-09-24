@@ -214,13 +214,15 @@ def fihrist(text):
 
 # Yapay zeka ozeti icin kompakt girdi: ilan ve kur tablolari (metnin ~%90'i) atilir,
 # Yurutme ve Idare / Yargi bolumundeki her kalem icin baslik + ilk maddeden kisa alinti.
-OZET_ALINTI = 600       # kalem basina karakter
+OZET_ALINTI = 900       # kalem basina karakter (degisiklik maddelerindeki rakamlar sigsin)
 OZET_BUTCE = 7000       # alintilarin toplam siniri; asilirsa kalan kalemler yalniz baslik
 # Her kalemde tekrarlanan, ozete bilgi katmayan kalip maddeler
 OZET_KALIP = re.compile(
     r"MADDE\s*\d+\s*[-–—]?\s*(?:\(1\)\s*)?Bu \w+ (?:yayımı|yayımlandığı) tarihinde yürürlüğe girer\.?"
     r"|MADDE\s*\d+\s*[-–—]?\s*(?:\(1\)\s*)?Bu \w+ hükümlerini .{0,120}? yürütür\.?"
-    r"|MADDE\s*\d+\s*[-–—]?\s*Bu Karara karşı.{0,300}?dava açılabilir\.?")
+    r"|MADDE\s*\d+\s*[-–—]?\s*Bu Karara karşı.{0,300}?dava açılabilir\.?"
+    r"|Dayanak\s*MADDE\s*\d+\s*[-–—]?.{0,600}?hazırlanmıştır\.?"
+    r"|Tanımlar\s*MADDE\s*\d+\s*[-–—]?.{0,3000}?ifade eder\.?")
 
 _TR_ASCII = str.maketrans("çğıöşüâîûêÇĞİÖŞÜÂÎÛÊ", "cgiosuaiueCGIOSUAIUE")
 
@@ -303,7 +305,11 @@ def ozet_girdisi(text):
             continue
         # Kalemin metni: kendi sayfasindan bir sonraki kalemin sayfasina kadar (en fazla 3 sayfa)
         bitis = kalemler[i + 1][2] if i + 1 < len(kalemler) else son_sayfa
-        govde = "\n".join(_govde(pages.get(n, "")) for n in range(s, min(bitis, s + 2) + 1))
+        govde, sonraki_bas = "", None
+        for n in range(s, min(bitis, s + 2) + 1):
+            if n == bitis and n > s:
+                sonraki_bas = len(govde)   # sonraki kalemin sayfasi burada basliyor
+            govde += _govde(pages.get(n, "")) + "\n"
         bas = _konum(govde, baslik)
         if bas is None:
             # Baslik metinde bulunamadi; ayni sayfada onceki bir kalem varsa onun
@@ -311,10 +317,13 @@ def ozet_girdisi(text):
             if i and kalemler[i - 1][2] == s:
                 continue
             bas = 0
-        if i + 1 < len(kalemler):
-            son = _konum(govde[bas + 1:], kalemler[i + 1][1])
+        # Sonraki kalemin basligi yalniz onun sayfasinda aranir: metin icinde ayni
+        # adla anilan baska bir mevzuati (or. degistirilen teblig) bitis sanmasin.
+        if i + 1 < len(kalemler) and (bitis == s or sonraki_bas is not None):
+            ara = bas + 1 if bitis == s else max(bas + 1, sonraki_bas)
+            son = _konum(govde[ara:], kalemler[i + 1][1])
             if son is not None:
-                govde = govde[:bas + 1 + son]
+                govde = govde[:ara + son]
         govde = govde[bas:]
         # Ayni sayfadaki kalemler "—— • ——" ile, ilan bolumu kendi basligiyla ayrilir
         m = re.search(r"—+\s*•+\s*—+|İL[ÂA]N BÖLÜMÜ", govde[1:])
