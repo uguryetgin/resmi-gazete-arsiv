@@ -252,6 +252,132 @@ jobs:
               secili = [n for n in nums if n >= bas] if bas > 1 and bas in pages else nums[-3:]
               return "\n".join(pages[n] for n in secili)
 
+          # Yapay zeka ozeti icin kompakt girdi: ilan ve kur tablolari (metnin ~%90'i) atilir,
+          # Yurutme ve Idare / Yargi bolumundeki her kalem icin baslik + ilk maddeden kisa alinti.
+          OZET_ALINTI = 600       # kalem basina karakter
+          OZET_BUTCE = 7000       # alintilarin toplam siniri; asilirsa kalan kalemler yalniz baslik
+          # Her kalemde tekrarlanan, ozete bilgi katmayan kalip maddeler
+          OZET_KALIP = re.compile(
+              r"MADDE\s*\d+\s*[-–—]?\s*(?:\(1\)\s*)?Bu \w+ (?:yayımı|yayımlandığı) tarihinde yürürlüğe girer\.?"
+              r"|MADDE\s*\d+\s*[-–—]?\s*(?:\(1\)\s*)?Bu \w+ hükümlerini .{0,120}? yürütür\.?"
+              r"|MADDE\s*\d+\s*[-–—]?\s*Bu Karara karşı.{0,300}?dava açılabilir\.?")
+
+          _TR_ASCII = str.maketrans("çğıöşüâîûêÇĞİÖŞÜÂÎÛÊ", "cgiosuaiueCGIOSUAIUE")
+
+          def _norm(s):
+              """Karakter karakter (uzunluk korunarak) buyuk ASCII harf/rakam; digerleri bosluk.
+                 Boylece icindekilerdeki 'Yonetmelik' ile metindeki 'YÖNETMELİK' eslesir."""
+              s = s.translate(_TR_ASCII)
+              return "".join(c.upper() if c.isascii() and c.isalnum() else " " for c in s)
+
+          def icindekiler_kalemleri(fih):
+              """Icindekiler metninden [(bolum, baslik, sayfa)] ve ilan bolumunun ilk sayfasi."""
+              kalemler, bolum, acik, ilan = [], "", None, None
+              icerde = False
+              for ham in fih.splitlines():
+                  l = ham.strip()
+                  if not l:
+                      continue
+                  if re.search(r"YÜRÜTME VE İDARE BÖLÜMÜ|YARGI BÖLÜMÜ", l):
+                      icerde, acik = True, None
+                      if "YARGI" in l:
+                          bolum = "YARGI BÖLÜMÜ"
+                      continue
+                  if re.search(r"İL[ÂA]N BÖLÜMÜ", l):
+                      icerde = False
+                      continue
+                  if not icerde:
+                      m = re.search(r"Yargı İl[âa]n\w*\s+(\d+)\s*$", l)
+                      if m and ilan is None:
+                          ilan = int(m.group(1))
+                      continue
+                  if l == "Sayfa" or re.search(r"RESM[İI] GAZETE", l):
+                      continue
+                  m = re.match(r"^[–—-]+\s*(.*)$", l)
+                  if m:
+                      acik = m.group(1)
+                  elif acik is not None:
+                      acik += " " + l
+                  else:
+                      bolum = re.sub(r"\s+\d+$", "", l)
+                      continue
+                  m = re.search(r"^(.*\S)\s+(\d{1,4})$", acik)
+                  if m:
+                      kalemler.append((bolum, re.sub(r"\s+", " ", m.group(1)), int(m.group(2))))
+                      acik = None
+              # Sayfa numaralari artan olmali; olmayan (yanlis okunan) kalemi at
+              temiz, son = [], 0
+              for k in kalemler:
+                  if k[2] >= son and (ilan is None or k[2] < ilan):
+                      temiz.append(k)
+                      son = k[2]
+              return temiz, ilan
+
+          def _konum(metin, baslik):
+              """Basligin ilk 4 anlamli kelimesinin metindeki yeri (yoksa None)."""
+              kel = [w for w in _norm(baslik).split() if len(w) > 1][:4]
+              if not kel:
+                  return None
+              m = re.search(r"\s+".join(map(re.escape, kel)), _norm(metin))
+              return m.start() if m else None
+
+          def _govde(p):
+              """Sayfanin ust/alt bilgi satirlarini at."""
+              return "\n".join(l for l in p.splitlines()
+                               if not re.search(r"RESM[İIÎ]\s*GAZETE|^\s*Sayfa\s*:?\s*\d+\s*$|Kuruluşu\s*:|İçindekiler\s*\d+\s*\.", l))
+
+          def ozet_girdisi(text):
+              parts = re.split(r"\n=== Sayfa (\d+)(?: \(OCR\))? ===\n", text)
+              pages = {int(parts[i]): parts[i + 1] for i in range(1, len(parts) - 1, 2)}
+              kalemler, ilan = icindekiler_kalemleri(fihrist(text))
+              if not kalemler:
+                  return None   # icindekiler cozulemedi (or. bazi mukerrerlerde yok)
+              son_sayfa = (ilan or max(pages)) - 1
+              satirlar, butce, bolum = [], OZET_BUTCE, None
+              for i, (b, baslik, s) in enumerate(kalemler):
+                  if b != bolum:
+                      satirlar += ["", b]
+                      bolum = b
+                  satirlar.append(f"• {baslik} (s. {s})")
+                  if butce <= 0:
+                      continue
+                  # Kalemin metni: kendi sayfasindan bir sonraki kalemin sayfasina kadar (en fazla 3 sayfa)
+                  bitis = kalemler[i + 1][2] if i + 1 < len(kalemler) else son_sayfa
+                  govde = "\n".join(_govde(pages.get(n, "")) for n in range(s, min(bitis, s + 2) + 1))
+                  bas = _konum(govde, baslik)
+                  if bas is None:
+                      # Baslik metinde bulunamadi; ayni sayfada onceki bir kalem varsa onun
+                      # metnini tekrar almamak icin alinti yok.
+                      if i and kalemler[i - 1][2] == s:
+                          continue
+                      bas = 0
+                  if i + 1 < len(kalemler):
+                      son = _konum(govde[bas + 1:], kalemler[i + 1][1])
+                      if son is not None:
+                          govde = govde[:bas + 1 + son]
+                  govde = govde[bas:]
+                  # Ayni sayfadaki kalemler "—— • ——" ile, ilan bolumu kendi basligiyla ayrilir
+                  m = re.search(r"—+\s*•+\s*—+|İL[ÂA]N BÖLÜMÜ", govde[1:])
+                  if m:
+                      govde = govde[:m.start() + 1]
+                  # Ilk madde varsa oradan basla: baslik/imza/yururluk kalibini atlar
+                  m = re.search(r"MADDE\s*1\s*[-–—]", govde)
+                  if m:
+                      govde = govde[m.start():]
+                  alinti = re.sub(r"\s+", " ", govde).strip()
+                  alinti = re.sub(r"([a-zçğıöşü])- ([a-zçğıöşü])", r"\1\2", alinti)   # satir sonu tirelemesi
+                  alinti = re.sub(r"\s+", " ", OZET_KALIP.sub("", alinti)).strip()
+                  if len(alinti) < 40 or temiz_oran(alinti) < BOZUK_ESIK:
+                      continue
+                  if len(alinti) > OZET_ALINTI:
+                      alinti = alinti[:OZET_ALINTI].rsplit(" ", 1)[0] + " …"
+                  satirlar.append(f"  {alinti}")
+                  butce -= len(alinti)
+              if ilan:
+                  satirlar += ["", f"İLÂN BÖLÜMÜ (s. {ilan}–{max(pages)}): yargı, ihale ve çeşitli ilanlar, "
+                                   "Merkez Bankası kurları (özete alınmadı)."]
+              return "\n".join(satirlar).strip()
+
           def mb(n):
               return f"{n / 1024 / 1024:.1f} MB"
 
@@ -273,22 +399,47 @@ jobs:
                   etiket = f"rg-{ymd}-M{yeni_muk[0]}"
                   baslik += " – " + ", ".join(f"{n}. Mükerrer" for n in yeni_muk)
 
-              notlar = []
+              # Aciklama maile aynen girer ve maildeki yapay zeka ozetinin girdisidir: once
+              # kompakt ozet (kalem basliklari + ilk madde), en sonda linkler. Ozet
+              # cikarilamazsa icindekiler sayfasi konur.
+              def oku(yol):
+                  fp = ROOT / yol if yol else None
+                  return fp.read_text(encoding="utf-8").strip() if fp and fp.exists() else ""
+
+              def md(oz):
+                  out = []
+                  for l in oz.splitlines():
+                      if l.startswith("• "):
+                          out.append("- " + l[2:])
+                      elif l.startswith("  "):
+                          out.append(l)
+                      elif l.startswith("İLÂN BÖLÜMÜ"):
+                          out.append("_" + l + "_")
+                      elif l:
+                          out.append("### " + l)
+                      else:
+                          out.append("")
+                  return "\n".join(out)
+
+              notlar, linkler = [], []
               if yeni_ana:
-                  notlar.append(f"- **PDF** ({meta.get('pages')} sayfa, {mb(meta['pdf_bytes'])}): "
-                                f"ekteki `{ymd}.pdf` · [resmi link]({meta['pdf_url']})")
+                  oz = oku(meta.get("ozet_file"))
+                  if oz:
+                      notlar.append(md(oz))
+                  else:
+                      fih = oku(meta.get("fihrist_file")).replace("```", "` ` `")
+                      fih = re.sub(r"\n{3,}", "\n\n", "\n".join(l.rstrip() for l in fih.splitlines()))
+                      if fih:
+                          notlar += ["### İçindekiler", "", "```text", fih, "```"]
+                  linkler.append(f"- PDF ({meta.get('pages')} sayfa, {mb(meta['pdf_bytes'])}): "
+                                 f"{meta['pdf_url']}")
               for m in meta.get("mukerrer") or []:
                   if m["no"] in yeni_muk:
-                      notlar.append(f"- **{m['no']}. Mükerrer** ({m['pages']} sayfa, {mb(m['pdf_bytes'])}): "
-                                    f"ekteki `{ymd}M{m['no']}.pdf` · [resmi link]({m['url']})")
-              if yeni_ana:
-                  fp = ROOT / meta["fihrist_file"]
-                  fih = fp.read_text(encoding="utf-8") if fp.exists() else ""
-                  fih = "\n".join(l.rstrip() for l in fih.splitlines()).replace("```", "` ` `")
-                  fih = re.sub(r"\n{3,}", "\n\n", fih).strip()
-                  if fih:
-                      # Kod blogu: -layout ciktisindaki sayfa numarasi hizalamasi korunsun
-                      notlar += ["", "### İçindekiler", "", "```text", fih, "```"]
+                      moz = oku(m.get("ozet_file"))
+                      if moz:
+                          notlar += ["", f"## {m['no']}. Mükerrer", "", md(moz)]
+                      linkler.append(f"- {m['no']}. Mükerrer ({m['pages']} sayfa, {mb(m['pdf_bytes'])}): {m['url']}")
+              notlar += ["", "---"] + linkler + ["", "PDF'ler bu release'in ekinde."]
               (d / "etiket.txt").write_text(etiket, encoding="utf-8")
               (d / "baslik.txt").write_text(baslik, encoding="utf-8")
               (d / "notlar.md").write_text("\n".join(notlar) + "\n", encoding="utf-8")
@@ -342,6 +493,9 @@ jobs:
                       f.write(text)
 
                   (outdir / f"{ymd}.fihrist.txt").write_text(fihrist(text), encoding="utf-8")
+                  oz = ozet_girdisi(text)
+                  if oz:
+                      (outdir / f"{ymd}.ozet.txt").write_text(oz + "\n", encoding="utf-8")
 
                   meta = {
                       "tarih": f"{ymd[6:8]}.{ymd[4:6]}.{ymd[:4]}", "ymd": ymd, "sayi": sayi,
@@ -349,6 +503,7 @@ jobs:
                       "ocr_pages": ocred,
                       "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.txt.gz",
                       "fihrist_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.fihrist.txt",
+                      "ozet_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}.ozet.txt" if oz else None,
                       "mukerrer": []}
 
               # ---------- MUKERRER ----------
@@ -370,10 +525,14 @@ jobs:
                       os.unlink(mp)
                   with gzip.open(outdir / f"{ymd}M{i}.txt.gz", "wt", encoding="utf-8") as f:
                       f.write(mtext)
+                  moz = ozet_girdisi(mtext)
+                  if moz:
+                      (outdir / f"{ymd}M{i}.ozet.txt").write_text(moz + "\n", encoding="utf-8")
                   muk_meta.append({
                       "no": i, "url": url_for(ymd, f"M{i}"),
                       "pdf_bytes": len(data), "pages": mpages, "ocr_pages": mocr,
-                      "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.txt.gz"})
+                      "text_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.txt.gz",
+                      "ozet_file": f"data/{ymd[:4]}/{ymd[4:6]}/{ymd}M{i}.ozet.txt" if moz else None})
                   yeni_muk.append(i)
                   pdfler[f"{ymd}M{i}.pdf"] = data
               yeni = len(yeni_muk)
