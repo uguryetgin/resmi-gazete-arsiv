@@ -1,138 +1,41 @@
-Sayfa : 78 RESMİ GAZETE 23 Eylül 2026 — Sayı : 33379
+Sayfa : 80 RESMİ GAZETE 23 Eylül 2026 — Sayı : 33379
 
-TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANNA SENETLERİ
-VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 23.03.2026 TARİHİNDEKİ
-GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
+İÇİNDEKİLER
 
-2- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN TÜKETİCİ
-FİYATLARINA ENDEKSLİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
+YÜRÜTME VE İDARE BÖLÜMÜ
 
-VADE REEL KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (100.-TL ÜZERİNDEN)
-28.05.2031 121D2D TRD280531TI2 1.59 816.744
-28.05.2031 12102D TRD280531T20 1.59 016.744
-28.05.2031 12102DA280531 TRD280531A13 1.59 698.338
-02.12.2026 121020K11280531 TRDO21226Kk19 1.59 12.606
-02.06.2027 12102D0K12280531 TRDO20627K1$ 1.59 12.423
-01.12.2027 121020K13280531 TRDO11227K19 1.59 12.255
-31.05.2028 121020K14280531 TRD310528K11 1.59 12.084
-29.11.2028 121020K15280531 TRD291128K17 1.59 11.915
-30.05.2029 121020K16280531 TRD300529K11 1.53 11.748
-28.11.2029 12102DK17280531 TRD281129K17 1.59 11.583
-29.05.2030 121020K18280531 TRD290530K11 1.59 11.421
-27.11.2030 121020K19280531 TRD271130K15 1.59 11.261
-28.05.2031 121020K20280531 TRD280531K11 1.53 11.104
-07.04.2032 121D2D TRDM70432T1I7 0.09 429.098
-07.04.2032 121D02D TRDO070432T25 0.00 429.098
-07.04.2032 12102DA070432 TRDO70432A18 0.00 429.098
-14.10.2026 121020K9070432 TRD141026K17 0.00 0.000
-14.04.2027 12102DK100970432 TRD140427K14 0.00 0.000
-13.10.2027 121020K11970432 TRD131027K17 0.00 0.000
-12.04.2028 121020K12070432 TRD120428K15 0.00 0.000
-11.10.2028 121020K13070432 TRD111028K18 0.00 0.000
-11.04.2029 121020K14070432 TRD110429K415 0.00 0.000
-10.10.2029 12102DK159070432 TRDI101029K18 0.00 0.000
-10.04.2030 121020K16070432 TRD100430K13 0.00 0.000
-09.10.2030 121020K17070432 TRDO91030K18 0.00 0.000
-09.04.2031 121020K18070432 TRDO90431k15 0.00 0.000
-08.10.2031 12102D0K199070432 TRDO81031K18 0.09 0.000
-07.04.2032 121020K20070432 TRDO70432K16 0.00 0.000
-02.06.2027 36D2D TRD020627T17 1.63 197.057
-02.06.2027 36D2D TRDO20627T25 1.63 197.057
-02.06.2027 36D2DA920627 TRDOM20627A18 1.63 190.786
-02.12.2026 36D20K5020627 TRDO21226K27 1.63 3.161
-02.06.2027 36D20K6020627 TRDOZ20627K24 1.63 3.110
-20.01.2027 61D2D TRD200127T10 0.00 690.000
-20.01.2027 6lp2D TRD200127T28 0.00 690.000
-20.01.2027 61D2DA200127 TRD200127A11 0.00 690.000
-20.01.2027 61D20K10200127 TRD200127K19 0.00 0.000
+Sayfa
+YÖNETMELİK
+— Kafkas Üniversitesi Küresel Isınma ve İklim Değişikliği Uygulama ve
+Araştırma Merkezi Yönetmeliği 1
+TEBLİĞLER
+— Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 34) 5
+— Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 5)'nde Değişiklik
+Yapılmasına Dair Tebliğ (Sıra No: 33) 6
+— Balon Balığı Avcılığının Desteklenmesine İlişkin Tebliğ (Tebliğ No: 2024/8)'de
+Değişiklik Yapılmasına Dair Tebliğ (No: 2026/22) 6
+— İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2026/29) 7
+— İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2021/19)'de
+Değişiklik Yapılmasına Dair Tebliğ 20
+— Papel Elektronik Para ve Ödeme Hizmetleri A.Ş.'nin Faaliyet İzninin İptal
+Edilmesine İlişkin Karar 20
+İLÂN BÖLÜMÜ
+a - Yargı İlânları 21
+b - Artırma, Eksiltme ve İhale İlânları 22
+c - Çeşitli İlânlar 34
+— T.C. Merkez Bankasınca Belirlenen Döviz Kurları ve Devlet İç Borçlanma
+Senetlerinin Günlük Değerleri 6l
+DUYURU
 
-3— (b) HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN ALTINA
-DAYALI KİRA SERTİFİKALARININ 1 ADET SERTİFİKA İÇİN DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
+Yürürlükteki Kanunlar, KHK'ler, Cumhurbaşkanlığı Kararnameleri,
 
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1 ADET ÜZERİNDEN)
-27.01.2027 12DA2 TRD270127T13 0.40 6,7718.25B891
-18.08.2027 18DA2 TRD180827T17 0.30 6,773.832401
-17.11.2027 18DA2 TAD171127T39 0.40 6,788.674163
-07.10.2026 24DAZ TRDM71026T17 0.75 6,816.795397
-15.03.2028 24DA2 TRD150328T14 0.40 6,770.968201
-12.04.2028 24DA2 TRD120428T32 0.40 6,793.881799
-09.06.2028 24DAZ2 TRD090628T195 0.42 6,786.018263
-30.06.2028 24DAZ TRD300628TIZ 0.40 6,782.127421
+Tüzükler, Yönetmelikler ve Tebliğlere
 
-4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
-DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
+e - Mevzuat,
 
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ABD Doları KARŞ.)
-03.02.2027 120201 TRDO30227F16 2.11 49,097.40
-09.06.2027 120201 TRDO090627F16 2.60 49,552.40
-20.08.2027 120201 TRD200427F19 2.72 49,060.7B
-19.11.2027 240201 TRD191127F17 2.10 49,518.72
+Günlük Resmi Gazete 'ye ise
 
-10.05.2028 240201 TRD100528F13 2.60 49,747.68
+e - Resmi Gazete i
 
+abone olmadan ve ücretsiz olarak erişebilirsiniz.
 
-23 Eylül 2026 — Sayı :33379 RESMİ GAZETE Sayfa : 79
-
-TÜRKİYE CUMHURİYET MERKEZ BANKASINCA BELİRLENEN DEVLET İÇ BORÇLANMA SENETLERİ
-VE KİRA SERTİFİKALARININ TİP VE VADELER İTİBARIYLA 23.09.2026 TARİHİNDEKİ
-GÖSTERGE NİTELİĞİNDEKİ GÜNLÜK DEĞERLERİ
-
-4- HAZİNE MÜSTEŞARLIĞI VARLIK KİRALAMA ŞİRKETİNCE İHRAÇ EDİLEN AMERİKAN
-DOLARI CİNSİ KİRA SERTİFİKALARININ DEĞERLERİ AŞAĞIDADIR.
-KİRA GETİRİSİ DAHİL
-VADE KİRA BUGÜNKÜ DEĞER
-TARİHİ TCMB KODU ISIN KODU GETİRİSİ ORANI (1000 ABD Doları KARŞ.)
-
-19.07.2028 240201 TRD190724F12 2.175 49,284.87
-
-
-!"!((#                   % (%%                         '&(%"('#'$()( !"((&&&
-
-
-
-                               <'<(6;*<7;/
-
-
-08/8)3;B;B<6&/;B5+7838
-                                                                                        ??
-0+(;)3;7<*
-)) <!N!J( .PR>QOJRMQJR( <OQJQ( ,JPK!( >Q( GNRK( DQLRHRNRLR( *"+F!K!( >Q
-   O!HMOK!(QONQ?R(:0PQMKQRLR                                                         
-
-);57<C7;/
-)) !R( F5!O(O!HMOK!(<FOFF(QPQ(QIRLR(A O!(CE(&B                             
-)) !R( F5!O( O!HMOK!( <FOFF( QPQ( QIRLR( A O!( CE( B;P@Q( DQLRHRNRN
-   :!=K!JP!(D!RO(QIRL(A O!(CE(&&B                                                 $
-)) 6!EP(6!L(>/LPP(DQJMQNQPKQJRPQ(GRHNRP(QIRL(AQIRL(CE('#'9B;@Q
-   DQLRHRNRN(:!=K!JP!(D!RO(QIRL(ACE('#'$9''B                                      $
-)) GM4!!MM!(7!NJ?(QN!IQMRP(8PQPKQJRPQ(GRHNRP(QIRL(ACE('#'$9'B                   
-)) GM4!!MM!(7!NJ?(QN!IQMRP(8PQPKQJRPQ(GRHNRP(QIRL(AQIRL(CE('#'9B;@Q
-   DQLRHRNRN(:!=K!JP!(D!RO(QIRL                                                   '#
-)) 2!=Q( %QNMOEPRN( 2!O!( >Q( 8@QKQ( 7R?KQMQOR( 3-3;PRP( 1!!R"QM( G?PRPRP( G=M!
-   %@RKQJRPQ(GRHNRP(<!O!O                                                             '#
-
-<7(B5+7838
-?B.B0?>9B<@,=@?>9                                                                      '
-B.B&>49>-?B;1:@4-AB2AB<?@AB<@,=@?>9                                                 ''
-"B.B'A:4@:B<@,=@?>                                                                     &
- )%%B3A>1A#B5?=1?9="?B5A@:>@A=A=B62:#B*>@?>9B2AB6A2@A4B<$B5>$@?=-?
-    A=A4@A>:=:=B!=@!1B6AA>@A>:                                                        $
-
-
-
-                                               
-
-            &+&+,&%"-%(*)'',)+* ,-+* $+ )%)',*)+)+')$-,-+(
-                          &#&%,-+*'-"$-,(%,-+*-*- ,(,-+-
-
-                                                     
-                               &',&%* -!$*)#-"--*(!-
-
-                         (,-
-                    ) '-*,$))'*-*&+-"!(#*,)+)%*-+(- (,(+!('(#
