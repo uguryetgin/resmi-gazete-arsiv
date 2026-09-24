@@ -8,8 +8,6 @@ on:
   push:
     branches: ["claude/**"]
     paths: ["scripts/mevzuat_probe.py", ".github/workflows/mevzuat-test.yml"]
-  schedule:
-    - cron: "37 4 * * *"   # 07:37 TR; birlesmeden sonra gunluk: konsolidasyon gecikmesini olcmek icin
 
 concurrency:
   group: mevzuat-test
