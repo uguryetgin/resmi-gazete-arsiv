@@ -265,7 +265,9 @@ def icindekiler_kalemleri(fih):
             continue
         m = re.search(r"^(.*\S)\s+(\d{1,4})$", acik)
         if m:
-            kalemler.append((bolum, re.sub(r"\s+", " ", m.group(1)), int(m.group(2))))
+            # Nokta dizisi OCR'da ". . .", "…" ya da tek kucuk harf ("o", "e") olarak kalabilir
+            baslik = re.sub(r"(?:\s+(?:[.…·_]+|[a-zçğıöşü]))+$", "", m.group(1))
+            kalemler.append((bolum, re.sub(r"\s+", " ", baslik), int(m.group(2))))
             acik = None
     # Sayfa numaralari artan olmali; olmayan (yanlis okunan) kalemi at
     temiz, son = [], 0
