@@ -4,8 +4,8 @@
 rg_fetch.py'den sonra calisir ve onun RG_RELEASE_DIR'e yazdigi notlar.md ile
 baslik.txt'yi okur. Kalem basliklari ilgi.txt'deki anahtar kelimelerle eslestirilir:
 - Eslesme yoksa: Routine tetiklenmez, gunun basliklari data/bekleyen.json'a eklenir.
-- Eslesme varsa: gunun ozeti (eslesen kalemler ★ ile isaretli) ve bekleyen gunlerin
-  basliklari Routine'e metin olarak gonderilir; basarili olursa bekleyen.json bosaltilir.
+- Eslesme varsa: gunun ozeti (eslesen kalemler ★ ile isaretli; eslesmeyenlerin yalniz
+  basligi) ve bekleyen gunlerin basliklari Routine'e metin olarak gonderilir; basarili olursa bekleyen.json bosaltilir.
 
 Ortam: CLAUDE_ROUTINE_URL (.../routines/<id>/fire), CLAUDE_ROUTINE_TOKEN. Ikisi de
 yoksa hicbir sey yapmaz. Hata durumunda isi basarisiz saymaz (cikis 0)."""
@@ -51,6 +51,23 @@ def kalemler(notlar):
     govde = notlar.split("\n---\n", 1)[0]
     return [l[2:].strip() for l in govde.splitlines() if l.startswith("- ")]
 
+def isaretle(notlar, eslesen):
+    """Eslesen kalemleri ★ ile isaretler; eslesmeyen kalemlerin girintili alintilari atilir
+    (Routine onlardan yalniz basligi kullanir, token)."""
+    satirlar, ilgili = [], None
+    for l in notlar.splitlines():
+        if l.startswith("- "):
+            ilgili = l[2:].strip() in eslesen
+            if ilgili:
+                l = f"- ★ [{eslesen[l[2:].strip()]}] {l[2:]}"
+        elif l.startswith(" "):
+            if ilgili is False:
+                continue
+        else:
+            ilgili = None
+        satirlar.append(l)
+    return satirlar
+
 def yukle():
     try:
         return json.loads(BEKLEYEN.read_text(encoding="utf-8"))
@@ -88,12 +105,7 @@ def main():
         print(f"Ilgi alani eslesmesi yok; {baslik} bekleyenlere eklendi ({len(bekleyen)} gun).")
         return 0
 
-    # Eslesen kalemleri isaretle
-    satirlar = []
-    for l in notlar.splitlines():
-        if l.startswith("- ") and l[2:].strip() in eslesen:
-            l = f"- ★ [{eslesen[l[2:].strip()]}] {l[2:]}"
-        satirlar.append(l)
+    satirlar = isaretle(notlar, eslesen)
     sayim = {}
     for ad in eslesen.values():
         sayim[ad] = sayim.get(ad, 0) + 1
