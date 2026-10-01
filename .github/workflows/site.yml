@@ -1,6 +1,7 @@
 name: Web sayfası
 
-# Arsivden statik sayfayi uretir ve GitHub Pages'e yayimlar (yapay zeka cagirmaz).
+# Arsivden statik sayfayi uretir, veriyi SITE_SIFRE ile sifreler ve GitHub Pages'e yayimlar
+# (yapay zeka cagirmaz).
 # Gunluk indirme GITHUB_TOKEN ile push ettigi icin "push" tetiklemez; bu yuzden
 # indirme is akisi bitince (workflow_run) calisir.
 on:
@@ -33,9 +34,13 @@ jobs:
         with:
           ref: main
 
+      # Veri SITE_SIFRE ile sifrelenir; sifre tanimli degilse yayin durur (sifresiz yayimlanmaz).
       - name: Sayfayı üret
+        env:
+          SITE_SIFRE: ${{ secrets.SITE_SIFRE }}
+          SITE_SIFRE_ZORUNLU: "1"
         run: |
-          pip install --quiet requests
+          pip install --quiet requests cryptography
           python scripts/sayfa.py site
 
       - uses: actions/configure-pages@v5
