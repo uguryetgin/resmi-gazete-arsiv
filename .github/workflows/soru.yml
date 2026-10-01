@@ -33,6 +33,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           YZ_TOKEN: ${{ secrets.YZ_TOKEN }}
+          YZ_URL: ${{ vars.YZ_URL || 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions' }}
+          YZ_MODEL: ${{ vars.YZ_MODEL || 'gemini-2.5-flash' }}
         run: |
           pip install --quiet requests
           python scripts/soru_cevap.py

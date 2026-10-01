@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GitHub Issue'daki soruyu GitHub Models ile cevapla (web sayfasindaki "Sor" dugmeleri).
+"""GitHub Issue'daki soruyu yapay zeka (OpenAI uyumlu uc nokta; bkz. yz_ozet.URL) ile cevapla (web sayfasindaki "Sor" dugmeleri).
 
 Issue govdesindeki "Gün: YYYYAAGG" ve (varsa) "Kalem: Baslik (s. N)" satirlarindan gunun
 metni bulunur; kalem varsa onun gazetedeki metni, yoksa gunun ozeti baglam olarak gonderilir.
@@ -97,10 +97,10 @@ def main():
     except Exception as e:
         cevap = f"Yanıt alınamadı ({e.__class__.__name__}). Biraz sonra yeni bir yorumla tekrar deneyin."
     if cevap is None:
-        cevap = "GitHub Models'in ücretsiz kotası şu an dolu. Biraz sonra yeni bir yorumla tekrar sorun."
+        cevap = "Yapay zekâ servisinin ücretsiz kotası şu an dolu. Biraz sonra yeni bir yorumla tekrar sorun."
     kaynak = f"RG {ymd[6:]}.{ymd[4:6]}.{ymd[:4]}" + (f" · {kalem}" if kalem else " · günün özeti")
     gh(token, "POST", f"/repos/{repo}/issues/{no}/comments", json={"body":
-        f"{cevap}\n\n{IMZA}\n<sub>Kaynak: {kaynak} · GitHub Models ({MODEL}); hata içerebilir, kesin bilgi "
+        f"{cevap}\n\n{IMZA}\n<sub>Kaynak: {kaynak} · yapay zekâ ({MODEL}); hata içerebilir, kesin bilgi "
         f"için gazete metnine bakın. Devam sorusu için yorum yazın.</sub>"})
     print(f"#{no} cevaplandi ({ymd}, {kalem[:60] or 'gun'})")
     return 0

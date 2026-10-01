@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""★ kalemler icin GitHub Models ile kisa ozet (web sayfasi icin; Claude token'i harcamaz).
+"""★ kalemler icin yapay zeka ile kisa ozet (web sayfasi icin; Claude token'i harcamaz).
 
-Her ★ kalemin gazetedeki tam metni (routine_tetikle.tam_metinler) GitHub Models'e gonderilir,
+Her ★ kalemin gazetedeki tam metni (routine_tetikle.tam_metinler) YZ_URL'deki modele gonderilir,
 donen "Ne getiriyor" maddeleri ve yururluk satiri data/YYYY/AA/YYYYAAGG.yz.json'a yazilir.
 Ozeti olan kalem yeniden sorulmaz. Kota/hata durumunda uyari yazar, isi basarisiz saymaz.
 
 Kullanim: python3 scripts/yz_ozet.py [YYYYAAGG ...]   (bos = data/latest.json'daki gun;
           "hepsi" = ozeti eksik tum gunler, en yeniden eskiye, YZ_GUN_SINIR kadar)
-Ortam: YZ_TOKEN (Models: read izinli ince ayarli kisisel token; yoksa GITHUB_TOKEN),
-       YZ_MODEL (varsayilan openai/gpt-4.1-mini)"""
+Ortam: YZ_TOKEN (saglayici anahtari; yoksa GITHUB_TOKEN), YZ_URL (OpenAI uyumlu
+       chat/completions adresi; varsayilan GitHub Models), YZ_MODEL (varsayilan openai/gpt-4.1-mini)"""
 import json, os, re, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,7 +19,8 @@ import routine_tetikle as rt     # noqa: E402
 from sayfa import ozet_oku       # noqa: E402  (scripts/sayfa.py)
 
 ROOT = Path(".")
-URL = "https://models.github.ai/inference/chat/completions"
+# OpenAI uyumlu herhangi bir uc nokta: GitHub Models (varsayilan) ya da Gemini, Groq vb.
+URL = os.environ.get("YZ_URL", "").strip() or "https://models.github.ai/inference/chat/completions"
 MODEL = os.environ.get("YZ_MODEL", "").strip() or "openai/gpt-4.1-mini"
 METIN_SINIR = 14000        # karakter; ucretsiz katmanda istek basina girdi siniri dusuk
 BEKLE = 5                  # istekler arasi saniye (dakikalik kota)

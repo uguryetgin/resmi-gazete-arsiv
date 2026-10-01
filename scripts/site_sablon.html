@@ -153,7 +153,7 @@ details.grup>summary span{color:var(--muted);font-weight:400;font-size:13px}
   <nav class="yan" id="yan" aria-label="Günler"><h2 id="yanBaslik">Günler</h2><ul class="gunler" id="gunler"></ul></nav>
   <main class="ana" id="ana"><div class="bos">Yükleniyor…</div></main>
 </div>
-<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları ve "Sor" cevapları GitHub Models ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın. "Sor" bağlantıları herkese açık bir GitHub Issue açar.</p>
+<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları ve "Sor" cevapları yapay zekâ ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın. "Sor" bağlantıları herkese açık bir GitHub Issue açar.</p>
 <script>
 (function(){
 "use strict";
@@ -267,13 +267,13 @@ function yzKutu(y){
   return '<div class="yz"><div class="yz-bas">Ne getiriyor · otomatik özet</div><ul>' +
     y.ne_getiriyor.map(function(m){ return "<li>" + vurgula(m, durum.ara) + "</li>"; }).join("") + "</ul>" +
     (y.yururluk ? '<div class="yur"><b>Yürürlük:</b> ' + kac(y.yururluk) + "</div>" : "") +
-    "<small>GitHub Models (" + kac(y.model || "") + ") ile üretildi; hata içerebilir, kesin bilgi için tam metne bakın.</small></div>";
+    "<small>Yapay zekâ (" + kac(y.model || "") + ") ile üretildi; hata içerebilir, kesin bilgi için tam metne bakın.</small></div>";
 }
 var REPO = "https://github.com/uguryetgin/resmi-gazete-arsiv";
 function soruLink(g, k, metin){
   var kisa = k ? (k.baslik.length > 70 ? k.baslik.slice(0, 70) + "…" : k.baslik) : "günün kalemleri";
   var govde = "Gün: " + g.ymd + "\n" + (k ? "Kalem: " + k.baslik + " (s. " + k.sayfa + ")\n" : "") +
-    "\nSorunuz: \n\n<!-- Sorunuzu yazıp Issue'yu açın; GitHub Models ile yaklaşık bir dakikada yorum olarak cevaplanır. Devam soruları için yorum yazın. -->";
+    "\nSorunuz: \n\n<!-- Sorunuzu yazıp Issue'yu açın; yapay zekâ ile yaklaşık bir dakikada yorum olarak cevaplanır. Devam soruları için yorum yazın. -->";
   var url = REPO + "/issues/new?labels=soru&title=" + encodeURIComponent("Soru: " + g.tarih + " – " + kisa) +
     "&body=" + encodeURIComponent(govde);
   return '<a class="sor" href="' + url + '" target="_blank" rel="noopener" title="GitHub Issue ile yapay zekâya sor">' + (metin || "Sor") + "</a>";

@@ -89,6 +89,8 @@ jobs:
           YMD: ${{ steps.indir.outputs.ymd }}
           GITHUB_TOKEN: ${{ github.token }}
           YZ_TOKEN: ${{ secrets.YZ_TOKEN }}
+          YZ_URL: ${{ vars.YZ_URL || 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions' }}
+          YZ_MODEL: ${{ vars.YZ_MODEL || 'gemini-2.5-flash' }}
         run: python scripts/yz_ozet.py "$YMD"
 
       # Yalniz gunluk kosumlarda (zamanlanmis ya da tarihsiz elle): gecmis gunleri
