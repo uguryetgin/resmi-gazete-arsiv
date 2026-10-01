@@ -4,8 +4,9 @@
 rg_fetch.py'den sonra calisir ve onun RG_RELEASE_DIR'e yazdigi notlar.md ile
 baslik.txt'yi okur. Kalem basliklari ilgi.txt'deki anahtar kelimelerle eslestirilir:
 - Eslesme yoksa: Routine tetiklenmez, gunun basliklari data/bekleyen.json'a eklenir.
-- Eslesme varsa: gunun ozeti (eslesen kalemler ★ ile isaretli; eslesmeyenlerin yalniz
-  basligi) ve bekleyen gunlerin basliklari Routine'e metin olarak gonderilir; basarili olursa bekleyen.json bosaltilir.
+- Eslesme varsa: gunun ozeti (eslesen kalemler ★ ile isaretli; eslesmeyenlerin kisaltilmis
+  alintisi), ★ kalemlerin gazetedeki tam metni ve bekleyen gunlerin basliklari (kisa
+  alintilariyla) Routine'e metin olarak gonderilir; basarili olursa bekleyen.json bosaltilir.
 
 Ortam: CLAUDE_ROUTINE_URL (.../routines/<id>/fire), CLAUDE_ROUTINE_TOKEN. Ikisi de
 yoksa hicbir sey yapmaz. Hata durumunda isi basarisiz saymaz (cikis 0)."""
@@ -17,6 +18,11 @@ ROOT = Path(".")
 BEKLEYEN = ROOT / "data" / "bekleyen.json"
 BEKLEYEN_GUN = 14          # yuke en fazla bu kadar bekleyen gun eklenir
 BEKLEYEN_KALEM = 15        # gun basina en fazla bu kadar baslik
+KISA_ALINTI = 350          # ★ olmayan ve bekleyen kalemlerin alintisi (tek cumlelik ozet icin)
+TAM_KALEM = 15000          # ★ kalem basina tam metin siniri
+TAM_BUTCE = 40000          # tum ★ kalemlerin tam metin toplami
+SON_KISIM = 3000           # kesilen metinde sondan korunan kisim
+YUK_SINIR = 60000
 
 _TR_ASCII = str.maketrans("çğıöşüâîûêÇĞİÖŞÜÂÎÛÊ", "cgiosuaiueCGIOSUAIUE")
 
@@ -51,22 +57,82 @@ def kalemler(notlar):
     govde = notlar.split("\n---\n", 1)[0]
     return [l[2:].strip() for l in govde.splitlines() if l.startswith("- ")]
 
+def kisalt(metin, n=KISA_ALINTI):
+    metin = metin.strip()
+    return metin if len(metin) <= n else metin[:n].rsplit(" ", 1)[0].rstrip(" …") + " …"
+
 def isaretle(notlar, eslesen):
-    """Eslesen kalemleri ★ ile isaretler; eslesmeyen kalemlerin girintili alintilari atilir
-    (Routine onlardan yalniz basligi kullanir, token)."""
-    satirlar, ilgili = [], None
+    """Eslesen kalemleri ★ ile isaretler; eslesmeyen kalemlerin yalniz ilk alinti satiri
+    kisaltilarak kalir (Routine onlari tek cumleyle ozetler, token)."""
+    satirlar, ilgili, alinti_var = [], None, False
     for l in notlar.splitlines():
         if l.startswith("- "):
-            ilgili = l[2:].strip() in eslesen
+            ilgili, alinti_var = l[2:].strip() in eslesen, False
             if ilgili:
                 l = f"- ★ [{eslesen[l[2:].strip()]}] {l[2:]}"
         elif l.startswith(" "):
             if ilgili is False:
-                continue
+                if alinti_var or not l.strip():
+                    continue
+                l, alinti_var = "  " + kisalt(l), True
         else:
             ilgili = None
         satirlar.append(l)
     return satirlar
+
+def alintilar(notlar):
+    """{'Baslik (s. N)': ilk alinti satiri} (yoksa bos)."""
+    out, son = {}, None
+    for l in notlar.split("\n---\n", 1)[0].splitlines():
+        if l.startswith("- "):
+            son = l[2:].strip()
+            out[son] = ""
+        elif l.startswith("  ") and son and not out[son] and l.strip():
+            out[son] = l.strip()
+    return out
+
+def tam_metinler(baslik, eslesen, butce=TAM_BUTCE):
+    """★ kalemlerin gazetedeki tam metni: [(kalem satiri, metin, kesildi)]. Gunun metni
+    data/YYYY/AA/YYYYAAGG.txt.gz'den okunur (isleme adimindan once yerelde vardir)."""
+    m = re.search(r"(\d{2})\.(\d{2})\.(\d{4})", baslik)
+    if not m:
+        return []
+    ymd = m.group(3) + m.group(2) + m.group(1)
+    yol = ROOT / "data" / ymd[:4] / ymd[4:6] / f"{ymd}.txt.gz"
+    if not yol.exists():
+        return []
+    import gzip
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import rg_fetch as rg
+    text = gzip.open(yol, "rt", encoding="utf-8").read()
+    pages = rg.sayfalar(text)
+    kalemler, ilan = rg.icindekiler_kalemleri(rg.fihrist(text))
+    if not kalemler:
+        return []
+    son_sayfa = (ilan or max(pages)) - 1
+    sira = {f"{b} (s. {sf})": i for i, (_, b, sf) in enumerate(kalemler)}
+    out = []
+    for k in eslesen:                      # notlar sirasiyla
+        i = sira.get(k)
+        if i is None or butce <= 500:
+            continue
+        govde = rg.kalem_metni(pages, kalemler, i, son_sayfa, ek_sayfa=60)
+        if not govde:
+            continue
+        govde = re.sub(r"([a-zçğıöşü])-\s*\n\s*([a-zçğıöşü])", r"\1\2", govde)   # tireleme
+        govde = re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n", govde)).strip()
+        sinir = min(TAM_KALEM, butce)
+        kesildi = len(govde) > sinir
+        if kesildi:   # bas + yururluk maddeleri cevresi (ekler/cetveller genelde onlardan sonra)
+            son = min(SON_KISIM, sinir // 3)
+            y = [m.end() for m in re.finditer(r"yürürlüğe\s+girer", govde)]
+            bitis = min(len(govde), y[-1] + 300) if y and y[-1] > sinir - son else len(govde)
+            kuyruk = govde[max(0, bitis - son):bitis].split(" ", 1)[-1]
+            govde = (govde[:sinir - len(kuyruk)].rsplit(" ", 1)[0] + "\n[… orta kısım kesildi …]\n"
+                     + kuyruk)
+        out.append((k, govde, kesildi))
+        butce -= len(govde)
+    return out
 
 def yukle():
     try:
@@ -99,8 +165,12 @@ def main():
     bekleyen = yukle()
 
     if not eslesen:
+        al = alintilar(notlar)
         liste = [re.sub(r"\s*\(s\. \d+\)$", "", k) for k in kalemler(notlar)]
-        bekleyen.append({"baslik": baslik, "kalemler": liste or ["(kalemler çözülemedi; PDF'e bakın)"]})
+        gun = {"baslik": baslik, "kalemler": liste or ["(kalemler çözülemedi; PDF'e bakın)"]}
+        if liste:
+            gun["alintilar"] = [kisalt(al.get(k, ""), 250) for k in kalemler(notlar)]
+        bekleyen.append(gun)
         kaydet(bekleyen)
         print(f"Ilgi alani eslesmesi yok; {baslik} bekleyenlere eklendi ({len(bekleyen)} gun).")
         return 0
@@ -111,13 +181,33 @@ def main():
         sayim[ad] = sayim.get(ad, 0) + 1
     yuk = [baslik, "İlgi alanı eşleşmeleri: " + ", ".join(f"{a} ({n})" for a, n in sayim.items()),
            "", "\n".join(satirlar).strip()]
+    onceki = []
     if bekleyen:
-        yuk += ["", "=== Bildirim gönderilmeyen önceki günler (ilgi alanı eşleşmesi yok) ==="]
+        onceki += ["", "=== Bildirim gönderilmeyen önceki günler (ilgi alanı eşleşmesi yok) ==="]
         for g in bekleyen[-BEKLEYEN_GUN:]:
-            yuk += ["", g["baslik"]] + [f"- {k}" for k in g["kalemler"][:BEKLEYEN_KALEM]]
+            onceki += ["", g["baslik"]]
+            al = g.get("alintilar") or []
+            for j, k in enumerate(g["kalemler"][:BEKLEYEN_KALEM]):
+                onceki.append(f"- {k}")
+                if j < len(al) and al[j]:
+                    onceki.append(f"  {al[j]}")
             if len(g["kalemler"]) > BEKLEYEN_KALEM:
-                yuk.append(f"- … ve {len(g['kalemler']) - BEKLEYEN_KALEM} kalem daha")
-    metin = "\n".join(yuk)[:60000]
+                onceki.append(f"- … ve {len(g['kalemler']) - BEKLEYEN_KALEM} kalem daha")
+    # Tam metin, ozet ve onceki gunlerden kalan yere sigar (onceki gunler kesilmesin)
+    kalan = YUK_SINIR - len("\n".join(yuk + onceki)) - 2000
+    try:
+        tam = tam_metinler(baslik, eslesen, min(TAM_BUTCE, kalan))
+    except Exception as e:                 # tam metin ek bilgi; yoksa ozet yine gider
+        print(f"::warning::tam metin cikarilamadi: {e}")
+        tam = []
+    if tam:
+        yuk += ["", "=== ★ kalemlerin gazetedeki tam metni ==="]
+        for k, govde, kesildi in tam:
+            yuk += ["", f"--- ★ {k}", govde]
+            if kesildi:
+                yuk.append("(metnin ortası kesildi; tamamı gazetede)")
+    yuk += onceki
+    metin = "\n".join(yuk)[:YUK_SINIR]
 
     try:
         r = requests.post(url, timeout=60, json={"text": metin}, headers={
