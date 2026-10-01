@@ -84,7 +84,7 @@ jobs:
       - name: GitHub Models ile ★ özetleri
         if: steps.indir.outputs.code == '0'
         continue-on-error: true
-        timeout-minutes: 6
+        timeout-minutes: 15
         env:
           YMD: ${{ steps.indir.outputs.ymd }}
           GITHUB_TOKEN: ${{ github.token }}
