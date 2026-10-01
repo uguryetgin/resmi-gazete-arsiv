@@ -1,0 +1,32 @@
+name: Sağlık kontrolü
+
+# Her sabah gunluk zincirin (indirme, ozet, PDF kesiti, sayfa, bildirim) eksiksiz olup olmadigina
+# bakar; sorun varsa "📰 Günlük bildirim"e "⚠️ Sistem uyarısı" yazar (e-posta gelir). Yapay zeka yok.
+on:
+  schedule:
+    - cron: "13 7 * * *"   # 10:13 TR (son indirme slotu 09:11'den sonra)
+  workflow_dispatch:
+    inputs:
+      tarih:
+        description: "YYYYAAGG (boş = bugün)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kontrol et
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          KONTROL_TARIH: ${{ github.event.inputs.tarih }}
+        run: |
+          pip install --quiet requests
+          python scripts/kontrol.py
