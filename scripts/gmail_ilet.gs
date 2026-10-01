@@ -23,6 +23,7 @@ var ALICILAR = [
   // "ornek2@sirket.com.tr",
 ];
 var ARAMA = 'from:notifications@github.com resmi-gazete-arsiv newer_than:3d';
+var DEPO = "uguryetgin/resmi-gazete-arsiv";
 var DESEN = /Resm[iîÎ]\s*Gazete\s+(\d{2}\.\d{2}\.\d{4})\s*\**\s*haz[ıi]r/i;
 
 function ilet() {
@@ -42,6 +43,14 @@ function ilet() {
       html = html.replace(/<div itemscope[\s\S]*?<\/div>/gi, "");
       html = html.replace(/<a[^>]*class="user-mention[^"]*"[^>]*>@[^<]*<\/a>\s*/gi, "");
       html = html.replace(/@\w[\w-]*\s+(<strong>Resmî Gazete)/, "$1");
+      // Tercih: GitHub'in her gun hazirladigi e-posta sayfasi (Outlook/Hotmail'de de duzgun gorunur)
+      var g = t[1].split(".");
+      var ymd = g[2] + g[1] + g[0];
+      try {
+        var sayfa = UrlFetchApp.fetch("https://github.com/" + DEPO + "/releases/download/rg-" + ymd + "/Eposta-" + ymd + ".html",
+                                      { followRedirects: true, muteHttpExceptions: true });
+        if (sayfa.getResponseCode() === 200) html = sayfa.getContentText("UTF-8");
+      } catch (e) { Logger.log("E-posta sayfası alınamadı, GitHub e-postası kullanılıyor: " + e); }
       var secenek = { htmlBody: html, bcc: ALICILAR.join(","), name: "Resmî Gazete Arşivi" };
       var pdf = html.match(/href="(https:\/\/github\.com\/[^"]+\/Ozet-\d{8}\.pdf)"/);
       if (pdf) {

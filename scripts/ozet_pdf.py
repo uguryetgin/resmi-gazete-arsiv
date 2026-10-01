@@ -109,28 +109,103 @@ def pdf_yap(ymd, url="", cikti=None):
                    check=True, capture_output=True, timeout=120)
     return cikti
 
-def release_yukle(ymd, pdf, token, repo):
-    """Ozet PDF'ini o gunun release'ine (rg-YYYYAAGG) ekler; indirme linkini dondurur (yoksa None)."""
+def release_yukle(ymd, pdf, token, repo, ad=None, tur="application/pdf"):
+    """Dosyayi (varsayilan ozet PDF'i) o gunun release'ine (rg-YYYYAAGG) ekler; indirme linkini
+       dondurur (yoksa None)."""
     h = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
     r = requests.get(f"https://api.github.com/repos/{repo}/releases/tags/rg-{ymd}", headers=h, timeout=30)
     if not r.ok:
         print(f"rg-{ymd} release'i yok, ozet PDF'i eklenmedi.")
         return None
-    rel, ad = r.json(), f"Ozet-{ymd}.pdf"
+    rel, ad = r.json(), ad or f"Ozet-{ymd}.pdf"
     for a in rel.get("assets") or []:
         if a["name"] == ad:                       # yeniden gonderimde eskisini degistir
             requests.delete(a["url"], headers=h, timeout=30)
     r = requests.post(f"https://uploads.github.com/repos/{repo}/releases/{rel['id']}/assets",
                       params={"name": ad}, data=Path(pdf).read_bytes(), timeout=120,
-                      headers=dict(h, **{"Content-Type": "application/pdf"}))
+                      headers=dict(h, **{"Content-Type": tur}))
     r.raise_for_status()
     return r.json()["browser_download_url"]
 
+def eposta_html(gun, url, pdf_link=None):
+    """E-posta istemcilerinde (Gmail, Outlook/Hotmail, telefon) duzgun gorunen HTML: tablo duzeni,
+       satir ici stiller (Outlook <style> bloklarini atar). scripts/gmail_ilet.gs bunu gonderir."""
+    e = html.escape
+    ys = yildizlar(gun)
+    toplam = sum(len(b["kalemler"]) for s in gun["sayilar"] for b in s["bolumler"])
+    F = "font-family:Segoe UI,Helvetica,Arial,sans-serif;"
+    renk = {"Enerji": ("#b35c00", "#fff1e0"), "Sanayi": ("#1f5fbf", "#e6efff"), "Ekonomi": ("#1b7a4b", "#e2f4ea")}
+    def dugme(href, yazi, ana=False):
+        st = ("background:#b4232a;color:#ffffff;" if ana else "background:#ffffff;color:#b4232a;border:1px solid #b4232a;")
+        return (f'<a href="{e(href)}" style="{F}{st}display:inline-block;padding:8px 14px;border-radius:8px;'
+                f'font-size:14px;font-weight:600;text-decoration:none;margin:0 6px 6px 0">{yazi}</a>')
+    h = [f'<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">'
+         f'</head><body style="margin:0;padding:0;background:#f6f5f2">'
+         f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6f5f2"><tr><td align="center" style="padding:16px 8px">'
+         f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:680px;background:#ffffff;border-radius:12px;border:1px solid #e3e1dc">'
+         f'<tr><td style="padding:20px 22px 12px;border-bottom:3px solid #b4232a">'
+         f'<div style="{F}font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#b4232a;font-weight:700">Resmî Gazete Arşivi</div>'
+         f'<div style="font-family:Georgia,serif;font-size:24px;font-weight:700;color:#1d1f23;margin:4px 0 2px">{e(tarih_uzun(gun["ymd"]))}</div>'
+         f'<div style="{F}font-size:14px;color:#62666d">Sayı {e(str(gun["sayi"]))} · {toplam} kalem · <b>{len(ys)} ilgi alanı kalemi</b></div>'
+         f'<div style="margin-top:12px">{dugme(url + "#" + gun["ymd"], "👉 Sayfada aç", True)}'
+         f'{dugme(url + "#" + gun["ymd"] + "-dinle", "🔊 Dinle")}'
+         + (dugme(pdf_link, "📄 Özet PDF") if pdf_link else "") + dugme(gun["pdf"], "Gazetenin PDF'i") + '</div></td></tr>']
+    h.append(f'<tr><td style="padding:16px 22px 4px;{F}font-size:12px;font-weight:700;letter-spacing:.08em;color:#62666d">'
+             + (f"★ İLGİ ALANINA GİRENLER ({len(ys)})" if ys else "İLGİ ALANINA GİREN KALEM YOK") + "</td></tr>")
+    for s, b, k in ys:
+        fg, bg = renk.get(k["alan"].split()[0], ("#62666d", "#efede8"))
+        ar = k.get("kesit") or {}
+        sf = f"s. {ar['ilk']}–{ar['son']}" if ar and ar["son"] > ar["ilk"] else f"s. {k['sayfa']}"
+        ets = [x for x in k.get("etiket") or [] if x != etiket.ETIKETSIZ and x not in ("Değişiklik", "Yeni Düzenleme")]
+        yz = k.get("yz") or {}
+        h.append(f'<tr><td style="padding:8px 22px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" '
+                 f'style="border-left:4px solid #b4232a;background:#fbfaf8;border-radius:6px"><tr><td style="padding:12px 14px">'
+                 f'<div style="{F}font-size:12px;color:#62666d"><span style="background:{bg};color:{fg};font-weight:700;'
+                 f'padding:2px 8px;border-radius:10px">{e(k["alan"])}</span> &nbsp;{e(b["bolum"])} · '
+                 f'<a href="{e((s.get("pdf") or gun["pdf"]) + "#page=" + str(k["sayfa"]))}" style="color:#1f5fbf">{sf}</a></div>'
+                 f'<div style="{F}font-size:16px;font-weight:700;color:#1d1f23;margin:8px 0 6px;line-height:1.35">{e(k["baslik"])}</div>')
+        if ets:
+            h.append(f'<div style="{F}font-size:11px;color:#62666d;margin-bottom:6px">'
+                     + " ".join(f'<span style="border:1px solid #d6d3cd;border-radius:5px;padding:1px 6px">{e(x)}</span>' for x in ets)
+                     + "</div>")
+        if yz.get("ne_getiriyor"):
+            h.append(f'<ul style="{F}font-size:14px;color:#1d1f23;line-height:1.5;margin:6px 0 4px;padding-left:20px">'
+                     + "".join(f'<li style="margin:3px 0">{e(m)}</li>' for m in yz["ne_getiriyor"]) + "</ul>")
+            if yz.get("yururluk"):
+                h.append(f'<div style="{F}font-size:13px;color:#1d1f23;margin-top:6px"><b>Yürürlük:</b> {e(yz["yururluk"])}</div>')
+        elif k.get("alinti"):
+            h.append(f'<div style="{F}font-size:13px;color:#3a3d42">{e(k["alinti"][:500])}</div>')
+        h.append("</td></tr></table></td></tr>")
+    diger = [(s, b, [k for k in b["kalemler"] if not k.get("alan")]) for s in gun["sayilar"] for b in s["bolumler"]]
+    diger = [(s, b, ks) for s, b, ks in diger if ks]
+    if diger:
+        h.append(f'<tr><td style="padding:16px 22px 4px;{F}font-size:12px;font-weight:700;letter-spacing:.08em;color:#62666d">'
+                 f'DİĞER KALEMLER ({sum(len(ks) for _, _, ks in diger)})</td></tr><tr><td style="padding:0 22px 8px">')
+        for s, b, ks in diger:
+            h.append(f'<div style="{F}font-size:13px;font-weight:700;color:#1d1f23;margin:10px 0 2px">'
+                     f'{e((str(s["mukerrer"]) + ". Mükerrer · ") if s["mukerrer"] else "")}{e(b["bolum"])}</div>'
+                     f'<ul style="{F}font-size:13px;color:#3a3d42;line-height:1.45;margin:2px 0;padding-left:18px">'
+                     + "".join(f'<li style="margin:2px 0">{e(k["baslik"])} <span style="color:#8a8e95">(s. {k["sayfa"]})</span></li>' for k in ks)
+                     + "</ul>")
+        h.append("</td></tr>")
+    h.append(f'<tr><td style="padding:14px 22px 18px;{F}font-size:11px;color:#8a8e95;border-top:1px solid #e3e1dc">'
+             f'Otomatik özetler yapay zekâ ile üretilir, hata içerebilir; kesin metin için PDF. '
+             f'GitHub Actions tarafından gazetenin kendi metninden üretildi.</td></tr></table></td></tr></table></body></html>')
+    return "".join(h)
+
 def ozet_pdf_linki(ymd, url, token, repo):
-    """bildir.py'den: ozet PDF'ini uret, release'e ekle, linkini dondur (hata olursa None)."""
+    """bildir.py'den: ozet PDF'ini uret, release'e ekle; ayrica e-posta HTML'ini (Eposta-YYYYAAGG.html)
+       ekle (Gmail iletme betigi onu gonderir). PDF linkini dondur (hata olursa None)."""
     try:
         pdf = pdf_yap(ymd, url)
-        return release_yukle(ymd, pdf, token, repo) if pdf else None
+        link = release_yukle(ymd, pdf, token, repo) if pdf else None
+        try:
+            d = Path(tempfile.mkdtemp()) / f"Eposta-{ymd}.html"
+            d.write_text(eposta_html(gun_al(ymd), url, link), encoding="utf-8")
+            release_yukle(ymd, d, token, repo, ad=d.name, tur="text/html; charset=utf-8")
+        except Exception as e:
+            print(f"::warning::e-posta HTML'i: {e.__class__.__name__}: {str(e)[:200]}")
+        return link
     except Exception as e:
         print(f"::warning::ozet PDF'i: {e.__class__.__name__}: {str(e)[:200]}")
         return None
