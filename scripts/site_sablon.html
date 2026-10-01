@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resmî Gazete Arşivi</title>
+<meta name="description" content="Resmî Gazete günlük arşivi: ilgi alanı kalemleri, alıntılar ve eski/yeni karşılaştırmaları.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b4232a'/%3E%3Ctext x='16' y='22' font-size='15' font-family='Georgia,serif' font-weight='700' text-anchor='middle' fill='white'%3ERG%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f6f5f2; --panel:#ffffff; --ink:#1d1f23; --muted:#62666d; --line:#e3e1dc; --soft:#efede8;
+  --accent:#b4232a; --accent-ink:#ffffff; --focus:#2f6fde;
+  --enerji:#b35c00; --enerji-bg:#fff1e0; --sanayi:#1f5fbf; --sanayi-bg:#e6efff; --finans:#1b7a4b; --finans-bg:#e2f4ea;
+  --eski:#a3262c; --eski-bg:#fdecec; --yeni:#17703f; --yeni-bg:#e6f5ec; --mark:#fff0a8;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141518; --panel:#1c1e22; --ink:#e8e8ea; --muted:#9a9ea6; --line:#2d3036; --soft:#24272c;
+    --accent:#e0555b; --accent-ink:#141518; --focus:#7aa7ff;
+    --enerji:#ffb35c; --enerji-bg:#3a2a16; --sanayi:#8cb4ff; --sanayi-bg:#1d2a44; --finans:#6fd39f; --finans-bg:#173326;
+    --eski:#ff8a8f; --eski-bg:#3a1c1e; --yeni:#7fdca6; --yeni-bg:#16321f; --mark:#5c4d10;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141518; --panel:#1c1e22; --ink:#e8e8ea; --muted:#9a9ea6; --line:#2d3036; --soft:#24272c;
+  --accent:#e0555b; --accent-ink:#141518; --focus:#7aa7ff;
+  --enerji:#ffb35c; --enerji-bg:#3a2a16; --sanayi:#8cb4ff; --sanayi-bg:#1d2a44; --finans:#6fd39f; --finans-bg:#173326;
+  --eski:#ff8a8f; --eski-bg:#3a1c1e; --yeni:#7fdca6; --yeni-bg:#16321f; --mark:#5c4d10;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.ust{position:sticky;top:0;z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+.ust-ic{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+.logo b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:7px;background:var(--accent);color:var(--accent-ink);font:700 13px Georgia,serif}
+.ara{flex:1 1 220px;min-width:0;position:relative}
+.ara input{width:100%;padding:8px 12px 8px 34px;border:1px solid var(--line);border-radius:9px;background:var(--bg)}
+.ara svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}
+.filtre{display:flex;gap:6px;flex-wrap:wrap}
+.cip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer;white-space:nowrap}
+.cip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.tema{border:1px solid var(--line);background:var(--panel);border-radius:9px;width:36px;height:36px;cursor:pointer;display:grid;place-items:center}
+.duzen{max-width:1180px;margin:0 auto;padding:16px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start}
+.yan{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.yan h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0;padding:12px 14px 6px}
+.gunler{list-style:none;margin:0;padding:0 6px 8px}
+.gunler a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none}
+.gunler a:hover{background:var(--soft)}
+.gunler a[aria-current="true"]{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
+.g-ust{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.g-tarih{font-weight:600}
+.g-sayi{font-size:12px;color:var(--muted)}
+.g-alt{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.g-eslesme{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.4}
+.g-eslesme div{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+.etiket{display:inline-block;font-size:11.5px;font-weight:600;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.e-Enerji{color:var(--enerji);background:var(--enerji-bg)}
+.e-Sanayi{color:var(--sanayi);background:var(--sanayi-bg)}
+.e-Ekonomi{color:var(--finans);background:var(--finans-bg)}
+.e-yok{color:var(--muted);background:var(--soft)}
+.ana{min-width:0}
+.bas{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.bas-ust{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+.bas h1{margin:0;font:700 24px/1.25 Georgia,"Times New Roman",serif}
+.bas .alt{color:var(--muted);margin-top:4px}
+.dugmeler{display:flex;gap:8px;flex-wrap:wrap}
+.dugme{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:7px 12px;text-decoration:none;font-size:14px;cursor:pointer}
+.dugme.ana-d{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.dugme[disabled]{opacity:.4;pointer-events:none}
+.sayac{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.sayac div{font-size:13px;color:var(--muted)}
+.sayac b{display:block;font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums}
+.bolum-bas{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:22px 2px 8px;font-weight:600}
+.kart{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.kart.yildiz{border-left:4px solid var(--accent)}
+.kart h3{margin:6px 0 6px;font-size:16.5px;line-height:1.4}
+.kart .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.kart .meta a{color:var(--muted)}
+.alinti{color:var(--ink);opacity:.9;font-size:14.5px;margin:6px 0 0;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
+.alinti.acik{-webkit-line-clamp:unset}
+.tablo-sar{overflow-x:auto;margin:12px 0 4px;border:1px solid var(--line);border-radius:9px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td.madde{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted)}
+td.eski span{background:var(--eski-bg);color:var(--eski);border-radius:4px;padding:1px 4px;text-decoration:line-through;text-decoration-thickness:1px}
+td.yeni span{background:var(--yeni-bg);color:var(--yeni);border-radius:4px;padding:1px 4px}
+td small{display:block;color:var(--muted);margin-top:3px}
+.notlar{font-size:13px;color:var(--muted);margin:8px 0 0;padding-left:18px}
+details.tam{margin-top:10px}
+details.tam summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--accent)}
+details.tam pre{white-space:pre-wrap;word-wrap:break-word;font:13.5px/1.6 Georgia,"Times New Roman",serif;background:var(--soft);padding:12px 14px;border-radius:9px;max-height:60vh;overflow:auto;margin:8px 0 0}
+details.grup{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;box-shadow:var(--shadow)}
+details.grup>summary{cursor:pointer;padding:12px 16px;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+details.grup>summary span{color:var(--muted);font-weight:400;font-size:13px}
+.liste{list-style:none;margin:0;padding:0 16px 8px}
+.liste li{padding:10px 0;border-top:1px solid var(--line)}
+.liste .lb{font-weight:500}
+.liste .la{font-size:13.5px;color:var(--muted);margin-top:3px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.liste .la.acik{-webkit-line-clamp:unset}
+.ilan{font-size:13.5px;color:var(--muted);margin:14px 2px}
+.bos{color:var(--muted);padding:40px 16px;text-align:center}
+.mobil-gunler{display:none}
+.alt-not{max-width:1180px;margin:0 auto;padding:8px 16px 32px;color:var(--muted);font-size:12.5px}
+@media (max-width:860px){
+  .duzen{grid-template-columns:1fr;padding:12px 16px}
+  .yan{position:static;max-height:none;display:none}
+  .yan.acik{display:block;max-height:60vh}
+  .mobil-gunler{display:inline-flex}
+  .bas h1{font-size:20px}
+  .ust-ic{gap:8px}
+  .filtre{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+}
+</style>
+</head>
+<body>
+<header class="ust">
+  <div class="ust-ic">
+    <a class="logo" href="#"><b>RG</b><span>Resmî Gazete Arşivi</span></a>
+    <label class="ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="ara" type="search" placeholder="Ara: EPDK, damping, MASAK…" aria-label="Başlık ve metinlerde ara"></label>
+    <div class="filtre" id="filtre" role="group" aria-label="Filtre"></div>
+    <button class="dugme mobil-gunler" id="mobilGunler" aria-expanded="false">Günler</button>
+    <button class="tema" id="tema" aria-label="Tema değiştir" title="Tema değiştir"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
+</header>
+<div class="duzen">
+  <nav class="yan" id="yan" aria-label="Günler"><h2 id="yanBaslik">Günler</h2><ul class="gunler" id="gunler"></ul></nav>
+  <main class="ana" id="ana"><div class="bos">Yükleniyor…</div></main>
+</div>
+<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir; yorum içermez. Kesin metin için PDF'e bakın.</p>
+<script>
+(function(){
+"use strict";
+var VERI = null, GUN = {}, durum = {alan: "", yildiz: false, ara: "", ymd: ""};
+var $ = function(id){ return document.getElementById(id); };
+function kac(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function trKucuk(s){ return s.toLocaleLowerCase("tr"); }
+function norm(s){ return trKucuk(s).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i"); }
+function vurgula(metin, q){
+  if (!q) return kac(metin);
+  var n = norm(metin), nq = norm(q), i = n.indexOf(nq);
+  if (i < 0) return kac(metin);
+  return kac(metin.slice(0, i)) + "<mark>" + kac(metin.slice(i, i + q.length)) + "</mark>" + kac(metin.slice(i + q.length));
+}
+// Kisaltmalar basliklarda acik adla gecer: ikisinden biri eslesirse yeter
+var KISA = {epdk: "enerji piyasasi duzenleme", epias: "enerji piyasalari isletme", teias: "turkiye elektrik iletim",
+  euas: "elektrik uretim", masak: "mali suclari arastirma", tcmb: "merkez bankasi", bddk: "bankacilik duzenleme",
+  spk: "sermaye piyasasi", tse: "turk standartlari", aym: "anayasa mahkemesi", hsk: "hakimler ve savcilar"};
+function uyar(metin, q){
+  var n = norm(metin), nq = norm(q);
+  return n.indexOf(nq) >= 0 || (KISA[nq] && n.indexOf(KISA[nq]) >= 0);
+}
+function etiket(alan){ return alan ? '<span class="etiket e-' + kac(alan.split(" ")[0]) + '">' + kac(alan) + "</span>" : ""; }
+function tarihUzun(ymd){
+  var d = new Date(+ymd.slice(0,4), +ymd.slice(4,6) - 1, +ymd.slice(6,8));
+  return d.toLocaleDateString("tr-TR", {day: "numeric", month: "long", year: "numeric", weekday: "long"});
+}
+function tarihKisa(ymd){
+  var d = new Date(+ymd.slice(0,4), +ymd.slice(4,6) - 1, +ymd.slice(6,8));
+  return d.toLocaleDateString("tr-TR", {day: "numeric", month: "short", weekday: "short"});
+}
+function sakla(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }
+function oku(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+// Tema
+var kayitliTema = oku("rg-tema");
+if (kayitliTema) document.documentElement.setAttribute("data-theme", kayitliTema);
+$("tema").onclick = function(){
+  var koyu = document.documentElement.getAttribute("data-theme") === "dark" ||
+    (!document.documentElement.getAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+  var yeni = koyu ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", yeni); sakla("rg-tema", yeni);
+};
+$("mobilGunler").onclick = function(){
+  var acik = $("yan").classList.toggle("acik"); this.setAttribute("aria-expanded", acik);
+};
+
+function filtreCiz(){
+  var h = '<button class="cip" data-a="" aria-pressed="' + (!durum.alan && !durum.yildiz) + '">Tümü</button>' +
+          '<button class="cip" data-y="1" aria-pressed="' + durum.yildiz + '">★ Yalnız ilgi alanı</button>';
+  VERI.alanlar.forEach(function(a){
+    h += '<button class="cip" data-a="' + kac(a) + '" aria-pressed="' + (durum.alan === a) + '">' + kac(a) + "</button>";
+  });
+  $("filtre").innerHTML = h;
+  Array.prototype.forEach.call($("filtre").children, function(b){
+    b.onclick = function(){
+      if (b.dataset.y) { durum.yildiz = !durum.yildiz; }
+      else if (!b.dataset.a) { durum.alan = ""; durum.yildiz = false; }
+      else { durum.alan = durum.alan === b.dataset.a ? "" : b.dataset.a; }
+      filtreCiz(); listeCiz();
+    };
+  });
+}
+
+function gunUyar(g){
+  var ys = durum.alan ? g.yildiz.filter(function(y){ return y.alan === durum.alan; }) : g.yildiz;
+  if ((durum.yildiz || durum.alan) && !ys.length) return null;
+  var eslesme = [];
+  if (durum.ara) {
+    eslesme = g.basliklar.filter(function(b, i){ return uyar(b, durum.ara) || uyar((g.alintilar || [])[i] || "", durum.ara); });
+    if (!eslesme.length && String(g.sayi).indexOf(durum.ara) < 0 && g.tarih.indexOf(durum.ara) < 0) return null;
+  }
+  return {ys: ys, eslesme: eslesme};
+}
+
+function listeCiz(){
+  var h = "", n = 0;
+  VERI.gunler.forEach(function(g){
+    var u = gunUyar(g); if (!u) return; n++;
+    var sayim = {};
+    g.yildiz.forEach(function(y){ sayim[y.alan] = (sayim[y.alan] || 0) + 1; });
+    var rozet = Object.keys(sayim).map(function(a){ return '<span class="etiket e-' + kac(a.split(" ")[0]) + '">★ ' + sayim[a] + " " + kac(a.split(" ")[0]) + "</span>"; }).join("");
+    if (!rozet) rozet = '<span class="etiket e-yok">' + g.kalem + " kalem</span>";
+    var esl = u.eslesme.slice(0, 3).map(function(b){ return "<div>" + vurgula(b, durum.ara) + "</div>"; }).join("");
+    if (u.eslesme.length > 3) esl += "<div>+" + (u.eslesme.length - 3) + " başlık daha</div>";
+    h += '<li><a href="#' + g.ymd + '" aria-current="' + (g.ymd === durum.ymd) + '">' +
+         '<div class="g-ust"><span class="g-tarih">' + kac(tarihKisa(g.ymd)) + '</span><span class="g-sayi">Sayı ' + kac(g.sayi) +
+         (g.mukerrer ? " +" + g.mukerrer + " mük." : "") + "</span></div>" +
+         '<div class="g-alt">' + rozet + "</div>" + (esl ? '<div class="g-eslesme">' + esl + "</div>" : "") + "</a></li>";
+  });
+  $("gunler").innerHTML = h || '<li class="bos">Eşleşen gün yok.</li>';
+  $("yanBaslik").textContent = n + " gün" + (durum.ara || durum.alan || durum.yildiz ? " (filtreli)" : "");
+}
+
+function tablo(k){
+  var c = k.karsilastirma; if (!c || !c.satirlar.length) return "";
+  var not = function(s){ var m = s.match(/^(.*?)\s*(\((?:kaynakta|kısmen|kaynak|doğrulanamadı|OCR|birimde|yeni|kaldırıldı|yükte)[^)]*\))\s*$/); return m ? [m[1], m[2]] : [s, ""]; };
+  var h = '<div class="tablo-sar"><table><thead><tr><th>Madde</th><th>Eski</th><th>Yeni</th></tr></thead><tbody>';
+  c.satirlar.forEach(function(r){
+    var e = not(r[1] || ""), y = not(r[2] || "");
+    h += '<tr><td class="madde">' + kac(r[0]) + '</td><td class="eski"><span>' + kac(e[0]) + "</span>" + (e[1] ? "<small>" + kac(e[1]) + "</small>" : "") +
+         '</td><td class="yeni"><span>' + kac(y[0]) + "</span>" + (y[1] ? "<small>" + kac(y[1]) + "</small>" : "") + "</td></tr>";
+  });
+  h += "</tbody></table></div>";
+  if (c.notlar.length) h += '<ul class="notlar">' + c.notlar.map(function(n){ return "<li>" + kac(n) + "</li>"; }).join("") + "</ul>";
+  return h;
+}
+
+function pdfLink(pdf, s){ return pdf ? '<a href="' + kac(pdf) + (s ? "#page=" + s : "") + '" target="_blank" rel="noopener">s. ' + kac(s) + " · PDF</a>" : (s ? "s. " + s : ""); }
+
+function gunCiz(g){
+  var yildizlar = [], toplam = 0, h = "";
+  g.sayilar.forEach(function(s){ s.bolumler.forEach(function(b){ b.kalemler.forEach(function(k){ toplam++; if (k.alan) yildizlar.push([s, b, k]); }); }); });
+  var i = VERI.gunler.findIndex(function(x){ return x.ymd === g.ymd; });
+  var once = VERI.gunler[i + 1], sonra = VERI.gunler[i - 1];
+  h += '<section class="bas"><div class="bas-ust"><div><h1>' + kac(tarihUzun(g.ymd)) + '</h1><div class="alt">Resmî Gazete · Sayı ' + kac(g.sayi) +
+       (g.sayilar.length > 1 ? " · " + (g.sayilar.length - 1) + " mükerrer" : "") + "</div></div>" +
+       '<div class="dugmeler"><a class="dugme" href="#' + (once ? once.ymd : "") + '"' + (once ? "" : " disabled") + '>‹ Önceki</a>' +
+       '<a class="dugme" href="#' + (sonra ? sonra.ymd : "") + '"' + (sonra ? "" : " disabled") + '>Sonraki ›</a>' +
+       '<a class="dugme ana-d" href="' + kac(g.pdf) + '" target="_blank" rel="noopener">PDF</a></div></div>' +
+       '<div class="sayac"><div><b>' + yildizlar.length + "</b>ilgi alanı kalemi</div><div><b>" + toplam + "</b>toplam kalem</div><div><b>" +
+       kac(g.sayfa || "—") + '</b>sayfa</div><div><b><a href="https://github.com/uguryetgin/resmi-gazete-arsiv/releases/tag/rg-' + g.ymd + '" target="_blank" rel="noopener">Arşiv</a></b>GitHub sürümü</div></div></section>';
+
+  if (yildizlar.length) {
+    h += '<div class="bolum-bas">★ İlgi alanına girenler</div>';
+    yildizlar.forEach(function(t){
+      var s = t[0], k = t[2];
+      h += '<article class="kart yildiz"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
+           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + pdfLink(s.pdf, k.sayfa) + "</div>" +
+           "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" +
+           (k.karsilastirma ? tablo(k) : (k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
+           (k.tam_metin ? '<details class="tam"><summary>Tam metni göster' + (k.kesildi ? " (uzun; ortası kısaltıldı)" : "") + "</summary><pre>" + kac(k.tam_metin) + "</pre></details>" : "") +
+           "</article>";
+    });
+  } else {
+    h += '<div class="bolum-bas">★ İlgi alanına giren kalem yok</div>';
+  }
+
+  g.sayilar.forEach(function(s){
+    if (s.mukerrer) h += '<div class="bolum-bas">' + s.mukerrer + ". Mükerrer</div>";
+    else h += '<div class="bolum-bas">Tüm kalemler</div>';
+    s.bolumler.forEach(function(b){
+      var acik = b.kalemler.some(function(k){ return durum.ara && uyar(k.baslik + " " + (k.alinti || ""), durum.ara); });
+      h += '<details class="grup"' + (acik || s.bolumler.length === 1 ? " open" : "") + "><summary>" + kac(b.bolum || "Kalemler") + "<span>" + b.kalemler.length + " kalem</span></summary><ul class=\"liste\">";
+      b.kalemler.forEach(function(k){
+        h += '<li><div class="lb">' + (k.alan ? "★ " : "") + vurgula(k.baslik, durum.ara) + "</div>" +
+             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + "</div>" +
+             (k.alinti ? '<div class="la">' + vurgula(k.alinti, durum.ara) + "</div>" : "") + "</li>";
+      });
+      h += "</ul></details>";
+    });
+    if (s.ilan) h += '<p class="ilan">' + kac(s.ilan) + "</p>";
+  });
+  $("ana").innerHTML = h;
+  Array.prototype.forEach.call(document.querySelectorAll(".la,.alinti"), function(el){ el.onclick = function(){ el.classList.toggle("acik"); }; });
+}
+
+function git(){
+  var ymd = location.hash.replace("#", "");
+  if (!/^\d{8}$/.test(ymd)) ymd = VERI.gunler.length ? VERI.gunler[0].ymd : "";
+  durum.ymd = ymd; listeCiz();
+  if (!ymd) { $("ana").innerHTML = '<div class="bos">Henüz gün yok.</div>'; return; }
+  $("yan").classList.remove("acik");
+  var yukle = GUN[ymd] ? Promise.resolve(GUN[ymd]) :
+    fetch("gun/" + ymd + ".json").then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(g){ GUN[ymd] = g; return g; });
+  yukle.then(function(g){ if (durum.ymd === ymd) { gunCiz(g); window.scrollTo(0, 0); document.title = g.tarih + " · Resmî Gazete Arşivi"; } })
+       .catch(function(){ $("ana").innerHTML = '<div class="bos">Bu gün bulunamadı.</div>'; });
+}
+
+var araZaman;
+$("ara").oninput = function(){
+  clearTimeout(araZaman); var v = this.value.trim();
+  araZaman = setTimeout(function(){ durum.ara = v; listeCiz(); if (GUN[durum.ymd]) gunCiz(GUN[durum.ymd]); }, 150);
+};
+window.addEventListener("hashchange", git);
+fetch("gunler.json").then(function(r){ return r.json(); }).then(function(v){ VERI = v; filtreCiz(); git(); })
+  .catch(function(){ $("ana").innerHTML = '<div class="bos">Veri yüklenemedi.</div>'; });
+})();
+</script>
+</body>
+</html>

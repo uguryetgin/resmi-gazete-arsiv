@@ -1,0 +1,46 @@
+name: Web sayfası
+
+# Arsivden statik sayfayi uretir ve GitHub Pages'e yayimlar (yapay zeka yok).
+# Gunluk indirme GITHUB_TOKEN ile push ettigi icin "push" tetiklemez; bu yuzden
+# indirme is akisi bitince (workflow_run) calisir.
+on:
+  workflow_run:
+    workflows: ["Resmî Gazete indir"]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: [scripts/site.py, scripts/site_sablon.html, ilgi.txt, .github/workflows/site.yml]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  yayimla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.dagit.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Sayfayı üret
+        run: |
+          pip install --quiet requests
+          python scripts/site.py site
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: dagit
+        uses: actions/deploy-pages@v4
