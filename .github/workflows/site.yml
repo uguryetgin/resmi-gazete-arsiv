@@ -10,8 +10,13 @@ on:
     types: [completed]
   push:
     branches: [main]
-    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, scripts/bildir.py, ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
+    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, scripts/bildir.py, scripts/eposta.py, ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
   workflow_dispatch:
+    inputs:
+      bildirim_tekrar:
+        description: "Bugünün bildirimini (GitHub, telefon, e-posta) yeniden gönder"
+        type: boolean
+        default: false
 
 concurrency:
   group: pages
@@ -62,4 +67,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           SAYFA_URL: ${{ steps.dagit.outputs.page_url }}
+          BILDIRIM_TEKRAR: ${{ github.event.inputs.bildirim_tekrar }}
+          # Ozet PDF'li e-posta (Gmail uygulama sifresi) ve ntfy telefon bildirimi; tanimsizsa atlanir
+          MAIL_ADRES: ${{ secrets.MAIL_ADRES }}
+          MAIL_SIFRE: ${{ secrets.MAIL_SIFRE }}
+          MAIL_ALICI: ${{ vars.MAIL_ALICI }}
+          NTFY_KONU: ${{ secrets.NTFY_KONU }}
         run: python scripts/bildir.py
