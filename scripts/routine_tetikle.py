@@ -91,7 +91,7 @@ def alintilar(notlar):
             out[son] = l.strip()
     return out
 
-def tam_metinler(baslik, eslesen, butce=TAM_BUTCE):
+def tam_metinler(baslik, eslesen, butce=TAM_BUTCE, kalem_siniri=TAM_KALEM):
     """★ kalemlerin gazetedeki tam metni: [(kalem satiri, metin, kesildi)]. Gunun metni
     data/YYYY/AA/YYYYAAGG.txt.gz'den okunur (isleme adimindan once yerelde vardir)."""
     m = re.search(r"(\d{2})\.(\d{2})\.(\d{4})", baslik)
@@ -121,7 +121,7 @@ def tam_metinler(baslik, eslesen, butce=TAM_BUTCE):
             continue
         govde = re.sub(r"([a-zçğıöşü])-\s*\n\s*([a-zçğıöşü])", r"\1\2", govde)   # tireleme
         govde = re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n", govde)).strip()
-        sinir = min(TAM_KALEM, butce)
+        sinir = min(kalem_siniri, butce)
         kesildi = len(govde) > sinir
         if kesildi:   # bas + yururluk maddeleri cevresi (ekler/cetveller genelde onlardan sonra)
             son = min(SON_KISIM, sinir // 3)

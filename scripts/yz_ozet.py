@@ -26,7 +26,8 @@ MODEL = os.environ.get("YZ_MODEL", "").strip() or "openai/gpt-4.1-mini"
 # Ana model yogunluktan (503) ya da kaldirildigi icin (404) yanit vermezse sirayla denenenler
 YEDEKLER = [m.strip() for m in os.environ.get("YZ_YEDEK_MODELLER", "").split(",") if m.strip()]
 SON_MODEL = MODEL          # son basarili cagrinin modeli (kayit/etiket icin)
-METIN_SINIR = 14000        # karakter; ucretsiz katmanda istek basina girdi siniri dusuk
+METIN_SINIR = 30000        # karakter (Gemini girdisi genis; uzun kalemlerin tamami ozetlensin)
+SURUM = 2                  # ozet bicimi; eski surumdeki ozetler yeniden uretilir
 BEKLE = 12                 # istekler arasi saniye (ucretsiz katman dakikalik kotasi dusuk)
 GUN_SINIR = int(os.environ.get("YZ_GUN_SINIR", "30") or 30)
 
@@ -35,9 +36,11 @@ SISTEM = ("Türkçe hukuk metinlerini özetleyen dikkatli bir asistansın. Yaln�
           "madde numaralarını aynen aktar. Yanıtın yalnız geçerli bir JSON nesnesi olsun.")
 ISTEK = ("Aşağıdaki Resmî Gazete kaleminin metnini özetle.\n"
          "JSON biçimi: {{\"ne_getiriyor\": [\"...\", ...], \"yururluk\": \"...\"}}\n"
-         "- ne_getiriyor: 3-5 kısa madde (her biri tek cümle, en çok 30 kelime): kimi kapsıyor, ne "
-         "yapılıyor ya da değişiyor, tutar/oran/süre gibi somut rakamlar, yükümlülükler. En önemli "
-         "hükümden başla; tanım, amaç, dayanak ve yürütme maddelerini atla.\n"
+         "- ne_getiriyor: 5-10 madde (her biri 1-2 cümle, en çok 45 kelime), metnin sırasıyla tüm "
+         "esaslı hükümleri kapsasın: kimi/neyi kapsıyor, ne yapılıyor ya da neyi nasıl değiştiriyor "
+         "(eski/yeni hâli belliyse ikisini de yaz), tutar/oran/süre/tarih gibi somut rakamlar, "
+         "yükümlülükler, yasaklar, yaptırımlar, istisnalar ve geçiş hükümleri. Okuyan metni açmadan "
+         "ne getirdiğini anlamalı. Tanım, amaç, dayanak ve yürütme maddelerini atla.\n"
          "- yururluk: yürürlük tarihi ve varsa geçiş/son başvuru süreleri, yürürlükten kaldırılan "
          "mevzuat; metinde yoksa \"metinde belirtilmemiş\".\n\n"
          "Başlık: {baslik}\n\nMetin:\n{metin}")
@@ -66,7 +69,7 @@ def istek(token, govde, deneme=3):
     return r
 
 def sor(token, baslik, metin):
-    govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 4000,   # dusunen modeller payi
+    govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 8000,   # dusunen modeller payi
              "response_format": {"type": "json_object"},
              "messages": [{"role": "system", "content": SISTEM},
                           {"role": "user", "content": ISTEK.format(baslik=baslik, metin=metin)}]}
@@ -80,10 +83,10 @@ def sor(token, baslik, metin):
         veri = json.loads(m.group(0) if m else icerik)
     except Exception as e:
         raise ValueError(f"{e} | HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:300]!r}")
-    maddeler = [str(x).strip() for x in veri.get("ne_getiriyor") or [] if str(x).strip()][:6]
+    maddeler = [str(x).strip() for x in veri.get("ne_getiriyor") or [] if str(x).strip()][:10]
     if not maddeler:
         raise ValueError("bos yanit")
-    return {"ne_getiriyor": maddeler, "yururluk": str(veri.get("yururluk") or "").strip()}
+    return {"ne_getiriyor": maddeler, "yururluk": str(veri.get("yururluk") or "").strip(), "surum": SURUM}
 
 class KotaDoldu(Exception):
     pass
@@ -100,10 +103,11 @@ def gun_isle(ymd, token, alanlar, haric):
     if not eslesen:
         return 0
     kayit = json.loads(yol(ymd).read_text(encoding="utf-8")) if yol(ymd).exists() else {"kalemler": {}}
-    eksik = {k: a for k, a in eslesen.items() if k not in kayit["kalemler"]}
+    eksik = {k: a for k, a in eslesen.items()
+             if (kayit["kalemler"].get(k) or {}).get("surum", 1) < SURUM}
     if not eksik:
         return 0
-    tam = rt.tam_metinler(f"Resmî Gazete {meta['tarih']}", eksik, 10 ** 7)
+    tam = rt.tam_metinler(f"Resmî Gazete {meta['tarih']}", eksik, 10 ** 7, METIN_SINIR)
     yeni = 0
     try:
         for k, metin, _ in tam:

@@ -2,14 +2,21 @@
  "kalemler": {
   "2027-2029 Dönemi Kamu Yatırım Programı Hazırlıkları ile İlgili 2026/10 Sayılı Cumhurbaşkanlığı Genelgesi (s. 1)": {
    "ne_getiriyor": [
-    "2027 Yılı Kamu Yatırım Programı hazırlıklarında On İkinci Kalkınma Planı ve 2027-2029 dönemi Orta Vadeli Program esas alınacaktır.",
-    "Tasarruf tedbirleri kapsamında zorunlu haller dışında 2027 Yılı Kamu Yatırım Programı'na yeni proje alınmayacaktır.",
-    "Proje bazında ödenek teklif ve tahsislerinde, devam eden öncelikli projelerden en kısa sürede tamamlanabilecek olanlara öncelik verilecektir.",
-    "Kuruluşlar, yatırım teklifi değişiklik önerilerini 17 Haziran 2026 tarihli Yatırım Talepleri Duyurusuna istinaden KaYa sistemi üzerinden Strateji ve Bütçe Başkanlığına gönderecektir."
+    "2027-2029 dönemi Kamu Yatırım Programı hazırlıkları; On İkinci Kalkınma Planı, 2027-2029 dönemi Orta Vadeli Program (OVP), bölge planları, eylem planları ve idare stratejik planlarına dayandırılacaktır.",
+    "Yatırım ödenek teklif ve tahsislerinde en kısa sürede tamamlanabilecek devam eden öncelikli projelere öncelik verilecek, tasarruf tedbirleri kapsamında zorunlu haller dışında 2027 Yılı Kamu Yatırım Programı'na yeni proje alınmayacaktır.",
+    "Kuruluşlar yatırım tekliflerini 2027 yılı fiyatlarıyla hazırlayacak olup, gösterge niteliğindeki yıllık ortalama döviz kuru 1 ABD Doları = 56,0507 TL olarak kullanılacaktır.",
+    "Yatırım tekliflerine cari nitelikteki harcamalar, kredi anapara geri ödemeleri ve işletme dönemi faiz ödemeleri dahil edilmeyecek; proje tekliflerindeki fiyat farkı, kur farkı ve iş artışı proje tutarına dahil edilmeyecektir.",
+    "Tarım ve sulama sektöründe, sulama sahası 1.000 hektardan büyük tüm tesisler, rehabilitasyon veya modernizasyon projeleri dahil müstakil proje olarak teklif edilecektir.",
+    "Turizm sektöründe yatırımların kapsamı altyapının tesisi ile sınırlı olup üstyapı içermeyecek; mahalli idarelerin turizm amaçlı altyapı yatırımları destinasyon yönetimi bazında geliştirilen projeler kapsamında desteklenecektir.",
+    "Eğitim sektöründe yeni teklif edilecek projelerde derslik başına düşen öğrenci sayısı ile ikili eğitim oranı dikkate alınacak, zorunlu haller dışında il merkezlerindeki lise ve dengi okullar için pansiyon talebinde bulunulmayacaktır.",
+    "Sağlık sektöründe inşaat ve donanımı tamamlanarak faaliyete geçmiş hastanelerin ek bina, yenileme ve donanım alımları kendi öz gelirleri ve döner sermaye gelirleri ile karşılanacaktır.",
+    "Kuruluşlar, 2027 yılı yatırım tekliflerine ilişkin değişiklik önerilerini 16 Temmuz'a kadar KaYa Bilgi Sistemi'ne girecek, 20 Temmuz'a kadar çıktıları resmi yazı ile Strateji ve Bütçe Başkanlığına gönderecektir.",
+    "Genelge ve eki Kamu Yatırım Programı Hazırlama Rehberi'nde yer alan esaslar ile tavanlar çerçevesinde teklifler 23 Eylül'e kadar revize edilerek KaYa Bilgi Sistemi ve resmi yazı ile Strateji ve Bütçe Başkanlığına gönderilecektir."
    ],
-   "yururluk": "11 Eylül 2026"
+   "yururluk": "11 Eylül 2026",
+   "surum": 2
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T11:07:13+00:00"
+ "guncelleme": "2026-10-01T14:03:03+00:00"
 }

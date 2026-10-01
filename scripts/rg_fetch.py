@@ -317,6 +317,15 @@ def kalem_metni(pages, kalemler, i, son_sayfa, ek_sayfa=2):
     if i + 1 < len(kalemler) and (bitis == s or sonraki_bas is not None):
         ara = bas + 1 if bitis == s else max(bas + 1, sonraki_bas)
         son = _konum(govde[ara:], kalemler[i + 1][1])
+        if son is None:
+            # Toplu basliklar ("... ile Ilgili Kararlar (Karar Sayisi: 11805, ...)") sayfada
+            # aynen gecmez: ilk karar sayisini ara (ayni kararin baslik satiri).
+            no = re.search(r"Sayısı\s*:\s*(\d{3,})", kalemler[i + 1][1])
+            m = no and re.search(r"Sayısı\s*:\s*" + no.group(1) + r"\b", govde[ara:])
+            if m:
+                son = m.start()
+                k = govde.rfind("Karar", ara, ara + son)
+                son = k - ara if k >= 0 and ara + son - k < 12 else son
         if son is not None:
             govde = govde[:ara + son]
     govde = govde[bas:]
