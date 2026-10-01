@@ -6,7 +6,9 @@ depo sahibini @ ile anan bir yorum yazar; GitHub bunu bildirim (GitHub Mobile'da
 e-posta) olarak gonderir. Yorumda gunun ★ kalemleri ve sayfanin o gune giden linki vardir.
 Ayni gun icin ikinci kez yazmaz (gunluk is gunde birkac kez calisir).
 
-Ortam: GITHUB_TOKEN (issues: write), GITHUB_REPOSITORY, SAYFA_URL"""
+Ardindan scripts/eposta.py ile ntfy telefon bildirimi ve ozet PDF'li e-posta (secret'lar varsa).
+Ortam: GITHUB_TOKEN (issues: write), GITHUB_REPOSITORY, SAYFA_URL, BILDIRIM_TEKRAR=true (ayni gunu
+       yeniden gonder), MAIL_ADRES, MAIL_SIFRE, MAIL_ALICI, NTFY_KONU (bkz. eposta.py)"""
 import json, os, sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -69,11 +71,14 @@ def main():
     son = (datetime.now(timezone.utc) - timedelta(days=3)).isoformat(timespec="seconds")
     yorumlar = gh(token, "GET", f"/repos/{repo}/issues/{issue['number']}/comments",
                   params={"per_page": 100, "since": son})
-    if any(IMZA.format(ymd=ymd) in (c.get("body") or "") for c in yorumlar):
+    tekrar = os.environ.get("BILDIRIM_TEKRAR", "").lower() == "true"
+    if not tekrar and any(IMZA.format(ymd=ymd) in (c.get("body") or "") for c in yorumlar):
         print(f"{ymd} icin bildirim zaten gonderilmis.")
         return 0
     gh(token, "POST", f"/repos/{repo}/issues/{issue['number']}/comments", json={"body": ileti(ymd, sahip, url)})
     print(f"{ymd} bildirimi gonderildi (#{issue['number']}).")
+    import eposta                # ntfy telefon bildirimi ve ozet PDF'li e-posta (secret'lar varsa)
+    eposta.gonder(ymd, url)
     return 0
 
 if __name__ == "__main__":
