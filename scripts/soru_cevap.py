@@ -14,6 +14,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rg_fetch as rg            # noqa: E402
+import yz_ozet                   # noqa: E402
 from yz_ozet import MODEL, istek  # noqa: E402
 
 ROOT = Path(".")
@@ -63,7 +64,7 @@ def temizle(govde):
     return "\n".join(satir).replace("Sorunuz:", "").strip()
 
 def sor(token, mesajlar):
-    r = istek(token, {"model": MODEL, "temperature": 0.2, "max_tokens": 1200, "messages": mesajlar})
+    r = istek(token, {"model": MODEL, "temperature": 0.2, "max_tokens": 6000, "messages": mesajlar})
     if r.status_code == 429:
         return None
     r.raise_for_status()
@@ -97,7 +98,7 @@ def main():
         cevap = "Yapay zekâ servisinin ücretsiz kotası şu an dolu. Biraz sonra yeni bir yorumla tekrar sorun."
     kaynak = f"RG {ymd[6:]}.{ymd[4:6]}.{ymd[:4]}" + (f" · {kalem}" if kalem else " · günün özeti")
     gh(token, "POST", f"/repos/{repo}/issues/{no}/comments", json={"body":
-        f"{cevap}\n\n{IMZA}\n<sub>Kaynak: {kaynak} · yapay zekâ ({MODEL}); hata içerebilir, kesin bilgi "
+        f"{cevap}\n\n{IMZA}\n<sub>Kaynak: {kaynak} · yapay zekâ ({yz_ozet.SON_MODEL}); hata içerebilir, kesin bilgi "
         f"için gazete metnine bakın. Devam sorusu için yorum yazın.</sub>"})
     print(f"#{no} cevaplandi ({ymd}, {kalem[:60] or 'gun'})")
     return 0

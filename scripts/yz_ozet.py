@@ -22,6 +22,9 @@ ROOT = Path(".")
 # OpenAI uyumlu herhangi bir uc nokta: GitHub Models (varsayilan) ya da Gemini, Groq vb.
 URL = os.environ.get("YZ_URL", "").strip() or "https://models.github.ai/inference/chat/completions"
 MODEL = os.environ.get("YZ_MODEL", "").strip() or "openai/gpt-4.1-mini"
+# Ana model yogunluktan (503) ya da kaldirildigi icin (404) yanit vermezse sirayla denenenler
+YEDEKLER = [m.strip() for m in os.environ.get("YZ_YEDEK_MODELLER", "").split(",") if m.strip()]
+SON_MODEL = MODEL          # son basarili cagrinin modeli (kayit/etiket icin)
 METIN_SINIR = 14000        # karakter; ucretsiz katmanda istek basina girdi siniri dusuk
 BEKLE = 5                  # istekler arasi saniye (dakikalik kota)
 GUN_SINIR = int(os.environ.get("YZ_GUN_SINIR", "30") or 30)
@@ -41,18 +44,28 @@ ISTEK = ("Aşağıdaki Resmî Gazete kaleminin metnini özetle.\n"
 def yol(ymd):
     return ROOT / "data" / ymd[:4] / ymd[4:6] / f"{ymd}.yz.json"
 
-def istek(token, govde, deneme=4):
-    """POST; gecici sunucu hatalarinda (500/502/503/504) artan bekleyle yeniden dener."""
-    for i in range(deneme):
-        r = requests.post(URL, json=govde, timeout=120, headers={
-            "Authorization": f"Bearer {token}", "Accept": "application/json",
-            "Content-Type": "application/json"})
-        if r.status_code not in (500, 502, 503, 504) or i == deneme - 1:
+def istek(token, govde, deneme=3):
+    """POST; gecici sunucu hatalarinda (500/502/503/504) bekleyip yeniden dener, olmazsa ya da
+       model bulunamazsa (404) YEDEKLER'deki sonraki modele gecer."""
+    global SON_MODEL
+    for model in dict.fromkeys([govde.get("model") or MODEL] + YEDEKLER):
+        govde = dict(govde, model=model)
+        for i in range(deneme):
+            r = requests.post(URL, json=govde, timeout=120, headers={
+                "Authorization": f"Bearer {token}", "Accept": "application/json",
+                "Content-Type": "application/json"})
+            if r.status_code not in (500, 502, 503, 504):
+                break
+            if i < deneme - 1:
+                time.sleep(10 * (i + 1))
+        if r.status_code not in (404, 500, 502, 503, 504):
+            SON_MODEL = model
             return r
-        time.sleep(10 * (i + 1))
+        print(f"::warning::{model}: HTTP {r.status_code}, sonraki model deneniyor")
+    return r
 
 def sor(token, baslik, metin):
-    govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 900,
+    govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 4000,   # dusunen modeller payi
              "response_format": {"type": "json_object"},
              "messages": [{"role": "system", "content": SISTEM},
                           {"role": "user", "content": ISTEK.format(baslik=baslik, metin=metin)}]}
@@ -105,7 +118,7 @@ def gun_isle(ymd, token, alanlar, haric):
             time.sleep(BEKLE)
     finally:
         if yeni:
-            kayit.update({"model": MODEL, "guncelleme": datetime.now(timezone.utc).isoformat(timespec="seconds")})
+            kayit.update({"model": SON_MODEL, "guncelleme": datetime.now(timezone.utc).isoformat(timespec="seconds")})
             yol(ymd).write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return yeni
 
@@ -157,7 +170,7 @@ def main(argv):
             print(f"::warning::{ymd}: {e}")
             continue
         if n:
-            print(f"{ymd}: {n} ★ ozet ({MODEL})")
+            print(f"{ymd}: {n} ★ ozet ({SON_MODEL})")
         toplam += n
     print(f"Toplam {toplam} yeni ozet.")
     return 0
