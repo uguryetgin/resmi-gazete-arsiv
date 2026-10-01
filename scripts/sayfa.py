@@ -63,6 +63,8 @@ def karsilastirma(yol):
         out[k["baslik"]] = {"satirlar": tablo, "notlar": notlar}
     return out
 
+KESITLER = []                    # siteye kopyalanacak kesit PDF'leri (gun_isle doldurur)
+
 def gun_isle(meta_yol, alanlar, haric, kur=None):
     meta = json.loads(meta_yol.read_text(encoding="utf-8"))
     ymd, klasor = meta["ymd"], meta_yol.parent
@@ -73,6 +75,8 @@ def gun_isle(meta_yol, alanlar, haric, kur=None):
         bolumler, ilan = ozet_oku(klasor / f"{ymd}{ek}.ozet.txt")
         kars = karsilastirma(klasor / f"{ymd}{ek}.karsilastirma.json")
         yz_yol = klasor / f"{ymd}{ek}.yz.json"     # scripts/yz_ozet.py (GitHub Models)
+        kesit_yol = klasor / f"{ymd}{ek}.kesit.json"   # scripts/pdf_kes.py (★ kalem sayfalari)
+        kesit = json.loads(kesit_yol.read_text(encoding="utf-8")) if kesit_yol.exists() else {}
         yz = json.loads(yz_yol.read_text(encoding="utf-8")) if yz_yol.exists() else {}
         eslesen = {}
         for b in bolumler:
@@ -83,6 +87,11 @@ def gun_isle(meta_yol, alanlar, haric, kur=None):
                 anahtar = f"{k['baslik']} (s. {k['sayfa']})"
                 if anahtar in yz.get("kalemler", {}):
                     k["yz"] = dict(yz["kalemler"][anahtar], model=yz.get("model", ""))
+                if anahtar in kesit and (klasor / "kesit" / kesit[anahtar]["dosya"]).exists():
+                    kk = kesit[anahtar]
+                    k["kesit"] = {"yol": "kesit/" + kk["dosya"][:-4], "ilk": kk["ilk"], "son": kk["son"],
+                                  "isaret": kk.get("isaret") or []}
+                    KESITLER.append(klasor / "kesit" / kk["dosya"])
                 if kur:
                     ozet = " ".join((k.get("yz") or {}).get("ne_getiriyor") or [])
                     k["etiket"] = etiket.etiketle(kur, b["bolum"], k["baslik"],
@@ -130,7 +139,8 @@ def sifrele(klasor, sifre):
     anahtar = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=tuz,
                          iterations=PBKDF2_TUR).derive(sifre.encode("utf-8"))
     aes = AESGCM(anahtar)
-    for yol in [p for p in [klasor / "gunler.json", klasor / "yz.json"] if p.exists()] + sorted((klasor / "gun").glob("*.json")):
+    for yol in ([p for p in [klasor / "gunler.json", klasor / "yz.json"] if p.exists()] +
+                sorted((klasor / "gun").glob("*.json")) + sorted((klasor / "kesit").glob("*.pdf"))):
         iv = os.urandom(12)
         yol.with_suffix(".enc").write_bytes(iv + aes.encrypt(iv, yol.read_bytes(), None))
         yol.unlink()
@@ -144,6 +154,7 @@ def main(argv):
     (cikti / "gun").mkdir(parents=True)
     alanlar, haric = rt.ilgi_alanlari() if (ROOT / "ilgi.txt").exists() else ([], None)
     liste, kur = [], etiket.kurallar()
+    KESITLER.clear()
     for meta_yol in sorted(ROOT.glob("data/[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9]*.json")):
         if not re.fullmatch(r"\d{8}\.json", meta_yol.name):
             continue
@@ -157,6 +168,10 @@ def main(argv):
          "etiket_gruplari": dict(etiket.katalog(kur), **{"Diğer": [etiket.ETIKETSIZ]})}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
     shutil.copy(SABLON, cikti / "index.html")
+    if KESITLER:
+        (cikti / "kesit").mkdir()
+        for k in KESITLER:
+            shutil.copy(k, cikti / "kesit" / k.name)
     (cikti / ".nojekyll").write_text("")
     (cikti / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
     sifre = os.environ.get("SITE_SIFRE", "")

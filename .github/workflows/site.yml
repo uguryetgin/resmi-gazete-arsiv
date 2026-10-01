@@ -6,7 +6,7 @@ name: Web sayfası
 # indirme is akisi bitince (workflow_run) calisir.
 on:
   workflow_run:
-    workflows: ["Resmî Gazete indir", "GitHub Models özetleri"]
+    workflows: ["Resmî Gazete indir", "GitHub Models özetleri", "PDF kesitleri"]
     types: [completed]
   push:
     branches: [main]
