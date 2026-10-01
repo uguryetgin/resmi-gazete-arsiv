@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
-"""Gunluk ozet PDF'i (yazdirmaya uygun) ve e-posta / ntfy telefon bildirimi (yapay zeka/token yok).
+"""Gunluk ozet PDF'i (yazdirmaya uygun; yapay zeka/token yok).
 
-bildir.py gunun bildirimini ilk kez yazdiginda cagirir (gunde bir kez):
-- pdf_yap(ymd): gunun ★ kalemleri (otomatik ozet, yururluk, etiketler, sayfa araligi) ve diger
-  kalemlerin listesinden HTML uretir, Chrome/Chromium ile PDF'e basar.
-- eposta(ymd, url, pdf): MAIL_ADRES/MAIL_SIFRE (Gmail uygulama sifresi) ile MAIL_ALICI'ya
-  (yoksa MAIL_ADRES) PDF ekli e-posta.
-- ntfy(ymd, url): NTFY_KONU tanimliysa ntfy.sh uzerinden telefona anlik bildirim (dokununca sayfa).
-Tek basina deneme: python3 scripts/eposta.py YYYYAAGG [cikti.pdf]   (yalniz PDF uretir)"""
-import html, json, os, re, shutil, smtplib, subprocess, sys, tempfile
-from email.message import EmailMessage
+bildir.py gunun bildirimini yazarken cagirir: pdf_yap(ymd) gunun ★ kalemleri (otomatik ozet,
+yururluk, etiketler, sayfa araligi) ve diger kalemlerin listesinden HTML uretir, Chrome ile PDF'e
+basar; release_yukle() PDF'i o gunun GitHub release'ine (rg-YYYYAAGG) "Ozet-YYYYAAGG.pdf" olarak
+ekler. Bildirim yorumunda (GitHub bildirim e-postasinda da) bu PDF'in linki olur.
+Tek basina deneme: python3 scripts/ozet_pdf.py YYYYAAGG [cikti.pdf]   (yalniz PDF uretir)"""
+import html, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 import requests
 
@@ -112,62 +109,31 @@ def pdf_yap(ymd, url="", cikti=None):
                    check=True, capture_output=True, timeout=120)
     return cikti
 
-def baslik(ymd):
-    gun = gun_al(ymd)
-    n = len(yildizlar(gun))
-    return gun, f"Resmî Gazete {gun['tarih']} – " + (f"{n} ilgi alanı kalemi" if n else "ilgi alanı kalemi yok")
-
-def eposta(ymd, url, pdf):
-    adres, sifre = os.environ.get("MAIL_ADRES", "").strip(), os.environ.get("MAIL_SIFRE", "").strip()
-    if not (adres and sifre):
-        print("MAIL_ADRES/MAIL_SIFRE yok, e-posta atlandi.")
-        return False
-    alici = os.environ.get("MAIL_ALICI", "").strip() or adres
-    gun, konu = baslik(ymd)
-    ys = yildizlar(gun)
-    m = EmailMessage()
-    m["Subject"], m["From"], m["To"] = konu, f"Resmî Gazete Arşivi <{adres}>", alici
-    satir = "".join(f"<li><b>{html.escape(k['alan'])}</b> — {html.escape(k['baslik'])}</li>" for _, _, k in ys)
-    m.set_content(f"{konu}\n\nSayfada aç: {url}#{ymd}\nDinle: {url}#{ymd}-dinle\n\nÖzet PDF ektedir.")
-    m.add_alternative(f"""<p><b>{html.escape(konu)}</b></p>{'<ul>' + satir + '</ul>' if satir else ''}
-<p>👉 <a href="{url}#{ymd}">Sayfada aç</a> · 🔊 <a href="{url}#{ymd}-dinle">Dinle</a> ·
-<a href="{html.escape(gun['pdf'])}">Gazetenin PDF'i</a></p><p style="color:#888">Özet PDF ektedir.</p>""",
-                      subtype="html")
-    if pdf and Path(pdf).exists():
-        m.add_attachment(Path(pdf).read_bytes(), maintype="application", subtype="pdf",
-                         filename=f"Resmi-Gazete-{ymd}.pdf")
-    with smtplib.SMTP_SSL(os.environ.get("MAIL_SUNUCU", "smtp.gmail.com"), 465, timeout=60) as s:
-        s.login(adres, sifre)
-        s.send_message(m)
-    print(f"E-posta gonderildi: {alici}")
-    return True
-
-def ntfy(ymd, url):
-    konu_adi = os.environ.get("NTFY_KONU", "").strip()
-    if not konu_adi:
-        return False
-    gun, konu = baslik(ymd)
-    ys = yildizlar(gun)
-    metin = "\n".join(f"★ {k['baslik'][:90]}" for _, _, k in ys[:5]) or "İlgi alanına giren kalem yok."
-    r = requests.post("https://ntfy.sh/", timeout=30, json={
-        "topic": konu_adi, "title": konu, "message": metin, "tags": ["newspaper"], "click": f"{url}#{ymd}",
-        "actions": [{"action": "view", "label": "🔊 Dinle", "url": f"{url}#{ymd}-dinle"},
-                    {"action": "view", "label": "Sayfada aç", "url": f"{url}#{ymd}"}]})
+def release_yukle(ymd, pdf, token, repo):
+    """Ozet PDF'ini o gunun release'ine (rg-YYYYAAGG) ekler; indirme linkini dondurur (yoksa None)."""
+    h = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
+    r = requests.get(f"https://api.github.com/repos/{repo}/releases/tags/rg-{ymd}", headers=h, timeout=30)
+    if not r.ok:
+        print(f"rg-{ymd} release'i yok, ozet PDF'i eklenmedi.")
+        return None
+    rel, ad = r.json(), f"Ozet-{ymd}.pdf"
+    for a in rel.get("assets") or []:
+        if a["name"] == ad:                       # yeniden gonderimde eskisini degistir
+            requests.delete(a["url"], headers=h, timeout=30)
+    r = requests.post(f"https://uploads.github.com/repos/{repo}/releases/{rel['id']}/assets",
+                      params={"name": ad}, data=Path(pdf).read_bytes(), timeout=120,
+                      headers=dict(h, **{"Content-Type": "application/pdf"}))
     r.raise_for_status()
-    print("ntfy bildirimi gonderildi.")
-    return True
+    return r.json()["browser_download_url"]
 
-def gonder(ymd, url):
-    """bildir.py'den: telefon bildirimi ve PDF ekli e-posta (her biri ayri; hata digerini durdurmaz)."""
+def ozet_pdf_linki(ymd, url, token, repo):
+    """bildir.py'den: ozet PDF'ini uret, release'e ekle, linkini dondur (hata olursa None)."""
     try:
-        ntfy(ymd, url)
+        pdf = pdf_yap(ymd, url)
+        return release_yukle(ymd, pdf, token, repo) if pdf else None
     except Exception as e:
-        print(f"::warning::ntfy: {e}")
-    if os.environ.get("MAIL_ADRES") and os.environ.get("MAIL_SIFRE"):
-        try:
-            eposta(ymd, url, pdf_yap(ymd, url))
-        except Exception as e:
-            print(f"::warning::e-posta: {e.__class__.__name__}: {str(e)[:200]}")
+        print(f"::warning::ozet PDF'i: {e.__class__.__name__}: {str(e)[:200]}")
+        return None
 
 if __name__ == "__main__":
     a = sys.argv[1:]

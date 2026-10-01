@@ -6,9 +6,9 @@ depo sahibini @ ile anan bir yorum yazar; GitHub bunu bildirim (GitHub Mobile'da
 e-posta) olarak gonderir. Yorumda gunun ★ kalemleri ve sayfanin o gune giden linki vardir.
 Ayni gun icin ikinci kez yazmaz (gunluk is gunde birkac kez calisir).
 
-Ardindan scripts/eposta.py ile ntfy telefon bildirimi ve ozet PDF'li e-posta (secret'lar varsa).
-Ortam: GITHUB_TOKEN (issues: write), GITHUB_REPOSITORY, SAYFA_URL, BILDIRIM_TEKRAR=true (ayni gunu
-       yeniden gonder), MAIL_ADRES, MAIL_SIFRE, MAIL_ALICI, NTFY_KONU (bkz. eposta.py)"""
+Yorumda gunun ozet PDF'inin (scripts/ozet_pdf.py; release eki) linki de olur.
+Ortam: GITHUB_TOKEN (issues: write, contents: write), GITHUB_REPOSITORY, SAYFA_URL,
+       BILDIRIM_TEKRAR=true (ayni gunu yeniden gonder)"""
 import json, os, sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -30,7 +30,7 @@ def gh(token, yontem, yol, **kw):
     r.raise_for_status()
     return r.json() if r.text else {}
 
-def ileti(ymd, sahip, url):
+def ileti(ymd, sahip, url, pdf_link=None):
     klasor = ROOT / "data" / ymd[:4] / ymd[4:6]
     meta = json.loads((klasor / f"{ymd}.json").read_text(encoding="utf-8"))
     bolumler, _ = ozet_oku(klasor / f"{ymd}.ozet.txt")
@@ -44,7 +44,8 @@ def ileti(ymd, sahip, url):
                 b_ = k["baslik"] if len(k["baslik"]) <= 130 else k["baslik"][:127].rsplit(" ", 1)[0] + "…"
                 yildiz.append(f"- ★ **{alan}** — {b_} (s. {k['sayfa']})")
     satir = [f"@{sahip} **Resmî Gazete {meta['tarih']} hazır** (Sayı {meta.get('sayi')}, {toplam} kalem) — "
-             f"👉 **[Sayfada aç]({url}#{ymd})** · 🔊 **[Dinle]({url}#{ymd}-dinle)**", ""]
+             f"👉 **[Sayfada aç]({url}#{ymd})** · 🔊 **[Dinle]({url}#{ymd}-dinle)**"
+             + (f" · 📄 **[Özet PDF]({pdf_link})**" if pdf_link else ""), ""]
     if yildiz:
         satir += [f"İlgi alanına giren {len(yildiz)} kalem:"] + yildiz[:12]
         if len(yildiz) > 12:
@@ -75,10 +76,11 @@ def main():
     if not tekrar and any(IMZA.format(ymd=ymd) in (c.get("body") or "") for c in yorumlar):
         print(f"{ymd} icin bildirim zaten gonderilmis.")
         return 0
-    gh(token, "POST", f"/repos/{repo}/issues/{issue['number']}/comments", json={"body": ileti(ymd, sahip, url)})
+    import ozet_pdf              # gunun ozet PDF'i -> release eki; linki yorumda
+    pdf_link = ozet_pdf.ozet_pdf_linki(ymd, url, token, repo)
+    gh(token, "POST", f"/repos/{repo}/issues/{issue['number']}/comments",
+       json={"body": ileti(ymd, sahip, url, pdf_link)})
     print(f"{ymd} bildirimi gonderildi (#{issue['number']}).")
-    import eposta                # ntfy telefon bildirimi ve ozet PDF'li e-posta (secret'lar varsa)
-    eposta.gonder(ymd, url)
     return 0
 
 if __name__ == "__main__":
