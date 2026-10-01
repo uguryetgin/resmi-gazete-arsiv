@@ -191,7 +191,8 @@ def eposta_html(gun, url, pdf_link=None):
     h.append(f'<tr><td style="padding:14px 22px 18px;{F}font-size:11px;color:#8a8e95;border-top:1px solid #e3e1dc">'
              f'Otomatik özetler yapay zekâ ile üretilir, hata içerebilir; kesin metin için PDF. '
              f'GitHub Actions tarafından gazetenin kendi metninden üretildi.</td></tr></table></td></tr></table></body></html>')
-    return "".join(h)
+    # Emojiler (4 baytlik karakterler) Gmail'den gonderimde bozulabiliyor: HTML sayi kodu olarak yaz
+    return re.sub(r"[\U00010000-\U0010FFFF]", lambda m: f"&#{ord(m.group())};", "".join(h))
 
 def ozet_pdf_linki(ymd, url, token, repo):
     """bildir.py'den: ozet PDF'ini uret, release'e ekle; ayrica e-posta HTML'ini (Eposta-YYYYAAGG.html)

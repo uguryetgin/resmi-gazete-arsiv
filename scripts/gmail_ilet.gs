@@ -80,3 +80,9 @@ function tani() {
   });
   Logger.log("Gönderilmiş günler: " + (PropertiesService.getUserProperties().getProperty("gonderilen") || "[]"));
 }
+
+/** Gönderilmiş günler listesini siler (aynı günü yeniden göndermek/denemek için). */
+function sifirla() {
+  PropertiesService.getUserProperties().deleteProperty("gonderilen");
+  Logger.log("Gönderilmiş günler sıfırlandı.");
+}
