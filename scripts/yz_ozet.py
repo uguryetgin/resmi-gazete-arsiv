@@ -26,7 +26,7 @@ MODEL = os.environ.get("YZ_MODEL", "").strip() or "openai/gpt-4.1-mini"
 YEDEKLER = [m.strip() for m in os.environ.get("YZ_YEDEK_MODELLER", "").split(",") if m.strip()]
 SON_MODEL = MODEL          # son basarili cagrinin modeli (kayit/etiket icin)
 METIN_SINIR = 14000        # karakter; ucretsiz katmanda istek basina girdi siniri dusuk
-BEKLE = 5                  # istekler arasi saniye (dakikalik kota)
+BEKLE = 12                 # istekler arasi saniye (ucretsiz katman dakikalik kotasi dusuk)
 GUN_SINIR = int(os.environ.get("YZ_GUN_SINIR", "30") or 30)
 
 SISTEM = ("Türkçe hukuk metinlerini özetleyen dikkatli bir asistansın. Yalnız verilen metinde yazanı "
@@ -45,8 +45,8 @@ def yol(ymd):
     return ROOT / "data" / ymd[:4] / ymd[4:6] / f"{ymd}.yz.json"
 
 def istek(token, govde, deneme=3):
-    """POST; gecici sunucu hatalarinda (500/502/503/504) bekleyip yeniden dener, olmazsa ya da
-       model bulunamazsa (404) YEDEKLER'deki sonraki modele gecer."""
+    """POST; kota (429) ve gecici sunucu hatalarinda (5xx) bekleyip yeniden dener, olmazsa ya da
+       model bulunamazsa (404) YEDEKLER'deki sonraki modele gecer (her modelin kotasi ayri)."""
     global SON_MODEL
     for model in dict.fromkeys([govde.get("model") or MODEL] + YEDEKLER):
         govde = dict(govde, model=model)
@@ -54,11 +54,11 @@ def istek(token, govde, deneme=3):
             r = requests.post(URL, json=govde, timeout=120, headers={
                 "Authorization": f"Bearer {token}", "Accept": "application/json",
                 "Content-Type": "application/json"})
-            if r.status_code not in (500, 502, 503, 504):
+            if r.status_code not in (429, 500, 502, 503, 504):
                 break
-            if i < deneme - 1:
-                time.sleep(10 * (i + 1))
-        if r.status_code not in (404, 500, 502, 503, 504):
+            if i < deneme - 1:      # 429: dakikalik kota; ucretsiz katmanda ~1 dk beklemek yeter
+                time.sleep(30 * (i + 1) if r.status_code == 429 else 10 * (i + 1))
+        if r.status_code not in (404, 429, 500, 502, 503, 504):
             SON_MODEL = model
             return r
         print(f"::warning::{model}: HTTP {r.status_code}, sonraki model deneniyor")
@@ -111,6 +111,7 @@ def gun_isle(ymd, token, alanlar, haric):
             try:
                 kayit["kalemler"][k] = sor(token, k, metin)
                 yeni += 1
+                kaydet(ymd, kayit)          # adim zaman asimina ugrarsa yazilanlar kaybolmasin
             except KotaDoldu:
                 raise
             except Exception as e:
@@ -118,9 +119,12 @@ def gun_isle(ymd, token, alanlar, haric):
             time.sleep(BEKLE)
     finally:
         if yeni:
-            kayit.update({"model": SON_MODEL, "guncelleme": datetime.now(timezone.utc).isoformat(timespec="seconds")})
-            yol(ymd).write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+            kaydet(ymd, kayit)
     return yeni
+
+def kaydet(ymd, kayit):
+    kayit.update({"model": SON_MODEL, "guncelleme": datetime.now(timezone.utc).isoformat(timespec="seconds")})
+    yol(ymd).write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 def tani(token):
     """Gecici: saglayicida hangi modeller calisiyor."""

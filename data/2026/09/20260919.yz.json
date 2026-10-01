@@ -1,0 +1,21 @@
+{
+ "kalemler": {
+  "Enerji Piyasası Düzenleme Kurulunun 17/09/2026 Tarihli ve 14880 Sayılı Kararı (s. 6)": {
+   "ne_getiriyor": [
+    "Aksa Gemlik Doğal Gaz Dağıtım Anonim Şirketi'nin 2022-2026 yılları arası perakende satış tarifelerine yönelik 27/10/2022 tarihli ve 11342 sayılı Kurul Kararı revize edilmiştir.",
+    "Şirketin 2022-2026 yılları için Yatırım Tavanı (TL) sırasıyla 9.919.009, 8.891.168, 7.566.711, 4.376.502 ve 9.473.933 olarak yeniden belirlenmiştir.",
+    "Şirket için İlave Yatırım Tavanı (TL) 5.486.764 olarak belirlenmiştir."
+   ],
+   "yururluk": "Bu Karar yayımı tarihinde yürürlüğe girer."
+  },
+  "Bankacılık Düzenleme ve Denetleme Kurulunun 18/09/2026 Tarihli ve 11572 Sayılı Kararı (s. 6)": {
+   "ne_getiriyor": [
+    "Bank Mellat Merkezi Tahran İstanbul Türkiye Merkez Şubesinin faaliyet izni kaldırılmıştır.",
+    "Bu karar 5411 sayılı Bankacılık Kanununun 71 inci maddesinin birinci fıkrasının (b) bendi çerçevesinde alınmıştır."
+   ],
+   "yururluk": "metinde belirtilmemiş"
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-01T10:56:50+00:00"
+}

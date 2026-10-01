@@ -1,0 +1,16 @@
+{
+ "kalemler": {
+  "1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)": {
+   "ne_getiriyor": [
+    "Resmî burslu lisans öğrencilerine ödenecek yurt içi aylık burs miktarı 4.000 TL, lisansüstü öğrencileri için ise 8.000 TL olarak belirlenmiştir.",
+    "Resmî burslu öğrencilere her ay kitap, defter, kırtasiye ve benzeri giderlerini karşılamak üzere aylık burs tutarının on ikide biri oranında ek ödenek verilir.",
+    "Yurt dışında lisans ve lisansüstü öğrenim gören resmî burslu öğrencilerin gidiş-geliş ulaşım ücretleri, başarısızlık durumu hariç şehir veya ülke değişiklikleri ile ilişik kesme durumlarındaki dönüş masrafları karşılanır.",
+    "Yurt dışı öğrenimini tamamlayıp yasal süresi içinde yurda dönerek görev talep eden resmî burslu öğrencilere, atama onay tarihine kadar 90 günü geçmemek üzere yurt dışı aylığının yarısı ödenir.",
+    "Yurt dışına gönderilen resmî burslu öğrencilere talep etmeleri halinde ilk iki aylık burs peşin veya avans olarak ödenir."
+   ],
+   "yururluk": "22/7/2025 tarihli ve 32963 sayılı Resmî Gazete’de yayımlanan önceki Tebliğ yürürlükten kaldırılmıştır."
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-01T10:46:28+00:00"
+}

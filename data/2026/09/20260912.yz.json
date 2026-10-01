@@ -1,0 +1,15 @@
+{
+ "kalemler": {
+  "2027-2029 Dönemi Kamu Yatırım Programı Hazırlıkları ile İlgili 2026/10 Sayılı Cumhurbaşkanlığı Genelgesi (s. 1)": {
+   "ne_getiriyor": [
+    "2027 Yılı Kamu Yatırım Programı hazırlıklarında On İkinci Kalkınma Planı ve 2027-2029 dönemi Orta Vadeli Program esas alınacaktır.",
+    "Tasarruf tedbirleri kapsamında zorunlu haller dışında 2027 Yılı Kamu Yatırım Programı'na yeni proje alınmayacaktır.",
+    "Proje bazında ödenek teklif ve tahsislerinde, devam eden öncelikli projelerden en kısa sürede tamamlanabilecek olanlara öncelik verilecektir.",
+    "Kuruluşlar, yatırım teklifi değişiklik önerilerini 17 Haziran 2026 tarihli Yatırım Talepleri Duyurusuna istinaden KaYa sistemi üzerinden Strateji ve Bütçe Başkanlığına gönderecektir."
+   ],
+   "yururluk": "11 Eylül 2026"
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-01T11:07:13+00:00"
+}
