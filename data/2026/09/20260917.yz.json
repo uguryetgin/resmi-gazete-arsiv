@@ -1,0 +1,14 @@
+{
+ "kalemler": {
+  "Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Ana Statüsünün Yürürlüğe Konulması Hakkında Karar (Karar Sayısı: 11790) (s. 232)": {
+   "ne_getiriyor": [
+    "11790 sayılı Karar ile Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Ana Statüsünün yürürlüğe konulması düzenlenmiştir.",
+    "Düzenleme, Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğünü ve şirketin ana statüsünü kapsamaktadır.",
+    "İlgili Karar metninin içeriğindeki diğer somut hükümler karakter bozulmaları nedeniyle metinden tespit edilememektedir."
+   ],
+   "yururluk": "metinde belirtilmemiş"
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-01T12:16:55+00:00"
+}
