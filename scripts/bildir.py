@@ -3,7 +3,7 @@
 
 Sayfa yayimlandiktan sonra .github/workflows/site.yml calistirir. "📰 Günlük bildirim" Issue'suna
 depo sahibini @ ile anan bir yorum yazar; GitHub bunu bildirim (GitHub Mobile'da anlik bildirim,
-e-posta) olarak gonderir. Yorumda gunun ★ kalemleri ve sayfanin o gune giden linki vardir.
+e-posta) olarak gonderir. Yorumda gunun icerigi (★ kalemlerin otomatik ozeti, diger kalemler) ve linkler vardir.
 Ayni gun icin ikinci kez yazmaz (gunluk is gunde birkac kez calisir).
 
 Yorumda gunun ozet PDF'inin (scripts/ozet_pdf.py; release eki) linki de olur.
@@ -31,29 +31,44 @@ def gh(token, yontem, yol, **kw):
     return r.json() if r.text else {}
 
 def ileti(ymd, sahip, url, pdf_link=None):
-    klasor = ROOT / "data" / ymd[:4] / ymd[4:6]
-    meta = json.loads((klasor / f"{ymd}.json").read_text(encoding="utf-8"))
-    bolumler, _ = ozet_oku(klasor / f"{ymd}.ozet.txt")
-    alanlar, haric = rt.ilgi_alanlari()
-    toplam, yildiz = 0, []
-    for b in bolumler:
-        for k in b["kalemler"]:
-            toplam += 1
-            alan = rt.alan_bul(k["baslik"], alanlar, haric)
-            if alan:
-                b_ = k["baslik"] if len(k["baslik"]) <= 130 else k["baslik"][:127].rsplit(" ", 1)[0] + "…"
-                yildiz.append(f"- ★ **{alan}** — {b_} (s. {k['sayfa']})")
-    satir = [f"@{sahip} **Resmî Gazete {meta['tarih']} hazır** (Sayı {meta.get('sayi')}, {toplam} kalem) — "
+    """Bildirim yorumu: linkler + gunun icerigi (★ kalemlerin uzun ozeti, yururluk, etiketler, sayfa;
+       diger kalemlerin listesi). GitHub bildirim e-postasi yorumun tamamini icerir."""
+    import etiket
+    import ozet_pdf
+    gun = ozet_pdf.gun_al(ymd)
+    ys = ozet_pdf.yildizlar(gun)
+    toplam = sum(len(b["kalemler"]) for s in gun["sayilar"] for b in s["bolumler"])
+    satir = [f"@{sahip} **Resmî Gazete {gun['tarih']} hazır** (Sayı {gun['sayi']}, {toplam} kalem, "
+             f"{len(ys)} ilgi alanı kalemi)", "",
              f"👉 **[Sayfada aç]({url}#{ymd})** · 🔊 **[Dinle]({url}#{ymd}-dinle)**"
-             + (f" · 📄 **[Özet PDF]({pdf_link})**" if pdf_link else ""), ""]
-    if yildiz:
-        satir += [f"İlgi alanına giren {len(yildiz)} kalem:"] + yildiz[:12]
-        if len(yildiz) > 12:
-            satir.append(f"- … ve {len(yildiz) - 12} kalem daha")
-    else:
-        satir.append("İlgi alanına giren kalem yok.")
-    satir += ["", IMZA.format(ymd=ymd)]
-    return "\n".join(satir)
+             + (f" · 📄 **[Özet PDF]({pdf_link})**" if pdf_link else "")
+             + f" · [Gazetenin PDF'i]({gun['pdf']})", ""]
+    satir.append(f"## ★ İlgi alanına girenler ({len(ys)})" if ys else "## İlgi alanına giren kalem yok")
+    for i, (s, b, k) in enumerate(ys, 1):
+        ar = k.get("kesit") or {}
+        sf = f"s. {ar['ilk']}–{ar['son']}" if ar and ar["son"] > ar["ilk"] else f"s. {k['sayfa']}"
+        ets = [x for x in k.get("etiket") or [] if x != etiket.ETIKETSIZ]
+        satir += ["", f"### {i}. {k['baslik']}",
+                  f"**{k['alan']}** · {b['bolum']} · [{sf} (PDF)]({s.get('pdf') or gun['pdf']}#page={k['sayfa']})"
+                  + (" · " + " ".join(f"`{x}`" for x in ets) if ets else ""), ""]
+        yz = k.get("yz") or {}
+        if yz.get("ne_getiriyor"):
+            satir += [f"- {m}" for m in yz["ne_getiriyor"]]
+            if yz.get("yururluk"):
+                satir += ["", f"**Yürürlük:** {yz['yururluk']}"]
+        elif k.get("alinti"):
+            satir.append(f"> {k['alinti'][:600]}")
+    diger = [(s, b, [k for k in b["kalemler"] if not k.get("alan")]) for s in gun["sayilar"] for b in s["bolumler"]]
+    diger = [(s, b, ks) for s, b, ks in diger if ks]
+    if diger:
+        satir += ["", f"## Diğer kalemler ({sum(len(ks) for _, _, ks in diger)})"]
+        for s, b, ks in diger:
+            satir += ["", f"**{(str(s['mukerrer']) + '. Mükerrer · ') if s['mukerrer'] else ''}{b['bolum']}**"]
+            satir += [f"- {k['baslik']} (s. {k['sayfa']})" for k in ks]
+    satir += ["", "<sub>Otomatik özetler yapay zekâ ile üretilir, hata içerebilir; kesin metin için PDF.</sub>",
+              "", IMZA.format(ymd=ymd)]
+    metin = "\n".join(satir)
+    return metin if len(metin) < 60000 else metin[:59000] + "\n\n… (devamı sayfada)\n\n" + IMZA.format(ymd=ymd)
 
 def main():
     token, repo = os.environ["GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"]
