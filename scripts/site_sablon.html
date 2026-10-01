@@ -155,6 +155,8 @@ body.yan-kapali .alt-not{padding-left:20px}
 }
 /* Kalem PDF goruntuleyici (kesit PDF'leri, pdf.js) */
 .pdf-ac{border:0;background:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-size:inherit}
+.dinle-vurgu{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700;animation:nabiz 1.4s ease-in-out infinite}
+@keyframes nabiz{50%{box-shadow:0 0 0 6px rgba(180,35,42,.25)}}
 .pdf-ac.b{text-decoration:none;border:1px solid var(--accent);padding:7px 12px;font-size:14px}
 .tam-pdf{margin-top:12px}
 .pdfg{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.55);display:none;align-items:stretch;justify-content:center}
@@ -390,7 +392,8 @@ function gunCiz(g){
        '<div class="dugmeler"><a class="dugme" href="#' + (once ? once.ymd : "") + '"' + (once ? "" : " disabled") + '>‹ Önceki</a>' +
        '<a class="dugme" href="#' + (sonra ? sonra.ymd : "") + '"' + (sonra ? "" : " disabled") + '>Sonraki ›</a>' +
        '<a class="dugme ana-d" href="' + kac(g.pdf) + '" target="_blank" rel="noopener">PDF</a>' +
-       soruLink(g, null, "💬 Bu güne soru sor").replace('class="sor"', 'class="dugme"') + "</div></div>" +
+       soruLink(g, null, "💬 Bu güne soru sor").replace('class="sor"', 'class="dugme"') +
+       ("speechSynthesis" in window ? '<button class="dugme' + (DINLE_ISTEK ? " dinle-vurgu" : "") + '" id="dinleBtn" type="button">' + (DINLIYOR ? "⏹ Durdur" : "🔊 Dinle") + "</button>" : "") + "</div></div>" +
        '<div class="sayac"><div><b>' + yildizlar.length + "</b>ilgi alanı kalemi</div><div><b>" + toplam + "</b>toplam kalem</div><div><b>" +
        kac(g.sayfa || "—") + '</b>sayfa</div><div><b><a href="https://github.com/uguryetgin/resmi-gazete-arsiv/releases/tag/rg-' + g.ymd + '" target="_blank" rel="noopener">Arşiv</a></b>GitHub sürümü</div></div></section>';
 
@@ -426,6 +429,7 @@ function gunCiz(g){
     if (s.ilan) h += '<p class="ilan">' + kac(s.ilan) + "</p>";
   });
   $("ana").innerHTML = h;
+  if ($("dinleBtn")) $("dinleBtn").onclick = function(){ DINLIYOR ? dinleDur() : dinle(g); };
   if (durum.etiket) { var ilk = document.querySelector("#ana .secili"); if (ilk) setTimeout(function(){ ilk.scrollIntoView({block: "center"}); }, 0); }
   Array.prototype.forEach.call(document.querySelectorAll(".la,.alinti"), function(el){ el.onclick = function(){ el.classList.toggle("acik"); }; });
 }
@@ -474,8 +478,10 @@ function girisCiz(bilgi){
 // ---------- Sohbet: tarayicidan dogrudan Gemini (anahtar yz.enc icinde, yalniz sifreyle cozulur) ----------
 var YZ = null, SOHBET = [];
 var GEMINI = "https://generativelanguage.googleapis.com/v1beta/models/";
-var SOHBET_SISTEM = "Resmî Gazete arşivi hakkında soruları yanıtlayan bir asistansın. Türkçe, kısa ve net yanıt ver. " +
-  "Yalnız verilen arşiv metnine dayan; metinde yoksa \"arşivde bu bilgi yok\" de, tahmin yürütme. Tarih, sayı, madde, " +
+var SOHBET_SISTEM = "Resmî Gazete arşivi ve Türk hukuku/kamu yönetimi hakkında soruları yanıtlayan bir asistansın. Türkçe, kısa ve net yanıt ver. " +
+  "Soru arşivdeki bir kalemle ilgiliyse önce verilen arşiv metnine dayan ve kaynağını göster. Soru genel bir kavram, kurum ya da " +
+  "mevzuat hakkındaysa (örn. \"Sayıştay nedir\") genel bilginle cevapla, cevabın başına \"(Genel bilgi, arşiv dışı)\" yaz ve " +
+  "varsa arşivdeki ilgili kalemleri ekle. Arşive dair bir bilgiyi uydurma. Tarih, sayı, madde, " +
   "tutar ve kanun numaralarını aynen aktar; dayandığın kalemi ve günü (ve varsa sayfayı, s. N) belirt. Yorum yaparsan " +
   "\"(yorum)\" diye işaretle. Hukuki danışmanlık yapma. Aradığı bulunamazsa arşivin kapsadığı tarih aralığını ve " +
   "varsa en yakın ilgili kalemleri (gün ve etiketleriyle) belirt.";
@@ -666,6 +672,48 @@ $("ana").addEventListener("click", function(e){
   var b = e.target.closest && e.target.closest(".pdf-ac"); if (b) pdfAc(+b.dataset.kesit);
 });
 
+// ---------- Sesli okuma: tarayicinin kendi Turkce sesi (Web Speech API; ucretsiz, cihazda) ----------
+var DINLIYOR = false, DINLE_ISTEK = false;
+var SIRA = ["Birinci", "İkinci", "Üçüncü", "Dördüncü", "Beşinci", "Altıncı", "Yedinci", "Sekizinci", "Dokuzuncu", "Onuncu"];
+function konusmaMetni(g){
+  var p = ["Resmî Gazete, " + tarihUzun(g.ymd) + ". Sayı " + g.sayi + "."], ys = [], diger = 0;
+  g.sayilar.forEach(function(s){ s.bolumler.forEach(function(b){ b.kalemler.forEach(function(k){ if (k.alan) ys.push(k); else diger++; }); }); });
+  p.push(ys.length ? "İlgi alanına giren " + ys.length + " kalem var." : "Bugün ilgi alanına giren kalem yok.");
+  ys.forEach(function(k, i){
+    p.push((SIRA[i] || (i + 1) + ".") + " kalem. " + k.alan + ". " + k.baslik.replace(/\((Karar Sayısı|Karar|No|Tebliğ No|Sıra No)\s*:\s*[^)]*\)/g, "") + ".");
+    if (k.yz && k.yz.ne_getiriyor) p = p.concat(k.yz.ne_getiriyor);
+    else if (k.alinti) p.push(kirp(k.alinti, 400));
+    if (k.yz && k.yz.yururluk && !/belirtilmemiş/.test(k.yz.yururluk)) p.push("Yürürlük: " + k.yz.yururluk);
+  });
+  if (diger) p.push("Ayrıca ilgi alanı dışında " + diger + " kalem daha var. Ayrıntılar sayfada.");
+  return p.join(" ").replace(/\s+/g, " ")
+    .replace(/\bs\. (\d+)/g, "sayfa $1").replace(/\bvb\./g, "ve benzeri").replace(/\bmd\./g, "madde");
+}
+function cumleler(t){                 // uzun metin tek seferde kesilmesin diye cumle cumle
+  var out = [];
+  (t.match(/[^.!?;:]+[.!?;:]*/g) || [t]).forEach(function(c){
+    c = c.trim(); if (!c) return;
+    while (c.length > 220) { var i = c.lastIndexOf(" ", 220); out.push(c.slice(0, i)); c = c.slice(i + 1); }
+    out.push(c);
+  });
+  return out;
+}
+function dinleButon(){ if ($("dinleBtn")) { $("dinleBtn").textContent = DINLIYOR ? "⏹ Durdur" : "🔊 Dinle"; $("dinleBtn").classList.remove("dinle-vurgu"); } }
+function dinle(g){
+  var ss = window.speechSynthesis; ss.cancel();
+  var ses = ss.getVoices().filter(function(v){ return /^tr/i.test(v.lang); })[0];
+  var parca = cumleler(konusmaMetni(g));
+  DINLIYOR = true; dinleButon();
+  parca.forEach(function(c, i){
+    var u = new SpeechSynthesisUtterance(c); u.lang = "tr-TR"; if (ses) u.voice = ses; u.rate = 1;
+    if (i === parca.length - 1) u.onend = function(){ DINLIYOR = false; dinleButon(); };
+    u.onerror = function(){ if (i === parca.length - 1) { DINLIYOR = false; dinleButon(); } };
+    ss.speak(u);
+  });
+}
+function dinleDur(){ window.speechSynthesis.cancel(); DINLIYOR = false; dinleButon(); }
+if ("speechSynthesis" in window) window.speechSynthesis.getVoices();   // ses listesini erken yukle
+
 function etiketSec(e){
   durum.etiket = e || ""; filtreCiz(); listeCiz();
   if (durum.etiket) {          // acik gunde bu etiket yoksa etiketli ilk gune git
@@ -687,7 +735,8 @@ function basla(v){ VERI = v;
 
 function git(){
   if (!VERI) return;
-  var ymd = location.hash.replace("#", "");
+  var h = location.hash.replace("#", ""), ymd = h.slice(0, 8);
+  DINLE_ISTEK = /-dinle$/.test(h);
   if (!/^\d{8}$/.test(ymd)) ymd = VERI.gunler.length ? VERI.gunler[0].ymd : "";
   durum.ymd = ymd; listeCiz();
   if (!ymd) { $("ana").innerHTML = '<div class="bos">Henüz gün yok.</div>'; return; }

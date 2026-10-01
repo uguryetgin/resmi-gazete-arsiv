@@ -10,7 +10,7 @@ on:
     types: [completed]
   push:
     branches: [main]
-    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
+    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, scripts/bildir.py, ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
   workflow_dispatch:
 
 concurrency:
@@ -21,6 +21,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write       # scripts/bildir.py: "Resmi Gazete hazir" bildirimi
 
 jobs:
   yayimla:
@@ -53,3 +54,12 @@ jobs:
           path: site
       - id: dagit
         uses: actions/deploy-pages@v4
+
+      # Gunluk bildirim (Claude Routine'in yerine): "📰 Günlük bildirim" Issue'suna depo sahibini
+      # anan yorum; GitHub Mobile anlik bildirim gonderir. Ayni gun icin bir kez yazilir.
+      - name: Bildirim gönder
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SAYFA_URL: ${{ steps.dagit.outputs.page_url }}
+        run: python scripts/bildir.py
