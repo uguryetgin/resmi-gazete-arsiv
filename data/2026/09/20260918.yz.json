@@ -9,8 +9,16 @@
     "Uygulama, değerlendirme ve değişiklikleri yürütmek üzere her bir tarafın üye sayısı yediyi aşmayacak bir Karma Komisyon kurulacaktır."
    ],
    "yururluk": "metinde belirtilmemiş"
+  },
+  "154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi Kapsamında Bazı Taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11804) (s. 77)": {
+   "ne_getiriyor": [
+    "154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi kapsamında belirtilen taşınmazlar Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü tarafından acele kamulaştırılacaktır.",
+    "Direk yerleri mülkiyet şeklinde, iletken salınım gabarisi ise irtifak hakkı kurulmak suretiyle kamulaştırılacaktır.",
+    "Kamulaştırma işlemi 2942 sayılı Kamulaştırma Kanununun 27 nci maddesi gereğince yapılmaktadır."
+   ],
+   "yururluk": "17 Eylül 2026"
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T11:00:18+00:00"
+ "guncelleme": "2026-10-01T13:23:13+00:00"
 }
