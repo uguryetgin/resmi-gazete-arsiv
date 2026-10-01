@@ -10,7 +10,7 @@ on:
     types: [completed]
   push:
     branches: [main]
-    paths: [scripts/sayfa.py, scripts/site_sablon.html, ilgi.txt, .github/workflows/site.yml]
+    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
   workflow_dispatch:
 
 concurrency:
