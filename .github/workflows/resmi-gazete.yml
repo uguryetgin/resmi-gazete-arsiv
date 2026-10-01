@@ -30,6 +30,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write       # scripts/bildir.py yok: "bugun yayimlanmadi" bildirimi
   models: read        # scripts/yz_ozet.py (GitHub Models, ucretsiz kota)
 
 jobs:
@@ -159,6 +160,17 @@ jobs:
       - name: Yayımlanmadıysa bildir
         if: steps.indir.outputs.code == '20'
         run: echo "::notice::Resmi Gazete bu calismada henuz yayimlanmamisti."
+
+      # Gunun son zamanlanmis denemesinde (09:11 TR) de yoksa "yayimlanmadi" bildirimi (gunde bir kez)
+      - name: Bugün yayımlanmadıysa haber ver
+        if: steps.indir.outputs.code == '20' && github.event.schedule == '11 6 * * *'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          YMD: ${{ steps.indir.outputs.ymd }}
+        run: |
+          pip install --quiet requests
+          python scripts/bildir.py yok "$YMD"
 
       - name: Zaten işlenmişse bildir
         if: steps.indir.outputs.code == '21'

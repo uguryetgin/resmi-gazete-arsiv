@@ -24,7 +24,7 @@ var ALICILAR = [
 ];
 var ARAMA = 'from:notifications@github.com resmi-gazete-arsiv newer_than:3d';
 var DEPO = "uguryetgin/resmi-gazete-arsiv";
-var DESEN = /Resm[iîÎ]\s*Gazete\s+(\d{2}\.\d{2}\.\d{4})\s*\**\s*haz[ıi]r/i;
+var DESEN = /Resm[iîÎ]\s*Gazete\s+(\d{2}\.\d{2}\.\d{4})\s*\**\s*(haz[ıi]r|yay[ıi]mlanmad[ıi])/i;
 
 function ilet() {
   if (!ALICILAR.length) { Logger.log("ALICILAR listesi boş."); return; }
@@ -37,7 +37,9 @@ function ilet() {
       if (m.getDate() < sinir) return;
       var html = m.getBody();
       var t = (m.getPlainBody() + " " + m.getBody().replace(/<[^>]+>/g, " ")).match(DESEN);
-      if (!t || gonderilen.indexOf(t[1]) >= 0) return;  // bildirim degil ya da zaten gonderildi
+      var yok = !!t && /^yay/i.test(t[2]);
+      var anahtar = t ? t[1] + (yok ? "-yok" : "") : "";
+      if (!t || gonderilen.indexOf(anahtar) >= 0) return;  // bildirim degil ya da zaten gonderildi
       // GitHub alt bilgisi ("Reply to this email directly, view it on GitHub, or unsubscribe")
       html = html.replace(/<p[^>]*>\s*(&mdash;|—)?\s*<br\s*\/?>\s*Reply to this email directly[\s\S]*$/i, "");
       html = html.replace(/<div itemscope[\s\S]*?<\/div>/gi, "");
@@ -49,7 +51,7 @@ function ilet() {
       try {
         var sayfa = UrlFetchApp.fetch("https://github.com/" + DEPO + "/releases/download/rg-" + ymd + "/Eposta-" + ymd + ".html",
                                       { followRedirects: true, muteHttpExceptions: true });
-        if (sayfa.getResponseCode() === 200) html = sayfa.getContentText("UTF-8");
+        if (!yok && sayfa.getResponseCode() === 200) html = sayfa.getContentText("UTF-8");
       } catch (e) { Logger.log("E-posta sayfası alınamadı, GitHub e-postası kullanılıyor: " + e); }
       var secenek = { htmlBody: html, bcc: ALICILAR.join(","), name: "Resmî Gazete Arşivi" };
       var pdf = html.match(/href="(https:\/\/github\.com\/[^"]+\/Ozet-\d{8}\.pdf)"/);
@@ -59,9 +61,10 @@ function ilet() {
           if (r.getResponseCode() === 200) secenek.attachments = [r.getBlob().setName(pdf[1].split("/").pop())];
         } catch (e) { Logger.log("PDF eklenemedi: " + e); }
       }
-      GmailApp.sendEmail(ben, "Resmî Gazete " + t[1], m.getPlainBody().split(/Reply to this email directly/i)[0], secenek);
+      GmailApp.sendEmail(ben, "Resmî Gazete " + t[1] + (yok ? " – yayımlanmadı" : ""),
+                         m.getPlainBody().split(/Reply to this email directly/i)[0], secenek);
       Logger.log("İletildi: " + t[1] + " → " + ALICILAR.length + " alıcı");
-      gonderilen.push(t[1]);
+      gonderilen.push(anahtar);
       hafiza.setProperty("gonderilen", JSON.stringify(gonderilen.slice(-60)));
     });
   });
