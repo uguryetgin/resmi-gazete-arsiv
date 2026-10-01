@@ -70,11 +70,13 @@ def ileti(ymd, sahip, url, pdf_link=None):
     metin = "\n".join(satir)
     return metin if len(metin) < 60000 else metin[:59000] + "\n\n… (devamı sayfada)\n\n" + IMZA.format(ymd=ymd)
 
-def main():
+def main(argv=()):
     token, repo = os.environ["GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"]
     sahip = repo.split("/")[0]
     url = os.environ.get("SAYFA_URL") or f"https://{sahip}.github.io/{repo.split('/')[1]}/"
-    ymd = json.loads((ROOT / "data" / "latest.json").read_text(encoding="utf-8"))["ymd"]
+    yok = len(argv) == 2 and argv[0] == "yok"      # "bugun yayimlanmadi" bildirimi (resmi-gazete.yml)
+    ymd = argv[1] if yok else json.loads((ROOT / "data" / "latest.json").read_text(encoding="utf-8"))["ymd"]
+    imza = f"<!-- rg-bildirim-yok {ymd} -->" if yok else IMZA.format(ymd=ymd)
     acik = gh(token, "GET", f"/repos/{repo}/issues", params={"state": "all", "creator": "github-actions[bot]",
                                                             "per_page": 100})
     issue = next((i for i in acik if i.get("title") == BASLIK and not i.get("pull_request")), None)
@@ -84,12 +86,26 @@ def main():
             f"@{sahip} anılır; GitHub bunu bildirim olarak gönderir. Bu konuyu kapatmayın."})
     elif issue.get("state") == "closed":
         gh(token, "PATCH", f"/repos/{repo}/issues/{issue['number']}", json={"state": "open"})
+    if not issue.get("locked"):          # depo herkese acik: yalniz ortak calisanlar yorum yazabilsin
+        try:
+            gh(token, "PUT", f"/repos/{repo}/issues/{issue['number']}/lock", json={"lock_reason": "resolved"})
+        except Exception as e:
+            print(f"::warning::Issue kilitlenemedi: {e}")
     son = (datetime.now(timezone.utc) - timedelta(days=3)).isoformat(timespec="seconds")
     yorumlar = gh(token, "GET", f"/repos/{repo}/issues/{issue['number']}/comments",
                   params={"per_page": 100, "since": son})
     tekrar = os.environ.get("BILDIRIM_TEKRAR", "").lower() == "true"
-    if not tekrar and any(IMZA.format(ymd=ymd) in (c.get("body") or "") for c in yorumlar):
+    # Yalniz botun kendi yorumlari sayilir: baskasinin yazdigi sahte isaret bildirimi engelleyemesin
+    yorumlar = [c for c in yorumlar if (c.get("user") or {}).get("login") == "github-actions[bot]"]
+    if not tekrar and any(imza in (c.get("body") or "") for c in yorumlar):
         print(f"{ymd} icin bildirim zaten gonderilmis.")
+        return 0
+    if yok:
+        tarih = f"{ymd[6:]}.{ymd[4:6]}.{ymd[:4]}"
+        gh(token, "POST", f"/repos/{repo}/issues/{issue['number']}/comments", json={"body":
+           f"@{sahip} **Resmî Gazete {tarih} yayımlanmadı** — bugün sabah 09:11'e kadar yeni sayı bulunamadı "
+           f"(resmigazete.gov.tr'de o güne ait PDF yok).\n\n{imza}"})
+        print(f"{ymd} 'yayimlanmadi' bildirimi gonderildi.")
         return 0
     import ozet_pdf              # gunun ozet PDF'i -> release eki; linki yorumda
     pdf_link = ozet_pdf.ozet_pdf_linki(ymd, url, token, repo)
@@ -99,4 +115,4 @@ def main():
     return 0
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

@@ -10,7 +10,7 @@ on:
     types: [completed]
   push:
     branches: [main]
-    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, scripts/bildir.py, scripts/ozet_pdf.py, ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
+    paths: [scripts/sayfa.py, scripts/site_sablon.html, scripts/etiket.py, scripts/bildir.py, scripts/ozet_pdf.py, "scripts/vendor/**", ilgi.txt, etiketler.txt, etiket_duzeltme.txt, .github/workflows/site.yml]
   workflow_dispatch:
     inputs:
       bildirim_tekrar:
