@@ -39,6 +39,10 @@ jobs:
         env:
           SITE_SIFRE: ${{ secrets.SITE_SIFRE }}
           SITE_SIFRE_ZORUNLU: "1"
+          # Sayfadaki sohbet kutusu (Gemini). Anahtar yalniz SITE_SIFRE ile sifreli veriye girer.
+          SITE_YZ_TOKEN: ${{ secrets.YZ_TOKEN }}
+          YZ_MODEL: ${{ vars.YZ_MODEL || 'gemini-flash-latest' }}
+          YZ_YEDEK_MODELLER: ${{ vars.YZ_YEDEK_MODELLER || 'gemini-flash-lite-latest' }}
         run: |
           pip install --quiet requests cryptography
           python scripts/sayfa.py site
