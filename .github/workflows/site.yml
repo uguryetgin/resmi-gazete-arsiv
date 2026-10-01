@@ -1,15 +1,15 @@
 name: Web sayfası
 
-# Arsivden statik sayfayi uretir ve GitHub Pages'e yayimlar (yapay zeka yok).
+# Arsivden statik sayfayi uretir ve GitHub Pages'e yayimlar (yapay zeka cagirmaz).
 # Gunluk indirme GITHUB_TOKEN ile push ettigi icin "push" tetiklemez; bu yuzden
 # indirme is akisi bitince (workflow_run) calisir.
 on:
   workflow_run:
-    workflows: ["Resmî Gazete indir"]
+    workflows: ["Resmî Gazete indir", "GitHub Models özetleri"]
     types: [completed]
   push:
     branches: [main]
-    paths: [scripts/site.py, scripts/site_sablon.html, ilgi.txt, .github/workflows/site.yml]
+    paths: [scripts/sayfa.py, scripts/site_sablon.html, ilgi.txt, .github/workflows/site.yml]
   workflow_dispatch:
 
 concurrency:
@@ -36,7 +36,7 @@ jobs:
       - name: Sayfayı üret
         run: |
           pip install --quiet requests
-          python scripts/site.py site
+          python scripts/sayfa.py site
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
