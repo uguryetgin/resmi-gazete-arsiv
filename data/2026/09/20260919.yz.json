@@ -2,20 +2,22 @@
  "kalemler": {
   "Enerji Piyasası Düzenleme Kurulunun 17/09/2026 Tarihli ve 14880 Sayılı Kararı (s. 6)": {
    "ne_getiriyor": [
-    "Aksa Gemlik Doğal Gaz Dağıtım Anonim Şirketi'nin 2022-2026 yılları arası perakende satış tarifelerine yönelik 27/10/2022 tarihli ve 11342 sayılı Kurul Kararı revize edilmiştir.",
-    "Şirketin 2022-2026 yılları için Yatırım Tavanı (TL) sırasıyla 9.919.009, 8.891.168, 7.566.711, 4.376.502 ve 9.473.933 olarak yeniden belirlenmiştir.",
-    "Şirket için İlave Yatırım Tavanı (TL) 5.486.764 olarak belirlenmiştir."
+    "Enerji Piyasası Düzenleme Kurulunun 17/09/2026 tarihli ve 14880 sayılı Kararı ile Aksa Gemlik Doğal Gaz Dağıtım Anonim Şirketi'nin 2022-2026 yılları arası perakende satış tarifelerine yönelik 27/10/2022 tarihli ve 11342 sayılı Kurul Kararı revize edilmiştir.",
+    "Şirketin 2022-2026 yılları arası Yatırım Tavanı (TL) tutarları sırasıyla 2022 için 9.919.009 TL, 2023 için 8.891.168 TL, 2024 için 7.566.711 TL, 2025 için 4.376.502 TL ve 2026 için 9.473.933 TL olarak yeniden belirlenmiştir.",
+    "İlave Yatırım Tavanı (TL) tutarı ise 5.486.764 TL olarak revize edilmiştir."
    ],
-   "yururluk": "Bu Karar yayımı tarihinde yürürlüğe girer."
+   "yururluk": "Bu Karar yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
   },
   "Bankacılık Düzenleme ve Denetleme Kurulunun 18/09/2026 Tarihli ve 11572 Sayılı Kararı (s. 6)": {
    "ne_getiriyor": [
-    "Bank Mellat Merkezi Tahran İstanbul Türkiye Merkez Şubesinin faaliyet izni kaldırılmıştır.",
-    "Bu karar 5411 sayılı Bankacılık Kanununun 71 inci maddesinin birinci fıkrasının (b) bendi çerçevesinde alınmıştır."
+    "Bank Mellat Merkezi Tahran İstanbul Türkiye Merkez Şubesinin faaliyet izninin kaldırılmasına karar verilmiştir.",
+    "Faaliyet izninin kaldırılması işlemi 5411 sayılı Bankacılık Kanununun 71 inci maddesinin birinci fıkrasının (b) bendi çerçevesinde gerçekleştirilmiştir."
    ],
-   "yururluk": "metinde belirtilmemiş"
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T10:56:50+00:00"
+ "guncelleme": "2026-10-01T13:51:35+00:00"
 }

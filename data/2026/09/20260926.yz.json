@@ -3,13 +3,17 @@
   "Enerji Piyasası Düzenleme Kurulunun 24/09/2026 Tarihli ve 14895 Sayılı Kararı (s. 10)": {
    "ne_getiriyor": [
     "Aksa Ordu Giresun Doğal Gaz Dağıtım Anonim Şirketi'nin 2022-2026 yılları arası perakende satış tarifelerine yönelik 27/10/2022 tarihli ve 11344 sayılı Kurul Kararı revize edilmiştir.",
-    "2022 yılı Yatırım Tavanı 59.289.644 TL, 2023 yılı Yatırım Tavanı 114.203.420 TL, 2024 yılı Yatırım Tavanı 89.033.980 TL olarak belirlenmiştir.",
-    "2025 yılı Yatırım Tavanı 114.409.072 TL, 2026 yılı Yatırım Tavanı ise 107.751.379 TL olarak güncellenmiştir.",
-    "İlave Yatırım Tavanı (FL) 63.010.830 TL olarak yeniden düzenlenmiştir."
+    "2022 yılı Yatırım Tavanı (TL) 59.289.644 olarak belirlenmiştir.",
+    "2023 yılı Yatırım Tavanı (TL) 114.203.420 olarak belirlenmiştir.",
+    "2024 yılı Yatırım Tavanı (TL) 89.033.980 olarak belirlenmiştir.",
+    "2025 yılı Yatırım Tavanı (TL) 114.409.072 olarak belirlenmiştir.",
+    "2026 yılı Yatırım Tavanı (TL) 107.751.379 olarak belirlenmiştir.",
+    "İlave Yatırım Tavanı (FL) 63.010.830 olarak belirlenmiştir."
    ],
-   "yururluk": "Bu Karar yayımı tarihinde yürürlüğe girer."
+   "yururluk": "Bu Karar yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T10:31:06+00:00"
+ "guncelleme": "2026-10-01T13:37:43+00:00"
 }

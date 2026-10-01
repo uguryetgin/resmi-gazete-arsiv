@@ -2,15 +2,19 @@
  "kalemler": {
   "1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)": {
    "ne_getiriyor": [
-    "Resmî burslu lisans öğrencilerine ödenecek yurt içi aylık burs miktarı 4.000 TL, lisansüstü öğrencileri için ise 8.000 TL olarak belirlenmiştir.",
-    "Resmî burslu öğrencilere her ay kitap, defter, kırtasiye ve benzeri giderlerini karşılamak üzere aylık burs tutarının on ikide biri oranında ek ödenek verilir.",
-    "Yurt dışında lisans ve lisansüstü öğrenim gören resmî burslu öğrencilerin gidiş-geliş ulaşım ücretleri, başarısızlık durumu hariç şehir veya ülke değişiklikleri ile ilişik kesme durumlarındaki dönüş masrafları karşılanır.",
-    "Yurt dışı öğrenimini tamamlayıp yasal süresi içinde yurda dönerek görev talep eden resmî burslu öğrencilere, atama onay tarihine kadar 90 günü geçmemek üzere yurt dışı aylığının yarısı ödenir.",
-    "Yurt dışına gönderilen resmî burslu öğrencilere talep etmeleri halinde ilk iki aylık burs peşin veya avans olarak ödenir."
+    "Millî Eğitim Bakanlığınca 1416 sayılı Kanun ve Yönetmelik uyarınca yurt dışında resmî burslu, kısmi resmî burslu ve resmî burssuz statüde öğrenim gören öğrenciler ile dil öğrenimi görenlere yapılacak aylık burs, ödenek ve zorunlu giderlere ilişkin usul ve esasları belirler.",
+    "Resmî burslu öğrencilerin yurt dışına gidiş ve yurda dönüşlerinde ekonomi sınıfı ulaşım biletleri ile başarılı olmaları kaydıyla öğrenim yeri veya şehir değişikliklerindeki yol giderleri karşılanır.",
+    "Resmî burslu öğrencilere ödenecek yurt içi aylık burs miktarları lisans öğrencileri için 4.000 TL, lisansüstü öğrencileri için 8.000 TL olarak belirlenmiştir.",
+    "Yurt dışında lisans öğrenimi gören resmî burslu öğrencilere Ek-1 (I) numaralı cetvel, dil ve lisansüstü öğrenim görenlere ise Ek-1 (II) numaralı cetvel üzerinden aylık burs ödenir; ayrıca her ay aylık bursun on ikide biri tutarında ek ödenek verilir.",
+    "Yurt içi dil kursu ücretleri en fazla ilgili yıldaki aylık yurt içi burs miktarı kadar ödenirken, yurt dışında lisansüstü öğrenim görenlere tez ve alan çalışmaları, akademik toplantılar, stajlar ve tez yazım masrafları için sınırlı ödemeler yapılır.",
+    "Resmî burslu öğrencilerin zorunlu sağlık sigortası primleri ile sigorta ve mahalli imkânlar dışındaki muayene, tedavi, ilaç ve diş tedavisi giderleri belirli usul, oran ve sınırlamalar dahilinde kurumlarınca karşılanır.",
+    "Öğrencilere yapılan ödemeler Gelir Vergisi Kanununun 28 inci maddesine göre gelir vergisinden istisnadır.",
+    "21/9/2023 tarihinden önceki harcamalar için mezuniyet tarihinden, bu tarihten sonraki harcamalar için ise harcamanın yapıldığı tarihten itibaren en geç altı ay içinde geri ödeme talebinde bulunulması gerekir."
    ],
-   "yururluk": "22/7/2025 tarihli ve 32963 sayılı Resmî Gazete’de yayımlanan önceki Tebliğ yürürlükten kaldırılmıştır."
+   "yururluk": "Yurt içi ve yurt dışı aylık burslara ilişkin hükümleri yayımını izleyen aybaşından geçerli olmak üzere yayımı tarihinde, diğer hükümleri ise yayımı tarihinde yürürlüğe girer; 22/7/2025 tarihli ve 32963 sayılı Resmî Gazete’de yayımlanan aynı konudaki Tebliğ yürürlükten kaldırılmıştır.",
+   "surum": 2
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T10:46:28+00:00"
+ "guncelleme": "2026-10-01T13:35:59+00:00"
 }

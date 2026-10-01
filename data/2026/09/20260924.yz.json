@@ -2,15 +2,21 @@
  "kalemler": {
   "Türkiye Yeşil Taksonomisi Yönetmeliği (s. 1)": {
    "ne_getiriyor": [
-    "Sürdürülebilir kalkınma hedefleriyle uyumlu ekonomik faaliyetlerin desteklenmesi, yeşile boyamanın önlenmesi ve yatırımlara finansman akışının teşvik edilmesi için Türkiye Yeşil Taksonomisi'nin usul ve esasları düzenlenmiştir.",
-    "Uygun ekonomik faaliyetlerin uyumlu sayılabilmesi için çevresel hedeflerden en az birine önemli ölçüde katkı sağlaması, başka hiçbir çevresel hedefe zarar vermemesi ve asgari sosyal koruma önlemlerine uyması zorunludur.",
-    "Katı fosil yakıtlar kullanılan üretim faaliyetleri çevresel açıdan sürdürülebilir ekonomik faaliyetler olarak değerlendirilmez.",
-    "Teknik tarama kriterlerinde yapılacak güncellemelerin her yılın 15 Aralık tarihine kadar Başkanlığın resmi internet sayfasında yayımlanması ve takip eden yıl itibarıyla geçerli olması hükme bağlanmıştır.",
-    "Taksonomi sürecine ilişkin iş ve işlemler Çevrimiçi Taksonomi Yönetim Sistemi aracılığıyla yürütülür ve bu sisteme yüklenen raporların kamuoyuna açık olması esastır."
+    "Sürdürülebilir kalkınma hedefleriyle uyumlu ekonomik faaliyetlerin desteklenmesi, finansman akışının teşvik edilmesi ve yeşile boyamanın önlenmesi amacıyla Türkiye Yeşil Taksonomisi'nin usul ve esaslarını düzenler.",
+    "Kurum, kuruluş ve işletmelerin Ek-1'de yer alan uygun ekonomik faaliyetleri, finansal kuruluşların faaliyetlerini, teknik tarama kriterlerini ve Çevrimiçi Taksonomi Yönetim Sistemi'ne ilişkin hususları kapsar.",
+    "Uygun ekonomik faaliyetlerin uyumlu sayılması için çevresel hedeflerden en az birine önemli ölçüde katkı sağlaması, hiçbir hedefe zarar vermemesi ve asgari sosyal koruma önlemlerine uyması zorunluluğunu getirir.",
+    "Sera gazı emisyonlarının azaltımı, iklim değişikliğine uyum, su ve deniz kaynaklarının korunması, döngüsel ekonomiye geçiş, kirliliğin önlenmesi ile biyoçeşitliliğin korunmasını altı çevresel hedef olarak belirler.",
+    "Katı fosil yakıtlar kullanılan üretim faaliyetlerinin çevresel açıdan sürdürülebilir ekonomik faaliyet olarak değerlendirilemeyeceğini hükme bağlar.",
+    "Teknik tarama kriterlerindeki güncellemelerin her yılın 15 Aralık tarihine kadar Başkanlığın resmi internet sayfasında yayımlanacağını ve takip eden yıl itibarıyla geçerli olacağını kurala bağlar.",
+    "Bankalar, sigorta/reasürans/emeklilik şirketleri ile aracı kurum, yatırım ortaklığı ve portföy yönetim şirketlerine taksonomi raporlaması zorunluluğu getirir.",
+    "İlgili kurum ve kuruluşların raporlarını, ilgili yılın mali tablo döneminin bitimini takip eden altıncı ayın sonunda Çevrimiçi Taksonomi Yönetim Sistemi'ne yükleme zorunluluğu getirir.",
+    "Hasılatı, yatırım harcamaları veya işletme giderleri tüm faaliyetlerinin yüzde 10'unun altında kalan uygun ekonomik faaliyetlerin anahtar performans göstergelerini raporlamaya dâhil etmeme istisnası tanır.",
+    "Raporlama için gerekli bildirim, bilgi ve belge verme yükümlülüğünü yerine getirmeyenlere idari para cezası uygulanacağını belirtir."
    ],
-   "yururluk": "metinde belirtilmemiş"
+   "yururluk": "Bu Yönetmelik yayımı tarihinde yürürlüğe girer; finansal kuruluşlar 1/1/2029 tarihine kadar taksonomi raporlaması yapmak zorunda değildir.",
+   "surum": 2
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T10:48:12+00:00"
+ "guncelleme": "2026-10-01T13:39:28+00:00"
 }

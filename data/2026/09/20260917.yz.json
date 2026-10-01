@@ -2,15 +2,19 @@
  "kalemler": {
   "Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Ana Statüsünün Yürürlüğe Konulması Hakkında Karar (Karar Sayısı: 11790) (s. 232)": {
    "ne_getiriyor": [
-    "Türkiye Elektrik İletim Anonim Şirketi (TEİAŞ), sermayesinin tamamı Devlete ait, merkezi Ankara'da bulunan ve 17.731.798.237,00 TL sermayeli bir iktisadi devlet teşekkülü olarak yeniden düzenlenmiştir.",
-    "TEİAŞ, tüm iletim tesislerini devralmak ve mülkiyetindeki tesislerde elektrik iletimi, yük dağıtımı, frekans kontrolü ve ilgili yatırımları verimlilik ve kârlılık ilkelerine göre yürütmekle görevlendirilmiştir.",
-    "Şirketin organları bir başkan ve beş üyeden oluşan Yönetim Kurulu ile Genel Müdürlük olarak belirlenmiştir.",
-    "TEİAŞ ve bağlı ortaklıklarının istihdam, atama, kadro ve özlük hakları gibi personel konularında 233 sayılı ve 399 sayılı Kanun Hükmünde Kararnameler uygulanacaktır.",
-    "TEİAŞ ile EÜAŞ ve TEDAŞ arasındaki mali, idari ve teknik ilişkiler, kurumların kendi aralarında ve Bakanlık koordinatörlüğünde düzenleyecekleri protokol esaslarına göre yürütülecektir."
+    "Türkiye Elektrik İletim Anonim Şirketi (TEİAŞ) Genel Müdürlüğü Ana Statüsü yürürlüğe konulmuştur.",
+    "TEİAŞ, sermayesinin tamamı devlete ait, tüzel kişiliğe sahip, özerk ve sorumluluğu sermayesiyle sınırlı bir iktisadi devlet teşekkülüdür ve merkezi Ankara'dadır.",
+    "TEİAŞ'ın sermayesi 17.731.798.237,00 TL'dir.",
+    "TEİAŞ'ın organları Yönetim Kurulu ve Genel Müdürlüktür; Yönetim Kurulu bir başkan ve beş üyeden oluşur ve Genel Müdür Yönetim Kurulu Başkanıdır.",
+    "TEİAŞ'ın amaç ve faaliyet konuları arasında tüm iletim tesislerini devralmak, elektrik iletimi ve yük dağıtımı faaliyetlerini yürütmek, iletim tarifesi hazırlamak ve ilgili anlaşmaları yapmak yer alır.",
+    "TEİAŞ ve bağlı ortaklıklarının yatırım ve işletme faaliyetleri plan, program ve bütçelere dayalı olarak yürütülür, yıllık genel yatırım ve finansman programı Hazine ve Maliye Bakanlığı'na sunulur.",
+    "TEİAŞ ile EÜAŞ ve TEDAŞ arasındaki mali, idari ve teknik ilişkiler protokol esasları dahilinde yürütülür; anlaşmazlık halinde Bakanlık kararı geçerlidir.",
+    "Bu Ana Statünün yürürlüğe girdiği tarihten önce yürürlükte bulunan yönetmelik, tebliğ, genelge ve benzeri düzenlemelerin bu Ana Statüye aykırı olmayan hükümleri yenileri yürürlüğe konuluncaya kadar geçerliliğini sürdürür."
    ],
-   "yururluk": "metinde belirtilmemiş"
+   "yururluk": "Yayımı tarihinde yürürlüğe girmiştir; 29/6/2001 tarihli ve 24447 sayılı Resmî Gazete'de yayımlanan Türkiye Elektrik İletim Anonim Şirketi Ana Statüsü yürürlükten kaldırılmıştır.",
+   "surum": 2
   }
  },
  "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-01T12:51:02+00:00"
+ "guncelleme": "2026-10-01T13:57:07+00:00"
 }
