@@ -38,7 +38,7 @@ a{color:inherit}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .ust{position:sticky;top:0;z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
-.ust-ic{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ust-ic{max-width:none;margin:0;padding:10px 20px 10px 12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.2px;white-space:nowrap}
 .logo b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:7px;background:var(--accent);color:var(--accent-ink);font:700 13px Georgia,serif}
 .ara{flex:1 1 220px;min-width:0;position:relative}
@@ -48,17 +48,18 @@ button,input,select{font:inherit;color:inherit}
 .cip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer;white-space:nowrap}
 .cip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
 .tema{border:1px solid var(--line);background:var(--panel);border-radius:9px;width:36px;height:36px;cursor:pointer;display:grid;place-items:center}
-.duzen{max-width:1180px;margin:0 auto;padding:16px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start}
+.duzen{margin:0;padding:12px 20px 16px 12px;display:grid;grid-template-columns:172px minmax(0,1fr);gap:16px;align-items:start}
 .yan{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
-.yan h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0;padding:12px 14px 6px}
-.gunler{list-style:none;margin:0;padding:0 6px 8px}
-.gunler a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none}
+.yan h2{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0;padding:10px 10px 4px}
+.gunler{list-style:none;margin:0;padding:0 4px 6px}
+.gunler a{display:block;padding:5px 8px;border-radius:7px;text-decoration:none}
 .gunler a:hover{background:var(--soft)}
 .gunler a[aria-current="true"]{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
 .g-ust{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.g-tarih{font-weight:600}
-.g-sayi{font-size:12px;color:var(--muted)}
-.g-alt{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.g-tarih{font-weight:600;font-size:13.5px}
+.g-sayi{font-size:11px;color:var(--muted)}
+.g-alt{display:flex;gap:3px;flex-wrap:wrap;margin-top:2px}
+.yan .etiket{font-size:10.5px;padding:0 6px}
 .g-eslesme{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.4}
 .g-eslesme div{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
@@ -126,12 +127,21 @@ details.grup>summary span{color:var(--muted);font-weight:400;font-size:13px}
 .ilan{font-size:13.5px;color:var(--muted);margin:14px 2px}
 .bos{color:var(--muted);padding:40px 16px;text-align:center}
 .mobil-gunler{display:none}
-.alt-not{max-width:1180px;margin:0 auto;padding:8px 16px 32px;color:var(--muted);font-size:12.5px}
+.yan-dugme{border:1px solid var(--line);background:var(--panel);border-radius:9px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);flex:none}
+.yan-dugme:hover{color:var(--ink);background:var(--soft)}
+body.yan-kapali .duzen{grid-template-columns:minmax(0,1fr)}
+body.yan-kapali .yan{display:none}
+body.yan-kapali .alt-not{padding-left:20px}
+.alt-not{margin:0;padding:8px 20px 32px 200px;color:var(--muted);font-size:12.5px}
 @media (max-width:860px){
   .duzen{grid-template-columns:1fr;padding:12px 16px}
+  .alt-not{padding:8px 16px 32px}
+  .ust-ic{padding:10px 16px}
   .yan{position:static;max-height:none;display:none}
   .yan.acik{display:block;max-height:60vh}
   .mobil-gunler{display:inline-flex}
+  .yan-dugme{display:none}
+  body.yan-kapali .yan.acik{display:block}
   .bas h1{font-size:20px}
   .ust-ic{gap:8px}
   .filtre{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
@@ -159,6 +169,7 @@ details.grup>summary span{color:var(--muted);font-weight:400;font-size:13px}
 <body>
 <header class="ust">
   <div class="ust-ic">
+    <button class="yan-dugme" id="yanDugme" aria-expanded="true" aria-controls="yan" title="Gün listesini gizle/göster" aria-label="Gün listesini gizle/göster"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button>
     <a class="logo" href="#"><b>RG</b><span>Resmî Gazete Arşivi</span></a>
     <label class="ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="ara" type="search" placeholder="Ara: EPDK, damping, MASAK…" aria-label="Başlık ve metinlerde ara"></label>
@@ -222,6 +233,13 @@ $("tema").onclick = function(){
   var yeni = koyu ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", yeni); sakla("rg-tema", yeni);
 };
+function yanAyarla(kapali){
+  document.body.classList.toggle("yan-kapali", kapali); $("yanDugme").setAttribute("aria-expanded", !kapali);
+}
+yanAyarla(oku("rg-yan") === "kapali");
+$("yanDugme").onclick = function(){
+  var kapali = !document.body.classList.contains("yan-kapali"); yanAyarla(kapali); sakla("rg-yan", kapali ? "kapali" : "");
+};
 $("mobilGunler").onclick = function(){
   var acik = $("yan").classList.toggle("acik"); this.setAttribute("aria-expanded", acik);
 };
@@ -265,7 +283,7 @@ function listeCiz(){
     var esl = u.eslesme.slice(0, 3).map(function(b){ return "<div>" + vurgula(b, durum.ara) + "</div>"; }).join("");
     if (u.eslesme.length > 3) esl += "<div>+" + (u.eslesme.length - 3) + " başlık daha</div>";
     h += '<li><a href="#' + g.ymd + '" aria-current="' + (g.ymd === durum.ymd) + '">' +
-         '<div class="g-ust"><span class="g-tarih">' + kac(tarihKisa(g.ymd)) + '</span><span class="g-sayi">Sayı ' + kac(g.sayi) +
+         '<div class="g-ust"><span class="g-tarih">' + kac(tarihKisa(g.ymd)) + '</span><span class="g-sayi">' + kac(g.sayi) +
          (g.mukerrer ? " +" + g.mukerrer + " mük." : "") + "</span></div>" +
          '<div class="g-alt">' + rozet + "</div>" + (esl ? '<div class="g-eslesme">' + esl + "</div>" : "") + "</a></li>";
   });
