@@ -96,6 +96,12 @@ td.eski span{background:var(--eski-bg);color:var(--eski);border-radius:4px;paddi
 td.yeni span{background:var(--yeni-bg);color:var(--yeni);border-radius:4px;padding:1px 4px}
 td small{display:block;color:var(--muted);margin-top:3px}
 .notlar{font-size:13px;color:var(--muted);margin:8px 0 0;padding-left:18px}
+.yz{margin:12px 0 4px;padding:10px 14px;border-radius:9px;background:var(--soft);border:1px dashed var(--line)}
+.yz-bas{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.yz ul{margin:6px 0 4px;padding-left:20px}
+.yz li{margin:3px 0}
+.yz .yur{font-size:14px;margin-top:4px}
+.yz small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
 details.tam{margin-top:10px}
 details.tam summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--accent)}
 details.tam pre{white-space:pre-wrap;word-wrap:break-word;font:13.5px/1.6 Georgia,"Times New Roman",serif;background:var(--soft);padding:12px 14px;border-radius:9px;max-height:60vh;overflow:auto;margin:8px 0 0}
@@ -137,7 +143,7 @@ details.grup>summary span{color:var(--muted);font-weight:400;font-size:13px}
   <nav class="yan" id="yan" aria-label="Günler"><h2 id="yanBaslik">Günler</h2><ul class="gunler" id="gunler"></ul></nav>
   <main class="ana" id="ana"><div class="bos">Yükleniyor…</div></main>
 </div>
-<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir; yorum içermez. Kesin metin için PDF'e bakın.</p>
+<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları GitHub Models ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın.</p>
 <script>
 (function(){
 "use strict";
@@ -246,6 +252,13 @@ function tablo(k){
   return h;
 }
 
+function yzKutu(y){
+  if (!y || !y.ne_getiriyor) return "";
+  return '<div class="yz"><div class="yz-bas">Ne getiriyor · otomatik özet</div><ul>' +
+    y.ne_getiriyor.map(function(m){ return "<li>" + vurgula(m, durum.ara) + "</li>"; }).join("") + "</ul>" +
+    (y.yururluk ? '<div class="yur"><b>Yürürlük:</b> ' + kac(y.yururluk) + "</div>" : "") +
+    "<small>GitHub Models (" + kac(y.model || "") + ") ile üretildi; hata içerebilir, kesin bilgi için tam metne bakın.</small></div>";
+}
 function pdfLink(pdf, s){ return pdf ? '<a href="' + kac(pdf) + (s ? "#page=" + s : "") + '" target="_blank" rel="noopener">s. ' + kac(s) + " · PDF</a>" : (s ? "s. " + s : ""); }
 
 function gunCiz(g){
@@ -268,6 +281,7 @@ function gunCiz(g){
       h += '<article class="kart yildiz"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
            (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + pdfLink(s.pdf, k.sayfa) + "</div>" +
            "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" +
+           yzKutu(k.yz) +
            (k.karsilastirma ? tablo(k) : (k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
            (k.tam_metin ? '<details class="tam"><summary>Tam metni göster' + (k.kesildi ? " (uzun; ortası kısaltıldı)" : "") + "</summary><pre>" + kac(k.tam_metin) + "</pre></details>" : "") +
            "</article>";

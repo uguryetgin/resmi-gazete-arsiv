@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Arsivden statik web sayfasi uret (GitHub Pages; yapay zeka kullanmaz).
+"""Arsivden statik web sayfasi uret (GitHub Pages). Yapay zeka cagirmaz; scripts/yz_ozet.py'nin
+onceden yazdigi GitHub Models ozetleri varsa ekler.
 
 Cikti site/ altina:
   index.html                 tek sayfalik arayuz (scripts/site_sablon.html)
   gunler.json                tum gunlerin listesi: tarih, sayi, ★ kalemler, basliklar ve kisa alintilar (arama)
   gun/YYYYAAGG.json          bir gunun ayrintisi: bolumler, kalemler, alintilar, ★ tam metin,
-                             eski/yeni karsilastirma tablosu (varsa)
+                             eski/yeni karsilastirma tablosu ve GitHub Models ozeti (varsa)
 
-Kullanim: python3 scripts/site.py [cikti_klasoru]   (depo kokunden; varsayilan site/)
+Kullanim: python3 scripts/sayfa.py [cikti_klasoru]   (depo kokunden; varsayilan site/)
 .github/workflows/site.yml her gunluk indirmeden sonra calistirip yayimlar."""
 import json, re, shutil, sys
 from pathlib import Path
@@ -65,14 +66,19 @@ def gun_isle(meta_yol, alanlar, haric):
     for ek, no, m in sayilar:
         bolumler, ilan = ozet_oku(klasor / f"{ymd}{ek}.ozet.txt")
         kars = karsilastirma(klasor / f"{ymd}{ek}.karsilastirma.json")
+        yz_yol = klasor / f"{ymd}{ek}.yz.json"     # scripts/yz_ozet.py (GitHub Models)
+        yz = json.loads(yz_yol.read_text(encoding="utf-8")) if yz_yol.exists() else {}
         eslesen = {}
         for b in bolumler:
             for k in b["kalemler"]:
                 k["alan"] = rt.alan_bul(k["baslik"], alanlar, haric) if alanlar else None
                 if k["baslik"] in kars:
                     k["karsilastirma"] = kars[k["baslik"]]
+                anahtar = f"{k['baslik']} (s. {k['sayfa']})"
+                if anahtar in yz.get("kalemler", {}):
+                    k["yz"] = dict(yz["kalemler"][anahtar], model=yz.get("model", ""))
                 if k["alan"] and not ek:
-                    eslesen[f"{k['baslik']} (s. {k['sayfa']})"] = k["alan"]
+                    eslesen[anahtar] = k["alan"]
         if eslesen:              # ★ kalemlerin tam metni (yalniz ana sayi; mukerrer metni ayri dosyada)
             try:
                 tam = {s: (g, kes) for s, g, kes in rt.tam_metinler(f"Resmî Gazete {meta['tarih']}",
