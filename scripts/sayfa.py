@@ -8,9 +8,13 @@ Cikti site/ altina:
   gun/YYYYAAGG.json          bir gunun ayrintisi: bolumler, kalemler, alintilar, ★ tam metin,
                              eski/yeni karsilastirma tablosu ve GitHub Models ozeti (varsa)
 
+Sifre: SITE_SIFRE ortam degiskeni varsa gunler.json ve gun/*.json AES-GCM ile sifrelenir
+(.enc; anahtar PBKDF2-SHA256), sifre.json'a yalniz tuz ve tur sayisi yazilir; sayfa sifreyi
+tarayicida sorar. SITE_SIFRE_ZORUNLU=1 iken sifre yoksa site uretilmez.
+
 Kullanim: python3 scripts/sayfa.py [cikti_klasoru]   (depo kokunden; varsayilan site/)
 .github/workflows/site.yml her gunluk indirmeden sonra calistirip yayimlar."""
-import json, re, shutil, sys
+import base64, json, os, re, shutil, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -19,6 +23,7 @@ import routine_tetikle as rt     # noqa: E402  (ilgi alani eslestirme, ★ tam m
 ROOT = Path(".")
 SABLON = Path(__file__).resolve().parent / "site_sablon.html"
 TAM_BUTCE = 60000                 # gun basina ★ tam metin toplami
+PBKDF2_TUR = 310000               # tarayicida bir kez, giriste hesaplanir
 ARAMA_ALINTI = 900                # gunler.json'da aranan alinti uzunlugu (kalem basina)
 
 def ozet_oku(yol):
@@ -108,6 +113,22 @@ def ozet_satiri(gun):
             "mukerrer": len(gun["sayilar"]) - 1, "yildiz": yildiz, "basliklar": basliklar,
             "alintilar": metinler}
 
+def sifrele(klasor, sifre):
+    """gunler.json ve gun/*.json -> .enc (12 bayt iv + AES-GCM sifreli metin); sifre.json."""
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+    tuz = os.urandom(16)
+    anahtar = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=tuz,
+                         iterations=PBKDF2_TUR).derive(sifre.encode("utf-8"))
+    aes = AESGCM(anahtar)
+    for yol in [klasor / "gunler.json"] + sorted((klasor / "gun").glob("*.json")):
+        iv = os.urandom(12)
+        yol.with_suffix(".enc").write_bytes(iv + aes.encrypt(iv, yol.read_bytes(), None))
+        yol.unlink()
+    (klasor / "sifre.json").write_text(json.dumps(
+        {"v": 1, "tuz": base64.b64encode(tuz).decode(), "tur": PBKDF2_TUR}), encoding="utf-8")
+
 def main(argv):
     cikti = Path(argv[0]) if argv else ROOT / "site"
     if cikti.exists():
@@ -128,6 +149,15 @@ def main(argv):
         encoding="utf-8")
     shutil.copy(SABLON, cikti / "index.html")
     (cikti / ".nojekyll").write_text("")
+    (cikti / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
+    sifre = os.environ.get("SITE_SIFRE", "")
+    if sifre:
+        sifrele(cikti, sifre)
+        print("Veri sifrelendi.")
+    elif os.environ.get("SITE_SIFRE_ZORUNLU") == "1":
+        print("::error::SITE_SIFRE tanimli degil; sayfa sifresiz yayimlanmasin diye durduruldu. "
+              "Repo Settings > Secrets and variables > Actions > New repository secret: SITE_SIFRE")
+        return 1
     print(f"Site hazir: {len(liste)} gun, {sum(len(g['yildiz']) for g in liste)} ★ kalem -> {cikti}")
     return 0
 

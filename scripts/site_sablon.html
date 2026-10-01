@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Resmî Gazete Arşivi</title>
 <meta name="description" content="Resmî Gazete günlük arşivi: ilgi alanı kalemleri, alıntılar ve eski/yeni karşılaştırmaları.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b4232a'/%3E%3Ctext x='16' y='22' font-size='15' font-family='Georgia,serif' font-weight='700' text-anchor='middle' fill='white'%3ERG%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -96,6 +97,13 @@ td.eski span{background:var(--eski-bg);color:var(--eski);border-radius:4px;paddi
 td.yeni span{background:var(--yeni-bg);color:var(--yeni);border-radius:4px;padding:1px 4px}
 td small{display:block;color:var(--muted);margin-top:3px}
 .notlar{font-size:13px;color:var(--muted);margin:8px 0 0;padding-left:18px}
+.giris{max-width:380px;margin:12vh auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;box-shadow:var(--shadow);text-align:center}
+.giris h1{font:700 22px Georgia,serif;margin:6px 0 6px}
+.giris p{color:var(--muted);margin:0 0 16px;font-size:14px}
+.giris input[type=password]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);margin-bottom:10px}
+.giris label{display:flex;gap:8px;align-items:center;justify-content:center;font-size:13px;color:var(--muted);margin:4px 0 14px}
+.giris .hata{color:var(--eski);font-size:13px;min-height:18px;margin-top:8px}
+.giris .dugme{width:100%;justify-content:center}
 .sor{font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
 .sor:hover{text-decoration:underline}
 .yz{margin:12px 0 4px;padding:10px 14px;border-radius:9px;background:var(--soft);border:1px dashed var(--line)}
@@ -321,14 +329,53 @@ function gunCiz(g){
   Array.prototype.forEach.call(document.querySelectorAll(".la,.alinti"), function(el){ el.onclick = function(){ el.classList.toggle("acik"); }; });
 }
 
+// Sifreli yayin: sifre.json varsa veri .enc dosyalarinda (AES-GCM, PBKDF2-SHA256 anahtar)
+var ANAHTAR = null, SIFRELI = false;
+function b64(s){ var b = atob(s), a = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+function veriAl(ad){
+  if (!SIFRELI) return fetch(ad + ".json").then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); });
+  return fetch(ad + ".enc").then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+    .then(function(buf){ return crypto.subtle.decrypt({name: "AES-GCM", iv: new Uint8Array(buf, 0, 12)}, ANAHTAR, new Uint8Array(buf, 12)); })
+    .then(function(acik){ return JSON.parse(new TextDecoder().decode(acik)); });
+}
+function anahtarTuret(sifre, bilgi){
+  return crypto.subtle.importKey("raw", new TextEncoder().encode(sifre), "PBKDF2", false, ["deriveKey"])
+    .then(function(k){ return crypto.subtle.deriveKey({name: "PBKDF2", salt: b64(bilgi.tuz), iterations: bilgi.tur, hash: "SHA-256"},
+      k, {name: "AES-GCM", length: 256}, true, ["decrypt"]); });
+}
+function anahtarSakla(k){ crypto.subtle.exportKey("raw", k).then(function(r){ sakla("rg-anahtar", btoa(String.fromCharCode.apply(null, new Uint8Array(r)))); }); }
+function anahtarOku(){
+  var s = oku("rg-anahtar"); if (!s) return Promise.resolve(null);
+  return crypto.subtle.importKey("raw", b64(s), {name: "AES-GCM"}, true, ["decrypt"]).catch(function(){ return null; });
+}
+function girisCiz(bilgi){
+  $("yan").style.display = "none";
+  $("ana").innerHTML = '<form class="giris" id="giris"><div class="logo" style="justify-content:center"><b>RG</b></div><h1>Resmî Gazete Arşivi</h1>' +
+    '<p>Bu sayfa şifreli. Devam etmek için şifreyi girin.</p><input type="password" id="sifre" autocomplete="current-password" placeholder="Şifre" required>' +
+    '<label><input type="checkbox" id="hatirla" checked> Bu cihazda hatırla</label><button class="dugme ana-d" type="submit">Aç</button><div class="hata" id="hata"></div></form>';
+  $("sifre").focus();
+  $("giris").onsubmit = function(e){
+    e.preventDefault(); $("hata").textContent = "Açılıyor…";
+    anahtarTuret($("sifre").value, bilgi).then(function(k){
+      ANAHTAR = k;
+      return veriAl("gunler").then(function(v){
+        if ($("hatirla").checked) anahtarSakla(k);
+        $("yan").style.display = ""; basla(v);
+      });
+    }).catch(function(){ ANAHTAR = null; $("hata").textContent = "Şifre yanlış."; });
+  };
+}
+function basla(v){ VERI = v; filtreCiz(); git(); }
+
 function git(){
+  if (!VERI) return;
   var ymd = location.hash.replace("#", "");
   if (!/^\d{8}$/.test(ymd)) ymd = VERI.gunler.length ? VERI.gunler[0].ymd : "";
   durum.ymd = ymd; listeCiz();
   if (!ymd) { $("ana").innerHTML = '<div class="bos">Henüz gün yok.</div>'; return; }
   $("yan").classList.remove("acik");
   var yukle = GUN[ymd] ? Promise.resolve(GUN[ymd]) :
-    fetch("gun/" + ymd + ".json").then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(g){ GUN[ymd] = g; return g; });
+    veriAl("gun/" + ymd).then(function(g){ GUN[ymd] = g; return g; });
   yukle.then(function(g){ if (durum.ymd === ymd) { gunCiz(g); window.scrollTo(0, 0); document.title = g.tarih + " · Resmî Gazete Arşivi"; } })
        .catch(function(){ $("ana").innerHTML = '<div class="bos">Bu gün bulunamadı.</div>'; });
 }
@@ -339,7 +386,15 @@ $("ara").oninput = function(){
   araZaman = setTimeout(function(){ durum.ara = v; listeCiz(); if (GUN[durum.ymd]) gunCiz(GUN[durum.ymd]); }, 150);
 };
 window.addEventListener("hashchange", git);
-fetch("gunler.json").then(function(r){ return r.json(); }).then(function(v){ VERI = v; filtreCiz(); git(); })
+fetch("sifre.json").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }).then(function(bilgi){
+  if (!bilgi) return veriAl("gunler").then(basla);
+  SIFRELI = true;
+  return anahtarOku().then(function(k){
+    if (!k) return girisCiz(bilgi);
+    ANAHTAR = k;
+    return veriAl("gunler").then(basla).catch(function(){ sakla("rg-anahtar", ""); ANAHTAR = null; girisCiz(bilgi); });
+  });
+})
   .catch(function(){ $("ana").innerHTML = '<div class="bos">Veri yüklenemedi.</div>'; });
 })();
 </script>
