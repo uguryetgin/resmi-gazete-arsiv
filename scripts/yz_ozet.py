@@ -110,29 +110,25 @@ def gun_isle(ymd, token, alanlar, haric):
     return yeni
 
 def tani(token):
-    """Gecici: hangi uc nokta/baslik bicimi calisiyor."""
-    mesaj = [{"role": "user", "content": "Sadece 'merhaba' yaz."}]
-    denemeler = [
-        ("YZ_URL/YZ_MODEL", URL, MODEL, {}),
-        ("models.github.ai tam", URL, MODEL, {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}),
-        ("models.github.ai yalin", URL, MODEL, {}),
-        ("models.github.ai json", URL, MODEL, {"Accept": "application/json"}),
-        ("models.github.ai 4o-mini", URL, "openai/gpt-4o-mini", {"Accept": "application/json"}),
-        ("azure eski", "https://models.inference.ai.azure.com/chat/completions", "gpt-4o-mini", {"Accept": "application/json"}),
-    ]
-    for ad, url, model, ek in denemeler:
-        try:
-            r = requests.post(url, timeout=60, json={"model": model, "messages": mesaj, "max_tokens": 20},
-                              headers=dict({"Authorization": f"Bearer {token}", "Content-Type": "application/json"}, **ek))
-            print(f"TANI {ad}: HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:250]!r}")
-        except Exception as e:
-            print(f"TANI {ad}: {e}")
+    """Gecici: saglayicida hangi modeller calisiyor."""
+    taban = URL.rsplit("/chat/completions", 1)[0]
     try:
-        r = requests.get("https://models.github.ai/catalog/models", timeout=30,
-                         headers={"Authorization": f"Bearer {token}", "Accept": "application/json"})
-        print(f"TANI katalog: HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:250]!r}")
+        r = requests.get(taban + "/models", timeout=30, headers={"Authorization": f"Bearer {token}"})
+        adlar = [m.get("id") for m in (r.json().get("data") or [])] if r.ok else []
+        print(f"TANI modeller: HTTP {r.status_code} | {', '.join(a for a in adlar if 'gemini' in str(a))[:900] or r.text[:300]}")
     except Exception as e:
-        print(f"TANI katalog: {e}")
+        print(f"TANI modeller: {e}")
+    for model in [MODEL, "gemini-3.8-flash-lite", "gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"]:
+        for rf in (False, True):
+            govde = {"model": model, "max_tokens": 30, "messages": [{"role": "user", "content": "Sadece 'merhaba' yaz."}]}
+            if rf:
+                govde["response_format"] = {"type": "json_object"}
+                govde["messages"][0]["content"] = 'Yalnız {"selam":"merhaba"} JSON\'unu yaz.'
+            try:
+                r = requests.post(URL, json=govde, timeout=60, headers={"Authorization": f"Bearer {token}"})
+                print(f"TANI {model} json={rf}: HTTP {r.status_code} | {r.text[:220]!r}")
+            except Exception as e:
+                print(f"TANI {model} json={rf}: {e}")
 
 def main(argv):
     token = (os.environ.get("YZ_TOKEN", "") or os.environ.get("GITHUB_TOKEN", "")).strip()
