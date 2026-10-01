@@ -1,0 +1,107 @@
+# Ayrintili etiketler (web sayfasi filtresi, arama ve sohbet icin; yapay zeka kullanmaz).
+# ilgi.txt'ten bagimsizdir: bildirim/Routine ilgi.txt'e gore calismaya devam eder.
+#
+# Bicim:  [Grup]  satiri, altinda  "Etiket: anahtar, anahtar, ... | Hariç: kelime, ..."
+# - Buyuk/kucuk harf ve Turkce karakter fark etmez; anahtar kelime BASINDA aranir
+#   ("kamulaştır" -> "Kamulaştırılması"). Basina "=" konan anahtar tam kelime aranir (=GES, =RES).
+# - Tur grubu yalniz gazetedeki bolum adinda (YÖNETMELİKLER, TEBLİĞLER...), Islem grubu yalniz
+#   baslikta, Kurum ve Konu gruplari baslik + ilk alinti (ilk 500 karakter) + varsa otomatik
+#   ozette aranir. Basina "^" konan anahtar her grupta yalniz baslikta aranir (alintidaki
+#   gecerken anilan kelimeler yanlis etiket vermesin). "Hariç" kelimeleri baslikta aranir.
+# - Bir kalem birden cok etiket alabilir. Kurum ve Konu etiketi hic olmayan kalem "Etiketsiz" sayilir.
+# - Tek tek kalem duzeltmeleri etiket_duzeltme.txt'tedir.
+# Gozden gecirme: python3 scripts/etiket.py rapor
+
+[Tür]
+Kanun: kanun
+Cumhurbaşkanlığı Kararnamesi: kararname
+Cumhurbaşkanı Kararı: cumhurbaşkanı kararı, cumhurbaşkanı kararları
+Yönetmelik: yönetmelik
+Tebliğ: tebliğ
+Genelge: genelge
+Kurul Kararı: kurul kararı, kurul kararları
+Atama: atama
+Yargı Kararı: anayasa mahkemesi, danıştay, yargıtay, sayıştay, hâkimler ve savcılar, uyuşmazlık mahkemesi, yargı bölümü
+Milletlerarası Anlaşma: milletlerarası
+Diğer İşlem: =KARAR, vekâlet
+
+[İşlem]
+Değişiklik: değişiklik yapılmasına, değişiklik yapılması hakkında, kararda değişiklik, esaslarda değişiklik
+Yürürlükten Kaldırma: yürürlükten kaldırılmasına
+Yeni Düzenleme: =yönetmeliği, =tebliği, =tebliğ, =yönetmelik | Hariç: değişiklik, yürürlükten
+
+[Kurum]
+EPDK: EPDK, enerji piyasası düzenleme
+TEİAŞ: TEİAŞ, türkiye elektrik iletim
+TEDAŞ: TEDAŞ, türkiye elektrik dağıtım
+EÜAŞ: EÜAŞ, elektrik üretim anonim
+EPİAŞ: EPİAŞ, enerji piyasaları işletme
+BOTAŞ: BOTAŞ, boru hatları ile petrol taşıma
+TPAO: TPAO, türkiye petrolleri anonim
+Enerji ve Tabii Kaynaklar Bakanlığı: enerji ve tabii kaynaklar bakanlığı, ETKB
+MAPEG: MAPEG, maden ve petrol işleri
+Nükleer Düzenleme Kurumu: nükleer düzenleme kurumu
+TCMB: TCMB, merkez bankası
+BDDK: BDDK, bankacılık düzenleme ve denetleme
+SPK: =SPK, sermaye piyasası kurul
+MASAK: MASAK, mali suçları araştırma
+Hazine ve Maliye Bakanlığı: hazine ve maliye bakanlığı
+Gelir İdaresi: gelir idaresi, =GİB
+Ticaret Bakanlığı: ticaret bakanlığı
+Sanayi ve Teknoloji Bakanlığı: sanayi ve teknoloji bakanlığı
+Rekabet Kurumu: rekabet kurul
+KVKK: kişisel verileri koruma
+BTK: =BTK, bilgi teknolojileri ve iletişim kurum
+SGK: =SGK, sosyal güvenlik kurumu
+Sayıştay: sayıştay
+Danıştay: danıştay
+Anayasa Mahkemesi: anayasa mahkemesi
+Yargıtay: yargıtay
+HSK: hâkimler ve savcılar kurulu
+Üniversiteler / YÖK: ^üniversitesi, yükseköğretim, =YÖK
+Özelleştirme İdaresi: özelleştirme idaresi
+Tarım ve Orman Bakanlığı: tarım ve orman bakanlığı
+Çevre ve Şehircilik Bakanlığı: çevre, şehircilik ve iklim değişikliği bakanlığı
+Milli Emlak: milli emlak
+TSE: türk standartları enstitüsü, =TSE
+DSİ: devlet su işleri, =DSİ
+Biyogüvenlik Kurulu: biyogüvenlik kurulu
+Sivil Havacılık: sivil havacılık
+Basın İlân Kurumu: basın ilân kurumu, basın ilan kurumu
+
+[Konu]
+Elektrik İletim: iletim hattı, iletim sistemi, enerji iletim, trafo merkezi, =kV, =TEİAŞ
+Elektrik Dağıtım: elektrik dağıtım, dağıtım şirket, =TEDAŞ, dağıtım lisans
+Elektrik Piyasası: elektrik piyasası, dengeleme, yan hizmet, elektrik enerjisi, lisans yönetmeliği, ^tarife
+Yenilenebilir Enerji: yenilenebilir, YEKDEM, güneş enerji, =GES, rüzgâr, rüzgar, =RES, jeotermal, biyokütle, hidroelektrik, =HES
+Doğal Gaz: doğal gaz, =RMS, =LNG, sıvılaştırılmış doğal
+Petrol ve Maden: petrol, maden, arama ve üretim, akaryakıt
+Nükleer Enerji: nükleer
+Kamulaştırma: kamulaştır
+Vergi: vergi, =ÖTV, =KDV, =harç, harçlar, gümrük tarife
+Bütçe ve Kamu Maliyesi: bütçe, yatırım programı, kamu yatırım, ödenek, harcırah, borçlanma, kira sertifika
+Bankacılık ve Finans: banka, kredi, faiz, finansal, döviz, sermaye piyasası
+Ödeme Hizmetleri: ödeme hizmet, elektronik para, ödeme kuruluş
+Kara Para ve Terörün Finansmanı: suç gelirlerinin aklanması, terörün finansmanı, malvarlıklarının dondurulması, güvenlik konseyi, MASAK, mali suçları
+Dış Ticaret ve Damping: ithalat, ihracat, damping, haksız rekabet, korunma önlem, gözetim, dahilde işleme, hariçte işleme, yurt içi satış ve teslim
+İklim ve Çevre: iklim, emisyon, karbon, hava kalitesi, hava kirliliği, ^atık, çevre kirliliği, çevrenin korunması, çevresel, ^=çevre
+Sürdürülebilir Finans: taksonomi, yeşil, sürdürülebilir
+Gıda ve Tarım: gıda, tarım, hayvan, su ürünleri, avcılı, balık, arazi toplulaştırma, sulama, biyogüvenlik, genetiği değiştirilmiş
+Sağlık: sağlık, tıbbi cihaz, ilaç, hastane
+Eğitim ve Yükseköğretim: ^üniversite, eğitim-öğretim, eğitim ve öğretim, lisansüstü, öğrenci, burs, yükseköğretim, öğretim elemanı
+Kamu Personeli: ^personel, ^kadro, ^memur, ^görevde yükselme, ^disiplin, ^sözleşmeli, ^aylık, ^uzaktan çalışma, ^atama
+Sanayi ve Teknoloji: teknoloji geliştirme bölgesi, teknokent, teknopark, Ar-Ge, organize sanayi, yapay zeka, teşvik, imalat, savunma sanayi
+Standart ve Teknik Düzenleme: teknik düzenleme, standart, uygunluk değerlendirme, onaylanmış kuruluş
+Ulaştırma: demiryolu, havacılık, karayolu, denizcilik, liman, havalimanı, yolcu taşımacılığı
+Gayrimenkul: taşınmaz ticareti, milli emlak, tapu, imar
+Yargı Teşkilatı: mahkemesi kurulması, yargı çevresi, hâkim, savcı
+Temel Haklar: bireysel başvuru, başvuru numaralı, hak ihlali
+Su ve Baraj: baraj, sulama, içme suyu, =dere, =deresi, havza
+Basın ve İlan: basın ilân, basın ilan, resmi ilan
+Özelleştirme: özelleştirme
+Uluslararası İlişkiler: hükümeti arasında, hükümeti ile, birleşmiş milletler, milletlerarası
+Sosyal Güvenlik ve Çalışma: sosyal güvenlik, emekli, iş sağlığı, ^işçi, asgari ücret, ^uzaktan çalışma
+İnsan Hakları ve Eşitlik: insan hakları, eşitlik kurumu, ayrımcılık
+Güvenlik ve Savunma: jandarma, emniyet genel, sahil güvenlik, savunma, silahlı kuvvet
+Meslek Kuruluşları: ^birliği, ^odalar, ^meslek kuruluş, ^borsalar
+Devlet Yönetimi: ^vekâlet, ^cumhurbaşkanı yardımcısı, ^bakanlıklar arası

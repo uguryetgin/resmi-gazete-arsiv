@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import routine_tetikle as rt     # noqa: E402  (ilgi alani eslestirme, ★ tam metin)
+import etiket                    # noqa: E402  (ayrintili etiketler: etiketler.txt)
 
 ROOT = Path(".")
 SABLON = Path(__file__).resolve().parent / "site_sablon.html"
@@ -62,7 +63,7 @@ def karsilastirma(yol):
         out[k["baslik"]] = {"satirlar": tablo, "notlar": notlar}
     return out
 
-def gun_isle(meta_yol, alanlar, haric):
+def gun_isle(meta_yol, alanlar, haric, kur=None):
     meta = json.loads(meta_yol.read_text(encoding="utf-8"))
     ymd, klasor = meta["ymd"], meta_yol.parent
     sayilar = [("", None, meta)] + [(f"M{m['no']}", m["no"], m) for m in meta.get("mukerrer") or []]
@@ -82,6 +83,10 @@ def gun_isle(meta_yol, alanlar, haric):
                 anahtar = f"{k['baslik']} (s. {k['sayfa']})"
                 if anahtar in yz.get("kalemler", {}):
                     k["yz"] = dict(yz["kalemler"][anahtar], model=yz.get("model", ""))
+                if kur:
+                    ozet = " ".join((k.get("yz") or {}).get("ne_getiriyor") or [])
+                    k["etiket"] = etiket.etiketle(kur, b["bolum"], k["baslik"],
+                                                  (k.get("alinti") or "") + " " + ozet, ymd)
                 if k["alan"] and not ek:
                     eslesen[anahtar] = k["alan"]
         if eslesen:              # ★ kalemlerin tam metni (yalniz ana sayi; mukerrer metni ayri dosyada)
@@ -101,17 +106,18 @@ def gun_isle(meta_yol, alanlar, haric):
     return gun
 
 def ozet_satiri(gun):
-    yildiz, basliklar, metinler = [], [], []
+    yildiz, basliklar, metinler, etiketler = [], [], [], []
     for s in gun["sayilar"]:
         for b in s["bolumler"]:
             for k in b["kalemler"]:
                 basliklar.append(k["baslik"])
                 metinler.append(k.get("alinti", "")[:ARAMA_ALINTI])
+                etiketler.append(k.get("etiket") or [])
                 if k.get("alan"):
                     yildiz.append({"baslik": k["baslik"], "alan": k["alan"]})
     return {"ymd": gun["ymd"], "tarih": gun["tarih"], "sayi": gun["sayi"], "kalem": len(basliklar),
             "mukerrer": len(gun["sayilar"]) - 1, "yildiz": yildiz, "basliklar": basliklar,
-            "alintilar": metinler}
+            "alintilar": metinler, "etiketler": etiketler}
 
 def sifrele(klasor, sifre):
     """gunler.json ve gun/*.json -> .enc (12 bayt iv + AES-GCM sifreli metin); sifre.json."""
@@ -137,17 +143,18 @@ def main(argv):
         shutil.rmtree(cikti)
     (cikti / "gun").mkdir(parents=True)
     alanlar, haric = rt.ilgi_alanlari() if (ROOT / "ilgi.txt").exists() else ([], None)
-    liste = []
+    liste, kur = [], etiket.kurallar()
     for meta_yol in sorted(ROOT.glob("data/[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9]*.json")):
         if not re.fullmatch(r"\d{8}\.json", meta_yol.name):
             continue
-        gun = gun_isle(meta_yol, alanlar, haric)
+        gun = gun_isle(meta_yol, alanlar, haric, kur)
         (cikti / "gun" / f"{gun['ymd']}.json").write_text(
             json.dumps(gun, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         liste.append(ozet_satiri(gun))
     liste.sort(key=lambda g: g["ymd"], reverse=True)
     (cikti / "gunler.json").write_text(json.dumps(
-        {"alanlar": [a for a, _ in alanlar], "gunler": liste}, ensure_ascii=False, separators=(",", ":")),
+        {"alanlar": [a for a, _ in alanlar], "gunler": liste,
+         "etiket_gruplari": dict(etiket.katalog(kur), **{"Diğer": [etiket.ETIKETSIZ]})}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
     shutil.copy(SABLON, cikti / "index.html")
     (cikti / ".nojekyll").write_text("")

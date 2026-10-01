@@ -1,0 +1,4 @@
+# Tek tek kalem etiket duzeltmeleri (etiketler.txt kurallarinin ustune yazilir).
+# Bicim: YYYYAAGG | baslik basi | +Eklenecek Etiket, -Cikarilacak Etiket
+# YYYYAAGG bos birakilirsa ayni basliga sahip tum gunlerde gecerlidir.
+# Ornek: 20260918 | 154 kV G24-Van GES | -Yenilenebilir Enerji

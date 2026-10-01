@@ -68,6 +68,13 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
 .e-Sanayi{color:var(--sanayi);background:var(--sanayi-bg)}
 .e-Ekonomi{color:var(--finans);background:var(--finans-bg)}
 .e-yok{color:var(--muted);background:var(--soft)}
+.etler{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px}
+.et{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:6px;padding:0 6px;font-size:11.5px;line-height:1.6;cursor:pointer}
+.et:hover{color:var(--ink);border-color:var(--muted)}
+.et.k{color:var(--sanayi)}.et.t{color:var(--finans)}.et.y{color:var(--eski)}
+.et[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.etsec{flex:none;width:150px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 8px;font-size:13px}
+.secili{outline:2px solid var(--focus);outline-offset:2px;border-radius:8px}
 .ana{min-width:0}
 .bas{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
 .bas-ust{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
@@ -193,7 +200,7 @@ body.yan-kapali .alt-not{padding-left:20px}
 <script>
 (function(){
 "use strict";
-var VERI = null, GUN = {}, durum = {alan: "", yildiz: false, ara: "", ymd: ""};
+var VERI = null, GUN = {}, durum = {alan: "", yildiz: false, ara: "", ymd: "", etiket: ""};
 var $ = function(id){ return document.getElementById(id); };
 function kac(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
 function trKucuk(s){ return s.toLocaleLowerCase("tr"); }
@@ -212,6 +219,16 @@ function uyar(metin, q){
   var n = norm(metin), nq = norm(q);
   return n.indexOf(nq) >= 0 || (KISA[nq] && n.indexOf(KISA[nq]) >= 0);
 }
+var ET_GRUP = {};
+function etGrubu(e){ return ET_GRUP[e] || ""; }
+function etCipler(k){
+  var e = (k.etiket || []).filter(function(x){ var g = etGrubu(x); return g === "Kurum" || g === "Konu" || g === "Tür" || g === "Diğer"; });
+  if (!e.length) return "";
+  return '<div class="etler">' + e.map(function(x){ var g = etGrubu(x);
+    return '<button class="et ' + (g === "Kurum" ? "k" : g === "Konu" ? "t" : g === "Diğer" ? "y" : "") + '" data-et="' + kac(x) + '" aria-pressed="' + (durum.etiket === x) + '" title="' + kac(g) + ': bu etiketli kalemleri listele">' + kac(x) + "</button>";
+  }).join("") + "</div>";
+}
+function etUyar(etler){ return !durum.etiket || (etler || []).indexOf(durum.etiket) >= 0; }
 function etiket(alan){ return alan ? '<span class="etiket e-' + kac(alan.split(" ")[0]) + '">' + kac(alan) + "</span>" : ""; }
 function tarihUzun(ymd){
   var d = new Date(+ymd.slice(0,4), +ymd.slice(4,6) - 1, +ymd.slice(6,8));
@@ -250,8 +267,18 @@ function filtreCiz(){
   VERI.alanlar.forEach(function(a){
     h += '<button class="cip" data-a="' + kac(a) + '" aria-pressed="' + (durum.alan === a) + '">' + kac(a) + "</button>";
   });
+  if (VERI.etiket_gruplari) {
+    h += '<select class="etsec" id="etSec" aria-label="Etikete göre süz"><option value="">🏷 Etiket: hepsi</option>';
+    Object.keys(VERI.etiket_gruplari).forEach(function(g){
+      if (g === "İşlem") return;
+      h += '<optgroup label="' + kac(g) + '">' + VERI.etiket_gruplari[g].map(function(e){
+        return '<option' + (durum.etiket === e ? " selected" : "") + ">" + kac(e) + "</option>"; }).join("") + "</optgroup>";
+    });
+    h += "</select>";
+  }
   $("filtre").innerHTML = h;
-  Array.prototype.forEach.call($("filtre").children, function(b){
+  if ($("etSec")) $("etSec").onchange = function(){ etiketSec(this.value); };
+  Array.prototype.forEach.call($("filtre").querySelectorAll(".cip"), function(b){
     b.onclick = function(){
       if (b.dataset.y) { durum.yildiz = !durum.yildiz; }
       else if (!b.dataset.a) { durum.alan = ""; durum.yildiz = false; }
@@ -264,10 +291,12 @@ function filtreCiz(){
 function gunUyar(g){
   var ys = durum.alan ? g.yildiz.filter(function(y){ return y.alan === durum.alan; }) : g.yildiz;
   if ((durum.yildiz || durum.alan) && !ys.length) return null;
-  var eslesme = [];
-  if (durum.ara) {
-    eslesme = g.basliklar.filter(function(b, i){ return uyar(b, durum.ara) || uyar((g.alintilar || [])[i] || "", durum.ara); });
-    if (!eslesme.length && String(g.sayi).indexOf(durum.ara) < 0 && g.tarih.indexOf(durum.ara) < 0) return null;
+  var eslesme = [], ets = g.etiketler || [];
+  if (durum.ara || durum.etiket) {
+    eslesme = g.basliklar.filter(function(b, i){
+      return etUyar(ets[i]) && (!durum.ara || uyar(b, durum.ara) || uyar((g.alintilar || [])[i] || "", durum.ara) || uyar((ets[i] || []).join(" "), durum.ara)); });
+    if (durum.etiket && !eslesme.length) return null;
+    if (durum.ara && !eslesme.length && String(g.sayi).indexOf(durum.ara) < 0 && g.tarih.indexOf(durum.ara) < 0) return null;
   }
   return {ys: ys, eslesme: eslesme};
 }
@@ -288,7 +317,7 @@ function listeCiz(){
          '<div class="g-alt">' + rozet + "</div>" + (esl ? '<div class="g-eslesme">' + esl + "</div>" : "") + "</a></li>";
   });
   $("gunler").innerHTML = h || '<li class="bos">Eşleşen gün yok.</li>';
-  $("yanBaslik").textContent = n + " gün" + (durum.ara || durum.alan || durum.yildiz ? " (filtreli)" : "");
+  $("yanBaslik").textContent = n + " gün" + (durum.ara || durum.alan || durum.yildiz || durum.etiket ? " (filtreli)" : "");
 }
 
 function tablo(k){
@@ -341,9 +370,9 @@ function gunCiz(g){
     h += '<div class="bolum-bas">★ İlgi alanına girenler</div>';
     yildizlar.forEach(function(t){
       var s = t[0], k = t[2];
-      h += '<article class="kart yildiz"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
+      h += '<article class="kart yildiz' + (durum.etiket && etUyar(k.etiket) ? " secili" : "") + '"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
            (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + pdfLink(s.pdf, k.sayfa) + soruLink(g, k, "💬 Sor") + "</div>" +
-           "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" +
+           "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" + etCipler(k) +
            yzKutu(k.yz) +
            (k.karsilastirma ? tablo(k) : (k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
            (k.tam_metin ? '<details class="tam"><summary>Tam metni göster' + (k.kesildi ? " (uzun; ortası kısaltıldı)" : "") + "</summary><pre>" + kac(k.tam_metin) + "</pre></details>" : "") +
@@ -357,11 +386,11 @@ function gunCiz(g){
     if (s.mukerrer) h += '<div class="bolum-bas">' + s.mukerrer + ". Mükerrer</div>";
     else h += '<div class="bolum-bas">Tüm kalemler</div>';
     s.bolumler.forEach(function(b){
-      var acik = b.kalemler.some(function(k){ return durum.ara && uyar(k.baslik + " " + (k.alinti || ""), durum.ara); });
+      var acik = b.kalemler.some(function(k){ return (durum.ara && uyar(k.baslik + " " + (k.alinti || "") + " " + (k.etiket || []).join(" "), durum.ara)) || (durum.etiket && etUyar(k.etiket)); });
       h += '<details class="grup"' + (acik || s.bolumler.length === 1 ? " open" : "") + "><summary>" + kac(b.bolum || "Kalemler") + "<span>" + b.kalemler.length + " kalem</span></summary><ul class=\"liste\">";
       b.kalemler.forEach(function(k){
-        h += '<li><div class="lb">' + (k.alan ? "★ " : "") + vurgula(k.baslik, durum.ara) + "</div>" +
-             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + " " + soruLink(g, k) + "</div>" +
+        h += '<li' + (durum.etiket && etUyar(k.etiket) ? ' class="secili"' : "") + '><div class="lb">' + (k.alan ? "★ " : "") + vurgula(k.baslik, durum.ara) + "</div>" +
+             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + " " + soruLink(g, k) + "</div>" + etCipler(k) +
              (k.alinti ? '<div class="la">' + vurgula(k.alinti, durum.ara) + "</div>" : "") + "</li>";
       });
       h += "</ul></details>";
@@ -369,6 +398,7 @@ function gunCiz(g){
     if (s.ilan) h += '<p class="ilan">' + kac(s.ilan) + "</p>";
   });
   $("ana").innerHTML = h;
+  if (durum.etiket) { var ilk = document.querySelector("#ana .secili"); if (ilk) setTimeout(function(){ ilk.scrollIntoView({block: "center"}); }, 0); }
   Array.prototype.forEach.call(document.querySelectorAll(".la,.alinti"), function(el){ el.onclick = function(){ el.classList.toggle("acik"); }; });
 }
 
@@ -414,27 +444,58 @@ var GEMINI = "https://generativelanguage.googleapis.com/v1beta/models/";
 var SOHBET_SISTEM = "Resmî Gazete arşivi hakkında soruları yanıtlayan bir asistansın. Türkçe, kısa ve net yanıt ver. " +
   "Yalnız verilen arşiv metnine dayan; metinde yoksa \"arşivde bu bilgi yok\" de, tahmin yürütme. Tarih, sayı, madde, " +
   "tutar ve kanun numaralarını aynen aktar; dayandığın kalemi ve günü (ve varsa sayfayı, s. N) belirt. Yorum yaparsan " +
-  "\"(yorum)\" diye işaretle. Hukuki danışmanlık yapma.";
+  "\"(yorum)\" diye işaretle. Hukuki danışmanlık yapma. Aradığı bulunamazsa arşivin kapsadığı tarih aralığını ve " +
+  "varsa en yakın ilgili kalemleri (gün ve etiketleriyle) belirt.";
 function kirp(t, n){ t = String(t || ""); return t.length > n ? t.slice(0, n) + " …" : t; }
-function sohbetBaglam(){
-  var p = [], g = GUN[durum.ymd];
+var DURAK = " ile ve veya hangi nedir neler olan olarak icin ilgili hakkinda karar karari kararlar resmi gazete gazetede gazetesi bir bu su ne var mi mu nasil kim kac son gun hafta ay yil tarih tarihli sayili getiriyor anlatiyor ";
+function sorguKokleri(q){
+  var n = norm(q).replace(/[^a-z0-9]+/g, " "), kok = [];
+  n.split(" ").forEach(function(w){
+    if (w.length < 3 || DURAK.indexOf(" " + w + " ") >= 0) return;
+    [w].concat(KISA[w] ? KISA[w].split(" ") : []).forEach(function(x){ if (x.length >= 3) kok.push(x.slice(0, Math.min(6, Math.max(4, x.length - 2)))); });
+  });
+  return kok.filter(function(x, i){ return kok.indexOf(x) === i; });
+}
+function sohbetBaglam(soru){
+  var p = [], g = GUN[durum.ymd], kok = sorguKokleri(soru || "");
   if (g) {
     p.push("=== AÇIK GÜN: " + g.tarih + " – Resmî Gazete Sayı " + g.sayi + " ===");
     g.sayilar.forEach(function(s){ s.bolumler.forEach(function(b){ b.kalemler.forEach(function(k){
-      var x = "• " + (s.mukerrer ? "[" + s.mukerrer + ". Mükerrer] " : "") + (k.alan ? "★ " : "") + k.baslik + (k.sayfa ? " (s. " + k.sayfa + ")" : "");
+      var x = "• " + (s.mukerrer ? "[" + s.mukerrer + ". Mükerrer] " : "") + (k.alan ? "★ " : "") + k.baslik + (k.sayfa ? " (s. " + k.sayfa + ")" : "") +
+              (k.etiket && k.etiket.length ? " [Etiketler: " + k.etiket.join(", ") + "]" : "");
       if (k.yz && k.yz.ne_getiriyor) x += "\n  Otomatik özet: " + k.yz.ne_getiriyor.join(" ") + (k.yz.yururluk ? " Yürürlük: " + k.yz.yururluk : "");
       if (k.tam_metin) x += "\n  Tam metin:\n" + kirp(k.tam_metin, 15000);
       else if (k.alinti) x += "\n  Alıntı: " + kirp(k.alinti, 400);
       p.push(x);
     }); }); });
   }
-  p.push("\n=== ARŞİVDEKİ GÜNLER (başlıklar; ayrıntı için kullanıcı o güne gitmeli) ===");
-  var butce = 60000;
+  // Tum arsivde soruyla en ilgili kalemler: soru kelimelerinin baslik, etiket ve alintida gecmesine gore
+  var aday = [];
+  VERI.gunler.forEach(function(d){
+    if (g && d.ymd === g.ymd) return;
+    d.basliklar.forEach(function(b, i){
+      var et = (d.etiketler || [])[i] || [], bas = norm(b + " " + et.join(" ")), al = norm((d.alintilar || [])[i] || "");
+      var puan = 0;
+      kok.forEach(function(k){ if (bas.indexOf(k) >= 0) puan += 2; else if (al.indexOf(k) >= 0) puan += 1; });
+      if (puan) aday.push({puan: puan, d: d, i: i, et: et});
+    });
+  });
+  aday.sort(function(a, b){ return b.puan - a.puan; });
+  if (aday.length) {
+    p.push("\n=== SORUYLA EN İLGİLİ KALEMLER (diğer günler; anahtar kelime ve etiket eşleşmesine göre) ===");
+    aday.slice(0, 25).forEach(function(a){
+      p.push("• " + a.d.tarih + " (Sayı " + a.d.sayi + ") — " + a.d.basliklar[a.i] + (a.et.length ? " [Etiketler: " + a.et.join(", ") + "]" : "") +
+             "\n  Alıntı: " + kirp((a.d.alintilar || [])[a.i], 700));
+    });
+  }
+  p.push("\n=== ARŞİVDEKİ DİĞER GÜNLER (yalnız başlık ve etiket; ayrıntı için kullanıcı o güne gitmeli) ===");
+  p.push("Arşiv " + VERI.gunler[VERI.gunler.length - 1].tarih + " – " + VERI.gunler[0].tarih + " arasını kapsar; bu aralık dışı için bilgi yoktur.");
+  var butce = 50000;
   VERI.gunler.forEach(function(d){
     if (g && d.ymd === g.ymd) return;
     var x = "\n# " + d.tarih + " (Sayı " + d.sayi + ")\n" + d.basliklar.map(function(b, i){
-      var a = d.alintilar && d.alintilar[i] ? " — " + kirp(d.alintilar[i], 160) : "";
-      return "• " + b + a; }).join("\n");
+      var et = (d.etiketler || [])[i] || [];
+      return "• " + b + (et.length ? " [" + et.join(", ") + "]" : ""); }).join("\n");
     if (butce - x.length > 0) { p.push(x); butce -= x.length; }
   });
   return p.join("\n");
@@ -456,7 +517,7 @@ function mesajEkle(sinif, html){
 }
 function geminiSor(i){
   var model = YZ.modeller[i];
-  var icerik = [{role: "user", parts: [{text: "Arşiv metni (yalnız buna dayan):\n\n" + sohbetBaglam()}]},
+  var icerik = [{role: "user", parts: [{text: "Arşiv metni (yalnız buna dayan):\n\n" + sohbetBaglam(SOHBET.length ? SOHBET[SOHBET.length - 1].metin : "")}]},
                 {role: "model", parts: [{text: "Metni okudum; sorunuzu yanıtlayabilirim."}]}]
     .concat(SOHBET.slice(-8).map(function(m){ return {role: m.rol, parts: [{text: m.metin}]}; }));
   return fetch(GEMINI + encodeURIComponent(model) + ":generateContent", {method: "POST",
@@ -493,7 +554,23 @@ function sohbetKur(yz){
     }).catch(function(err){ SOHBET.pop(); bekle.className = "mesaj hata"; bekle.textContent = err.message || "Yanıt alınamadı."; });
   };
 }
-function basla(v){ VERI = v; filtreCiz(); git();
+function etiketSec(e){
+  durum.etiket = e || ""; filtreCiz(); listeCiz();
+  if (durum.etiket) {          // acik gunde bu etiket yoksa etiketli ilk gune git
+    var acik = VERI.gunler.find(function(x){ return x.ymd === durum.ymd; });
+    var var_ = acik && (acik.etiketler || []).some(function(t){ return etUyar(t); });
+    var ilk = VERI.gunler.find(function(x){ return (x.etiketler || []).some(function(t){ return etUyar(t); }); });
+    if (!var_ && ilk) { location.hash = "#" + ilk.ymd; return; }
+  }
+  if (GUN[durum.ymd]) gunCiz(GUN[durum.ymd]);
+}
+$("ana").addEventListener("click", function(e){
+  var b = e.target.closest && e.target.closest(".et"); if (!b) return;
+  etiketSec(durum.etiket === b.dataset.et ? "" : b.dataset.et);
+});
+function basla(v){ VERI = v;
+  Object.keys(v.etiket_gruplari || {}).forEach(function(g){ v.etiket_gruplari[g].forEach(function(e){ ET_GRUP[e] = g; }); });
+  filtreCiz(); git();
   if (SIFRELI) veriAl("yz").then(sohbetKur).catch(function(){}); }
 
 function git(){
