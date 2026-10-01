@@ -153,6 +153,21 @@ body.yan-kapali .alt-not{padding-left:20px}
   .ust-ic{gap:8px}
   .filtre{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
 }
+/* Kalem PDF goruntuleyici (kesit PDF'leri, pdf.js) */
+.pdf-ac{border:0;background:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-size:inherit}
+.pdfg{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.55);display:none;align-items:stretch;justify-content:center}
+.pdfg.acik{display:flex}
+.pdfg-kutu{background:var(--panel);width:min(980px,100vw);display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.pdfg-bas{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.pdfg-bas b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pdfg-bas button{border:0;background:none;font-size:22px;line-height:1;cursor:pointer;color:var(--muted);padding:2px 6px}
+.pdfg-ic{flex:1;overflow:auto;background:#525659;padding:12px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.pdfg-sayfa{position:relative;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.pdfg-sayfa canvas{display:block}
+.pdfg-isaret{position:absolute;background:rgba(255,213,0,.42);mix-blend-mode:multiply;border-radius:2px;pointer-events:none}
+.pdfg-not{color:#eee;font-size:13px;padding:6px}
+@media (max-width:860px){.pdfg-ic{padding:6px}}
+
 /* Sohbet (Gemini; anahtar sifreli veride) */
 .sohbet-ac{position:fixed;right:18px;bottom:18px;z-index:20;border:0;border-radius:999px;padding:12px 18px;background:var(--accent);color:var(--accent-ink);font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.18);cursor:pointer;display:none}
 .sohbet{position:fixed;right:18px;bottom:18px;z-index:21;width:min(420px,calc(100vw - 32px));height:min(620px,calc(100vh - 100px));display:none;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.22);overflow:hidden}
@@ -190,6 +205,9 @@ body.yan-kapali .alt-not{padding-left:20px}
   <main class="ana" id="ana"><div class="bos">Yükleniyor…</div></main>
 </div>
 <p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları ve "Sor" cevapları yapay zekâ ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın. "Sor" bağlantıları herkese açık bir GitHub Issue açar.</p>
+<div class="pdfg" id="pdfg" role="dialog" aria-modal="true" aria-label="PDF"><div class="pdfg-kutu">
+  <div class="pdfg-bas"><b id="pdfgBaslik"></b><a id="pdfgOrijinal" target="_blank" rel="noopener">Orijinal PDF</a><button id="pdfgKapat" aria-label="Kapat">×</button></div>
+  <div class="pdfg-ic" id="pdfgIc"></div></div></div>
 <button class="sohbet-ac" id="sohbetAc" aria-label="Yapay zekâya sor">💬 Sor</button>
 <section class="sohbet" id="sohbet" aria-label="Sohbet">
   <div class="sohbet-bas">💬 Gazeteye sor <small id="sohbetGun"></small><button id="sohbetSil" title="Sohbeti temizle" aria-label="Sohbeti temizle">⟲</button><button id="sohbetKapat" title="Kapat" aria-label="Kapat">×</button></div>
@@ -350,9 +368,16 @@ function soruLink(g, k, metin){
     "&body=" + encodeURIComponent(govde);
   return '<a class="sor" href="' + url + '" target="_blank" rel="noopener" title="GitHub Issue ile yapay zekâya sor">' + (metin || "Sor") + "</a>";
 }
+var KESIT = [];
+function kesitDugme(s, k){
+  KESIT.push({k: k, pdf: s.pdf});
+  return '<button class="pdf-ac" data-kesit="' + (KESIT.length - 1) + '" title="Kalemin sayfalarını açar, başlığı işaretler">📄 s. ' + k.kesit.ilk +
+         (k.kesit.son > k.kesit.ilk ? "–" + k.kesit.son : "") + " · PDF</button>";
+}
 function pdfLink(pdf, s){ return pdf ? '<a href="' + kac(pdf) + (s ? "#page=" + s : "") + '" target="_blank" rel="noopener">s. ' + kac(s) + " · PDF</a>" : (s ? "s. " + s : ""); }
 
 function gunCiz(g){
+  KESIT = [];
   var yildizlar = [], toplam = 0, h = "";
   g.sayilar.forEach(function(s){ s.bolumler.forEach(function(b){ b.kalemler.forEach(function(k){ toplam++; if (k.alan) yildizlar.push([s, b, k]); }); }); });
   var i = VERI.gunler.findIndex(function(x){ return x.ymd === g.ymd; });
@@ -371,7 +396,7 @@ function gunCiz(g){
     yildizlar.forEach(function(t){
       var s = t[0], k = t[2];
       h += '<article class="kart yildiz' + (durum.etiket && etUyar(k.etiket) ? " secili" : "") + '"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
-           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + pdfLink(s.pdf, k.sayfa) + soruLink(g, k, "💬 Sor") + "</div>" +
+           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + (k.kesit ? kesitDugme(s, k) : pdfLink(s.pdf, k.sayfa)) + soruLink(g, k, "💬 Sor") + "</div>" +
            "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" + etCipler(k) +
            yzKutu(k.yz) +
            (k.karsilastirma ? tablo(k) : (k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
@@ -410,6 +435,11 @@ function veriAl(ad){
   return fetch(ad + ".enc", {cache: "no-cache"}).then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
     .then(function(buf){ return crypto.subtle.decrypt({name: "AES-GCM", iv: new Uint8Array(buf, 0, 12)}, ANAHTAR, new Uint8Array(buf, 12)); })
     .then(function(acik){ return JSON.parse(new TextDecoder().decode(acik)); });
+}
+function veriHam(ad){            // ikili dosya (kesit PDF): sifreliyse .enc cozulur
+  if (!SIFRELI) return fetch(ad + ".pdf").then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); });
+  return fetch(ad + ".enc").then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+    .then(function(buf){ return crypto.subtle.decrypt({name: "AES-GCM", iv: new Uint8Array(buf, 0, 12)}, ANAHTAR, new Uint8Array(buf, 12)); });
 }
 function anahtarTuret(sifre, bilgi){
   return crypto.subtle.importKey("raw", new TextEncoder().encode(sifre), "PBKDF2", false, ["deriveKey"])
@@ -554,6 +584,78 @@ function sohbetKur(yz){
     }).catch(function(err){ SOHBET.pop(); bekle.className = "mesaj hata"; bekle.textContent = err.message || "Yanıt alınamadı."; });
   };
 }
+// ---------- Kalem PDF goruntuleyici: kesit PDF'i (sifreli) pdf.js ile cizilir, baslik isaretlenir ----------
+var PDFJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
+function pdfjsYukle(){
+  if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+  return new Promise(function(ok, hata){
+    var sc = document.createElement("script"); sc.src = PDFJS_URL + "pdf.min.js";
+    sc.onload = function(){ window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_URL + "pdf.worker.min.js"; ok(window.pdfjsLib); };
+    sc.onerror = function(){ hata(new Error("pdf.js yüklenemedi")); }; document.head.appendChild(sc);
+  });
+}
+function kelimeler(t){ return norm(t).replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter(function(w){ return w.length > 1; }); }
+function baslikBul(icerik, baslik){
+  // Basligin kelimelerinden olusan en uzun ardisik metin parcalari dizisi
+  var T = {}; kelimeler(baslik).forEach(function(w){ T[w] = 1; });
+  var en = [], cur = [], curN = 0, enN = 0;
+  icerik.items.forEach(function(it){
+    var w = kelimeler(it.str);
+    if (!w.length) return;
+    var uy = w.filter(function(x){ return T[x]; }).length / w.length;
+    if (uy >= 0.8) { cur.push(it); curN += it.str.length; if (curN > enN) { en = cur.slice(); enN = curN; } }
+    else { cur = []; curN = 0; }
+  });
+  return enN >= Math.min(40, baslik.length * 0.4) ? en : [];
+}
+function pdfAc(i){
+  var x = KESIT[i]; if (!x) return; var k = x.k;
+  $("pdfgBaslik").textContent = k.baslik + " · s. " + k.kesit.ilk + (k.kesit.son > k.kesit.ilk ? "–" + k.kesit.son : "");
+  $("pdfgOrijinal").href = x.pdf + "#page=" + k.kesit.ilk;
+  $("pdfgIc").innerHTML = '<div class="pdfg-not">Yükleniyor…</div>';
+  $("pdfg").classList.add("acik"); document.body.style.overflow = "hidden";
+  Promise.all([pdfjsYukle(), veriHam(k.kesit.yol)]).then(function(r){
+    return r[0].getDocument({data: new Uint8Array(r[1])}).promise;
+  }).then(function(doc){
+    $("pdfgIc").innerHTML = "";
+    var gen = Math.min($("pdfgIc").clientWidth - 24, 900), dpr = window.devicePixelRatio || 1, ilk = null;
+    var sira = Promise.resolve();
+    for (var n = 1; n <= doc.numPages; n++) (function(n){
+      sira = sira.then(function(){ return doc.getPage(n); }).then(function(page){
+        var vp = page.getViewport({scale: gen / page.getViewport({scale: 1}).width});
+        var kutu = document.createElement("div"); kutu.className = "pdfg-sayfa"; kutu.style.width = vp.width + "px"; kutu.style.height = vp.height + "px";
+        var c = document.createElement("canvas"); c.width = Math.floor(vp.width * dpr); c.height = Math.floor(vp.height * dpr);
+        c.style.width = vp.width + "px"; c.style.height = vp.height + "px"; kutu.appendChild(c); $("pdfgIc").appendChild(kutu);
+        var ctx = c.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        return page.render({canvasContext: ctx, viewport: vp}).promise.then(function(){
+          if (n > 2) return;
+          return page.getTextContent().then(function(ic){
+            baslikBul(ic, k.baslik).forEach(function(it){
+              var t = window.pdfjsLib.Util.transform(vp.transform, it.transform), h = Math.hypot(t[2], t[3]);
+              var d = document.createElement("div"); d.className = "pdfg-isaret";
+              d.style.left = t[4] - 2 + "px"; d.style.top = t[5] - h * 0.9 + "px";
+              d.style.width = it.width * vp.scale + 4 + "px"; d.style.height = h * 1.2 + "px";
+              kutu.appendChild(d); if (!ilk) ilk = d;
+            });
+          });
+        });
+      });
+    })(n);
+    return sira.then(function(){
+      if (ilk) ilk.scrollIntoView({block: "center"});
+      else { var not = document.createElement("div"); not.className = "pdfg-not"; not.textContent = "Başlık bu sayfanın metninde bulunamadı (taranmış/bozuk metin olabilir); kalem bu sayfadan başlar.";
+             $("pdfgIc").insertBefore(not, $("pdfgIc").firstChild); }
+    });
+  }).catch(function(e){ $("pdfgIc").innerHTML = '<div class="pdfg-not">PDF açılamadı (' + kac(e.message || e) + '). Orijinal PDF bağlantısını kullanın.</div>'; });
+}
+function pdfKapat(){ $("pdfg").classList.remove("acik"); document.body.style.overflow = ""; $("pdfgIc").innerHTML = ""; }
+$("pdfgKapat").onclick = pdfKapat;
+$("pdfg").addEventListener("click", function(e){ if (e.target === this) pdfKapat(); });
+document.addEventListener("keydown", function(e){ if (e.key === "Escape" && $("pdfg").classList.contains("acik")) pdfKapat(); });
+$("ana").addEventListener("click", function(e){
+  var b = e.target.closest && e.target.closest(".pdf-ac"); if (b) pdfAc(+b.dataset.kesit);
+});
+
 function etiketSec(e){
   durum.etiket = e || ""; filtreCiz(); listeCiz();
   if (durum.etiket) {          // acik gunde bu etiket yoksa etiketli ilk gune git

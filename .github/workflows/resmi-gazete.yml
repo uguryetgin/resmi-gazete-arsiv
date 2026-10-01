@@ -79,6 +79,18 @@ jobs:
           pip install --quiet beautifulsoup4 || true
           RG_RELEASE_DIR="$RUNNER_TEMP/rg_release" python scripts/karsilastir.py "$YMD"
 
+      # ★ kalemlerin sayfalari kucuk PDF'lere kesilir (web sayfasindaki PDF goruntuleyici icin;
+      # yapay zeka yok). data/.../kesit/ ve YYYYAAGG.kesit.json'a yazar; hata gunluk isi durdurmaz.
+      - name: ★ kalemlerin PDF kesitleri
+        if: steps.indir.outputs.code == '0'
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          YMD: ${{ steps.indir.outputs.ymd }}
+        run: |
+          pip install --quiet pypdf
+          RG_RELEASE_DIR="$RUNNER_TEMP/rg_release" python scripts/pdf_kes.py "$YMD"
+
       # ★ kalemler icin web sayfasindaki "otomatik ozet" (GitHub Models; Claude token'i harcamaz).
       # data/.../YYYYAAGG.yz.json'a yazar; kota/hata gunluk isi durdurmaz.
       - name: GitHub Models ile ★ özetleri
