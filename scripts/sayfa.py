@@ -14,7 +14,7 @@ tarayicida sorar. SITE_SIFRE_ZORUNLU=1 iken sifre yoksa site uretilmez.
 
 Kullanim: python3 scripts/sayfa.py [cikti_klasoru]   (depo kokunden; varsayilan site/)
 .github/workflows/site.yml her gunluk indirmeden sonra calistirip yayimlar."""
-import base64, json, os, re, shutil, sys
+import base64, hashlib, json, os, re, shutil, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -118,7 +118,9 @@ def sifrele(klasor, sifre):
     from cryptography.hazmat.primitives import hashes
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
     from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-    tuz = os.urandom(16)
+    # Sabit tuz: anahtar yayindan yayina degismesin; yoksa acik sekme ve "hatirla"
+    # ile saklanan anahtar her gunluk yayinda yeni dosyalari cozemez.
+    tuz = hashlib.sha256(b"resmi-gazete-arsiv/site/v1").digest()[:16]
     anahtar = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=tuz,
                          iterations=PBKDF2_TUR).derive(sifre.encode("utf-8"))
     aes = AESGCM(anahtar)

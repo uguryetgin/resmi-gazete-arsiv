@@ -333,8 +333,8 @@ function gunCiz(g){
 var ANAHTAR = null, SIFRELI = false;
 function b64(s){ var b = atob(s), a = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
 function veriAl(ad){
-  if (!SIFRELI) return fetch(ad + ".json").then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); });
-  return fetch(ad + ".enc").then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+  if (!SIFRELI) return fetch(ad + ".json", {cache: "no-cache"}).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); });
+  return fetch(ad + ".enc", {cache: "no-cache"}).then(function(r){ if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
     .then(function(buf){ return crypto.subtle.decrypt({name: "AES-GCM", iv: new Uint8Array(buf, 0, 12)}, ANAHTAR, new Uint8Array(buf, 12)); })
     .then(function(acik){ return JSON.parse(new TextDecoder().decode(acik)); });
 }
@@ -377,7 +377,10 @@ function git(){
   var yukle = GUN[ymd] ? Promise.resolve(GUN[ymd]) :
     veriAl("gun/" + ymd).then(function(g){ GUN[ymd] = g; return g; });
   yukle.then(function(g){ if (durum.ymd === ymd) { gunCiz(g); window.scrollTo(0, 0); document.title = g.tarih + " · Resmî Gazete Arşivi"; } })
-       .catch(function(){ $("ana").innerHTML = '<div class="bos">Bu gün bulunamadı.</div>'; });
+       .catch(function(e){
+         // Anahtar bu yayinin dosyalarini cozemiyor (sifre degismis): yeniden sifre sor
+         if (SIFRELI && e && e.name === "OperationError") { sakla("rg-anahtar", ""); location.reload(); return; }
+         $("ana").innerHTML = '<div class="bos">Bu gün bulunamadı.</div>'; });
 }
 
 var araZaman;
@@ -386,7 +389,7 @@ $("ara").oninput = function(){
   araZaman = setTimeout(function(){ durum.ara = v; listeCiz(); if (GUN[durum.ymd]) gunCiz(GUN[durum.ymd]); }, 150);
 };
 window.addEventListener("hashchange", git);
-fetch("sifre.json").then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }).then(function(bilgi){
+fetch("sifre.json", {cache: "no-cache"}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }).then(function(bilgi){
   if (!bilgi) return veriAl("gunler").then(basla);
   SIFRELI = true;
   return anahtarOku().then(function(k){
