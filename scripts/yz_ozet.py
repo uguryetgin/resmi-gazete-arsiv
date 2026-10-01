@@ -99,10 +99,37 @@ def gun_isle(ymd, token, alanlar, haric):
             yol(ymd).write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return yeni
 
+def tani(token):
+    """Gecici: hangi uc nokta/baslik bicimi calisiyor."""
+    mesaj = [{"role": "user", "content": "Sadece 'merhaba' yaz."}]
+    denemeler = [
+        ("models.github.ai tam", URL, MODEL, {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}),
+        ("models.github.ai yalin", URL, MODEL, {}),
+        ("models.github.ai json", URL, MODEL, {"Accept": "application/json"}),
+        ("models.github.ai 4o-mini", URL, "openai/gpt-4o-mini", {"Accept": "application/json"}),
+        ("azure eski", "https://models.inference.ai.azure.com/chat/completions", "gpt-4o-mini", {"Accept": "application/json"}),
+    ]
+    for ad, url, model, ek in denemeler:
+        try:
+            r = requests.post(url, timeout=60, json={"model": model, "messages": mesaj, "max_tokens": 20},
+                              headers=dict({"Authorization": f"Bearer {token}", "Content-Type": "application/json"}, **ek))
+            print(f"TANI {ad}: HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:250]!r}")
+        except Exception as e:
+            print(f"TANI {ad}: {e}")
+    try:
+        r = requests.get("https://models.github.ai/catalog/models", timeout=30,
+                         headers={"Authorization": f"Bearer {token}", "Accept": "application/json"})
+        print(f"TANI katalog: HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:250]!r}")
+    except Exception as e:
+        print(f"TANI katalog: {e}")
+
 def main(argv):
     token = os.environ.get("GITHUB_TOKEN", "").strip()
     if not token:
         print("GITHUB_TOKEN yok, atlandi.")
+        return 0
+    if argv == ["tani"]:
+        tani(token)
         return 0
     if argv == ["hepsi"]:
         gunler = sorted((p.stem for p in ROOT.glob("data/[0-9]*/[0-9]*/[0-9]*.json")
