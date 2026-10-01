@@ -35,6 +35,7 @@ function ilet() {
   GmailApp.search(ARAMA).forEach(function (konu) {
     konu.getMessages().forEach(function (m) {
       if (m.getDate() < sinir) return;
+      if (!/github-actions/i.test(m.getFrom())) return;   // yalniz botun bildirimi (baskasinin yorumu iletilmez)
       var html = m.getBody();
       var t = (m.getPlainBody() + " " + m.getBody().replace(/<[^>]+>/g, " ")).match(DESEN);
       var yok = !!t && /^yay/i.test(t[2]);

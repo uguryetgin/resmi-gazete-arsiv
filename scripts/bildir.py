@@ -86,10 +86,17 @@ def main(argv=()):
             f"@{sahip} anılır; GitHub bunu bildirim olarak gönderir. Bu konuyu kapatmayın."})
     elif issue.get("state") == "closed":
         gh(token, "PATCH", f"/repos/{repo}/issues/{issue['number']}", json={"state": "open"})
+    if not issue.get("locked"):          # depo herkese acik: yalniz ortak calisanlar yorum yazabilsin
+        try:
+            gh(token, "PUT", f"/repos/{repo}/issues/{issue['number']}/lock", json={"lock_reason": "resolved"})
+        except Exception as e:
+            print(f"::warning::Issue kilitlenemedi: {e}")
     son = (datetime.now(timezone.utc) - timedelta(days=3)).isoformat(timespec="seconds")
     yorumlar = gh(token, "GET", f"/repos/{repo}/issues/{issue['number']}/comments",
                   params={"per_page": 100, "since": son})
     tekrar = os.environ.get("BILDIRIM_TEKRAR", "").lower() == "true"
+    # Yalniz botun kendi yorumlari sayilir: baskasinin yazdigi sahte isaret bildirimi engelleyemesin
+    yorumlar = [c for c in yorumlar if (c.get("user") or {}).get("login") == "github-actions[bot]"]
     if not tekrar and any(imza in (c.get("body") or "") for c in yorumlar):
         print(f"{ymd} icin bildirim zaten gonderilmis.")
         return 0

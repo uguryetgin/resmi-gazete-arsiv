@@ -168,6 +168,7 @@ def main(argv):
          "etiket_gruplari": dict(etiket.katalog(kur), **{"Diğer": [etiket.ETIKETSIZ]})}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
     shutil.copy(SABLON, cikti / "index.html")
+    shutil.copytree(Path(__file__).resolve().parent / "vendor" / "pdfjs", cikti / "pdfjs")   # PDF goruntuleyici
     if KESITLER:
         (cikti / "kesit").mkdir()
         for k in KESITLER:

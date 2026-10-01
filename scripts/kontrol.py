@@ -93,6 +93,7 @@ def main():
     son = (datetime.now(timezone.utc) - timedelta(days=3)).isoformat(timespec="seconds")
     yorumlar = bildir.gh(token, "GET", f"/repos/{repo}/issues/{issue['number']}/comments",
                          params={"per_page": 100, "since": son}) if issue else []
+    yorumlar = [c for c in yorumlar if (c.get("user") or {}).get("login") == "github-actions[bot]"]
     liste = sorunlar(token, repo, ymd, yorumlar)
     liste += [f"{m} — [kayıt]({u})" for m, u in basarisiz_isler(token, repo, ymd)]
     tarih = f"{ymd[6:]}.{ymd[4:6]}.{ymd[:4]}"

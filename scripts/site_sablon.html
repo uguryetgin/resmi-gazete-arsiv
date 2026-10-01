@@ -575,7 +575,7 @@ function geminiSor(i, aramasiz){
         if (!t) throw new Error("Boş yanıt" + (c && c.finishReason ? " (" + c.finishReason + ")" : ""));
         var kaynak = [], gm = c.groundingMetadata || {};
         (gm.groundingChunks || []).forEach(function(ch){
-          var w = ch.web; if (w && w.uri && !kaynak.some(function(k){ return k.uri === w.uri; })) kaynak.push({uri: w.uri, ad: w.title || w.uri});
+          var w = ch.web; if (w && /^https?:\/\//i.test(w.uri || "") && !kaynak.some(function(k){ return k.uri === w.uri; })) kaynak.push({uri: w.uri, ad: w.title || w.uri});
         });
         return {metin: t.trim(), model: model, kaynak: kaynak.slice(0, 6), arandi: !!(gm.webSearchQueries || []).length};
       });
@@ -604,7 +604,7 @@ function sohbetKur(yz){
   };
 }
 // ---------- Kalem PDF goruntuleyici: kesit PDF'i (sifreli) pdf.js ile cizilir, baslik isaretlenir ----------
-var PDFJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/";
+var PDFJS_URL = "pdfjs/";     // pdf.js 3.11.174 sitenin icinden (scripts/vendor/pdfjs); dis CDN'ye bagimlilik yok
 function pdfjsYukle(){
   if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
   return new Promise(function(ok, hata){
