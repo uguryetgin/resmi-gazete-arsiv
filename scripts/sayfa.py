@@ -124,7 +124,7 @@ def sifrele(klasor, sifre):
     anahtar = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=tuz,
                          iterations=PBKDF2_TUR).derive(sifre.encode("utf-8"))
     aes = AESGCM(anahtar)
-    for yol in [klasor / "gunler.json"] + sorted((klasor / "gun").glob("*.json")):
+    for yol in [p for p in [klasor / "gunler.json", klasor / "yz.json"] if p.exists()] + sorted((klasor / "gun").glob("*.json")):
         iv = os.urandom(12)
         yol.with_suffix(".enc").write_bytes(iv + aes.encrypt(iv, yol.read_bytes(), None))
         yol.unlink()
@@ -153,6 +153,11 @@ def main(argv):
     (cikti / ".nojekyll").write_text("")
     (cikti / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
     sifre = os.environ.get("SITE_SIFRE", "")
+    yz_anahtar = os.environ.get("SITE_YZ_TOKEN", "").strip()
+    if sifre and yz_anahtar:      # sohbet: anahtar yalniz sifreli yayina konur, sifresiz asla
+        modeller = [m.strip() for m in [os.environ.get("YZ_MODEL", "")] +
+                    os.environ.get("YZ_YEDEK_MODELLER", "").split(",") if m.strip()] or ["gemini-flash-latest"]
+        (cikti / "yz.json").write_text(json.dumps({"anahtar": yz_anahtar, "modeller": modeller}), encoding="utf-8")
     if sifre:
         sifrele(cikti, sifre)
         print("Veri sifrelendi.")
