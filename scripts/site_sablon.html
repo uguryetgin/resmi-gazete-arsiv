@@ -96,6 +96,8 @@ td.eski span{background:var(--eski-bg);color:var(--eski);border-radius:4px;paddi
 td.yeni span{background:var(--yeni-bg);color:var(--yeni);border-radius:4px;padding:1px 4px}
 td small{display:block;color:var(--muted);margin-top:3px}
 .notlar{font-size:13px;color:var(--muted);margin:8px 0 0;padding-left:18px}
+.sor{font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
+.sor:hover{text-decoration:underline}
 .yz{margin:12px 0 4px;padding:10px 14px;border-radius:9px;background:var(--soft);border:1px dashed var(--line)}
 .yz-bas{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .yz ul{margin:6px 0 4px;padding-left:20px}
@@ -143,7 +145,7 @@ details.grup>summary span{color:var(--muted);font-weight:400;font-size:13px}
   <nav class="yan" id="yan" aria-label="Günler"><h2 id="yanBaslik">Günler</h2><ul class="gunler" id="gunler"></ul></nav>
   <main class="ana" id="ana"><div class="bos">Yükleniyor…</div></main>
 </div>
-<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları GitHub Models ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın.</p>
+<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları ve "Sor" cevapları GitHub Models ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın. "Sor" bağlantıları herkese açık bir GitHub Issue açar.</p>
 <script>
 (function(){
 "use strict";
@@ -259,6 +261,15 @@ function yzKutu(y){
     (y.yururluk ? '<div class="yur"><b>Yürürlük:</b> ' + kac(y.yururluk) + "</div>" : "") +
     "<small>GitHub Models (" + kac(y.model || "") + ") ile üretildi; hata içerebilir, kesin bilgi için tam metne bakın.</small></div>";
 }
+var REPO = "https://github.com/uguryetgin/resmi-gazete-arsiv";
+function soruLink(g, k, metin){
+  var kisa = k ? (k.baslik.length > 70 ? k.baslik.slice(0, 70) + "…" : k.baslik) : "günün kalemleri";
+  var govde = "Gün: " + g.ymd + "\n" + (k ? "Kalem: " + k.baslik + " (s. " + k.sayfa + ")\n" : "") +
+    "\nSorunuz: \n\n<!-- Sorunuzu yazıp Issue'yu açın; GitHub Models ile yaklaşık bir dakikada yorum olarak cevaplanır. Devam soruları için yorum yazın. -->";
+  var url = REPO + "/issues/new?labels=soru&title=" + encodeURIComponent("Soru: " + g.tarih + " – " + kisa) +
+    "&body=" + encodeURIComponent(govde);
+  return '<a class="sor" href="' + url + '" target="_blank" rel="noopener" title="GitHub Issue ile yapay zekâya sor">' + (metin || "Sor") + "</a>";
+}
 function pdfLink(pdf, s){ return pdf ? '<a href="' + kac(pdf) + (s ? "#page=" + s : "") + '" target="_blank" rel="noopener">s. ' + kac(s) + " · PDF</a>" : (s ? "s. " + s : ""); }
 
 function gunCiz(g){
@@ -270,7 +281,8 @@ function gunCiz(g){
        (g.sayilar.length > 1 ? " · " + (g.sayilar.length - 1) + " mükerrer" : "") + "</div></div>" +
        '<div class="dugmeler"><a class="dugme" href="#' + (once ? once.ymd : "") + '"' + (once ? "" : " disabled") + '>‹ Önceki</a>' +
        '<a class="dugme" href="#' + (sonra ? sonra.ymd : "") + '"' + (sonra ? "" : " disabled") + '>Sonraki ›</a>' +
-       '<a class="dugme ana-d" href="' + kac(g.pdf) + '" target="_blank" rel="noopener">PDF</a></div></div>' +
+       '<a class="dugme ana-d" href="' + kac(g.pdf) + '" target="_blank" rel="noopener">PDF</a>' +
+       soruLink(g, null, "💬 Bu güne soru sor").replace('class="sor"', 'class="dugme"') + "</div></div>" +
        '<div class="sayac"><div><b>' + yildizlar.length + "</b>ilgi alanı kalemi</div><div><b>" + toplam + "</b>toplam kalem</div><div><b>" +
        kac(g.sayfa || "—") + '</b>sayfa</div><div><b><a href="https://github.com/uguryetgin/resmi-gazete-arsiv/releases/tag/rg-' + g.ymd + '" target="_blank" rel="noopener">Arşiv</a></b>GitHub sürümü</div></div></section>';
 
@@ -279,7 +291,7 @@ function gunCiz(g){
     yildizlar.forEach(function(t){
       var s = t[0], k = t[2];
       h += '<article class="kart yildiz"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
-           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + pdfLink(s.pdf, k.sayfa) + "</div>" +
+           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + pdfLink(s.pdf, k.sayfa) + soruLink(g, k, "💬 Sor") + "</div>" +
            "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" +
            yzKutu(k.yz) +
            (k.karsilastirma ? tablo(k) : (k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
@@ -298,7 +310,7 @@ function gunCiz(g){
       h += '<details class="grup"' + (acik || s.bolumler.length === 1 ? " open" : "") + "><summary>" + kac(b.bolum || "Kalemler") + "<span>" + b.kalemler.length + " kalem</span></summary><ul class=\"liste\">";
       b.kalemler.forEach(function(k){
         h += '<li><div class="lb">' + (k.alan ? "★ " : "") + vurgula(k.baslik, durum.ara) + "</div>" +
-             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + "</div>" +
+             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + " " + soruLink(g, k) + "</div>" +
              (k.alinti ? '<div class="la">' + vurgula(k.alinti, durum.ara) + "</div>" : "") + "</li>";
       });
       h += "</ul></details>";

@@ -1,0 +1,37 @@
+name: Soru-cevap botu
+
+# Web sayfasindaki "Sor" dugmesi hazir doldurulmus bir Issue acar; bu is akisi soruyu
+# GitHub Models ile (ucretsiz kota, Claude token'i harcamaz) gunun gazete metnine dayanarak
+# cevaplar. Kotayi korumak icin yalniz depo sahibinin issue ve yorumlarina cevap verir.
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+  models: read
+
+concurrency:
+  group: soru-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  cevapla:
+    if: >-
+      !github.event.issue.pull_request &&
+      (github.event_name == 'issues' && github.event.issue.user.login == github.repository_owner ||
+       github.event_name == 'issue_comment' && github.event.comment.user.login == github.repository_owner) &&
+      (contains(github.event.issue.labels.*.name, 'soru') || startsWith(github.event.issue.title, 'Soru:'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cevapla
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          pip install --quiet requests
+          python scripts/soru_cevap.py
