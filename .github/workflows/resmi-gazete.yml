@@ -88,6 +88,7 @@ jobs:
         env:
           YMD: ${{ steps.indir.outputs.ymd }}
           GITHUB_TOKEN: ${{ github.token }}
+          YZ_TOKEN: ${{ secrets.YZ_TOKEN }}
         run: python scripts/yz_ozet.py "$YMD"
 
       # Yalniz gunluk kosumlarda (zamanlanmis ya da tarihsiz elle): gecmis gunleri

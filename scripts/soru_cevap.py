@@ -6,7 +6,8 @@ metni bulunur; kalem varsa onun gazetedeki metni, yoksa gunun ozeti baglam olara
 Issue'daki onceki yorumlar sohbet gecmisi olur. Cevap Issue'ya yorum olarak yazilir.
 
 .github/workflows/soru.yml calistirir (yalniz depo sahibinin issue/yorumlarinda).
-Ortam: GITHUB_TOKEN (issues: write, models: read), GITHUB_REPOSITORY, GITHUB_EVENT_PATH"""
+Ortam: GITHUB_TOKEN (issues: write), YZ_TOKEN (Models: read izinli kisisel token; yoksa
+       GITHUB_TOKEN), GITHUB_REPOSITORY, GITHUB_EVENT_PATH"""
 import gzip, json, os, re, sys
 from pathlib import Path
 import requests
@@ -92,7 +93,7 @@ def main():
                 {"role": "user", "content": "Gazete metni (yalnız buna dayan):\n\n" + metin},
                 {"role": "assistant", "content": "Metni okudum; sorunuzu yanıtlayabilirim."}] + gecmis
     try:
-        cevap = sor(token, mesajlar)
+        cevap = sor(os.environ.get("YZ_TOKEN", "").strip() or token, mesajlar)
     except Exception as e:
         cevap = f"Yanıt alınamadı ({e.__class__.__name__}). Biraz sonra yeni bir yorumla tekrar deneyin."
     if cevap is None:

@@ -32,6 +32,7 @@ jobs:
       - name: Cevapla
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          YZ_TOKEN: ${{ secrets.YZ_TOKEN }}
         run: |
           pip install --quiet requests
           python scripts/soru_cevap.py

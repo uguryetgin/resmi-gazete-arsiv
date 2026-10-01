@@ -7,7 +7,8 @@ Ozeti olan kalem yeniden sorulmaz. Kota/hata durumunda uyari yazar, isi basarisi
 
 Kullanim: python3 scripts/yz_ozet.py [YYYYAAGG ...]   (bos = data/latest.json'daki gun;
           "hepsi" = ozeti eksik tum gunler, en yeniden eskiye, YZ_GUN_SINIR kadar)
-Ortam: GITHUB_TOKEN (Actions'ta "models: read" izniyle), YZ_MODEL (varsayilan openai/gpt-4.1-mini)"""
+Ortam: YZ_TOKEN (Models: read izinli ince ayarli kisisel token; yoksa GITHUB_TOKEN),
+       YZ_MODEL (varsayilan openai/gpt-4.1-mini)"""
 import json, os, re, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -124,9 +125,9 @@ def tani(token):
         print(f"TANI katalog: {e}")
 
 def main(argv):
-    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    token = (os.environ.get("YZ_TOKEN", "") or os.environ.get("GITHUB_TOKEN", "")).strip()
     if not token:
-        print("GITHUB_TOKEN yok, atlandi.")
+        print("YZ_TOKEN/GITHUB_TOKEN yok, atlandi.")
         return 0
     if argv == ["tani"]:
         tani(token)
