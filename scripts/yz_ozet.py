@@ -50,9 +50,12 @@ def sor(token, baslik, metin):
     if r.status_code == 429:
         raise KotaDoldu(r.text[:200])
     r.raise_for_status()
-    icerik = r.json()["choices"][0]["message"]["content"]
-    m = re.search(r"\{.*\}", icerik, re.S)
-    veri = json.loads(m.group(0) if m else icerik)
+    try:
+        icerik = r.json()["choices"][0]["message"]["content"] or ""
+        m = re.search(r"\{.*\}", icerik, re.S)
+        veri = json.loads(m.group(0) if m else icerik)
+    except Exception as e:
+        raise ValueError(f"{e} | HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:300]!r}")
     maddeler = [str(x).strip() for x in veri.get("ne_getiriyor") or [] if str(x).strip()][:6]
     if not maddeler:
         raise ValueError("bos yanit")
