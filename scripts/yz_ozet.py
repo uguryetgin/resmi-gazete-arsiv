@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""★ kalemler icin GitHub Models ile kisa ozet (web sayfasi icin; Claude token'i harcamaz).
+"""★ kalemler icin yapay zeka ile kisa ozet (web sayfasi icin; Claude token'i harcamaz).
 
-Her ★ kalemin gazetedeki tam metni (routine_tetikle.tam_metinler) GitHub Models'e gonderilir,
+Her ★ kalemin gazetedeki tam metni (routine_tetikle.tam_metinler) YZ_URL'deki modele gonderilir,
 donen "Ne getiriyor" maddeleri ve yururluk satiri data/YYYY/AA/YYYYAAGG.yz.json'a yazilir.
 Ozeti olan kalem yeniden sorulmaz. Kota/hata durumunda uyari yazar, isi basarisiz saymaz.
 
 Kullanim: python3 scripts/yz_ozet.py [YYYYAAGG ...]   (bos = data/latest.json'daki gun;
           "hepsi" = ozeti eksik tum gunler, en yeniden eskiye, YZ_GUN_SINIR kadar)
-Ortam: GITHUB_TOKEN (Actions'ta "models: read" izniyle), YZ_MODEL (varsayilan openai/gpt-4.1-mini)"""
+Ortam: YZ_TOKEN (saglayici anahtari; yoksa GITHUB_TOKEN), YZ_URL (OpenAI uyumlu
+       chat/completions adresi; varsayilan GitHub Models), YZ_MODEL (varsayilan openai/gpt-4.1-mini)"""
 import json, os, re, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,8 +19,12 @@ import routine_tetikle as rt     # noqa: E402
 from sayfa import ozet_oku       # noqa: E402  (scripts/sayfa.py)
 
 ROOT = Path(".")
-URL = "https://models.github.ai/inference/chat/completions"
+# OpenAI uyumlu herhangi bir uc nokta: GitHub Models (varsayilan) ya da Gemini, Groq vb.
+URL = os.environ.get("YZ_URL", "").strip() or "https://models.github.ai/inference/chat/completions"
 MODEL = os.environ.get("YZ_MODEL", "").strip() or "openai/gpt-4.1-mini"
+# Ana model yogunluktan (503) ya da kaldirildigi icin (404) yanit vermezse sirayla denenenler
+YEDEKLER = [m.strip() for m in os.environ.get("YZ_YEDEK_MODELLER", "").split(",") if m.strip()]
+SON_MODEL = MODEL          # son basarili cagrinin modeli (kayit/etiket icin)
 METIN_SINIR = 14000        # karakter; ucretsiz katmanda istek basina girdi siniri dusuk
 BEKLE = 5                  # istekler arasi saniye (dakikalik kota)
 GUN_SINIR = int(os.environ.get("YZ_GUN_SINIR", "30") or 30)
@@ -39,14 +44,32 @@ ISTEK = ("Aşağıdaki Resmî Gazete kaleminin metnini özetle.\n"
 def yol(ymd):
     return ROOT / "data" / ymd[:4] / ymd[4:6] / f"{ymd}.yz.json"
 
+def istek(token, govde, deneme=3):
+    """POST; gecici sunucu hatalarinda (500/502/503/504) bekleyip yeniden dener, olmazsa ya da
+       model bulunamazsa (404) YEDEKLER'deki sonraki modele gecer."""
+    global SON_MODEL
+    for model in dict.fromkeys([govde.get("model") or MODEL] + YEDEKLER):
+        govde = dict(govde, model=model)
+        for i in range(deneme):
+            r = requests.post(URL, json=govde, timeout=120, headers={
+                "Authorization": f"Bearer {token}", "Accept": "application/json",
+                "Content-Type": "application/json"})
+            if r.status_code not in (500, 502, 503, 504):
+                break
+            if i < deneme - 1:
+                time.sleep(10 * (i + 1))
+        if r.status_code not in (404, 500, 502, 503, 504):
+            SON_MODEL = model
+            return r
+        print(f"::warning::{model}: HTTP {r.status_code}, sonraki model deneniyor")
+    return r
+
 def sor(token, baslik, metin):
-    govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 900,
+    govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 4000,   # dusunen modeller payi
              "response_format": {"type": "json_object"},
              "messages": [{"role": "system", "content": SISTEM},
                           {"role": "user", "content": ISTEK.format(baslik=baslik, metin=metin)}]}
-    r = requests.post(URL, json=govde, timeout=90, headers={
-        "Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+    r = istek(token, govde)
     if r.status_code == 429:
         raise KotaDoldu(r.text[:200])
     r.raise_for_status()
@@ -95,38 +118,35 @@ def gun_isle(ymd, token, alanlar, haric):
             time.sleep(BEKLE)
     finally:
         if yeni:
-            kayit.update({"model": MODEL, "guncelleme": datetime.now(timezone.utc).isoformat(timespec="seconds")})
+            kayit.update({"model": SON_MODEL, "guncelleme": datetime.now(timezone.utc).isoformat(timespec="seconds")})
             yol(ymd).write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return yeni
 
 def tani(token):
-    """Gecici: hangi uc nokta/baslik bicimi calisiyor."""
-    mesaj = [{"role": "user", "content": "Sadece 'merhaba' yaz."}]
-    denemeler = [
-        ("models.github.ai tam", URL, MODEL, {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}),
-        ("models.github.ai yalin", URL, MODEL, {}),
-        ("models.github.ai json", URL, MODEL, {"Accept": "application/json"}),
-        ("models.github.ai 4o-mini", URL, "openai/gpt-4o-mini", {"Accept": "application/json"}),
-        ("azure eski", "https://models.inference.ai.azure.com/chat/completions", "gpt-4o-mini", {"Accept": "application/json"}),
-    ]
-    for ad, url, model, ek in denemeler:
-        try:
-            r = requests.post(url, timeout=60, json={"model": model, "messages": mesaj, "max_tokens": 20},
-                              headers=dict({"Authorization": f"Bearer {token}", "Content-Type": "application/json"}, **ek))
-            print(f"TANI {ad}: HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:250]!r}")
-        except Exception as e:
-            print(f"TANI {ad}: {e}")
+    """Gecici: saglayicida hangi modeller calisiyor."""
+    taban = URL.rsplit("/chat/completions", 1)[0]
     try:
-        r = requests.get("https://models.github.ai/catalog/models", timeout=30,
-                         headers={"Authorization": f"Bearer {token}", "Accept": "application/json"})
-        print(f"TANI katalog: HTTP {r.status_code} {r.headers.get('content-type')} | {r.text[:250]!r}")
+        r = requests.get(taban + "/models", timeout=30, headers={"Authorization": f"Bearer {token}"})
+        adlar = [m.get("id") for m in (r.json().get("data") or [])] if r.ok else []
+        print(f"TANI modeller: HTTP {r.status_code} | {', '.join(a for a in adlar if 'gemini' in str(a))[:900] or r.text[:300]}")
     except Exception as e:
-        print(f"TANI katalog: {e}")
+        print(f"TANI modeller: {e}")
+    for model in [MODEL, "gemini-3.8-flash-lite", "gemini-flash-latest", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"]:
+        for rf in (False, True):
+            govde = {"model": model, "max_tokens": 30, "messages": [{"role": "user", "content": "Sadece 'merhaba' yaz."}]}
+            if rf:
+                govde["response_format"] = {"type": "json_object"}
+                govde["messages"][0]["content"] = 'Yalnız {"selam":"merhaba"} JSON\'unu yaz.'
+            try:
+                r = requests.post(URL, json=govde, timeout=60, headers={"Authorization": f"Bearer {token}"})
+                print(f"TANI {model} json={rf}: HTTP {r.status_code} | {r.text[:220]!r}")
+            except Exception as e:
+                print(f"TANI {model} json={rf}: {e}")
 
 def main(argv):
-    token = os.environ.get("GITHUB_TOKEN", "").strip()
+    token = (os.environ.get("YZ_TOKEN", "") or os.environ.get("GITHUB_TOKEN", "")).strip()
     if not token:
-        print("GITHUB_TOKEN yok, atlandi.")
+        print("YZ_TOKEN/GITHUB_TOKEN yok, atlandi.")
         return 0
     if argv == ["tani"]:
         tani(token)
@@ -144,13 +164,13 @@ def main(argv):
         try:
             n = gun_isle(ymd, token, alanlar, haric)
         except KotaDoldu as e:
-            print(f"::warning::GitHub Models kotasi doldu ({ymd}); kalan gunler sonraki kosuma: {e}")
+            print(f"::warning::Yapay zeka kotasi doldu ({ymd}); kalan gunler sonraki kosuma: {e}")
             break
         except Exception as e:
             print(f"::warning::{ymd}: {e}")
             continue
         if n:
-            print(f"{ymd}: {n} ★ ozet ({MODEL})")
+            print(f"{ymd}: {n} ★ ozet ({SON_MODEL})")
         toplam += n
     print(f"Toplam {toplam} yeni ozet.")
     return 0

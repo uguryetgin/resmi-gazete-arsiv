@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
-"""GitHub Issue'daki soruyu GitHub Models ile cevapla (web sayfasindaki "Sor" dugmeleri).
+"""GitHub Issue'daki soruyu yapay zeka (OpenAI uyumlu uc nokta; bkz. yz_ozet.URL) ile cevapla (web sayfasindaki "Sor" dugmeleri).
 
 Issue govdesindeki "Gün: YYYYAAGG" ve (varsa) "Kalem: Baslik (s. N)" satirlarindan gunun
 metni bulunur; kalem varsa onun gazetedeki metni, yoksa gunun ozeti baglam olarak gonderilir.
 Issue'daki onceki yorumlar sohbet gecmisi olur. Cevap Issue'ya yorum olarak yazilir.
 
 .github/workflows/soru.yml calistirir (yalniz depo sahibinin issue/yorumlarinda).
-Ortam: GITHUB_TOKEN (issues: write, models: read), GITHUB_REPOSITORY, GITHUB_EVENT_PATH"""
+Ortam: GITHUB_TOKEN (issues: write), YZ_TOKEN (Models: read izinli kisisel token; yoksa
+       GITHUB_TOKEN), GITHUB_REPOSITORY, GITHUB_EVENT_PATH"""
 import gzip, json, os, re, sys
 from pathlib import Path
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rg_fetch as rg            # noqa: E402
-from yz_ozet import URL, MODEL   # noqa: E402
+import yz_ozet                   # noqa: E402
+from yz_ozet import MODEL, istek  # noqa: E402
 
 ROOT = Path(".")
 API = "https://api.github.com"
@@ -62,10 +64,7 @@ def temizle(govde):
     return "\n".join(satir).replace("Sorunuz:", "").strip()
 
 def sor(token, mesajlar):
-    r = requests.post(URL, timeout=120, json={"model": MODEL, "temperature": 0.2, "max_tokens": 1200,
-                                              "messages": mesajlar}, headers={
-        "Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+    r = istek(token, {"model": MODEL, "temperature": 0.2, "max_tokens": 6000, "messages": mesajlar})
     if r.status_code == 429:
         return None
     r.raise_for_status()
@@ -92,14 +91,14 @@ def main():
                 {"role": "user", "content": "Gazete metni (yalnız buna dayan):\n\n" + metin},
                 {"role": "assistant", "content": "Metni okudum; sorunuzu yanıtlayabilirim."}] + gecmis
     try:
-        cevap = sor(token, mesajlar)
+        cevap = sor(os.environ.get("YZ_TOKEN", "").strip() or token, mesajlar)
     except Exception as e:
         cevap = f"Yanıt alınamadı ({e.__class__.__name__}). Biraz sonra yeni bir yorumla tekrar deneyin."
     if cevap is None:
-        cevap = "GitHub Models'in ücretsiz kotası şu an dolu. Biraz sonra yeni bir yorumla tekrar sorun."
+        cevap = "Yapay zekâ servisinin ücretsiz kotası şu an dolu. Biraz sonra yeni bir yorumla tekrar sorun."
     kaynak = f"RG {ymd[6:]}.{ymd[4:6]}.{ymd[:4]}" + (f" · {kalem}" if kalem else " · günün özeti")
     gh(token, "POST", f"/repos/{repo}/issues/{no}/comments", json={"body":
-        f"{cevap}\n\n{IMZA}\n<sub>Kaynak: {kaynak} · GitHub Models ({MODEL}); hata içerebilir, kesin bilgi "
+        f"{cevap}\n\n{IMZA}\n<sub>Kaynak: {kaynak} · yapay zekâ ({yz_ozet.SON_MODEL}); hata içerebilir, kesin bilgi "
         f"için gazete metnine bakın. Devam sorusu için yorum yazın.</sub>"})
     print(f"#{no} cevaplandi ({ymd}, {kalem[:60] or 'gun'})")
     return 0

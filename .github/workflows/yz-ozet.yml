@@ -28,6 +28,10 @@ jobs:
         env:
           TARIHLER: ${{ github.event.inputs.tarihler }}
           GITHUB_TOKEN: ${{ github.token }}
+          YZ_TOKEN: ${{ secrets.YZ_TOKEN }}
+          YZ_URL: ${{ vars.YZ_URL || 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions' }}
+          YZ_MODEL: ${{ vars.YZ_MODEL || 'gemini-flash-latest' }}
+          YZ_YEDEK_MODELLER: ${{ vars.YZ_YEDEK_MODELLER || 'gemini-flash-lite-latest' }}
         run: |
           pip install --quiet requests
           python scripts/yz_ozet.py ${TARIHLER:-hepsi}
