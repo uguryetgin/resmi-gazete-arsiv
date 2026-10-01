@@ -484,7 +484,9 @@ var SOHBET_SISTEM = "Resmî Gazete arşivi ve Türk hukuku/kamu yönetimi hakkı
   "varsa arşivdeki ilgili kalemleri ekle. Arşive dair bir bilgiyi uydurma. Tarih, sayı, madde, " +
   "tutar ve kanun numaralarını aynen aktar; dayandığın kalemi ve günü (ve varsa sayfayı, s. N) belirt. Yorum yaparsan " +
   "\"(yorum)\" diye işaretle. Hukuki danışmanlık yapma. Aradığı bulunamazsa arşivin kapsadığı tarih aralığını ve " +
-  "varsa en yakın ilgili kalemleri (gün ve etiketleriyle) belirt.";
+  "varsa en yakın ilgili kalemleri (gün ve etiketleriyle) belirt. Arşivde olmayan güncel bilgi istenirse (piyasa fiyatı, PTF, " +
+  "kur, haber, arşiv aralığı dışındaki bir Resmî Gazete gibi) Google araması aracını kullan; bu bilgiyi \"(İnternet)\" diye " +
+  "işaretle ve kaynağını (site adı) yaz. İnternette de bulamazsan açıkça söyle.";
 function kirp(t, n){ t = String(t || ""); return t.length > n ? t.slice(0, n) + " …" : t; }
 var DURAK = " ile ve veya hangi nedir neler olan olarak icin ilgili hakkinda karar karari kararlar resmi gazete gazetede gazetesi bir bu su ne var mi mu nasil kim kac son gun hafta ay yil tarih tarihli sayili getiriyor anlatiyor ";
 function sorguKokleri(q){
@@ -554,7 +556,7 @@ function mesajEkle(sinif, html){
   var d = document.createElement("div"); d.className = "mesaj " + sinif; d.innerHTML = html;
   $("mesajlar").appendChild(d); $("mesajlar").scrollTop = $("mesajlar").scrollHeight; return d;
 }
-function geminiSor(i){
+function geminiSor(i, aramasiz){
   var model = YZ.modeller[i];
   var icerik = [{role: "user", parts: [{text: "Arşiv metni (yalnız buna dayan):\n\n" + sohbetBaglam(SOHBET.length ? SOHBET[SOHBET.length - 1].metin : "")}]},
                 {role: "model", parts: [{text: "Metni okudum; sorunuzu yanıtlayabilirim."}]}]
@@ -562,14 +564,20 @@ function geminiSor(i){
   return fetch(GEMINI + encodeURIComponent(model) + ":generateContent", {method: "POST",
       headers: {"Content-Type": "application/json", "x-goog-api-key": YZ.anahtar},
       body: JSON.stringify({systemInstruction: {parts: [{text: SOHBET_SISTEM}]}, contents: icerik,
+                            tools: aramasiz ? undefined : [{google_search: {}}],      // gerektiginde Google aramasi
                             generationConfig: {temperature: 0.2, maxOutputTokens: 4000}})})
     .then(function(r){
-      if ([404, 429, 500, 503].indexOf(r.status) >= 0 && i + 1 < YZ.modeller.length) return geminiSor(i + 1);
+      if (r.status === 400 && !aramasiz) return geminiSor(i, true);   // model arama aracini desteklemiyorsa
+      if ([404, 429, 500, 503].indexOf(r.status) >= 0 && i + 1 < YZ.modeller.length) return geminiSor(i + 1, aramasiz);
       return r.json().then(function(j){
         if (!r.ok) throw new Error(r.status === 429 ? "Ücretsiz kota şu an dolu; biraz sonra tekrar deneyin." : "Hata " + r.status + ": " + ((j.error && j.error.message) || ""));
         var c = j.candidates && j.candidates[0], t = c && c.content && (c.content.parts || []).map(function(x){ return x.text || ""; }).join("");
         if (!t) throw new Error("Boş yanıt" + (c && c.finishReason ? " (" + c.finishReason + ")" : ""));
-        return {metin: t.trim(), model: model};
+        var kaynak = [], gm = c.groundingMetadata || {};
+        (gm.groundingChunks || []).forEach(function(ch){
+          var w = ch.web; if (w && w.uri && !kaynak.some(function(k){ return k.uri === w.uri; })) kaynak.push({uri: w.uri, ad: w.title || w.uri});
+        });
+        return {metin: t.trim(), model: model, kaynak: kaynak.slice(0, 6), arandi: !!(gm.webSearchQueries || []).length};
       });
     });
 }
@@ -589,7 +597,9 @@ function sohbetKur(yz){
     $("sohbetGun").textContent = g ? "· " + g.tarih : "";
     geminiSor(0).then(function(c){
       SOHBET.push({rol: "model", metin: c.metin});
-      bekle.innerHTML = mdHtml(c.metin) + '<span class="kaynak">' + (g ? "RG " + kac(g.tarih) + " · " : "") + kac(c.model) + "</span>";
+      var kl = (c.kaynak || []).map(function(k){ return '<a href="' + kac(k.uri) + '" target="_blank" rel="noopener">' + kac(k.ad) + "</a>"; }).join(" · ");
+      bekle.innerHTML = mdHtml(c.metin) + (kl ? '<span class="kaynak">🌐 Kaynaklar: ' + kl + "</span>" : "") +
+        '<span class="kaynak">' + (g ? "RG " + kac(g.tarih) + " · " : "") + kac(c.model) + (c.arandi ? " · Google araması" : "") + "</span>";
     }).catch(function(err){ SOHBET.pop(); bekle.className = "mesaj hata"; bekle.textContent = err.message || "Yanıt alınamadı."; });
   };
 }
