@@ -628,14 +628,21 @@ function pdfAc(i){
         c.style.width = vp.width + "px"; c.style.height = vp.height + "px"; kutu.appendChild(c); $("pdfgIc").appendChild(kutu);
         var ctx = c.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         return page.render({canvasContext: ctx, viewport: vp}).promise.then(function(){
-          if (n > 2) return;
+          if (n > 1) return;
+          function isaret(x, y, w, h){
+            var d = document.createElement("div"); d.className = "pdfg-isaret";
+            d.style.left = x + "px"; d.style.top = y + "px"; d.style.width = w + "px"; d.style.height = h + "px";
+            kutu.appendChild(d); if (!ilk) ilk = d;
+          }
           return page.getTextContent().then(function(ic){
-            baslikBul(ic, k.baslik).forEach(function(it){
+            var bul = baslikBul(ic, k.baslik);
+            bul.forEach(function(it){
               var t = window.pdfjsLib.Util.transform(vp.transform, it.transform), h = Math.hypot(t[2], t[3]);
-              var d = document.createElement("div"); d.className = "pdfg-isaret";
-              d.style.left = t[4] - 2 + "px"; d.style.top = t[5] - h * 0.9 + "px";
-              d.style.width = it.width * vp.scale + 4 + "px"; d.style.height = h * 1.2 + "px";
-              kutu.appendChild(d); if (!ilk) ilk = d;
+              isaret(t[4] - 2, t[5] - h * 0.9, it.width * vp.scale + 4, h * 1.2);
+            });
+            // Metin katmani bozuk/taranmis sayfa: GitHub'da OCR ile bulunmus kutular (0-1 oran)
+            if (!bul.length) (k.kesit.isaret || []).forEach(function(r){
+              isaret(r[0] * vp.width - 3, r[1] * vp.height - 3, r[2] * vp.width + 6, r[3] * vp.height + 6);
             });
           });
         });

@@ -89,7 +89,8 @@ def gun_isle(meta_yol, alanlar, haric, kur=None):
                     k["yz"] = dict(yz["kalemler"][anahtar], model=yz.get("model", ""))
                 if anahtar in kesit and (klasor / "kesit" / kesit[anahtar]["dosya"]).exists():
                     kk = kesit[anahtar]
-                    k["kesit"] = {"yol": "kesit/" + kk["dosya"][:-4], "ilk": kk["ilk"], "son": kk["son"]}
+                    k["kesit"] = {"yol": "kesit/" + kk["dosya"][:-4], "ilk": kk["ilk"], "son": kk["son"],
+                                  "isaret": kk.get("isaret") or []}
                     KESITLER.append(klasor / "kesit" / kk["dosya"])
                 if kur:
                     ozet = " ".join((k.get("yz") or {}).get("ne_getiriyor") or [])

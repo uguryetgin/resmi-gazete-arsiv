@@ -3,13 +3,15 @@
 PDF goruntuleyici icin; yapay zeka kullanmaz).
 
 Cikti: data/YYYY/AA/kesit/YYYYAAGG-sN.pdf ve data/YYYY/AA/YYYYAAGG.kesit.json
-       {"Baslik (s. N)": {"dosya": "YYYYAAGG-sN.pdf", "ilk": N, "son": M}}
+       {"Baslik (s. N)": {"dosya": "YYYYAAGG-sN.pdf", "ilk": N, "son": M, "isaret": [[x, y, g, y], ...]}}
+"isaret": basligin kesidin ilk sayfasindaki yeri (sayfaya oranla 0-1), tesseract OCR ile bulunur;
+PDF'in metin katmani bozuk ya da sayfa taranmis olsa da calisir (tesseract yoksa atlanir).
 PDF kaynagi: RG_RELEASE_DIR'deki YYYYAAGG.pdf (gunluk kosum), yoksa GitHub release eki, o da
 yoksa resmigazete.gov.tr. Kesidi olan kalem yeniden kesilmez.
 
 Kullanim: python3 scripts/pdf_kes.py [YYYYAAGG ...]   (bos = data/latest.json'daki gun;
           "hepsi" = son KESIT_GUN_SINIR gun)"""
-import io, json, os, re, sys
+import csv, io, json, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 import requests
 
@@ -36,6 +38,71 @@ def sayfa_araliklari(ozet_yol, son_sayfa):
         son = min(sonraki, tavan, k["sayfa"] + EN_COK_SAYFA - 1)
         out[f"{k['baslik']} (s. {k['sayfa']})"] = (bolum, k["baslik"], k["sayfa"], max(son, k["sayfa"]))
     return out
+
+def _kok(w):
+    return w[:5] if len(w) > 5 else w
+
+def baslik_yeri(pdf_yolu, baslik):
+    """Kesidin ilk sayfasinda basligin satirlari: [[x, y, gen, yuk], ...] (0-1). Bulunamazsa []."""
+    if not (shutil.which("pdftoppm") and shutil.which("tesseract")):
+        return None
+    hedef = {_kok(w) for w in rt.norm(baslik).split() if len(w) > 1}
+    with tempfile.TemporaryDirectory() as d:
+        subprocess.run(["pdftoppm", "-cropbox", "-r", "110", "-f", "1", "-l", "1", "-png", str(pdf_yolu), f"{d}/s"],
+                       check=True, capture_output=True)
+        png = next(Path(d).glob("s*.png"))
+        tsv = subprocess.run(["tesseract", str(png), "-", "-l", "tur", "--psm", "3", "tsv"],
+                             check=True, capture_output=True, text=True).stdout
+    satirlar, gen, yuk = {}, 1, 1
+    for r in csv.DictReader(io.StringIO(tsv), delimiter="\t", quoting=csv.QUOTE_NONE):
+        if r.get("level") == "1":                       # sayfanin kendisi: goruntu boyutu
+            gen, yuk = int(r["width"]) or 1, int(r["height"]) or 1
+        if r.get("level") != "5" or not (r.get("text") or "").strip():
+            continue
+        anahtar = (int(r["block_num"]), int(r["par_num"]), int(r["line_num"]))
+        satirlar.setdefault(anahtar, []).append(r)
+    sira = [satirlar[k] for k in sorted(satirlar, key=lambda k: min(int(w["top"]) for w in satirlar[k]))]
+    def uyum(satir):
+        kel = [w for x in satir for w in rt.norm(x["text"]).split() if len(w) > 1]
+        es = sum(_kok(w) in hedef for w in kel)
+        return es if kel and es >= 2 and es / len(kel) >= 0.6 else 0
+    en, enp, cur, curp = [], 0, [], 0
+    for satir in sira:
+        p = uyum(satir)
+        if p:
+            cur.append(satir); curp += p
+            if curp > enp:
+                en, enp = list(cur), curp
+        else:
+            cur, curp = [], 0
+    if enp < min(4, max(2, len(hedef) // 2)):
+        return []
+    kutular = []
+    for satir in en:
+        x0 = min(int(w["left"]) for w in satir); y0 = min(int(w["top"]) for w in satir)
+        x1 = max(int(w["left"]) + int(w["width"]) for w in satir)
+        y1 = max(int(w["top"]) + int(w["height"]) for w in satir)
+        kutular.append([round(x0 / gen, 4), round(y0 / yuk, 4), round((x1 - x0) / gen, 4), round((y1 - y0) / yuk, 4)])
+    return kutular
+
+def isaretle(klasor, dizin, yildiz):
+    """Isareti hesaplanmamis kesitler icin baslik yeri; degisen kayit sayisi."""
+    n = 0
+    for a in yildiz:
+        kayit = dizin.get(a)
+        if not kayit or "isaret" in kayit or not (klasor / "kesit" / kayit["dosya"]).exists():
+            continue
+        try:
+            yer = baslik_yeri(klasor / "kesit" / kayit["dosya"], yildiz[a][1])
+        except Exception as e:
+            print(f"  isaret {kayit['dosya']}: {e}")
+            continue
+        if yer is None:
+            return n
+        kayit["isaret"] = yer
+        n += 1
+        print(f"  isaret {kayit['dosya']}: {len(yer)} satir")
+    return n
 
 def pdf_al(ymd, meta):
     yerel = Path(os.environ.get("RG_RELEASE_DIR", "") or "/yok") / f"{ymd}.pdf"
@@ -69,28 +136,34 @@ def gun_isle(ymd, alanlar, haric):
     eksik = {a: v for a, v in yildiz.items()
              if a not in dizin or not (klasor / "kesit" / dizin[a]["dosya"]).exists()}
     if not eksik:
+        if isaretle(klasor, dizin, yildiz):
+            dizin_yol.write_text(json.dumps(dizin, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         return 0
     veri = pdf_al(ymd, meta)
     if not veri:
         print(f"::warning::{ymd}: PDF alinamadi, kesit yapilmadi")
         return 0
     okuyucu = PdfReader(io.BytesIO(veri))
-    (klasor / "kesit").mkdir(exist_ok=True)
     yeni = 0
     for anahtar, (_, baslik, ilk, son) in eksik.items():
         son = min(son, len(okuyucu.pages))
         if ilk > son:
             continue
+        (klasor / "kesit").mkdir(exist_ok=True)
         yazici = PdfWriter()
         for i in range(ilk - 1, son):
             yazici.add_page(okuyucu.pages[i])
-        yazici.compress_identical_objects()
+        try:                          # ayni nesneleri birlestir (JBIG2 gorsellerde cozucu gerekir, olmazsa atla)
+            yazici.compress_identical_objects()
+        except Exception:
+            pass
         dosya = f"{ymd}-s{ilk}.pdf"
         with open(klasor / "kesit" / dosya, "wb") as f:
             yazici.write(f)
         dizin[anahtar] = {"dosya": dosya, "ilk": ilk, "son": son}
         yeni += 1
         print(f"  {dosya}: s. {ilk}-{son} ({(klasor / 'kesit' / dosya).stat().st_size // 1024} KB) {baslik[:60]}")
+    isaretle(klasor, dizin, yildiz)
     dizin_yol.write_text(json.dumps(dizin, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return yeni
 

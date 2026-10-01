@@ -1,7 +1,8 @@
 name: PDF kesitleri
 
 # Gecmis gunlerin ★ kalemleri icin sayfa kesitlerini (kucuk PDF) doldurur; gunluk is yeni gunu
-# kendisi yapar. Yapay zeka kullanmaz. PDF'ler GitHub release eklerinden indirilir.
+# kendisi yapar. Yapay zeka kullanmaz. PDF'ler GitHub release eklerinden indirilir; basligin
+# sayfadaki yeri tesseract OCR ile bulunur (sayfadaki sari isaret).
 on:
   workflow_dispatch:
     inputs:
@@ -27,6 +28,8 @@ jobs:
         env:
           TARIHLER: ${{ github.event.inputs.tarihler }}
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-tur
           pip install --quiet requests pypdf
           python scripts/pdf_kes.py ${TARIHLER:-hepsi}
       - name: Depoya işle
