@@ -15,8 +15,30 @@
     "Aynı Tebliğ'in 2.2.11 inci maddesinin (b) bendindeki \"bin TL'yi\" ibaresi \"iki bin beş yüz TL'yi\", \"iki bin yedi yüz elli\" ibaresi ise \"altı bin beş yüz\" olarak değiştirilmiştir."
    ],
    "yururluk": "Bu Tebliğ yayımı tarihinde yürürlüğe girer."
+  },
+  "İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2026/29) (s. 7)": {
+   "ne_getiriyor": [
+    "Çin Halk Cumhuriyeti menşeli güneş panelleri için bağlantı kutuları (junction box) ithalatına yönelik damping soruşturması tamamlanmıştır.",
+    "Zhejiang Twinsel Electronic Technology Co., Ltd., Risen (Ningbo) New Material Co., Ltd., OC Solar (Suzhou) Corporation, OC Solar (JiangSu) Corporation ve Zhejiang Chint Xinhui PV Co., Ltd. ile diğer tüm firmaların Türkiye'ye ithalatında CIF bedelin %38,23'ü oranında dampinge karşı kesin önlem uygulanmasına karar verilmiştir.",
+    "Gümrük idareleri, serbest dolaşıma giriş rejimi kapsamındaki ithalatta belirtilen oranlarda dampinge karşı kesin önlemleri tahsil eder."
+   ],
+   "yururluk": "YAYIMI"
+  },
+  "İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2021/19)'de Değişiklik Yapılmasına Dair Tebliğ (s. 20)": {
+   "ne_getiriyor": [
+    "22/5/2021 tarihli ve 31488 sayılı Resmi Gazete'de yayımlanan Tebliğ No: 2021/19'un 4 üncü maddesindeki tabloda yer alan şirket unvanı değiştirilmiştir.",
+    "\"Zhejiang Juba Welding Eguipments Manufacturing Co., Ltd.\" ibaresi \"Zhejiang Juba Mechanical & Electrical Co., Ltd.\" olarak güncellenmiştir."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer."
+  },
+  "Papel Elektronik Para ve Ödeme Hizmetleri A.Ş.'nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 20)": {
+   "ne_getiriyor": [
+    "Papel Elektronik Para ve Ödeme Hizmetleri A.Ş.'nin 27/10/2022 tarihli ve 11334/20933 sayılı Karar ile verilen elektronik para kuruluşu olarak faaliyette bulunma izni iptal edilmiştir.",
+    "Faaliyet izninin iptali, 6493 sayılı Kanun'un 16 ncı maddesinin birinci fıkrasının (ç) ve (e) bentleri, 19 uncu maddesi ve 21 inci maddesinin sekizinci fıkrası uyarınca gerçekleştirilmiştir."
+   ],
+   "yururluk": "metinde belirtilmemiş"
   }
  },
- "model": "gemini-flash-latest",
- "guncelleme": "2026-10-01T10:32:50+00:00"
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-01T10:53:23+00:00"
 }

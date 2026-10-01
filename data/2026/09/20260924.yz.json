@@ -1,0 +1,16 @@
+{
+ "kalemler": {
+  "Türkiye Yeşil Taksonomisi Yönetmeliği (s. 1)": {
+   "ne_getiriyor": [
+    "Sürdürülebilir kalkınma hedefleriyle uyumlu ekonomik faaliyetlerin desteklenmesi, yeşile boyamanın önlenmesi ve yatırımlara finansman akışının teşvik edilmesi için Türkiye Yeşil Taksonomisi'nin usul ve esasları düzenlenmiştir.",
+    "Uygun ekonomik faaliyetlerin uyumlu sayılabilmesi için çevresel hedeflerden en az birine önemli ölçüde katkı sağlaması, başka hiçbir çevresel hedefe zarar vermemesi ve asgari sosyal koruma önlemlerine uyması zorunludur.",
+    "Katı fosil yakıtlar kullanılan üretim faaliyetleri çevresel açıdan sürdürülebilir ekonomik faaliyetler olarak değerlendirilmez.",
+    "Teknik tarama kriterlerinde yapılacak güncellemelerin her yılın 15 Aralık tarihine kadar Başkanlığın resmi internet sayfasında yayımlanması ve takip eden yıl itibarıyla geçerli olması hükme bağlanmıştır.",
+    "Taksonomi sürecine ilişkin iş ve işlemler Çevrimiçi Taksonomi Yönetim Sistemi aracılığıyla yürütülür ve bu sisteme yüklenen raporların kamuoyuna açık olması esastır."
+   ],
+   "yururluk": "metinde belirtilmemiş"
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-01T10:48:12+00:00"
+}

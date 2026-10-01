@@ -1,0 +1,25 @@
+{
+ "kalemler": {
+  "Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma Sanayi İşbirliği Anlaşmasının İlişik Notalarla Birlikte Onaylanması Hakkında Karar (Karar Sayısı: 11799) (s. 1)": {
+   "ne_getiriyor": [
+    "Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti arasında savunma sanayi mal ve hizmetlerinin geliştirilmesi, üretimi, tedariki ve idamesi alanlarında işbirliği sağlanması amaçlanmaktadır.",
+    "Taraflar; yedek parça, askeri sistemler, teknik teçhizat ve savunma malzemelerine ilişkin ortak araştırma, geliştirme, üretim, modernizasyon projeleri ve kalite güvencesi standartları konusunda işbirliği yapacaktır.",
+    "Yazılı ön onay alınmaksızın hibe edilecek, satılacak veya ortak üretilecek malzeme, teknik bilgi ve belge hiçbir üçüncü tarafa transfer edilmeyecektir.",
+    "Anlaşmanın uygulanması için Türkiye adına Cumhurbaşkanlığı Savunma Sanayii Başkanlığı, Brezilya adına ise Savunma Bakanlığı Savunma Ürünleri Müsteşarı yetkili makam olarak belirlenmiştir.",
+    "Uygulama, değerlendirme ve değişiklikleri yürütmek üzere her bir tarafın üye sayısı yediyi aşmayacak bir Karma Komisyon kurulacaktır."
+   ],
+   "yururluk": "metinde belirtilmemiş"
+  },
+  "154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi Kapsamında Bazı Taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11804) (s. 77)": {
+   "ne_getiriyor": [
+    "154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi kapsamında belirtilen taşınmazlar Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü tarafından acele kamulaştırılacaktır.",
+    "Direk yerleri mülkiyet şeklinde, iletken salınım gabarisi ise irtifak hakkı kurulmak suretiyle kamulaştırılacaktır.",
+    "Maliye Hazinesi adına kayıtlı muhtelif 4 adet taşınmaz özelleştirme kapsam ve programına alınmıştır.",
+    "Özelleştirme işlemleri satış, kiralama, gelir ortaklığı modeli, mülkiyetin gayri ayni hakların tesisi veya işletme hakkının verilmesi yöntemlerinden biri ya da birkaçı uygulanarak gerçekleştirilecektir."
+   ],
+   "yururluk": "metinde belirtilmemiş"
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-01T11:00:18+00:00"
+}
