@@ -14,7 +14,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rg_fetch as rg            # noqa: E402
-from yz_ozet import URL, MODEL   # noqa: E402
+from yz_ozet import MODEL, istek  # noqa: E402
 
 ROOT = Path(".")
 API = "https://api.github.com"
@@ -63,10 +63,7 @@ def temizle(govde):
     return "\n".join(satir).replace("Sorunuz:", "").strip()
 
 def sor(token, mesajlar):
-    r = requests.post(URL, timeout=120, json={"model": MODEL, "temperature": 0.2, "max_tokens": 1200,
-                                              "messages": mesajlar}, headers={
-        "Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+    r = istek(token, {"model": MODEL, "temperature": 0.2, "max_tokens": 1200, "messages": mesajlar})
     if r.status_code == 429:
         return None
     r.raise_for_status()

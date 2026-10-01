@@ -41,14 +41,22 @@ ISTEK = ("Aşağıdaki Resmî Gazete kaleminin metnini özetle.\n"
 def yol(ymd):
     return ROOT / "data" / ymd[:4] / ymd[4:6] / f"{ymd}.yz.json"
 
+def istek(token, govde, deneme=4):
+    """POST; gecici sunucu hatalarinda (500/502/503/504) artan bekleyle yeniden dener."""
+    for i in range(deneme):
+        r = requests.post(URL, json=govde, timeout=120, headers={
+            "Authorization": f"Bearer {token}", "Accept": "application/json",
+            "Content-Type": "application/json"})
+        if r.status_code not in (500, 502, 503, 504) or i == deneme - 1:
+            return r
+        time.sleep(10 * (i + 1))
+
 def sor(token, baslik, metin):
     govde = {"model": MODEL, "temperature": 0.1, "max_tokens": 900,
              "response_format": {"type": "json_object"},
              "messages": [{"role": "system", "content": SISTEM},
                           {"role": "user", "content": ISTEK.format(baslik=baslik, metin=metin)}]}
-    r = requests.post(URL, json=govde, timeout=90, headers={
-        "Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+    r = istek(token, govde)
     if r.status_code == 429:
         raise KotaDoldu(r.text[:200])
     r.raise_for_status()
