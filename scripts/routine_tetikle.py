@@ -21,6 +21,7 @@ BEKLEYEN_KALEM = 15        # gun basina en fazla bu kadar baslik
 KISA_ALINTI = 350          # ★ olmayan ve bekleyen kalemlerin alintisi (tek cumlelik ozet icin)
 TAM_KALEM = 15000          # ★ kalem basina tam metin siniri
 TAM_BUTCE = 40000          # tum ★ kalemlerin tam metin toplami
+SON_KISIM = 3000           # kesilen metinde sondan korunan kisim
 YUK_SINIR = 60000
 
 _TR_ASCII = str.maketrans("çğıöşüâîûêÇĞİÖŞÜÂÎÛÊ", "cgiosuaiueCGIOSUAIUE")
@@ -122,8 +123,13 @@ def tam_metinler(baslik, eslesen, butce=TAM_BUTCE):
         govde = re.sub(r"[ \t]+", " ", re.sub(r"\n\s*\n+", "\n", govde)).strip()
         sinir = min(TAM_KALEM, butce)
         kesildi = len(govde) > sinir
-        if kesildi:
-            govde = govde[:sinir].rsplit(" ", 1)[0]
+        if kesildi:   # bas + yururluk maddeleri cevresi (ekler/cetveller genelde onlardan sonra)
+            son = min(SON_KISIM, sinir // 3)
+            y = [m.end() for m in re.finditer(r"yürürlüğe\s+girer", govde)]
+            bitis = min(len(govde), y[-1] + 300) if y and y[-1] > sinir - son else len(govde)
+            kuyruk = govde[max(0, bitis - son):bitis].split(" ", 1)[-1]
+            govde = (govde[:sinir - len(kuyruk)].rsplit(" ", 1)[0] + "\n[… orta kısım kesildi …]\n"
+                     + kuyruk)
         out.append((k, govde, kesildi))
         butce -= len(govde)
     return out
@@ -199,7 +205,7 @@ def main():
         for k, govde, kesildi in tam:
             yuk += ["", f"--- ★ {k}", govde]
             if kesildi:
-                yuk.append("… (metin burada kesildi; devamı gazetede)")
+                yuk.append("(metnin ortası kesildi; tamamı gazetede)")
     yuk += onceki
     metin = "\n".join(yuk)[:YUK_SINIR]
 
