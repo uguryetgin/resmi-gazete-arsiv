@@ -15,6 +15,7 @@ from pathlib import Path
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import rg_fetch as rg            # noqa: E402
 import routine_tetikle as rt     # noqa: E402
 from sayfa import ozet_oku       # noqa: E402  (scripts/sayfa.py)
 
@@ -106,6 +107,9 @@ def gun_isle(ymd, token, alanlar, haric):
     yeni = 0
     try:
         for k, metin, _ in tam:
+            if rg.temiz_oran(metin) < rg.BOZUK_ESIK:   # PDF metin katmani bozuk, OCR'lanmamis
+                print(f"::warning::{ymd} '{k[:60]}': metin bozuk (OCR yok), ozet atlandi")
+                continue
             if len(metin) > METIN_SINIR:
                 metin = metin[:METIN_SINIR].rsplit(" ", 1)[0] + " …"
             try:

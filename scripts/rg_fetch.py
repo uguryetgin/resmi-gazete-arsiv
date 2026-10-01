@@ -26,7 +26,7 @@ TRT = timezone(timedelta(hours=3))
 # Ustbilgi/altbilgi satiri (ornegin "Sayfa : 2  RESMI GAZETE  ...") her sayfada
 # cikar, o yuzden esik onu asacak kadar yuksek.
 SPARSE_LIMIT = 200
-OCR_MAX_PAGES = 250  # pratikte sinirsiz; public repoda Actions dakikasi ucretsiz
+OCR_MAX_PAGES = 600  # pratikte sinirsiz; public repoda Actions dakikasi ucretsiz
 
 # Release: RG_RELEASE_DIR verilmisse yeni PDF'ler ile etiket, baslik ve aciklama
 # oraya yazilir, GitHub Release'i sonraki adim olusturur. Depoyu "Watch ->
