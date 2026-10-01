@@ -105,6 +105,7 @@ def tani(token):
     """Gecici: hangi uc nokta/baslik bicimi calisiyor."""
     mesaj = [{"role": "user", "content": "Sadece 'merhaba' yaz."}]
     denemeler = [
+        ("YZ_URL/YZ_MODEL", URL, MODEL, {}),
         ("models.github.ai tam", URL, MODEL, {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}),
         ("models.github.ai yalin", URL, MODEL, {}),
         ("models.github.ai json", URL, MODEL, {"Accept": "application/json"}),
@@ -146,7 +147,7 @@ def main(argv):
         try:
             n = gun_isle(ymd, token, alanlar, haric)
         except KotaDoldu as e:
-            print(f"::warning::GitHub Models kotasi doldu ({ymd}); kalan gunler sonraki kosuma: {e}")
+            print(f"::warning::Yapay zeka kotasi doldu ({ymd}); kalan gunler sonraki kosuma: {e}")
             break
         except Exception as e:
             print(f"::warning::{ymd}: {e}")
