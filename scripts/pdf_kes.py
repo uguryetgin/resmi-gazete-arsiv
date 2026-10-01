@@ -21,21 +21,42 @@ from sayfa import ozet_oku       # noqa: E402
 
 ROOT = Path(".")
 REPO = os.environ.get("GITHUB_REPOSITORY", "uguryetgin/resmi-gazete-arsiv")
-EN_COK_SAYFA = 12                # bir kalem icin en cok bu kadar sayfa
+EN_COK_SAYFA = 30                # bir kalem icin en cok bu kadar sayfa
 GUN_SINIR = int(os.environ.get("KESIT_GUN_SINIR", "60") or 60)
 
 def sayfa_araliklari(ozet_yol, son_sayfa):
-    """Kalem -> (ilk, son) sayfa. Son sayfa: sonraki kalemin basladigi sayfa (ayni sayfada
-       baslayabilir, o yuzden dahil), ilan bolumu ya da gazetenin sonu ile sinirli."""
+    """Kalem -> (ilk, son) sayfa. Sonraki kalem yeni sayfada basliyorsa o sayfa, kalemin metni
+       oraya tasmiyorsa (gazete metnine gore) dahil edilmez; ilan bolumu ve EN_COK_SAYFA siniri."""
+    import gzip
+    import rg_fetch as rg
     bolumler, ilan = ozet_oku(ozet_yol)
     m = re.search(r"\(s\. (\d+)", ilan or "")
     tavan = int(m.group(1)) - 1 if m else son_sayfa
     kalemler = [(b["bolum"], k) for b in bolumler for k in b["kalemler"] if k["sayfa"]]
     baslar = sorted({k["sayfa"] for _, k in kalemler})
+    metin_yol = ozet_yol.with_name(ozet_yol.name.replace(".ozet.txt", ".txt.gz"))
+    pages, fk = {}, []
+    if metin_yol.exists():
+        text = gzip.open(metin_yol, "rt", encoding="utf-8").read()
+        pages = rg.sayfalar(text)
+        fk, _ = rg.icindekiler_kalemleri(rg.fihrist(text))
+    def bitis(baslik, ilk, sonraki):
+        """Kalemin metninin bittigi sayfa (gazete metnine gore; "—— • ——" ayraci, sonraki
+           kalemin basligi). Metin cozulemiyorsa (bozuk/taranmis) sonraki kalemin sayfasi."""
+        i = next((j for j, (_, b, s) in enumerate(fk) if b == baslik and s == ilk), None)
+        ust = min(sonraki, tavan, ilk + EN_COK_SAYFA - 1)
+        if i is None:
+            return ust
+        tam = len((rg.kalem_metni(pages, fk, i, tavan, ek_sayfa=EN_COK_SAYFA) or "").strip())
+        for e in range(ilk, ust):
+            kirpik = {n: ("" if e < n <= ust else t) for n, t in pages.items()}
+            if len((rg.kalem_metni(kirpik, fk, i, tavan, ek_sayfa=EN_COK_SAYFA) or "").strip()) + 40 >= tam:
+                return e
+        return ust
     out = {}
     for bolum, k in kalemler:
         sonraki = next((s for s in baslar if s > k["sayfa"]), tavan + 1)
-        son = min(sonraki, tavan, k["sayfa"] + EN_COK_SAYFA - 1)
+        son = bitis(k["baslik"], k["sayfa"], sonraki)
         out[f"{k['baslik']} (s. {k['sayfa']})"] = (bolum, k["baslik"], k["sayfa"], max(son, k["sayfa"]))
     return out
 
@@ -134,7 +155,8 @@ def gun_isle(ymd, alanlar, haric):
     dizin_yol = klasor / f"{ymd}.kesit.json"
     dizin = json.loads(dizin_yol.read_text(encoding="utf-8")) if dizin_yol.exists() else {}
     eksik = {a: v for a, v in yildiz.items()
-             if a not in dizin or not (klasor / "kesit" / dizin[a]["dosya"]).exists()}
+             if a not in dizin or not (klasor / "kesit" / dizin[a]["dosya"]).exists()
+             or dizin[a].get("son") != v[3]}          # sayfa araligi degistiyse yeniden kes
     if not eksik:
         if isaretle(klasor, dizin, yildiz):
             dizin_yol.write_text(json.dumps(dizin, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

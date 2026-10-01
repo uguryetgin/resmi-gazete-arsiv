@@ -155,6 +155,8 @@ body.yan-kapali .alt-not{padding-left:20px}
 }
 /* Kalem PDF goruntuleyici (kesit PDF'leri, pdf.js) */
 .pdf-ac{border:0;background:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-size:inherit}
+.pdf-ac.b{text-decoration:none;border:1px solid var(--accent);padding:7px 12px;font-size:14px}
+.tam-pdf{margin-top:12px}
 .pdfg{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.55);display:none;align-items:stretch;justify-content:center}
 .pdfg.acik{display:flex}
 .pdfg-kutu{background:var(--panel);width:min(980px,100vw);display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(0,0,0,.3)}
@@ -369,10 +371,11 @@ function soruLink(g, k, metin){
   return '<a class="sor" href="' + url + '" target="_blank" rel="noopener" title="GitHub Issue ile yapay zekâya sor">' + (metin || "Sor") + "</a>";
 }
 var KESIT = [];
-function kesitDugme(s, k){
+function kesitDugme(s, k, buyuk){
   KESIT.push({k: k, pdf: s.pdf});
-  return '<button class="pdf-ac" data-kesit="' + (KESIT.length - 1) + '" title="Kalemin sayfalarını açar, başlığı işaretler">📄 s. ' + k.kesit.ilk +
-         (k.kesit.son > k.kesit.ilk ? "–" + k.kesit.son : "") + " · PDF</button>";
+  var ar = "s. " + k.kesit.ilk + (k.kesit.son > k.kesit.ilk ? "–" + k.kesit.son : "");
+  return '<button class="' + (buyuk ? "dugme ana-d pdf-ac b" : "pdf-ac") + '" data-kesit="' + (KESIT.length - 1) + '" title="Kalemin sayfalarını açar, başlığı işaretler">📄 ' +
+         (buyuk ? "Tam metin (PDF, " + ar + ")" : ar + " · PDF") + "</button>";
 }
 function pdfLink(pdf, s){ return pdf ? '<a href="' + kac(pdf) + (s ? "#page=" + s : "") + '" target="_blank" rel="noopener">s. ' + kac(s) + " · PDF</a>" : (s ? "s. " + s : ""); }
 
@@ -399,8 +402,8 @@ function gunCiz(g){
            (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + (k.kesit ? kesitDugme(s, k) : pdfLink(s.pdf, k.sayfa)) + soruLink(g, k, "💬 Sor") + "</div>" +
            "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" + etCipler(k) +
            yzKutu(k.yz) +
-           (k.karsilastirma ? tablo(k) : (k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
-           (k.tam_metin ? '<details class="tam"><summary>Tam metni göster' + (k.kesildi ? " (uzun; ortası kısaltıldı)" : "") + "</summary><pre>" + kac(k.tam_metin) + "</pre></details>" : "") +
+           (k.karsilastirma ? tablo(k) : (!k.yz && k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
+           '<div class="tam-pdf">' + (k.kesit ? kesitDugme(s, k, true) : (s.pdf ? '<a class="dugme" href="' + kac(s.pdf) + (k.sayfa ? "#page=" + k.sayfa : "") + '" target="_blank" rel="noopener">📄 Tam metin (PDF, s. ' + kac(k.sayfa) + ")</a>" : "")) + "</div>" +
            "</article>";
     });
   } else {
