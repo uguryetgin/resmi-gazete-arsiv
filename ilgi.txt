@@ -5,5 +5,5 @@
 # "Hariç:" satirindaki kelimelerden biri baslikta varsa kalem hic eslesmez.
 Enerji Piyasaları: EPDK, Enerji Piyasası Düzenleme, Enerji Piyasaları İşletme, EPİAŞ, elektrik, doğal gaz, TEİAŞ, Türkiye Elektrik İletim, iletim sistemi, dengeleme, yan hizmet, şebeke, EÜAŞ, Elektrik Üretim, enerji, yenilenebilir, YEKDEM, petrol piyasası, tarife
 Sanayi ve Teknoloji: sanayi, teşvik, yatırım, üretim, standart, teknik düzenleme, Türk Standartları, TSE, Ar-Ge, araştırma ve geliştirme, teknoloji, teknopark, organize sanayi, serbest bölge
-Ekonomi ve Finans: Merkez Bankası, TCMB, BDDK, Bankacılık Düzenleme, banka, bankacılık, SPK, Sermaye Piyasası, MASAK, Mali Suçları, Devlet İç Borçlanma, borçlanma, kira sertifika, Hazine, faiz, döviz, finansal, finansman, ödeme, elektronik para, taksonomi, sürdürülebilir, emisyon, karbon, ithalat, ihracat, haksız rekabet, damping, sübvansiyon, gözetim, korunma önlem, gümrük, dış ticaret
+Ekonomi ve Finans: Merkez Bankası, TCMB, BDDK, Bankacılık Düzenleme, banka, bankacılık, SPK, Sermaye Piyasası, MASAK, Mali Suçları, Devlet İç Borçlanma, borçlanma, kira sertifika, Hazine, faiz, döviz, finansal, finansman, ödeme, elektronik para, taksonomi, sürdürülebilir, emisyon, karbon, ithalat, ihracat, haksız rekabet, damping, sübvansiyon, ithalatta gözetim, korunma önlem, gümrük, dış ticaret
 Hariç: Üniversitesi, Üniversitesinden
