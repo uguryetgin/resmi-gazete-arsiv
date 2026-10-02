@@ -83,7 +83,7 @@ Bütçe ve Kamu Maliyesi: bütçe, yatırım programı, kamu yatırım, ödenek,
 Bankacılık ve Finans: banka, kredi, faiz, finansal, döviz, sermaye piyasası
 Ödeme Hizmetleri: ödeme hizmet, elektronik para, ödeme kuruluş
 Kara Para ve Terörün Finansmanı: suç gelirlerinin aklanması, terörün finansmanı, malvarlıklarının dondurulması, güvenlik konseyi, MASAK, mali suçları
-Dış Ticaret ve Damping: ithalat, ihracat, damping, haksız rekabet, korunma önlem, gözetim, dahilde işleme, hariçte işleme, yurt içi satış ve teslim
+Dış Ticaret ve Damping: ithalat, ihracat, damping, haksız rekabet, korunma önlem, ithalatta gözetim, dahilde işleme, hariçte işleme, yurt içi satış ve teslim
 İklim ve Çevre: iklim, emisyon, karbon, hava kalitesi, hava kirliliği, ^atık, çevre kirliliği, çevrenin korunması, çevresel, ^=çevre
 Sürdürülebilir Finans: taksonomi, yeşil, sürdürülebilir
 Gıda ve Tarım: gıda, tarım, hayvan, su ürünleri, avcılı, balık, arazi toplulaştırma, sulama, biyogüvenlik, genetiği değiştirilmiş
