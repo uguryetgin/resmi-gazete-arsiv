@@ -1,0 +1,27 @@
+{
+ "Uydu ve Yer Tabanlı Radyo Seyrüsefer Sistemleri ve Gözetim Sistemleri Uçuş Kontrol Yönetmeliği (SHY-UK) (s. 15)": {
+  "dosya": "20261002-s15.pdf",
+  "ilk": 15,
+  "son": 23,
+  "isaret": [
+   [
+    0.1231,
+    0.0766,
+    0.7521,
+    0.0138
+   ],
+   [
+    0.2564,
+    0.0979,
+    0.4872,
+    0.017
+   ],
+   [
+    0.3504,
+    0.1191,
+    0.2991,
+    0.017
+   ]
+  ]
+ }
+}
