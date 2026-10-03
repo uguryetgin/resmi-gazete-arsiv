@@ -1,0 +1,414 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2015-10-20",
+   "rg_sayi": "29508",
+   "mevzuatId": "107105",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=21189&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "RÜZGAR KAYNAĞINA DAYALI ELEKTRİK ÜRETİMİ BAŞVURULARININ TEKNİK DEĞERLENDİRMESİ HAKKINDA YÖNETMELİK"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "20/10/2015 tarihli ve 29508 sayılı Resmî Gazete’de yayımlanan Rüzgar Kaynağına Dayalı Elektrik Üretimi Başvurularının Teknik Değerlendirmesi Hakkında Yönetmeliğin 3 üncü maddesinin birinci fıkrasının (a) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "3",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "3",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "yeni_metin": "a) Bağdaşmaz alan: Genel Müdürlük tarafından teknik değerlendirmesi uygun bulunan ve geçerliliği devam eden arazi uygulamalı rüzgâr, güneş, biyokütle veya jeotermal kaynaklara dayalı santral sahaları, bu kaynaklara dayalı önlisans veya üretim lisansı alınmış başvurulara ait santral sahaları ve YEKA Yönetmeliği kapsamında ilan edilen aday yenilenebilir enerji kaynak alanları/yenilenebilir enerji kaynak alanlarını,",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "a) Bağdaşmaz alan: Önlisans veya üretim lisansına derç edilmiş santral sahaları, arazi uygulamalı lisanssız elektrik üretimi faaliyeti başvuruları kapsamında Genel Müdürlük tarafından uygun bulunmuş santral sahaları, santral sahası değişikliği talepleri kapsamında uygun bulunan ve geçerliliği devam eden santral sahaları ve YEKA Yönetmeliği kapsamında ilan edilen aday yenilenebilir enerji kaynak alanlarını/yenilenebilir enerji kaynak alanlarını,",
+    "fark": [
+     [
+      "Bağdaşmaz alan: Önlisans veya üretim lisansına derç edilmiş santral sahaları, arazi uygulamalı lisanssız elektrik üretimi faaliyeti başvuruları kapsamında",
+      "Bağdaşmaz alan:"
+     ],
+     [
+      "Müdürlük tarafından uygun bulunmuş santral sahaları, santral sahası değişikliği talepleri kapsamında",
+      "Müdürlük tarafından teknik değerlendirmesi"
+     ],
+     [
+      "devam eden",
+      "devam eden arazi uygulamalı rüzgâr, güneş, biyokütle veya jeotermal kaynaklara dayalı santral sahaları, bu kaynaklara dayalı önlisans veya üretim lisansı …"
+     ],
+     [
+      "enerji kaynak alanlarını/yenilenebilir",
+      "enerji kaynak alanları/yenilenebilir"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 4 üncü maddesinin ikinci fıkrasının (a) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "4",
+     "fikra": 2,
+     "bent": "a"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "4",
+     "fikra": 2,
+     "bent": "a"
+    },
+    "yeni_metin": "a) EK-3’te yer alan bilgilerin eksik veya hatalı olması, bilgi formunun belirtildiği şekilde düzenlenmemesi veya başvuruda belirtilen rüzgâr türbinine ait teknik değerlerin ilgili türbin tip sertifikası ve ekleriyle uyumlu olmadığının tespit edilmesi.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "a) Ek-3’te tanımlanmış olan bilgilerden herhangi birinin eksik ve/veya hatalı olması veya belirtildiği şekilde düzenlenmemiş olması."
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 5 inci maddesinin birinci fıkrası ile üçüncü fıkrasının (c) bendi ve dördüncü fıkrasının (b) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "5",
+     "fikra": 1,
+     "bent": "c"
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "5",
+     "fikra": 4,
+     "bent": "b"
+    },
+    "yeni_metin": "(1) Önlisans veya üretim lisansında yer alan ünite sayısı, ünite güçleri, ünite koordinatları, santral sahası köşe koordinatları, toplam kurulu güç, ünitelere ait kule yükseklikleri, rüzgâr türbini rotor kanat çapları ve/veya elektrik depolama ünite/tesislerine ait koordinat bilgilerinin değiştirilmesi yönündeki tadil talepleri kapsamında yapılan başvuruların değerlendirilebilmesi için EK-3’te yer alan bilgi formu eksiksiz, hatasız, formatına uygun ve rüzgâr türbinine ait teknik değerlerin ilgili türbin tip sertifikası ve ekleriyle uyumlu olacak şekilde düzenlenir. Bilgi formu, başvuruya konu …",
+    "talimat_goster": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 6 ncı maddesinin ikinci ve beşinci fıkraları aşağıdaki şekilde değiştirilmiş ve aynı maddeye aşağıdaki fıkralar eklenmiştir.",
+    "birim": {
+     "madde": "6"
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {
+     "madde": "6",
+     "fikra": 5
+    },
+    "ekleme_birim": {
+     "madde": "6",
+     "fikra": 5
+    },
+    "yeni_metin": "(2) LÜY kapsamında yapılan başvuru için YEPDİS’e girilen bilgi ve belgelerin değerlendirilmesi sonucunda aşağıda belirtilen durumlardan herhangi birinin tespit edilmesi halinde başvurunun teknik değerlendirmesi uygun bulunmaz: a) Bakanlık resmî internet sayfasında duyurulan bilgi ve belgelerden herhangi birinin YEPDİS’e eksik, hatalı veya belirtildiği şekilde düzenlenmeden girilmiş olması veya başvuruda belirtilen rüzgâr türbinine ait teknik değerlerin ilgili türbin tip sertifikası ve ekleriyle uyumlu olmadığının tespit edilmesi. b) Başvuruda belirtilen santral sahasının kullanılamaz alan, …",
+    "talimat_goster": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin EK-1’i, EK-2/Lahika-1’i, EK-2/Lahika-2’si ve EK-3’ü ekteki şekilde değiştirilmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "diger"
+    ],
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Rüzgar Kaynağına Dayalı Elektrik Üretimi Başvurularının Teknik Değerlendirmesi Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 1,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Rüzgar Kaynağına Dayalı Elektrik Üretimi Başvurularının Teknik Değerlendirmesi Hakkında Yönetmelik",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2022-08-25",
+   "rg_sayi": "31934",
+   "bulunamadi": true
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "25/8/2022 tarihli ve 31934 mükerrer sayılı Resmî Gazete’de yayımlanan Sosyal Güvenlik Kurumu İlaç Geri Ödeme Yönetmeliğinin 3 üncü maddesinin birinci fıkrasının (a), (i) ve (p) bentleri aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "3",
+     "fikra": 1
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {},
+    "yeni_metin": "a) Ödenebilecek birim bedel aralığı: Kamu kurum iskontoları ile hesaplanan kamu fiyatı üzerinden iç referans grup/eşdeğer gruptaki ilaçların ortak en küçük birimi başına düşen “indirimli birim bedeller” karşılaştırılarak bulunan en ucuz birim bedele Sağlık Hizmetleri Fiyatlandırma Komisyonu tarafından tespit edilen oranın ilave edilmesiyle belirlenen ödenebilecek aralığı,” “i) İç referans grubu: Akılcı ilaç kullanımı çerçevesinde Sağlık Bakanlığının da yer aldığı bu Yönetmelik kapsamında oluşturulan komisyonlar tarafından belirlenen eşdeğer grupları da kapsayan grubu,” “p) İlaç pazar oranı: …",
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 5 inci maddesinin birinci fıkrasının (d) bendinde yer alan “pazar paylarını” ibaresi “Medula verilerini” şeklinde ve (e) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "5",
+     "fikra": 1,
+     "bent": "d"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare",
+     "yeniden"
+    ],
+    "ibareler": [
+     {
+      "eski": "pazar paylarını",
+      "yeni": "Medula verilerini",
+      "birimler": [
+       {
+        "madde": "5",
+        "fikra": 1,
+        "bent": "d"
+       }
+      ],
+      "cogul": false
+     }
+    ],
+    "yeniden_birim": {
+     "madde": "5",
+     "fikra": 1,
+     "bent": "e"
+    },
+    "yeni_metin": "e) Kurumca finansmanı sağlanan ilaçlar ile finansmanının sağlanılması talebinde bulunulan ilaçların akılcı ilaç kullanımı çerçevesinde iç referans grup/eşdeğer grup oluşturulması yönünde karar almak.",
+    "talimat_goster": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 6 ncı maddesinin birinci fıkrasının (ç) bendinde yer alan “Listede” ibaresinden sonra gelmek üzere “iç referans grup/eşdeğer” ibaresi eklenmiştir.",
+    "birim": {
+     "madde": "6",
+     "fikra": 1,
+     "bent": "ç"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-ekleme",
+     "ekleme"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "Listede",
+      "eklenen": "iç referans grup/eşdeğer"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "6",
+     "fikra": 1,
+     "bent": "ç"
+    },
+    "talimat_goster": false
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 8 inci maddesinin birinci fıkrasının (a) bendinin (6) numaralı alt bendinde yer alan “Araştırmacı İlaç Firmaları Derneği” ibaresinden sonra gelmek üzere “, İlaç, Eczacılık, Sağlık Bilim ve Teknolojileri Vakfı” ibaresi eklenmiş, aynı bentte yer alan “4” ibaresi “5” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "8",
+     "fikra": 1,
+     "bent": "a",
+     "alt": 6
+    },
+    "coklu": false,
+    "turler": [
+     "ibare",
+     "ibare-ekleme",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "4",
+      "yeni": "5",
+      "birimler": [
+       {
+        "madde": "8",
+        "fikra": 1,
+        "bent": "a",
+        "alt": 6
+       }
+      ],
+      "cogul": false
+     }
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "Araştırmacı İlaç Firmaları Derneği",
+      "eklenen": ", İlaç, Eczacılık, Sağlık Bilim ve Teknolojileri Vakfı"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "8",
+     "fikra": 1,
+     "bent": "a",
+     "alt": 6
+    },
+    "talimat_goster": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 9 uncu maddesinin birinci fıkrasının (d) bendinde yer alan “pazar payları” ibaresi “Medula verileri” şeklinde değiştirilmiş, (g) bendi aşağıdaki şekilde değiştirilmiş ve (ı) bendinde yer alan “İlacın, aynı” ibaresinden sonra gelmek üzere “iç referans grup/eşdeğer” ibaresi eklenmiş, (ı) ve (i) bentlerinde yer alan “bant” ibareleri “ödenebilecek birim bedel” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "9",
+     "fikra": 1,
+     "bent": "d"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare",
+     "ibare-ekleme",
+     "yeniden",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "pazar payları",
+      "yeni": "Medula verileri",
+      "birimler": [
+       {
+        "madde": "9",
+        "fikra": 1,
+        "bent": "d"
+       }
+      ],
+      "cogul": false
+     },
+     {
+      "eski": "bant",
+      "yeni": "ödenebilecek birim bedel",
+      "birimler": [
+       {
+        "madde": "9",
+        "fikra": 1,
+        "bent": "ı"
+       }
+      ],
+      "cogul": true
+     }
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "İlacın, aynı",
+      "eklenen": "iç referans grup/eşdeğer"
+     }
+    ],
+    "yeniden_birim": {
+     "madde": "9",
+     "fikra": 1,
+     "bent": "g"
+    },
+    "ekleme_birim": {
+     "madde": "9",
+     "fikra": 1,
+     "bent": "ı"
+    },
+    "yeni_metin": "g) Kurumca finansmanı sağlanan ilaçlar ile finansmanının sağlanılması talebinde bulunulan ilaçların, akılcı ilaç kullanımı çerçevesinde iç referans grup/eşdeğer grup oluşturulması hakkında görüş oluşturmak.",
+    "talimat_goster": true
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 10 uncu maddesinin birinci fıkrasının (d) bendinde yer alan “Listede” ibaresinden sonra gelmek üzere “iç referans grup/eşdeğer” ibaresi eklenmiştir.",
+    "birim": {
+     "madde": "10",
+     "fikra": 1,
+     "bent": "d"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-ekleme",
+     "ekleme"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "Listede",
+      "eklenen": "iç referans grup/eşdeğer"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "10",
+     "fikra": 1,
+     "bent": "d"
+    },
+    "talimat_goster": false
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Yönetmeliğin 12 nci maddesinin ikinci fıkrasının (a) ve (ç) bentlerinde yer alan “Dahil olacağı” ibarelerinden sonra gelmek üzere “iç referans grup/eşdeğer” ibareleri eklenmiş, aynı fıkranın son paragrafının ikinci cümlesi ile aynı maddenin üçüncü ve dördüncü fıkraları aşağıdaki şekilde değiştirilmiş, altıncı fıkrasında yer alan “söz konusu endikasyonun bu” ibaresinden sonra gelmek üzere “eşdeğer” ibaresi eklenmiş, sekizinci ve onuncu fıkralarında yer alan “İTS'de” ibareleri “Güncel Piyasa Durumu-” şeklinde, aynı fıkralarda yer alan “kodlanan” ibareleri “belirtilen” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "12",
+     "fikra": 2
+    },
+    "coklu": true,
+    "turler": [
+     "ibare",
+     "ibare-ekleme",
+     "yeniden",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "İTS'de",
+      "yeni": "Güncel Piyasa Durumu-",
+      "birimler": [
+       {
+        "madde": "12",
+        "fikra": 10
+       }
+      ],
+      "cogul": true
+     },
+     {
+      "eski": "kodlanan",
+      "yeni": "belirtilen",
+      "birimler": [
+       {
+        "madde": "12",
+        "fikra": 10
+       }
+      ],
+      "cogul": true
+     }
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "Dahil olacağı",
+      "eklenen": "iç referans grup/eşdeğer"
+     },
+     {
+      "yer": "söz konusu endikasyonun bu",
+      "eklenen": "eşdeğer"
+     }
+    ],
+    "yeniden_birim": {
+     "madde": "12",
+     "fikra": 4
+    },
+    "ekleme_birim": {
+     "madde": "12",
+     "fikra": 2
+    },
+    "yeni_metin": "Bu maddeler kapsamında yapılan ilaç başvuruları sırasında dağıtım belgesinin Kuruma ibraz edilmesi gerekir.” “(3) Listeye yeni alınan ve iç referans grup/eşdeğer grubun en ucuz birim fiyatına sahip olan ilaç, listeye alındığı tarihten itibaren %1 ilaç pazar oranına ulaşana kadar ödenebilecek birim bedel aralığı hesabına dahil edilmez. Bu ilaçların pazar oranları aylık takip edilir. %1 ilaç pazar oranına ulaşan ilaçlar ödenebilecek birim bedel aralığı hesabına dahil edilir. (4) Listedeki iç referans grup/eşdeğer gruplarda yer alan en ucuz birim fiyata sahip olan ilaçların pazar oranları takip …",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Sosyal Güvenlik Kurumu İlaç Geri Ödeme Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 16,
+  "alan": "Ekonomi ve Finans",
+  "temel_baslik": "Sosyal Güvenlik Kurumu İlaç Geri Ödeme Yönetmeliği",
+  "ocr": false,
+  "kesilen": 0
+ }
+]
