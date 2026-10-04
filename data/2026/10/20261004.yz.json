@@ -1,0 +1,19 @@
+{
+ "kalemler": {
+  "Ulusal Meslek Standartlarına Dair Tebliğ (No: 2026/11) (s. 10)": {
+   "ne_getiriyor": [
+    "Bahçıvan (Seviye 4), Kanatlı Hayvan Cinsiyet Ayrım Elemanı (Seviye 3), Tarım İşçisi (Seviye 2) ve Kanatlı Hayvan Yetiştirme Elemanı (Seviye 3) ulusal meslek standartları yürürlüğe konulmuştur.",
+    "Bahçıvan (Seviye 4) mesleği kapsamında; açık ve kapalı alanlarda bahçe bitkilerinin yetiştirilmesi, bahçe tasarımı ve tesisi ile bakım, onarım ve sürdürülebilirlik faaliyetlerine ilişkin yeterlilik ve başarım ölçütleri belirlenmiştir.",
+    "Bahçıvanlık faaliyetlerinde çim biçme, tırpan, motorlu testere kullanımı, yüksekte çalışma ve kimyasal ilaçlama işlerinde çelik burunlu ayakkabı, baret, siperlik, koruyucu gözlük ve ilaçlama tulumu kullanımı zorunlu tutulmuştur.",
+    "Kimyasal ilaçlama sonrası arta kalan ilaçlar ile ekipman temizliğinde kullanılan suların ayrı depoda toplanarak tehlikeli atık mevzuatına göre bertaraf edilmesi ve bitki atıklarından kompost yapılması yükümlülüğü getirilmiştir.",
+    "Bahçe hazırlığında mevzuata ve tekniğe uygun toprak ve su numuneleri alınarak laboratuvara gönderilmesi; analiz ve meteorolojik verilere göre gübreleme, drenaj ve sulama sistemlerinin belirlenmesi düzenlenmiştir.",
+    "Bitkisel üretimde çelik, aşı, ayırma, bölme ve daldırma ile vejetatif üretim; tohum ve sporla generatif üretim yöntemleri kurala bağlanmış, şaşırtılan fidelerin en az bir vejetasyon dönemi sonunda saksı değişiminin yapılması öngörülmüştür.",
+    "Kanatlı Hayvan Yetiştirme Elemanı (Seviye 3) standardı kapsamında hayvan refahı, biyogüvenlik, gaga kesiminde hayvanı sabitleme, nakil ve aşı süreçleri ile yem, yumurta, hayvan sayısı ve ölü hayvan kayıtlarının tutulması tanımlanmıştır."
+   ],
+   "yururluk": "Tebliğ yayımı tarihinde yürürlüğe girer; metinde geçiş süresi veya yürürlükten kaldırılan mevzuat belirtilmemiştir.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-04T00:00:48+00:00"
+}
