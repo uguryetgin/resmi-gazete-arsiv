@@ -10,56 +10,56 @@
 
 
 # --- 12.09.2026
-[ ] 20260912 | GENELGE | ★Sanayi ve Teknoloji | 2027-2029 Dönemi Kamu Yatırım Programı Hazırlıkları ile İlgili 2026/10 Sayılı Cumhurbaşkanlığı Genelgesi (s. 1)
+[- ] 20260912 | GENELGE | ★Sanayi ve Teknoloji | 2027-2029 Dönemi Kamu Yatırım Programı Hazırlıkları ile İlgili 2026/10 Sayılı Cumhurbaşkanlığı Genelgesi (s. 1)
 
 # --- 16.09.2026
-[ ] 20260916 | TEBLİĞLER | ★Sanayi ve Teknoloji | Yaprak Sigara Kağıdının Teknik Düzenlemelere Uygunluğunun Belirlenmesine İlişkin Usul ve Esaslar Hakkında Tebliğ (No: 2026/21) (s. 44)
-[ ] 20260916 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 10/09/2026 Tarihli ve 14864 Sayılı Kararı (s. 56)
+[- ] 20260916 | TEBLİĞLER | ★Sanayi ve Teknoloji | Yaprak Sigara Kağıdının Teknik Düzenlemelere Uygunluğunun Belirlenmesine İlişkin Usul ve Esaslar Hakkında Tebliğ (No: 2026/21) (s. 44)
+[ ★] 20260916 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 10/09/2026 Tarihli ve 14864 Sayılı Kararı (s. 56)
 
 # --- 17.09.2026
-[ ] 20260917 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Ana Statüsünün Yürürlüğe Konulması Hakkında Karar (Karar Sayısı: 11790) (s. 232)  ‹MADDE 1- (1) Bu Ana Statü; Türkiye Elektrik İletim Anonim Şirketinin hukuki yapısı, amacı,…›
+[ ★] 20260917 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Ana Statüsünün Yürürlüğe Konulması Hakkında Karar (Karar Sayısı: 11790) (s. 232)  ‹MADDE 1- (1) Bu Ana Statü; Türkiye Elektrik İletim Anonim Şirketinin hukuki yapısı, amacı,…›
 
 # --- 18.09.2026
-[ ] 20260918 | MİLLETLERARASI ANDLAŞMA | ★Sanayi ve Teknoloji | Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma Sanayi İşbirliği Anlaşmasının İlişik Notalarla Birlikte Onaylanması Hakkında Karar (Karar Sayısı: 11799) (s. 1)  ‹Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma …›
-[ ] 20260918 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Kamulaştırma Bilgileri ve Güzergâhları Gösterilen Enerji Nakil Hatlarının Yapımı Amacıyla Bazı Taşınmazların Türkiye Elektrik Dağıtım Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11802) o (s. 60)  ‹kamulaştırma bilgileri ve güzergâhları gösterilen enerji nakil hatlarının yapımı amacıyla …›
-[ ] 20260918 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | 154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi Kapsamında Bazı Taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11804) (s. 77)  ‹154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi” kapsamında ekli harita ile lis…›
+[★ ] 20260918 | MİLLETLERARASI ANDLAŞMA | ★Sanayi ve Teknoloji | Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma Sanayi İşbirliği Anlaşmasının İlişik Notalarla Birlikte Onaylanması Hakkında Karar (Karar Sayısı: 11799) (s. 1)  ‹Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma …›
+[★ ] 20260918 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Kamulaştırma Bilgileri ve Güzergâhları Gösterilen Enerji Nakil Hatlarının Yapımı Amacıyla Bazı Taşınmazların Türkiye Elektrik Dağıtım Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11802) o (s. 60)  ‹kamulaştırma bilgileri ve güzergâhları gösterilen enerji nakil hatlarının yapımı amacıyla …›
+[★ ] 20260918 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | 154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi Kapsamında Bazı Taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11804) (s. 77)  ‹154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi” kapsamında ekli harita ile lis…›
 
 # --- 19.09.2026
-[ ] 20260919 | KURUL KARARLARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 17/09/2026 Tarihli ve 14880 Sayılı Kararı (s. 6)
-[ ] 20260919 | KURUL KARARLARI | ★Ekonomi ve Finans | Bankacılık Düzenleme ve Denetleme Kurulunun 18/09/2026 Tarihli ve 11572 Sayılı Kararı (s. 6)
+[★ ] 20260919 | KURUL KARARLARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 17/09/2026 Tarihli ve 14880 Sayılı Kararı (s. 6)
+[ ★] 20260919 | KURUL KARARLARI | ★Ekonomi ve Finans | Bankacılık Düzenleme ve Denetleme Kurulunun 18/09/2026 Tarihli ve 11572 Sayılı Kararı (s. 6)
 
 # --- 23.09.2026
-[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 34) (s. 5)  ‹MADDE 1-(1) Bu Tebliğin amacı, Birleşmiş Milletler Güvenlik Konseyinin 7/2/2013 tarihli ve…›
-[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 5)'nde Değişiklik Yapılmasına Dair Tebliğ (Sıra No: 33) (s. 6)
-[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2026/29) (s. 7)  ‹MADDE 1- (1) Bu Tebliğin amacı, 25/5/2025 tarihli ve 32910 sayılı Resmi Gazete'de yayımlan…›
-[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2021/19)'de Değişiklik Yapılmasına Dair Tebliğ (s. 20)
-[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Papel Elektronik Para ve Ödeme Hizmetleri A.Ş.'nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 20)
+[- ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 34) (s. 5)  ‹MADDE 1-(1) Bu Tebliğin amacı, Birleşmiş Milletler Güvenlik Konseyinin 7/2/2013 tarihli ve…›
+[ -] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 5)'nde Değişiklik Yapılmasına Dair Tebliğ (Sıra No: 33) (s. 6)
+[ -] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2026/29) (s. 7)  ‹MADDE 1- (1) Bu Tebliğin amacı, 25/5/2025 tarihli ve 32910 sayılı Resmi Gazete'de yayımlan…›
+[ -] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2021/19)'de Değişiklik Yapılmasına Dair Tebliğ (s. 20)
+[ ★] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Papel Elektronik Para ve Ödeme Hizmetleri A.Ş.'nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 20)
 
 # --- 24.09.2026
-[ ] 20260924 | YÖNETMELİKLER | ★Ekonomi ve Finans | Türkiye Yeşil Taksonomisi Yönetmeliği (s. 1)  ‹MADDE 1-(1) Bu Yönetmeliğin amacı; sürdürülebilir kalkınma hedefleriyle uyumlu ekonomik fa…›
+[ ★] 20260924 | YÖNETMELİKLER | ★Ekonomi ve Finans | Türkiye Yeşil Taksonomisi Yönetmeliği (s. 1)  ‹MADDE 1-(1) Bu Yönetmeliğin amacı; sürdürülebilir kalkınma hedefleriyle uyumlu ekonomik fa…›
 
 # --- 26.09.2026
-[ ] 20260926 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 24/09/2026 Tarihli ve 14895 Sayılı Kararı (s. 10)
+[ ★] 20260926 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 24/09/2026 Tarihli ve 14895 Sayılı Kararı (s. 10)
 
 # --- 30.09.2026
-[ ] 20260930 | TEBLİĞ | ★Ekonomi ve Finans | 1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)
+[ ★] 20260930 | TEBLİĞ | ★Ekonomi ve Finans | 1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)
 
 # --- 01.10.2026
-[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11824) (s. 9)  ‹Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğa…›
-[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Batman-Şırnak Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11825) (s. 11)  ‹Batman-Şırnak Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğal gaz …›
-[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Giresun İli, Tirebolu, Şebinkarahisar ve Alucra İlçelerinde Kurulacak RMS-A Doğal Gaz Dağıtım Tesislerinin Yapımı Amacıyla, Bazı Taşınmazların Enerji Piyasası Düzenleme Kurumu Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11826) (s. 13)  ‹Giresun İli, Tirebolu, Şebinkarahisar ve Alucra ilçelerinde kurulacak RMS-A doğal gaz dağı…›
-[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Karadeniz Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11827) (s. 14)  ‹Karadeniz Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğal gaz aram…›
+[★ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11824) (s. 9)  ‹Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğa…›
+[ ★] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Batman-Şırnak Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11825) (s. 11)  ‹Batman-Şırnak Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğal gaz …›
+[★ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Giresun İli, Tirebolu, Şebinkarahisar ve Alucra İlçelerinde Kurulacak RMS-A Doğal Gaz Dağıtım Tesislerinin Yapımı Amacıyla, Bazı Taşınmazların Enerji Piyasası Düzenleme Kurumu Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11826) (s. 13)  ‹Giresun İli, Tirebolu, Şebinkarahisar ve Alucra ilçelerinde kurulacak RMS-A doğal gaz dağı…›
+[ ★] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Karadeniz Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11827) (s. 14)  ‹Karadeniz Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğal gaz aram…›
 
 # --- 03.10.2026
-[ ] 20261003 | YÖNETMELİKLER | ★Enerji Piyasaları | Rüzgar Kaynağına Dayalı Elektrik Üretimi Başvurularının Teknik Değerlendirmesi Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
-[ ] 20261003 | YÖNETMELİKLER | ★Ekonomi ve Finans | Sosyal Güvenlik Kurumu İlaç Geri Ödeme Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
-[ ] 20261003 | TEBLİĞ | ★Ekonomi ve Finans | NXT Elektronik Para ve Ödeme Hizmetleri A.Ş.’ye Elektronik Para Kuruluşu Olarak Faaliyet Göstermek Üzere Faaliyet İzni Verilmesine İlişkin Karar (s. 20)
+[★ ] 20261003 | YÖNETMELİKLER | ★Enerji Piyasaları | Rüzgar Kaynağına Dayalı Elektrik Üretimi Başvurularının Teknik Değerlendirmesi Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[-] 20261003 | YÖNETMELİKLER | ★Ekonomi ve Finans | Sosyal Güvenlik Kurumu İlaç Geri Ödeme Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
+[ ★] 20261003 | TEBLİĞ | ★Ekonomi ve Finans | NXT Elektronik Para ve Ödeme Hizmetleri A.Ş.’ye Elektronik Para Kuruluşu Olarak Faaliyet Göstermek Üzere Faaliyet İzni Verilmesine İlişkin Karar (s. 20)
 
 # --- 04.10.2026
-[ ] 20261004 | TEBLİĞ | ★Sanayi ve Teknoloji | Ulusal Meslek Standartlarına Dair Tebliğ (No: 2026/11) (s. 10)  ‹MADDE 1- (1) Bu Tebliğin amacı, bu Tebliğin ekinde yer alan meslek standartlarının yürürlü…›
+[ -] 20261004 | TEBLİĞ | ★Sanayi ve Teknoloji | Ulusal Meslek Standartlarına Dair Tebliğ (No: 2026/11) (s. 10)  ‹MADDE 1- (1) Bu Tebliğin amacı, bu Tebliğin ekinde yer alan meslek standartlarının yürürlü…›
 
 # --- 06.10.2026
-[ ] 20261006 | TEBLİĞLER | ★Sanayi ve Teknoloji | 2026-2027 Eğitim Öğretim Yılında Organize Sanayi Bölgeleri İçinde ve Organize Sanayi Bölgeleri Dışında Açılan Özel Meslekî ve Teknik Anadolu Liselerinde Öğrenim Gören/Görecek Öğrenciler İçin Eğitim ve Öğretim Desteği Verilmesine İlişkin Tebliğ (s. 15)
+[ -] 20261006 | TEBLİĞLER | ★Sanayi ve Teknoloji | 2026-2027 Eğitim Öğretim Yılında Organize Sanayi Bölgeleri İçinde ve Organize Sanayi Bölgeleri Dışında Açılan Özel Meslekî ve Teknik Anadolu Liselerinde Öğrenim Gören/Görecek Öğrenciler İçin Eğitim ve Öğretim Desteği Verilmesine İlişkin Tebliğ (s. 15)
 
 
 # ===== BÖLÜM B: şimdi ★ olmayan 161 kalem =====
@@ -98,8 +98,8 @@
 [ ] 20260915 | DANIŞTAY KARARI | - | Danıştay Altıncı Dairesine Ait Karar (s. 204)  ‹YARGI BÖLÜMÜ DANIŞTAY KARARI Danıştay Altıncı Daire Başkanlığından: Esas No :2026/2171 Kar…›
 
 # --- 16.09.2026
-[ ] 20260916 | YÖNETMELİKLER | - | Hava Kalitesinin Korunması Amacıyla Katı Yakıtların Kontrolü Yönetmeliği (s. 1)
-[ ] 20260916 | YÖNETMELİKLER | - | Isınmadan Kaynaklanan Hava Kirliliğinin Kontrolü Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
+[★ ] 20260916 | YÖNETMELİKLER | - | Hava Kalitesinin Korunması Amacıyla Katı Yakıtların Kontrolü Yönetmeliği (s. 1)
+[ ★] 20260916 | YÖNETMELİKLER | - | Isınmadan Kaynaklanan Hava Kirliliğinin Kontrolü Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
 [ ] 20260916 | YÖNETMELİKLER | - | Yurt İçinde Canlı Hayvan ve Hayvansal Ürünlerin Nakilleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
 [ ] 20260916 | TEBLİĞLER | - | 6/1 Numaralı Ticari Amaçlı Su Ürünleri Avcılığının Düzenlenmesi Hakkında Tebliğ (Tebliğ No: 2024/20)'de Değişiklik Yapılmasına Dair Tebliğ (No: 2026/25) o (s. 17)
 [ ] 20260916 | TEBLİĞLER | - | 6/2 Numaralı Amatör Amaçlı Su Ürünleri Avcılığının Düzenlenmesi Hakkında Tebliğ (Tebliğ No: 2024/21)'de Değişiklik Yapılmasına Dair Tebliğ (No: 2026/26) o (s. 24)
@@ -125,7 +125,7 @@
 [ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Burdur İlinde Bulunan İsimleri Belirtilen Yerlerde Arazi Toplulaştırması ve Tarla İçi Geliştirme Hizmetleri Yapılması Hakkında Karar (Karar Sayısı: 11801) (s. 58)  ‹C* Karar Sayısı: 11801 Burdur İlinde bulunan ve ekli listede isimleri belirtilen yerlerde …›
 [ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Batman İli, Merkez İlçesi, Tilmis (Akça) Köyü Sınırları İçerisinde Bulunan Bazı Taşınmazların, İluh Deresi By-Pass Hattı ile Çay Deresi Deplase Hattı Projesinin Gerçekleştirilmesi Amacıyla Batman İl Özel İdaresi Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11803) (s. 74)  ‹Batman İli, Merkez İlçesi, Tilmis (Akça) köyü sınırları içerisinde bulunan ve ekli listede…›
 [ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Özelleştirme İdaresi Başkanlığı ile İlgili Kararlar (Karar Sayısı: 11805, 11806, 11807) (s. 80)  ‹C* Karar Sayısı: 11805 Mülkiyeti Maliye Hazinesi adına kayıtlı olan ve ekli listede belirt…›
-[ ] 20260918 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/314, 315,316,317,318,319) (s. 87)
+[ ★] 20260918 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/314, 315,316,317,318,319) (s. 87)
 [ ] 20260918 | YÖNETMELİKLER | - | Sivil Havacılık Emniyet Olayları Yönetmeliği (SHY-OLAY) (s. 98)
 [ ] 20260918 | YÖNETMELİKLER | - | Basın İlân Kurumu Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 107)
 [ ] 20260918 | YÖNETMELİKLER | - | Resmi İlan ve Reklam Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 107)
@@ -235,9 +235,9 @@
 
 # --- 02.10.2026
 [ ] 20261002 | YÖNETMELİKLER | - | Turizm Amaçlı Sportif Faaliyet Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
-[ ] 20261002 | YÖNETMELİKLER | - | Nükleer Tesisler, Radyasyon Tesisleri ve Radyoaktif Atık Tesislerinde Yönetim Sistemi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)
-[ ] 20261002 | YÖNETMELİKLER | - | Nükleer Tesislere İlişkin Yetkilendirmeler Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 6)
-[ ] 20261002 | YÖNETMELİKLER | - | Uydu ve Yer Tabanlı Radyo Seyrüsefer Sistemleri ve Gözetim Sistemleri Uçuş Kontrol Yönetmeliği (SHY-UK) (s. 15)
+[ ★] 20261002 | YÖNETMELİKLER | - | Nükleer Tesisler, Radyasyon Tesisleri ve Radyoaktif Atık Tesislerinde Yönetim Sistemi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)
+[ ★] 20261002 | YÖNETMELİKLER | - | Nükleer Tesislere İlişkin Yetkilendirmeler Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 6)
+[ ★] 20261002 | YÖNETMELİKLER | - | Uydu ve Yer Tabanlı Radyo Seyrüsefer Sistemleri ve Gözetim Sistemleri Uçuş Kontrol Yönetmeliği (SHY-UK) (s. 15)
 [ ] 20261002 | YÖNETMELİKLER | - | Noterlik Kanunu Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 23)  ‹MADDE 1- 13/7/1976 tarihli ve 15645 sayılı Resmî Gazete’de yayımlanan Noterlik Kanunu Yöne…›
 [ ] 20261002 | TEBLİĞLER | - | Sosyal Güvenlik Kurumu Sağlık Uygulama Tebliğinde Değişiklik Yapılmasına Dair Tebliğ (s. 24)
 [ ] 20261002 | TEBLİĞLER | - | Sağlık Hizmetleri Fiyatlandırma Komisyonu Kararı (s. 243)  ‹MADDE 1- “Nusinersen sodyum” etkin maddeli “Spinraza 12 mg/5ml İntratekal Enjeksiyonluk Çö…›
@@ -247,7 +247,7 @@
 [ ] 20261003 | YÖNETMELİKLER | - | Tarım Ürünleri Lisanslı Depoculuk Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
 [ ] 20261003 | YÖNETMELİKLER | - | KOSGEB İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 17)
 [ ] 20261003 | YÖNETMELİKLER | - | Küçük ve Orta Ölçekli İşletmeleri Geliştirme ve Destekleme İdaresi Başkanlığı Disiplin Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 19)
-[ ] 20261003 | YÖNETMELİKLER | - | Türk Mühendis ve Mimar Odaları Birliği Şehir Plancıları Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 19)
+[ ★] 20261003 | YÖNETMELİKLER | - | Türk Mühendis ve Mimar Odaları Birliği Şehir Plancıları Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 19)
 
 # --- 04.10.2026
 [ ] 20261004 | YÖNETMELİKLER | - | İstanbul Sabahattin Zaim Üniversitesi Gıda, Beslenme ve Biyoteknoloji Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)
@@ -264,7 +264,7 @@
 [ ] 20261005 | YÖNETMELİKLER | - | İzmir Ekonomi Üniversitesi Lisansüstü Eğitim-Öğretim Yönetmeliği (s. 34)  ‹MADDE 1- (1) Bu Yönetmeliğin amacı, İzmir Ekonomi Üniversitesinde yürütülen lisansüstü eği…›
 
 # --- 06.10.2026
-[ ] 20261006 | YÖNETMELİK | - | Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ★] 20261006 | YÖNETMELİK | - | Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
 [ ] 20261006 | TEBLİĞLER | - | İşkolu Tespit Kararları (No: 2026/62, 63, 64, 65, 66, 67, 68, 69) (s. 10)  ‹TEBLİĞLER Çalışma ve Sosyal Güvenlik Bakanlığından: İŞKOLU TESPİT KARARLARI Karar No: 2026…›
 [ ] 20261006 | TEBLİĞLER | - | 2026-2027 Eğitim ve Öğretim Yılında Adıyaman, Hatay, Kahramanmaraş ve Malatya İlleri ile Gaziantep İlinin İslahiye ve Nurdağı İlçelerindeki Özel Okullarda Öğrenim Gören ve Önceki Yıllarda Eğitim ve Öğretim Desteği Kapsamına Alınıp Öğretim Kademesini Tamamlamayan Öğrenciler İçin Eğitim ve Öğretim Desteği Verilmesine İlişkin Tebliğ (s. 13)
 [ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 8/1/2026 Tarihli ve 2021/56755 Başvuru Numaralı Kararı (s. 18)
