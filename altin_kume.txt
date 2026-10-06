@@ -1,0 +1,279 @@
+# ALTIN KÜME — ★ seçiminin doğruluğunu ölçmek için el ile işaretlenmiş kalemler.
+# İşaretleme: satır başındaki [ ] içine + (ilgili, ★ olmalı) ya da - (ilgisiz) yazın.
+# Bölüm A: şimdi ★ olanlar. Yanlışsa - yazın. Boş bırakılan satır DOĞRU sayılır.
+# Bölüm B: şimdi ★ olmayanlar. ★ olması gerekiyorsa + yazın. Boş bırakılan satır İLGİSİZ sayılır.
+# Sütunlar: tarih | bölüm | şimdiki alan | başlık (sayfa)  ‹kısa alıntı›
+# Günlük geri bildirim de ileride aynı biçimde buraya eklenecek.
+
+
+# ===== BÖLÜM A: şimdi ★ olan 26 kalem =====
+
+
+# --- 12.09.2026
+[ ] 20260912 | GENELGE | ★Sanayi ve Teknoloji | 2027-2029 Dönemi Kamu Yatırım Programı Hazırlıkları ile İlgili 2026/10 Sayılı Cumhurbaşkanlığı Genelgesi (s. 1)
+
+# --- 16.09.2026
+[ ] 20260916 | TEBLİĞLER | ★Sanayi ve Teknoloji | Yaprak Sigara Kağıdının Teknik Düzenlemelere Uygunluğunun Belirlenmesine İlişkin Usul ve Esaslar Hakkında Tebliğ (No: 2026/21) (s. 44)
+[ ] 20260916 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 10/09/2026 Tarihli ve 14864 Sayılı Kararı (s. 56)
+
+# --- 17.09.2026
+[ ] 20260917 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Ana Statüsünün Yürürlüğe Konulması Hakkında Karar (Karar Sayısı: 11790) (s. 232)  ‹MADDE 1- (1) Bu Ana Statü; Türkiye Elektrik İletim Anonim Şirketinin hukuki yapısı, amacı,…›
+
+# --- 18.09.2026
+[ ] 20260918 | MİLLETLERARASI ANDLAŞMA | ★Sanayi ve Teknoloji | Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma Sanayi İşbirliği Anlaşmasının İlişik Notalarla Birlikte Onaylanması Hakkında Karar (Karar Sayısı: 11799) (s. 1)  ‹Türkiye Cumhuriyeti Hükümeti ile Brezilya Federatif Cumhuriyeti Hükümeti Arasında Savunma …›
+[ ] 20260918 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Kamulaştırma Bilgileri ve Güzergâhları Gösterilen Enerji Nakil Hatlarının Yapımı Amacıyla Bazı Taşınmazların Türkiye Elektrik Dağıtım Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11802) o (s. 60)  ‹kamulaştırma bilgileri ve güzergâhları gösterilen enerji nakil hatlarının yapımı amacıyla …›
+[ ] 20260918 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | 154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi Kapsamında Bazı Taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11804) (s. 77)  ‹154 kV G24-Van GES TM-Özalp TM Enerji İletim Hattı Projesi” kapsamında ekli harita ile lis…›
+
+# --- 19.09.2026
+[ ] 20260919 | KURUL KARARLARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 17/09/2026 Tarihli ve 14880 Sayılı Kararı (s. 6)
+[ ] 20260919 | KURUL KARARLARI | ★Ekonomi ve Finans | Bankacılık Düzenleme ve Denetleme Kurulunun 18/09/2026 Tarihli ve 11572 Sayılı Kararı (s. 6)
+
+# --- 23.09.2026
+[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 34) (s. 5)  ‹MADDE 1-(1) Bu Tebliğin amacı, Birleşmiş Milletler Güvenlik Konseyinin 7/2/2013 tarihli ve…›
+[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Mali Suçları Araştırma Kurulu Genel Tebliği (Sıra No: 5)'nde Değişiklik Yapılmasına Dair Tebliğ (Sıra No: 33) (s. 6)
+[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (No: 2026/29) (s. 7)  ‹MADDE 1- (1) Bu Tebliğin amacı, 25/5/2025 tarihli ve 32910 sayılı Resmi Gazete'de yayımlan…›
+[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | İthalatta Haksız Rekabetin Önlenmesine İlişkin Tebliğ (Tebliğ No: 2021/19)'de Değişiklik Yapılmasına Dair Tebliğ (s. 20)
+[ ] 20260923 | TEBLİĞLER | ★Ekonomi ve Finans | Papel Elektronik Para ve Ödeme Hizmetleri A.Ş.'nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 20)
+
+# --- 24.09.2026
+[ ] 20260924 | YÖNETMELİKLER | ★Ekonomi ve Finans | Türkiye Yeşil Taksonomisi Yönetmeliği (s. 1)  ‹MADDE 1-(1) Bu Yönetmeliğin amacı; sürdürülebilir kalkınma hedefleriyle uyumlu ekonomik fa…›
+
+# --- 26.09.2026
+[ ] 20260926 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 24/09/2026 Tarihli ve 14895 Sayılı Kararı (s. 10)
+
+# --- 30.09.2026
+[ ] 20260930 | TEBLİĞ | ★Ekonomi ve Finans | 1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)
+
+# --- 01.10.2026
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11824) (s. 9)  ‹Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğa…›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Batman-Şırnak Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11825) (s. 11)  ‹Batman-Şırnak Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğal gaz …›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Giresun İli, Tirebolu, Şebinkarahisar ve Alucra İlçelerinde Kurulacak RMS-A Doğal Gaz Dağıtım Tesislerinin Yapımı Amacıyla, Bazı Taşınmazların Enerji Piyasası Düzenleme Kurumu Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11826) (s. 13)  ‹Giresun İli, Tirebolu, Şebinkarahisar ve Alucra ilçelerinde kurulacak RMS-A doğal gaz dağı…›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Karadeniz Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11827) (s. 14)  ‹Karadeniz Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğal gaz aram…›
+
+# --- 03.10.2026
+[ ] 20261003 | YÖNETMELİKLER | ★Enerji Piyasaları | Rüzgar Kaynağına Dayalı Elektrik Üretimi Başvurularının Teknik Değerlendirmesi Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20261003 | YÖNETMELİKLER | ★Ekonomi ve Finans | Sosyal Güvenlik Kurumu İlaç Geri Ödeme Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
+[ ] 20261003 | TEBLİĞ | ★Ekonomi ve Finans | NXT Elektronik Para ve Ödeme Hizmetleri A.Ş.’ye Elektronik Para Kuruluşu Olarak Faaliyet Göstermek Üzere Faaliyet İzni Verilmesine İlişkin Karar (s. 20)
+
+# --- 04.10.2026
+[ ] 20261004 | TEBLİĞ | ★Sanayi ve Teknoloji | Ulusal Meslek Standartlarına Dair Tebliğ (No: 2026/11) (s. 10)  ‹MADDE 1- (1) Bu Tebliğin amacı, bu Tebliğin ekinde yer alan meslek standartlarının yürürlü…›
+
+# --- 06.10.2026
+[ ] 20261006 | TEBLİĞLER | ★Sanayi ve Teknoloji | 2026-2027 Eğitim Öğretim Yılında Organize Sanayi Bölgeleri İçinde ve Organize Sanayi Bölgeleri Dışında Açılan Özel Meslekî ve Teknik Anadolu Liselerinde Öğrenim Gören/Görecek Öğrenciler İçin Eğitim ve Öğretim Desteği Verilmesine İlişkin Tebliğ (s. 15)
+
+
+# ===== BÖLÜM B: şimdi ★ olmayan 161 kalem =====
+
+
+# --- 11.09.2026
+[ ] 20260911 | CUMHURBAŞKANI KARARI | - | Birleşmiş Milletler Güvenlik Konseyinin 1267 (1999), 1988 (2011), 1989 (2011) ve 2253 (2015) Sayılı Kararlarıyla Listelenen Kişi, Kuruluş veya Organizasyonların Tasarrufunda Bulunan Malvarlığının Dondurulması Hakkındaki 30/9/2013 Tarihli ve 2013/5428 Sayılı Bakanlar Kurulu Kararının Eki (1) Sayılı Listede Değişiklik Yapılmasına İlişkin Karar (Karar Sayısı: 11785) (s. 1)  ‹Birleşmiş Milletler Güvenlik Konseyinin 1267 (1999), 1988 (2010), 1989 (2011) ve 2253 (201…›
+[ ] 20260911 | YÖNETMELİKLER | - | İzmir Bakırçay Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 4)
+[ ] 20260911 | YÖNETMELİKLER | - | İzmir Bakırçay Üniversitesi Tıp Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 5)
+[ ] 20260911 | YÖNETMELİKLER | - | Kafkas Üniversitesi Tıp Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliği (s. 6)  ‹MADDE 1- (1) Bu Yönetmeliğin amacı; Kafkas Üniversitesi Tıp Fakültesinde öğrenci kayıtları…›
+[ ] 20260911 | KARAR | - | Iğdır İdare Mahkemesi Kurulmasına ve Yargı Çevresinin Belirlenmesine İlişkin Karar (s. 16)
+
+# --- 12.09.2026
+[ ] 20260912 | TEBLİĞ | - | 2027-2029 Dönemi Bütçe Çağrısı ve Eki Bütçe Hazırlama Rehberi (s. 89)  ‹2027-2029 DÖNEMİ BÜTÇE ÇAĞRISI Merkezi Yönetim Bütçesinin hazırlık çalışmalarını yönlendir…›
+
+# --- 13.09.2026
+[ ] 20260913 | YÖNETMELİKLER | - | Haliç Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20260913 | YÖNETMELİKLER | - | İstanbul Atlas Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)
+[ ] 20260913 | YÖNETMELİKLER | - | Konya Gıda ve Tarım Üniversitesi Lisansüstü Eğitim-Öğretim Yönetmeliği (s. 5)
+[ ] 20260913 | YÖNETMELİKLER | - | Mersin Üniversitesi Bölgesel İzleme Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 20)
+[ ] 20260913 | YÖNETMELİKLER | - | Mersin Üniversitesi Çocuk Koruma Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 20)
+[ ] 20260913 | YÖNETMELİKLER | - | Mersin Üniversitesi Gıda Araştırmaları Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 20)
+[ ] 20260913 | YÖNETMELİKLER | - | Mersin Üniversitesi Görsel-İşitsel Yapımlar Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 20)
+[ ] 20260913 | YÖNETMELİKLER | - | Mersin Üniversitesi Özel Yetenekliler Eğitimi Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 20)
+
+# --- 14.09.2026
+[ ] 20260914 | YÖNETMELİKLER | - | Türk Gıda Kodeksi Aroma Vericiler ve Aroma Verme Özelliği Taşıyan Gıda Bileşenleri Yönetmeliği (s. 1)
+[ ] 20260914 | YÖNETMELİKLER | - | Çankaya Üniversitesi Hukuk Fakültesi Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 194)
+[ ] 20260914 | YÖNETMELİKLER | - | Çankaya Üniversitesi Ön Lisans ve Lisans Eğitim ve Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 194)
+
+# --- 15.09.2026
+[ ] 20260915 | CUMHURBAŞKANI KARARLARI | - | Bazı Yükseköğretim Kurumları ile Yükseköğretim Üst Kuruluşlarına Ait Dolu ve Boş Memur Kadrolarında Değişiklik Yapılması Hakkında Karar (Karar: 2026/312) (s. 1)
+[ ] 20260915 | CUMHURBAŞKANI KARARLARI | - | Bazı Yükseköğretim Kurumlarına Ait Dolu ve Boş Öğretim Elemanı Kadrolarında Değişiklik Yapılması Hakkında Karar (Karar: 2026/313) (s. 141)
+[ ] 20260915 | YÖNETMELİKLER | - | Erzincan Binali Yıldırım Üniversitesi Teknoloji Transfer Ofisi Uygulama ve Araştırma Merkezi Yönetmeliği (s. 197)
+[ ] 20260915 | YÖNETMELİKLER | - | İbn Haldun Üniversitesi Arap Dili ve Eğitimi Uygulama ve Araştırma Merkezi Yönetmeliği (s. 200)
+[ ] 20260915 | DANIŞTAY KARARI | - | Danıştay Altıncı Dairesine Ait Karar (s. 204)  ‹YARGI BÖLÜMÜ DANIŞTAY KARARI Danıştay Altıncı Daire Başkanlığından: Esas No :2026/2171 Kar…›
+
+# --- 16.09.2026
+[ ] 20260916 | YÖNETMELİKLER | - | Hava Kalitesinin Korunması Amacıyla Katı Yakıtların Kontrolü Yönetmeliği (s. 1)
+[ ] 20260916 | YÖNETMELİKLER | - | Isınmadan Kaynaklanan Hava Kirliliğinin Kontrolü Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
+[ ] 20260916 | YÖNETMELİKLER | - | Yurt İçinde Canlı Hayvan ve Hayvansal Ürünlerin Nakilleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
+[ ] 20260916 | TEBLİĞLER | - | 6/1 Numaralı Ticari Amaçlı Su Ürünleri Avcılığının Düzenlenmesi Hakkında Tebliğ (Tebliğ No: 2024/20)'de Değişiklik Yapılmasına Dair Tebliğ (No: 2026/25) o (s. 17)
+[ ] 20260916 | TEBLİĞLER | - | 6/2 Numaralı Amatör Amaçlı Su Ürünleri Avcılığının Düzenlenmesi Hakkında Tebliğ (Tebliğ No: 2024/21)'de Değişiklik Yapılmasına Dair Tebliğ (No: 2026/26) o (s. 24)
+[ ] 20260916 | TEBLİĞLER | - | Türk Gıda Kodeksi Et, Hazırlanmış Et Karışımları ve Et Ürünleri Tebliği (No: 2026/15) (s. 27)
+[ ] 20260916 | TEBLİĞLER | - | Türk Gıda Kodeksi İçme Sütleri Tebliği (Tebliğ No: 2019/12)'nde Değişiklik Yapılmasına Dair Tebliğ (No: 2026/19) (s. 40)
+[ ] 20260916 | TEBLİĞLER | - | Tıbbi Cihaz Yönetmeliği ve İn Vitro Tanı Amaçlı Tıbbi Cihaz Yönetmeliği Kapsamında Atanan Onaylanmış Kuruluşlar Tarafından Yürütülen Uygunluk Değerlendirme Faaliyetlerine İlişkin Belirli Ortak Kalite Yönetimi ve Prosedür Gereklilikleri Hakkında Tebliğ, (s. 48)
+
+# --- 17.09.2026
+[ ] 20260917 | CUMHURBAŞKANI KARARLARI | - | Afyonkarahisar, Ankara, Balıkesir, Bingöl, Bolu, Bursa, Çorum, Denizli, Diyarbakır, Elazığ, Eskişehir, Gümüşhane, Isparta, İstanbul, Karaman, Kayseri, Konya, Kütahya, Malatya, Manisa, Mersin, Muğla, Sinop, Sivas, Tokat, Trabzon ve Uşak İllerinde Bulunan Bazı Alanların Orman Sınırları Dışına Çıkartılması Hakkında Karar (Karar Sayısı: 11787) (s. 1)  ‹MADDE 1- (1) Afyonkarahisar, Ankara, Balıkesir, Bingöl, Bolu, Bursa, Çorum, Denizli, Diyar…›
+[ ] 20260917 | CUMHURBAŞKANI KARARLARI | - | Amasya Üniversitesi Rektörlüğü Bünyesinde Bilgisayar ve Bilişim Bilimleri Fakültesi Kurulması, Yaşar Üniversitesi Rektörlüğü Bünyesinde Bulunan İktisadi ve İdari Bilimler Fakültesi ile Fen-Edebiyat Fakültesinin Kapatılması, Karadeniz Teknik Üniversitesi Rektörlüğü Bünyesinde Afet Araştırma Enstitüsü Kurulması, Selçuk Üniversitesi Rektörlüğü Bünyesinde Bulunan Diş Hekimliği Fakültesinin Adının Nezahat Keleşoğlu Diş Hekimliği Fakültesi Olarak Değiştirilmesi Hakkında Karar (Karar Sayısı: 11788) (s. 230)  ‹Amasya Üniversitesi Rektörlüğü bünyesinde Bilgisayar ve Bilişim Bilimleri Fakültesi kurulm…›
+[ ] 20260917 | CUMHURBAŞKANI KARARLARI | - | Türkiye İnsan Hakları ve Eşitlik Kurumu Tarafından İstanbul İlinde Bağlı Büro Kurulması Hakkında Karar (Karar Sayısı: 11789) (s. 231)  ‹Türkiye İnsan Hakları ve Eşitlik Kurumu tarafından İstanbul İlinde bağlı büro kurulmasına;…›
+[ ] 20260917 | HÂKİMLER VE SAVCILAR KURULU  | - | Hâkimler ve Savcılar Kurulu Genel Kurulunun 16/09/2026 Tarihli ve 1050 Sayılı Kararı (s. 239)
+[ ] 20260917 | HÂKİMLER VE SAVCILAR KURULU  | - | Hâkimler ve Savcılar Kurulu Genel Kurulunun 16/09/2026 Tarihli ve 1152 Sayılı Kararı (s. 240)
+[ ] 20260917 | YÖNETMELİKLER | - | Türk Optisyen-Gözlükçüler Birliği Yönetmeliği (s. 241)  ‹MADDE 1- (1) Bu Yönetmeliğin amacı; 22/6/2004 tarihli ve 5193 sayılı Optisyenlik Hakkında …›
+[ ] 20260917 | YÖNETMELİKLER | - | İstanbul Yeni Yüzyıl Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 267)
+[ ] 20260917 | YÖNETMELİKLER | - | Ufuk Üniversitesi Hukuk Fakültesi Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 268)
+[ ] 20260917 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 4/6/2026 Tarihli ve E: 2025/212, K: 2026/127 Sayılı Kararı (s. 270)
+[ ] 20260917 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 16/12/2025 Tarihli ve 2016/1845 Başvuru Numaralı Kararı (s. 289)
+[ ] 20260917 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 20/5/2026 Tarihli ve 2022/49505 Başvuru Numaralı Kararı (s. 334)
+
+# --- 18.09.2026
+[ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Kamu Hizmeti Yükümlülüğü Kapsamında Yolcu Taşımacılığı Hizmeti Verilecek Demiryolu Hatlarının Belirlenmesine İlişkin Karar (Karar Sayısı: 11800) (s. 56)  ‹MADDE 1- (1) Ekli listede belirtilen demiryolu hatları, kamu hizmeti yükümlülüğü kapsamınd…›
+[ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Burdur İlinde Bulunan İsimleri Belirtilen Yerlerde Arazi Toplulaştırması ve Tarla İçi Geliştirme Hizmetleri Yapılması Hakkında Karar (Karar Sayısı: 11801) (s. 58)  ‹C* Karar Sayısı: 11801 Burdur İlinde bulunan ve ekli listede isimleri belirtilen yerlerde …›
+[ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Batman İli, Merkez İlçesi, Tilmis (Akça) Köyü Sınırları İçerisinde Bulunan Bazı Taşınmazların, İluh Deresi By-Pass Hattı ile Çay Deresi Deplase Hattı Projesinin Gerçekleştirilmesi Amacıyla Batman İl Özel İdaresi Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11803) (s. 74)  ‹Batman İli, Merkez İlçesi, Tilmis (Akça) köyü sınırları içerisinde bulunan ve ekli listede…›
+[ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Özelleştirme İdaresi Başkanlığı ile İlgili Kararlar (Karar Sayısı: 11805, 11806, 11807) (s. 80)  ‹C* Karar Sayısı: 11805 Mülkiyeti Maliye Hazinesi adına kayıtlı olan ve ekli listede belirt…›
+[ ] 20260918 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/314, 315,316,317,318,319) (s. 87)
+[ ] 20260918 | YÖNETMELİKLER | - | Sivil Havacılık Emniyet Olayları Yönetmeliği (SHY-OLAY) (s. 98)
+[ ] 20260918 | YÖNETMELİKLER | - | Basın İlân Kurumu Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 107)
+[ ] 20260918 | YÖNETMELİKLER | - | Resmi İlan ve Reklam Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 107)
+[ ] 20260918 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 13/5/2026 Tarihli ve E: 2026/41, K: 2026/107 Sayılı Kararı (o (s. 108)
+[ ] 20260918 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 25/6/2026 Tarihli ve E: 2025/247, K: 2026/147 Sayılı Kararı (s. 120)
+[ ] 20260918 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 25/6/2026 Tarihli ve E: 2026/71, K: 2026/148 Sayılı Kararı o (s. 124)
+
+# --- 19.09.2026
+[ ] 20260919 | YÖNETMELİKLER | - | Abant İzzet Baysal Üniversitesi Yaz Öğretimi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 1)
+[ ] 20260919 | YÖNETMELİKLER | - | Aydın Adnan Menderes Üniversitesi Geleneksel ve Tamamlayıcı Tıp Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)
+[ ] 20260919 | GENELGE | - | 2030 Ulusal Akıllı Şehirler Stratejisi ve Eylem Planı ile İlgili 2026/11 Sayılı Cumhurbaşkanlığı Genelgesi (s. 5)
+
+# --- 20.09.2026
+[ ] 20260920 | CUMHURBAŞKANLIĞINA VEKÂLET E | - | Cumhurbaşkanlığına, Cumhurbaşkanı Yardımcısı Cevdet YILMAZ'ın Vekâlet Etmesine Dair Tezkere (s. 1)
+[ ] 20260920 | YÖNETMELİKLER | - | Acıbadem Mehmet Ali Aydınlar Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliği (s. 2)
+[ ] 20260920 | YÖNETMELİKLER | - | Amasya Üniversitesi Sürekli Eğitim Uygulama ve Araştırma Merkezi Yönetmeliği (s. 17)
+[ ] 20260920 | YÖNETMELİKLER | - | İstanbul Beykent Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 22)
+[ ] 20260920 | YÖNETMELİKLER | - | Necmettin Erbakan Üniversitesi Tıp Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 24)
+[ ] 20260920 | YÖNETMELİKLER | - | Tekirdağ Namık Kemal Üniversitesi Hukuk Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliği (s. 25)
+
+# --- 21.09.2026
+[ ] 20260921 | YÖNETMELİKLER | - | Bahçeşehir Üniversitesi Güvenlik Çalışmaları Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 1)
+[ ] 20260921 | YÖNETMELİKLER | - | Bahçeşehir Üniversitesi Karadeniz-Kafkasya Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 1)
+[ ] 20260921 | YÖNETMELİKLER | - | Bahçeşehir Üniversitesi Kuluçka ve Girişimcilik Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 2)
+[ ] 20260921 | YÖNETMELİKLER | - | Bahçeşehir Üniversitesi Mesleki ve Teknik Eğitimi Geliştirme Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 2)
+[ ] 20260921 | YÖNETMELİKLER | - | Bahçeşehir Üniversitesi Stratejik Araştırmalar Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 3)
+[ ] 20260921 | YÖNETMELİKLER | - | Bahçeşehir Üniversitesi Turizm Yapıları ve Deniz Mimarlığı Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 3)
+[ ] 20260921 | YÖNETMELİKLER | - | Bingöl Üniversitesi Tarımsal Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 3)
+[ ] 20260921 | YÖNETMELİKLER | - | İstanbul Bilgi Üniversitesi Sürekli Eğitim Uygulama ve Araştırma Merkezi Yönetmeliği (s. 4)
+[ ] 20260921 | YÖNETMELİKLER | - | MEF Üniversitesi Yapay Zeka Uygulama ve Araştırma Merkezi Yönetmeliği (s. 7)  ‹MADDE 1- (1) Bu Yönetmeliğin amacı; MEF Üniversitesi Yapay Zeka Uygulama ve Araştırma Merk…›
+[ ] 20260921 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 3/3/2026 Tarihli ve 2022/82055 Başvuru Numaralı Kararı (s. 10)
+[ ] 20260921 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 3/3/2026 Tarihli ve 2022/91046 Başvuru Numaralı Kararı (s. 15)
+[ ] 20260921 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 12/3/2026 Tarihli ve 2021/10952 Başvuru Numaralı Kararı (s. 20)
+[ ] 20260921 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 22/4/2026 Tarihli ve 2020/38884 Başvuru Numaralı Kararı (s. 31)
+[ ] 20260921 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 22/4/2026 Tarihli ve 2022/107174 Başvuru Numaralı Kararı (s. 36)
+
+# --- 22.09.2026
+[ ] 20260922 | YÖNETMELİKLER | - | Sosyal Güvenlik Kurumu Personeli Görevde Yükselme ve Unvan Değişikliği Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20260922 | YÖNETMELİKLER | - | İstanbul Üniversitesi Araştırma Fonu Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 4)
+[ ] 20260922 | YÖNETMELİKLER | - | Kastamonu Üniversitesi Üstün Yetenekliler Eğitim Uygulama ve Araştırma Merkezi Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 4)
+
+# --- 23.09.2026
+[ ] 20260923 | YÖNETMELİK | - | Kafkas Üniversitesi Küresel Isınma ve İklim Değişikliği Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)
+[ ] 20260923 | TEBLİĞLER | - | Balon Balığı Avcılığının Desteklenmesine İlişkin Tebliğ (Tebliğ No: 2024/8)'de Değişiklik Yapılmasına Dair Tebliğ (No: 2026/22) (s. 6)
+
+# --- 24.09.2026
+[ ] 20260924 | YÖNETMELİKLER | - | İstanbul Atlas Üniversitesi Yabancı Diller Yüksekokulu İngilizce ve Türkçe Hazırlık Programı Eğitim ve Öğretim Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 21)
+[ ] 20260924 | TEBLİĞLER | - | Milli Emlak Genel Tebliği (Sıra No: 324)'nde Değişiklik Yapılmasına Dair Tebliğ (Sıra No: 426) (s. 22)
+[ ] 20260924 | TEBLİĞLER | - | Özelleştirme İdaresi Başkanlığının 22/9/2026 Tarihli ve 2026/ÖİB-K-45 Sayılı Kararı (s. 22)
+[ ] 20260924 | KURUL KARARLARI | - | Biyogüvenlik Kurulunun 41 Sayılı Kararı (s. 23)  ‹KURUL KARARLARI Biyogüvenlik Kurulundan: BİYOGÜVENLİK KURULU KARARI KARAR NO: 41 16 Temmuz…›
+[ ] 20260924 | KURUL KARARLARI | - | Biyogüvenlik Kurulunun 42 Sayılı Kararı (s. 24)  ‹Biyogüvenlik Kurulundan: BİYOGÜVENLİK KURULU KARARI KARAR NO: 42 BAŞVURU SAHİBİ: Livzym Bi…›
+
+# --- 25.09.2026
+[ ] 20260925 | HÂKİMLER VE SAVCILAR KURULU  | - | Hâkimler ve Savcılar Kuruluna Ait Karar (s. 1)  ‹Hâkimler ve Savcılar Kuruluna yazılı olarak baş sureti ile yeniden ii ini isteyebilirler. …›
+[ ] 20260925 | YÖNETMELİKLER | - | Uzaktan Çalışma Yönetmeliğinde Değişiklik Yapılması Hakkında Yönetmelik o (s. 24)
+[ ] 20260925 | YÖNETMELİKLER | - | Tokat Gaziosmanpaşa Üniversitesi Tıp Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 24)
+
+# --- 26.09.2026
+[ ] 20260926 | HÂKİMLER VE SAVCILAR KURULU  | - | Hâkimler ve Savcılar Kuruluna Ait Karar (s. 1)  ‹Hâkimler ve Savcılar Kuruluna yazılı başvurmak sureti ile durumlarının incelenmesini istey…›
+[ ] 20260926 | YÖNETMELİKLER | - | Ticaret Bakanlığı Disiplin Amirleri Yönetmeliği (s. 3)  ‹MADDE 1-(1) Bu Yönetmeliğin amacı, Ticaret Bakanlığında görev yapan Devlet memurları ile s…›
+[ ] 20260926 | YÖNETMELİKLER | - | Atatürk Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 9)
+[ ] 20260926 | YÖNETMELİKLER | - | Türk Hava Kurumu Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 10)
+
+# --- 27.09.2026
+[ ] 20260927 | YÖNETMELİKLER | - | İstanbul Gedik Üniversitesi Kaynak ve Malzeme Teknolojileri Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)
+[ ] 20260927 | YÖNETMELİKLER | - | İstanbul Gedik Üniversitesi Robot ve Eklemeli İmalat Teknolojileri Uygulama ve Araştırma Merkezi Yönetmeliği (s. 5)
+[ ] 20260927 | TEBLİĞLER | - | 2026 Yılı Ağustos Ayına Ait Dahilde İşleme İzin Belgelerinin (DI) Listesi (s. 8)
+[ ] 20260927 | TEBLİĞLER | - | 2026 Yılı Ağustos Ayına Ait Yurt İçi Satış ve Teslim Belgelerinin (D3) Listesi (s. 34)
+[ ] 20260927 | TEBLİĞLER | - | 2026 Yılı Ağustos Ayına Ait Hariçte İşleme İzin Belgelerinin (H1) Listesi (s. 35)
+[ ] 20260927 | TEBLİĞLER | - | 2026 Yılı Ağustos Ayına Ait Firma Talebine İstinaden İptal Edilen Dahilde İşleme İzin Belgeleri Listesi (s. 36)
+
+# --- 28.09.2026
+[ ] 20260928 | YÖNETMELİKLER | - | Balıkesir Üniversitesi Yabancı Diller Yüksekokulu Yabancı Dil Eğitim-Öğretim ve Sınav Yönetmeliği (s. 1)
+[ ] 20260928 | YÖNETMELİKLER | - | Erzincan Binali Yıldırım Üniversitesi Diş Hekimliği Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliği (s. 8)
+[ ] 20260928 | YÖNETMELİKLER | - | Hakkari Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliği (s. 32)
+[ ] 20260928 | YÖNETMELİKLER | - | Kilis 7 Aralık Üniversitesi Yaşlı Sağlığı Çalışmaları Uygulama ve Araştırma Merkezi Yönetmeliği (s. 49)
+[ ] 20260928 | YÖNETMELİKLER | - | Mimar Sinan Güzel Sanatlar Üniversitesi Lisansüstü Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 52)
+
+# --- 29.09.2026
+[ ] 20260929 | YÖNETMELİKLER | - | Giresun Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20260929 | YÖNETMELİKLER | - | Karabük Üniversitesi Çocuk Gelişimi Uygulama ve Araştırma Merkezi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 4)
+[ ] 20260929 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 8/4/2026 Tarihli ve 2022/90210 Başvuru Numaralı Kararı (s. 5)
+[ ] 20260929 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 8/4/2026 Tarihli ve 2022/104137 Başvuru Numaralı Kararı (s. 22)
+[ ] 20260929 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 9/4/2026 Tarihli ve 2022/44330 Başvuru Numaralı Kararı (s. 28)
+
+# --- 30.09.2026
+[ ] 20260930 | YÖNETMELİKLER | - | Bolu Abant İzzet Baysal Üniversitesi Yabancı Diller Yüksekokulu Yabancı Dil Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20260930 | YÖNETMELİKLER | - | Koç Üniversitesi Lisans ve Ön Lisans Eğitim ve Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)
+[ ] 20260930 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 4/6/2026 Tarihli ve E: 2025/156, K: 2026/131 Sayılı Kararı (s. 16)
+[ ] 20260930 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 8/9/2026 Tarihli ve E: 2026/57, K: 2026/198 Sayılı Kararı (s. 31)
+
+# --- 01.10.2026
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Birleşmiş Milletler Güvenlik Konseyinin 1267 (1999), 1988 (2011), 1989 (2011) ve 2253 (2015) Sayılı Kararlarıyla Listelenen Kişi, Kuruluş veya Organizasyonların Tasarrufunda Bulunan Malvarlığının Dondurulması Hakkındaki 30/9/2013 Tarihli ve 2013/5428 Sayılı Bakanlar Kurulu Kararının Eki (1) Sayılı Listede Değişiklik Yapılmasına İlişkin Karar (Karar Sayısı: 11821) (s. 1)  ‹Birleşmiş Milletler Güvenlik Konseyinin 1267 (1999), 1988 (2011), 1989 (2011) ve 2253 (201…›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Bazı Mallara Uygulanan Özel Tüketim Vergisi Tutarlarının Yeniden Belirlenmesi Hakkında Karar (Karar Sayısı: 11822) (s. 4)  ‹MADDE 1- (1) 6/6/2002 tarihli ve 4760 sayılı Özel Tüketim Vergisi Kanununa ekli (D sayılı …›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | İstanbul Teknik Üniversitesi Arı Teknokent Teknoloji Geliştirme Bölgesinin (İTÜ Ayazağa Arı Teknokent-1) Sınır ve Koordinatlarının Ekli Kroki ile Listede Gösterildiği Şekilde Değiştirilmesi Hakkında Karar (Karar Sayısı: 11823) (s. 5)  ‹İstanbul Teknik Üniversitesi Arı Teknokent Teknoloji Geliştirme Bölgesinin (İTÜ Ayazağa Ar…›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Kars İli, Merkez İlçesi, Kaleiçi Mahallesi Sınırları İçerisinde Yer Alan Bazı Taşınmazların, Tarihi Dokunun Korunması Projesinin Gerçekleştirilmesi Amacıyla Kars İl Özel İdaresi Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11828) (s. 16)  ‹Kars İli, Merkez İlçesi, Kaleiçi Mahallesi sınırları içerisinde yer alan ve ekli listede b…›
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Kars Çayı Havzası Sulaması 1. Merhale Projesi (DAP) Kapsamındaki Kars Barajı Sulaması 1. Kısım İnşaatının Yapımı Amacıyla Bazı Taşınmazların Devlet Su İşleri Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11829) (s. 18)
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Afyonkarahisar İlinde Bulunan Bazı Yerlerde Arazi Toplulaştırması ve Tarla İçi Geliştirme Hizmetleri Yapılması Hakkında Karar (Karar Sayısı: 11830) (s. 21)
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Sürekli Görevle Yurt Dışında Bulunan Memurlara Ödenecek Aylıklara İlişkin Kararda Değişiklik Yapılmasına Dair Karar (Karar Sayısı: 11831) (s. 22)
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | 6245 Sayılı Harcırah Kanununun 46 ncı Maddesinin Birinci Fıkrasının (c) Bendi Uyarınca Yurtdışı Yer Değiştirme Giderinin Mesafeye Göre Değişen Kısmının Hesaplanmasında Esas Alınan Cetvellerin Uygulamaya Konulması Hakkında Karar (Karar Sayısı: 11832) (s. 23)
+[ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Sözleşmeli Personel Çalıştırılmasına İlişkin Esaslarda Değişiklik Yapılmasına Dair Esaslar (Karar Sayısı: 11833) (s. 30)
+[ ] 20261001 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/321, 322) (s. 31)
+[ ] 20261001 | YÖNETMELİKLER | - | Jandarma Genel Komutanlığı Vardiya Yatakhaneleri, Gazinolar, Sosyal Tesisler ve Eğitim Merkezleri Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 32)
+[ ] 20261001 | YÖNETMELİKLER | - | Taşınmaz Ticareti Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 32)
+[ ] 20261001 | YÖNETMELİKLER | - | Ufuk Üniversitesi Lisansüstü Eğitim-Öğretim ve Sınav Yönetmeliği (s. 33)
+[ ] 20261001 | TEBLİĞ | - | Türk Gıda Kodeksi Distile Alkollü İçkiler Tebliği (No: 2026/18) (s. 56)
+
+# --- 02.10.2026
+[ ] 20261002 | YÖNETMELİKLER | - | Turizm Amaçlı Sportif Faaliyet Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20261002 | YÖNETMELİKLER | - | Nükleer Tesisler, Radyasyon Tesisleri ve Radyoaktif Atık Tesislerinde Yönetim Sistemi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)
+[ ] 20261002 | YÖNETMELİKLER | - | Nükleer Tesislere İlişkin Yetkilendirmeler Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 6)
+[ ] 20261002 | YÖNETMELİKLER | - | Uydu ve Yer Tabanlı Radyo Seyrüsefer Sistemleri ve Gözetim Sistemleri Uçuş Kontrol Yönetmeliği (SHY-UK) (s. 15)
+[ ] 20261002 | YÖNETMELİKLER | - | Noterlik Kanunu Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 23)  ‹MADDE 1- 13/7/1976 tarihli ve 15645 sayılı Resmî Gazete’de yayımlanan Noterlik Kanunu Yöne…›
+[ ] 20261002 | TEBLİĞLER | - | Sosyal Güvenlik Kurumu Sağlık Uygulama Tebliğinde Değişiklik Yapılmasına Dair Tebliğ (s. 24)
+[ ] 20261002 | TEBLİĞLER | - | Sağlık Hizmetleri Fiyatlandırma Komisyonu Kararı (s. 243)  ‹MADDE 1- “Nusinersen sodyum” etkin maddeli “Spinraza 12 mg/5ml İntratekal Enjeksiyonluk Çö…›
+[ ] 20261002 | ANAYASA MAHKEMESİ KARARI | - | Anayasa Mahkemesinin 21/4/2026 Tarihli ve 2022/81264 Başvuru Numaralı Kararı (s. 245)
+
+# --- 03.10.2026
+[ ] 20261003 | YÖNETMELİKLER | - | Tarım Ürünleri Lisanslı Depoculuk Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
+[ ] 20261003 | YÖNETMELİKLER | - | KOSGEB İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 17)
+[ ] 20261003 | YÖNETMELİKLER | - | Küçük ve Orta Ölçekli İşletmeleri Geliştirme ve Destekleme İdaresi Başkanlığı Disiplin Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 19)
+[ ] 20261003 | YÖNETMELİKLER | - | Türk Mühendis ve Mimar Odaları Birliği Şehir Plancıları Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 19)
+
+# --- 04.10.2026
+[ ] 20261004 | YÖNETMELİKLER | - | İstanbul Sabahattin Zaim Üniversitesi Gıda, Beslenme ve Biyoteknoloji Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)
+[ ] 20261004 | YÖNETMELİKLER | - | Koç Üniversitesi Lisansüstü Eğitim ve Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 5)
+[ ] 20261004 | YÖNETMELİKLER | - | Tekirdağ Namık Kemal Üniversitesi Tıp Fakültesi Lisans Eğitim ve Öğretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 7)
+[ ] 20261004 | YÖNETMELİKLER | - | Yozgat Bozok Üniversitesi Tıp Fakültesi Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 8)
+
+# --- 05.10.2026
+[ ] 20261005 | YÖNETMELİKLER | - | Ankara Medipol Üniversitesi Lisansüstü Eğitim-Öğretim ve Sınav Yönetmeliği (s. 1)
+[ ] 20261005 | YÖNETMELİKLER | - | Beykoz Üniversitesi Lisansüstü Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 25)
+[ ] 20261005 | YÖNETMELİKLER | - | Beykoz Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 28)
+[ ] 20261005 | YÖNETMELİKLER | - | Burdur Mehmet Akif Ersoy Üniversitesi Lisansüstü Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 31)
+[ ] 20261005 | YÖNETMELİKLER | - | Burdur Mehmet Akif Ersoy Üniversitesi Ön Lisans ve Lisans Eğitim-Öğretim ve Sınav Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 33)
+[ ] 20261005 | YÖNETMELİKLER | - | İzmir Ekonomi Üniversitesi Lisansüstü Eğitim-Öğretim Yönetmeliği (s. 34)  ‹MADDE 1- (1) Bu Yönetmeliğin amacı, İzmir Ekonomi Üniversitesinde yürütülen lisansüstü eği…›
+
+# --- 06.10.2026
+[ ] 20261006 | YÖNETMELİK | - | Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[ ] 20261006 | TEBLİĞLER | - | İşkolu Tespit Kararları (No: 2026/62, 63, 64, 65, 66, 67, 68, 69) (s. 10)  ‹TEBLİĞLER Çalışma ve Sosyal Güvenlik Bakanlığından: İŞKOLU TESPİT KARARLARI Karar No: 2026…›
+[ ] 20261006 | TEBLİĞLER | - | 2026-2027 Eğitim ve Öğretim Yılında Adıyaman, Hatay, Kahramanmaraş ve Malatya İlleri ile Gaziantep İlinin İslahiye ve Nurdağı İlçelerindeki Özel Okullarda Öğrenim Gören ve Önceki Yıllarda Eğitim ve Öğretim Desteği Kapsamına Alınıp Öğretim Kademesini Tamamlamayan Öğrenciler İçin Eğitim ve Öğretim Desteği Verilmesine İlişkin Tebliğ (s. 13)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 8/1/2026 Tarihli ve 2021/56755 Başvuru Numaralı Kararı (s. 18)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 8/1/2026 Tarihli ve 2023/91027 Başvuru Numaralı Kararı (s. 38)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 19/2/2026 Tarihli ve 2019/789 Başvuru Numaralı Kararı (s. 52)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 19/2/2026 Tarihli ve 2020/9501 Başvuru Numaralı Kararı (s. 73)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 19/2/2026 Tarihli ve 2021/24997 Başvuru Numaralı Kararı (s. 86)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 2/4/2026 Tarihli ve 2025/57667 Başvuru Numaralı Kararı (s. 99)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 12/5/2026 Tarihli ve 2022/102726 Başvuru Numaralı Kararı (s. 144)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 2/7/2026 Tarihli ve 2021/29752 Başvuru Numaralı Kararı (s. 155)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 2/7/2026 Tarihli ve 2022/75743 Başvuru Numaralı Kararı (s. 182)
+[ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 2/7/2026 Tarihli ve 2023/31244 Başvuru Numaralı Kararı (s. 196)
