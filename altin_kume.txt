@@ -281,4 +281,4 @@
 [ ] 20261006 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 2/7/2026 Tarihli ve 2023/31244 Başvuru Numaralı Kararı (s. 196)
 
 # ===== GÜNLÜK GERİ BİLDİRİM (bildirim yorumlarındaki ★/✗) =====
-[-] 20261006 | YÖNETMELİK | ★Çevre | Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[★] 20261006 | YÖNETMELİK | - | Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
