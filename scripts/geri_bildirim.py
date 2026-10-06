@@ -17,8 +17,8 @@ Sonuç: altin_kume.txt'in GÜNLÜK GERİ BİLDİRİM bölümüne satır eklenir 
 güncellenir) ve main'e commit edilir (git kimliği iş akışında ayarlanır). Yeni ★ eklendiyse o gün için
 özet ve kesit iş akışları, yoksa sayfa iş akışı tetiklenir. Yoruma 👍 konur ve kısa bir onay yazılır.
 Hata işi başarısız saymaz. Ortam: GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_EVENT_PATH."""
-import json, os, re, subprocess, sys
-from datetime import datetime, timedelta
+import json, os, re, subprocess, sys, time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -114,8 +114,9 @@ def coz(hedef, kal):
         return adaylar[0], None
     return None, f"'{hedef}' eşleşmedi" if not adaylar else f"'{hedef}' {len(adaylar)} kalemle eşleşti, numara verin"
 
-def kaydet(ymd, kayitlar, dosya=DOSYA):
+def kaydet(ymd, kayitlar, dosya=None):
     """[(isaret, kalem)] -> GUNLUK GERI BILDIRIM bolumune yaz (ayni baslik varsa isareti guncelle)."""
+    dosya = dosya or DOSYA
     metin = dosya.read_text(encoding="utf-8") if dosya.exists() else ""
     if BOLUM not in metin:
         metin = metin.rstrip("\n") + "\n\n" + BOLUM + "\n"
@@ -162,13 +163,19 @@ def isle(token, repo, ymd, kayit):
     art, eksi = sum(1 for i, _ in kayit if i == "+"), sum(1 for i, _ in kayit if i == "-")
     if not git_push(f"Geri bildirim {tarih}: {art} ilgili, {eksi} ilgisiz"):
         return ["Dosyaya yazıldı ama main'e gönderilemedi; iş akışı günlüğüne bakın."]
-    yeni_yildiz = any(i == "+" and not k[2] for i, k in kayit)
-    tetiklenen = [t for t in ((tetikle(token, repo, "yz-ozet.yml", {"tarihler": ymd}),
-                               tetikle(token, repo, "pdf-kes.yml", {"tarihler": ymd}))
-                              if yeni_yildiz else (tetikle(token, repo, "site.yml"),)) if t]
     cevap = [f"Kaydedildi ({tarih}): " + "; ".join(f"{'★' if i == '+' else '✗'} {k[0][:70]}" for i, k in kayit) + "."]
-    if tetiklenen:
-        cevap.append("Tetiklendi: " + ", ".join(tetiklenen) + ".")
+    if not any(i == "+" and not k[2] for i, k in kayit):      # yeni ★ yok: sayfa yeter
+        if tetikle(token, repo, "site.yml"):
+            cevap.append("Sayfa yeniden yayımlanıyor.")
+        return cevap
+    baslangic = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    tetiklenen = [t for t in (tetikle(token, repo, "yz-ozet.yml", {"tarihler": ymd}),
+                              tetikle(token, repo, "pdf-kes.yml", {"tarihler": ymd})) if t]
+    tetikle(token, repo, "site.yml")                          # ★ hemen gorunsun (ozet ve kesit sonra gelir)
+    if tetiklenen and bekle(token, repo, tetiklenen, baslangic) and tetikle(token, repo, "site.yml"):
+        cevap.append("Sayfa yeniden yayımlanıyor: ★ hemen, özet ve kesit de üretildi.")
+    else:
+        cevap.append("Sayfa yeniden yayımlanıyor: ★ hemen; özet ve kesit bir sonraki sayfa yayımında görünür.")
     return cevap
 
 def issue_yolu(token, repo, issue):
@@ -186,6 +193,26 @@ def issue_yolu(token, repo, issue):
     bildir.gh(token, "PATCH", f"/repos/{repo}/issues/{no}", json={"state": "closed", "state_reason": "completed"})
     print("\n".join(cevap))
     return 0
+
+def bekle(token, repo, dosyalar, baslangic, sure=240):
+    """Tetiklenen is akislarinin (baslangic'tan sonra olusan son workflow_dispatch kosusu) bitmesini bekler.
+    GITHUB_TOKEN ile tetiklenen kosularin bitisi workflow_run olayini uretmez; bu yuzden sayfa ayrica tetiklenir."""
+    son = time.time() + sure
+    while time.time() < son:
+        bitti = True
+        for d in dosyalar:
+            try:
+                rs = bildir.gh(token, "GET", f"/repos/{repo}/actions/workflows/{d}/runs",
+                               params={"event": "workflow_dispatch", "per_page": 1}).get("workflow_runs") or []
+            except Exception:
+                rs = []
+            r = rs[0] if rs else None
+            if not r or r["created_at"] < baslangic or r["status"] != "completed":
+                bitti = False
+        if bitti:
+            return True
+        time.sleep(10)
+    return False
 
 def main():
     token, repo = os.environ["GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"]
