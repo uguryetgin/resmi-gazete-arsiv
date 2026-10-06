@@ -1,0 +1,39 @@
+name: Geri bildirim (★/✗)
+
+# Depo sahibi "📰 Günlük bildirim" konusuna "✗ 2" (2 numaralı kalem ilgisiz) ya da "★ 7"
+# (7 numaralı kalem ilgili) yazınca scripts/geri_bildirim.py bunu altin_kume.txt'e işler,
+# main'e commit eder ve gereken iş akışını (özet+kesit ya da sayfa) tetikler.
+# Yalnız depo sahibinin yorumları işlenir; botun kendi yorumu (rg-geri-bildirim imzalı) atlanır.
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write    # altin_kume.txt commit
+  issues: write      # 👍 ve onay yorumu
+  actions: write     # özet / kesit / sayfa iş akışlarını tetikleme
+
+concurrency:
+  group: geri-bildirim
+  cancel-in-progress: false
+
+jobs:
+  kaydet:
+    if: >-
+      !github.event.issue.pull_request &&
+      github.event.comment.user.login == github.repository_owner &&
+      contains(github.event.issue.title, 'Günlük bildirim')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: İşaretleri kaydet
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          pip install --quiet requests
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python scripts/geri_bildirim.py

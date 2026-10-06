@@ -29,9 +29,31 @@ _TR_ASCII = str.maketrans("çğıöşüâîûêÇĞİÖŞÜÂÎÛÊ", "cgiosuaiu
 def norm(s):
     return re.sub(r"[^A-Z0-9]+", " ", s.translate(_TR_ASCII).upper())
 
+DUZELTME = {}                      # norm(baslik) -> "+" (kesin ★) / "-" (kesin degil); altin_kume.txt
+GERI_BILDIRIM_ALAN = "Geri bildirim"
+
+def duzeltmeler(yol=ROOT / "altin_kume.txt"):
+    """altin_kume.txt'deki el ile isaretli satirlar: [★]/[+] kesin ★, [-]/[✗] kesin degil.
+    Ayni baslik icin dosyadaki son satir gecerlidir; bos [ ] satirlar karari kurallara birakir."""
+    d = {}
+    if not yol.exists():
+        return d
+    for l in yol.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"^\[([^\]]*)\]\s*\d{8}\s*\|[^|]*\|[^|]*\|\s*(.*)$", l)
+        if not m:
+            continue
+        isaret, baslik = m.group(1).strip(), m.group(2).split(" (s. ")[0].strip()
+        if isaret in ("★", "+", "*", "✓"):
+            d[norm(baslik).strip()] = "+"
+        elif isaret in ("-", "✗", "x", "X"):
+            d[norm(baslik).strip()] = "-"
+    return d
+
 def ilgi_alanlari(yol=ROOT / "ilgi.txt"):
     """[(alan, desen)] ve haric deseni (yoksa None)."""
     alanlar, haric = [], None
+    DUZELTME.clear()
+    DUZELTME.update(duzeltmeler())
     for l in yol.read_text(encoding="utf-8").splitlines():
         l = l.strip()
         if not l or l.startswith("#") or ":" not in l:
@@ -46,11 +68,15 @@ def ilgi_alanlari(yol=ROOT / "ilgi.txt"):
     return alanlar, haric
 
 def alan_bul(baslik, alanlar, haric):
-    """Basligin ilk eslestigi ilgi alani (yoksa None)."""
+    """Basligin ilk eslestigi ilgi alani (yoksa None). altin_kume.txt'deki el ile isaret kesindir."""
     n = norm(re.sub(r"\(s\. \d+\)$", "", baslik))
-    if haric and haric.search(n):
+    karar = DUZELTME.get(n.strip())           # el ile isaret kurallardan once gelir
+    if karar == "-":
         return None
-    return next((ad for ad, desen in alanlar if desen.search(n)), None)
+    if haric and haric.search(n) and karar != "+":
+        return None
+    ad = next((ad for ad, desen in alanlar if desen.search(n)), None)
+    return ad or (GERI_BILDIRIM_ALAN if karar == "+" else None)
 
 def kalemler(notlar):
     """notlar.md'deki '- Baslik (s. N)' satirlari ('---' ayracindan onceki kisim)."""
