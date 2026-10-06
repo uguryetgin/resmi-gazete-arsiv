@@ -42,7 +42,7 @@
 [ ★] 20260926 | KURUL KARARI | ★Enerji Piyasaları | Enerji Piyasası Düzenleme Kurulunun 24/09/2026 Tarihli ve 14895 Sayılı Kararı (s. 10)
 
 # --- 30.09.2026
-[ ★] 20260930 | TEBLİĞ | ★Ekonomi ve Finans | 1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)
+[-] 20260930 | TEBLİĞ | ★Ekonomi ve Finans | 1416 Sayılı Kanun ve Buna Bağlı Yönetmelik Uyarınca Yurt Dışında Lisans ve Lisansüstü Öğrenim Gören Öğrencilere Yapılacak Ödemeler Hakkında Tebliğ (s. 4)
 
 # --- 01.10.2026
 [★ ] 20261001 | CUMHURBAŞKANI KARARLARI | ★Enerji Piyasaları | Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi Kapsamında Petrol ve Doğal Gaz Arama ve Üretim Faaliyetlerini Gerçekleştirmek Amacıyla Ekli Haritada Gösterilen Ruhsat Alanlarında; Lokasyon Alanı ve Yolu, Petrol ve Doğal Gaz Boru Hattı, Enerji Nakil Hattı, Üretim Kampları, İdari Kampüs Alanları ve Depolama Tesisleri Yapımı İçin İhtiyaç Duyulan Bazı Taşınmazların Türkiye Petrolleri Anonim Ortaklığı Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11824) (s. 9)  ‹Adıyaman-Diyarbakır Petrol ve Doğal Gaz Arama ve Üretim Projesi” kapsamında petrol ve doğa…›
@@ -126,7 +126,7 @@
 [ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Batman İli, Merkez İlçesi, Tilmis (Akça) Köyü Sınırları İçerisinde Bulunan Bazı Taşınmazların, İluh Deresi By-Pass Hattı ile Çay Deresi Deplase Hattı Projesinin Gerçekleştirilmesi Amacıyla Batman İl Özel İdaresi Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11803) (s. 74)  ‹Batman İli, Merkez İlçesi, Tilmis (Akça) köyü sınırları içerisinde bulunan ve ekli listede…›
 [ ] 20260918 | CUMHURBAŞKANI KARARLARI | - | Özelleştirme İdaresi Başkanlığı ile İlgili Kararlar (Karar Sayısı: 11805, 11806, 11807) (s. 80)  ‹C* Karar Sayısı: 11805 Mülkiyeti Maliye Hazinesi adına kayıtlı olan ve ekli listede belirt…›
 [ ★] 20260918 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/314, 315,316,317,318,319) (s. 87)
-[ ] 20260918 | YÖNETMELİKLER | - | Sivil Havacılık Emniyet Olayları Yönetmeliği (SHY-OLAY) (s. 98)
+[★] 20260918 | YÖNETMELİKLER | - | Sivil Havacılık Emniyet Olayları Yönetmeliği (SHY-OLAY) (s. 98)
 [ ] 20260918 | YÖNETMELİKLER | - | Basın İlân Kurumu Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 107)
 [ ] 20260918 | YÖNETMELİKLER | - | Resmi İlan ve Reklam Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 107)
 [ ] 20260918 | ANAYASA MAHKEMESİ KARARLARI | - | Anayasa Mahkemesinin 13/5/2026 Tarihli ve E: 2026/41, K: 2026/107 Sayılı Kararı (o (s. 108)
@@ -227,7 +227,7 @@
 [ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Sürekli Görevle Yurt Dışında Bulunan Memurlara Ödenecek Aylıklara İlişkin Kararda Değişiklik Yapılmasına Dair Karar (Karar Sayısı: 11831) (s. 22)
 [ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | 6245 Sayılı Harcırah Kanununun 46 ncı Maddesinin Birinci Fıkrasının (c) Bendi Uyarınca Yurtdışı Yer Değiştirme Giderinin Mesafeye Göre Değişen Kısmının Hesaplanmasında Esas Alınan Cetvellerin Uygulamaya Konulması Hakkında Karar (Karar Sayısı: 11832) (s. 23)
 [ ] 20261001 | CUMHURBAŞKANI KARARLARI | - | Sözleşmeli Personel Çalıştırılmasına İlişkin Esaslarda Değişiklik Yapılmasına Dair Esaslar (Karar Sayısı: 11833) (s. 30)
-[ ] 20261001 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/321, 322) (s. 31)
+[★] 20261001 | ATAMA KARARLARI | - | Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/321, 322) (s. 31)
 [ ] 20261001 | YÖNETMELİKLER | - | Jandarma Genel Komutanlığı Vardiya Yatakhaneleri, Gazinolar, Sosyal Tesisler ve Eğitim Merkezleri Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 32)
 [ ] 20261001 | YÖNETMELİKLER | - | Taşınmaz Ticareti Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 32)
 [ ] 20261001 | YÖNETMELİKLER | - | Ufuk Üniversitesi Lisansüstü Eğitim-Öğretim ve Sınav Yönetmeliği (s. 33)
@@ -247,7 +247,7 @@
 [ ] 20261003 | YÖNETMELİKLER | - | Tarım Ürünleri Lisanslı Depoculuk Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 16)
 [ ] 20261003 | YÖNETMELİKLER | - | KOSGEB İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 17)
 [ ] 20261003 | YÖNETMELİKLER | - | Küçük ve Orta Ölçekli İşletmeleri Geliştirme ve Destekleme İdaresi Başkanlığı Disiplin Yönetmeliğinin Yürürlükten Kaldırılmasına Dair Yönetmelik (s. 19)
-[ ★] 20261003 | YÖNETMELİKLER | - | Türk Mühendis ve Mimar Odaları Birliği Şehir Plancıları Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 19)
+[-] 20261003 | YÖNETMELİKLER | - | Türk Mühendis ve Mimar Odaları Birliği Şehir Plancıları Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 19)
 
 # --- 04.10.2026
 [ ] 20261004 | YÖNETMELİKLER | - | İstanbul Sabahattin Zaim Üniversitesi Gıda, Beslenme ve Biyoteknoloji Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)
