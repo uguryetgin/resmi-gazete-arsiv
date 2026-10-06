@@ -9,6 +9,10 @@ Depo sahibi "📰 Günlük bildirim" konusuna yorum yazar; her satır bir işare
 İlgili: ★ + ✓   İlgisiz: ✗ x -
 Numaralar, yorumdan önceki son bildirim yorumundaki (<!-- rg-bildirim --> imzalı) sıraya göredir.
 
+İkinci yol: sayfadaki "★ ilgili / ✗ ilgisiz" bağlantıları "Geri bildirim: …" başlıklı, gövdesi
+"✗ YYYYAAGG | BÖLÜM | ★Alan ya da - | Başlık (s. N)" satırlarından oluşan bir Issue açar; bot aynı
+şekilde kaydeder, Issue'ya cevap yazar ve kapatır.
+
 Sonuç: altin_kume.txt'in GÜNLÜK GERİ BİLDİRİM bölümüne satır eklenir (aynı başlık varsa işareti
 güncellenir) ve main'e commit edilir (git kimliği iş akışında ayarlanır). Yeni ★ eklendiyse o gün için
 özet ve kesit iş akışları, yoksa sayfa iş akışı tetiklenir. Yoruma 👍 konur ve kısa bir onay yazılır.
@@ -41,6 +45,24 @@ def isaretler(govde):
             out += [(isaret, n) for n in re.findall(r"\d+", kalan)]
         else:
             out.append((isaret, kalan))
+    return out
+
+ISSUE_BASLIK = "Geri bildirim:"
+
+def satir_ayir(govde):
+    """Issue govdesi -> [(isaret '+'/'-', ymd, (baslik, bolum, alan, sayfa))]; tam biçimli satırlar."""
+    out = []
+    for satir in (govde or "").splitlines():
+        m = re.match(r"^\s*([★+✓*✗xX\-–—])\s*(\d{8})\s*\|\s*([^|]*?)\s*\|\s*([^|]*?)\s*\|\s*(.+?)\s*$", satir)
+        if not m:
+            continue
+        isaret = "+" if m.group(1) in ILGILI else "-"
+        alan = m.group(4).lstrip("★").strip()
+        baslik, _, sayfa = m.group(5).rpartition(" (s. ")
+        if not baslik:
+            baslik, sayfa = m.group(5), "?"
+        out.append((isaret, m.group(2), (baslik.strip(), m.group(3) or "?", alan if alan and alan != "-" else None,
+                                          sayfa.rstrip(")").strip() or "?")))
     return out
 
 def kalemleri_ayir(govde):
@@ -133,10 +155,44 @@ def tetikle(token, repo, dosya, girdiler=None):
         print(f"{dosya} tetiklenemedi: {e}")
         return None
 
+def isle(token, repo, ymd, kayit):
+    """Kayitlari dosyaya yaz, main'e gonder, gereken is akisini tetikle -> cevap satirlari."""
+    tarih = f"{ymd[6:]}.{ymd[4:6]}.{ymd[:4]}"
+    kaydet(ymd, kayit)
+    art, eksi = sum(1 for i, _ in kayit if i == "+"), sum(1 for i, _ in kayit if i == "-")
+    if not git_push(f"Geri bildirim {tarih}: {art} ilgili, {eksi} ilgisiz"):
+        return ["Dosyaya yazıldı ama main'e gönderilemedi; iş akışı günlüğüne bakın."]
+    yeni_yildiz = any(i == "+" and not k[2] for i, k in kayit)
+    tetiklenen = [t for t in ((tetikle(token, repo, "yz-ozet.yml", {"tarihler": ymd}),
+                               tetikle(token, repo, "pdf-kes.yml", {"tarihler": ymd}))
+                              if yeni_yildiz else (tetikle(token, repo, "site.yml"),)) if t]
+    cevap = [f"Kaydedildi ({tarih}): " + "; ".join(f"{'★' if i == '+' else '✗'} {k[0][:70]}" for i, k in kayit) + "."]
+    if tetiklenen:
+        cevap.append("Tetiklendi: " + ", ".join(tetiklenen) + ".")
+    return cevap
+
+def issue_yolu(token, repo, issue):
+    """Sayfadaki dugmeyle acilan 'Geri bildirim:' Issue'su: kaydet, cevapla, kapat."""
+    no = issue["number"]
+    kayitlar = satir_ayir(issue.get("body"))
+    if not kayitlar:
+        cevap = ["Gövdede '✗ YYYYAAGG | Bölüm | Alan | Başlık (s. N)' biçiminde satır bulunamadı; sayfadaki "
+                 "★ / ✗ bağlantısını kullanın."]
+    else:
+        cevap = []
+        for ymd in sorted({y for _, y, _ in kayitlar}):
+            cevap += isle(token, repo, ymd, [(i, k) for i, y, k in kayitlar if y == ymd])
+    bildir.gh(token, "POST", f"/repos/{repo}/issues/{no}/comments", json={"body": "\n".join(cevap) + f"\n\n{IMZA}"})
+    bildir.gh(token, "PATCH", f"/repos/{repo}/issues/{no}", json={"state": "closed", "state_reason": "completed"})
+    print("\n".join(cevap))
+    return 0
+
 def main():
     token, repo = os.environ["GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"]
     olay = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))
-    issue, yorum = olay["issue"], olay["comment"]
+    issue, yorum = olay["issue"], olay.get("comment")
+    if yorum is None:                                   # issues:opened -> sayfadaki dugme
+        return issue_yolu(token, repo, issue) if (issue.get("title") or "").startswith(ISSUE_BASLIK) else 0
     if issue.get("title") != bildir.BASLIK or IMZA in (yorum.get("body") or ""):
         return 0
     isr = isaretler(yorum.get("body"))
@@ -155,21 +211,8 @@ def main():
             kayit.append((isaret, k))
         elif h:
             hata.append(h)
-    tarih = f"{ymd[6:]}.{ymd[4:6]}.{ymd[:4]}" if ymd else "?"
     if kayit:
-        kaydet(ymd, kayit)
-        art, eksi = sum(1 for i, _ in kayit if i == "+"), sum(1 for i, _ in kayit if i == "-")
-        if git_push(f"Geri bildirim {tarih}: {art} ilgili, {eksi} ilgisiz"):
-            yeni_yildiz = any(i == "+" and not k[2] for i, k in kayit)
-            tetiklenen = [t for t in ((tetikle(token, repo, "yz-ozet.yml", {"tarihler": ymd}),
-                                       tetikle(token, repo, "pdf-kes.yml", {"tarihler": ymd}))
-                                      if yeni_yildiz else (tetikle(token, repo, "site.yml"),)) if t]
-            cevap.append(f"Kaydedildi ({tarih}): " + "; ".join(
-                f"{'★' if i == '+' else '✗'} {k[0][:70]}" for i, k in kayit) + ".")
-            if tetiklenen:
-                cevap.append("Tetiklendi: " + ", ".join(tetiklenen) + ".")
-        else:
-            cevap.append("Dosyaya yazıldı ama main'e gönderilemedi; iş akışı günlüğüne bakın.")
+        cevap += isle(token, repo, ymd, kayit)
     if hata:
         cevap.append("Anlaşılamadı: " + "; ".join(hata) + ".")
     try:

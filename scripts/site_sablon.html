@@ -114,6 +114,7 @@ td small{display:block;color:var(--muted);margin-top:3px}
 .giris .dugme{width:100%;justify-content:center}
 .sor{font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}
 .sor:hover{text-decoration:underline}
+.geri{color:var(--muted);margin-left:6px}
 .yz{margin:12px 0 4px;padding:10px 14px;border-radius:9px;background:var(--soft);border:1px dashed var(--line)}
 .yz-bas{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .yz ul{margin:6px 0 4px;padding-left:20px}
@@ -208,7 +209,7 @@ body.yan-kapali .alt-not{padding-left:20px}
   <nav class="yan" id="yan" aria-label="Günler"><h2 id="yanBaslik">Günler</h2><ul class="gunler" id="gunler"></ul></nav>
   <main class="ana" id="ana"><div class="bos">Yükleniyor…</div></main>
 </div>
-<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları ve "Sor" cevapları yapay zekâ ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın. "Sor" bağlantıları herkese açık bir GitHub Issue açar.</p>
+<p class="alt-not">Bu sayfa her gün GitHub Actions tarafından gazetenin kendi metninden otomatik üretilir. "Otomatik özet" kutuları ve "Sor" cevapları yapay zekâ ile yazılır ve hata içerebilir; kesin metin için PDF'e bakın. "Sor" ve "★ ilgili / ✗ ilgisiz" bağlantıları herkese açık bir GitHub Issue açar.</p>
 <div class="pdfg" id="pdfg" role="dialog" aria-modal="true" aria-label="PDF"><div class="pdfg-kutu">
   <div class="pdfg-bas"><b id="pdfgBaslik"></b><a id="pdfgOrijinal" target="_blank" rel="noopener">Orijinal PDF</a><button id="pdfgKapat" aria-label="Kapat">×</button></div>
   <div class="pdfg-ic" id="pdfgIc"></div></div></div>
@@ -372,6 +373,18 @@ function soruLink(g, k, metin){
     "&body=" + encodeURIComponent(govde);
   return '<a class="sor" href="' + url + '" target="_blank" rel="noopener" title="GitHub Issue ile yapay zekâya sor">' + (metin || "Sor") + "</a>";
 }
+function geriLink(g, k, bolum){
+  // ★ olmayan kalemde "★ ilgili" (eksik ★), ★ olanda "✗ ilgisiz" (yanlış ★): hazır doldurulmuş Issue açar,
+  // bot (geri-bildirim.yml) altın kümeye kaydeder, cevap yazar ve Issue'yu kapatır.
+  var ilgili = !k.alan, isaret = ilgili ? "★" : "✗";
+  var kisa = k.baslik.length > 60 ? k.baslik.slice(0, 60) + "…" : k.baslik;
+  var govde = isaret + " " + g.ymd + " | " + (bolum || "?") + " | " + (k.alan ? "★" + k.alan : "-") + " | " + k.baslik + " (s. " + k.sayfa + ")" +
+    "\n\n<!-- \"Submit new issue\" deyin; bot bir dakika içinde altın kümeye kaydeder, cevap yazar ve bu konuyu kapatır. Başka bir şey yazmanız gerekmez. -->";
+  var url = REPO + "/issues/new?title=" + encodeURIComponent("Geri bildirim: " + isaret + " " + g.tarih + " – " + kisa) + "&body=" + encodeURIComponent(govde);
+  return '<a class="sor geri" href="' + url + '" target="_blank" rel="noopener" title="' +
+    (ilgili ? "Bu kalem ilgi alanıma giriyor (eksik ★); GitHub Issue ile bildir" : "Bu kalem ilgi alanıma girmiyor (yanlış ★); GitHub Issue ile bildir") + '">' +
+    (ilgili ? "★ ilgili" : "✗ ilgisiz") + "</a>";
+}
 var KESIT = [];
 function kesitDugme(s, k, buyuk){
   KESIT.push({k: k, pdf: s.pdf});
@@ -402,7 +415,7 @@ function gunCiz(g){
     yildizlar.forEach(function(t){
       var s = t[0], k = t[2];
       h += '<article class="kart yildiz' + (durum.etiket && etUyar(k.etiket) ? " secili" : "") + '"><div class="meta">' + etiket(k.alan) + "<span>" + kac(t[1].bolum) + "</span>" +
-           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + (k.kesit ? kesitDugme(s, k) : pdfLink(s.pdf, k.sayfa)) + soruLink(g, k, "💬 Sor") + "</div>" +
+           (s.mukerrer ? "<span>" + s.mukerrer + ". Mükerrer</span>" : "") + (k.kesit ? kesitDugme(s, k) : pdfLink(s.pdf, k.sayfa)) + soruLink(g, k, "💬 Sor") + geriLink(g, k, t[1].bolum) + "</div>" +
            "<h3>" + vurgula(k.baslik, durum.ara) + "</h3>" + etCipler(k) +
            yzKutu(k.yz) +
            (k.karsilastirma ? tablo(k) : (!k.yz && k.alinti ? '<p class="alinti">' + vurgula(k.alinti, durum.ara) + "</p>" : "")) +
@@ -421,7 +434,7 @@ function gunCiz(g){
       h += '<details class="grup"' + (acik || s.bolumler.length === 1 ? " open" : "") + "><summary>" + kac(b.bolum || "Kalemler") + "<span>" + b.kalemler.length + " kalem</span></summary><ul class=\"liste\">";
       b.kalemler.forEach(function(k){
         h += '<li' + (durum.etiket && etUyar(k.etiket) ? ' class="secili"' : "") + '><div class="lb">' + (k.alan ? "★ " : "") + vurgula(k.baslik, durum.ara) + "</div>" +
-             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + " " + soruLink(g, k) + "</div>" + etCipler(k) +
+             '<div class="meta" style="font-size:12.5px;color:var(--muted)">' + etiket(k.alan) + " " + pdfLink(s.pdf, k.sayfa) + " " + soruLink(g, k) + " " + geriLink(g, k, b.bolum) + "</div>" + etCipler(k) +
              (k.alinti ? '<div class="la">' + vurgula(k.alinti, durum.ara) + "</div>" : "") + "</li>";
       });
       h += "</ul></details>";
