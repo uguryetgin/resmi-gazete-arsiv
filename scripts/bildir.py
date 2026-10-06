@@ -62,9 +62,12 @@ def ileti(ymd, sahip, url, pdf_link=None):
     diger = [(s, b, ks) for s, b, ks in diger if ks]
     if diger:
         satir += ["", f"## Diğer kalemler ({sum(len(ks) for _, _, ks in diger)})"]
+        n = len(ys)                                   # numaralar ★ listesinden devam eder (geri bildirim icin)
         for s, b, ks in diger:
             satir += ["", f"**{(str(s['mukerrer']) + '. Mükerrer · ') if s['mukerrer'] else ''}{b['bolum']}**"]
-            satir += [f"- {k['baslik']} (s. {k['sayfa']})" for k in ks]
+            for k in ks:
+                n += 1
+                satir.append(f"- **{n}.** {k['baslik']} (s. {k['sayfa']})")
     satir += ["", "<sub>Otomatik özetler yapay zekâ ile üretilir, hata içerebilir; kesin metin için PDF.</sub>",
               "", IMZA.format(ymd=ymd)]
     metin = "\n".join(satir)

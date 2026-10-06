@@ -3,7 +3,9 @@
 # Bölüm A: şimdi ★ olanlar. Yanlışsa - yazın. Boş bırakılan satır DOĞRU sayılır.
 # Bölüm B: şimdi ★ olmayanlar. ★ olması gerekiyorsa + yazın. Boş bırakılan satır İLGİSİZ sayılır.
 # Sütunlar: tarih | bölüm | şimdiki alan | başlık (sayfa)  ‹kısa alıntı›
-# Günlük geri bildirim de ileride aynı biçimde buraya eklenecek.
+# İşaretler kesindir: [★]/[+] satırı her zaman ★ olur, [-]/[✗] satırı hiç ★ olmaz (kurallardan önce bakılır).
+# Günlük geri bildirim: "📰 Günlük bildirim" konusuna "✗ 2" (2 numaralı kalem ilgisiz) ya da "★ 7"
+# (7 numaralı kalem ilgili) yazın; bot satırı en alttaki GÜNLÜK GERİ BİLDİRİM bölümüne ekler.
 
 
 # ===== BÖLÜM A: şimdi ★ olan 26 kalem =====
