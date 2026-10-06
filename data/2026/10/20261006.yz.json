@@ -1,0 +1,19 @@
+{
+ "kalemler": {
+  "2026-2027 Eğitim Öğretim Yılında Organize Sanayi Bölgeleri İçinde ve Organize Sanayi Bölgeleri Dışında Açılan Özel Meslekî ve Teknik Anadolu Liselerinde Öğrenim Gören/Görecek Öğrenciler İçin Eğitim ve Öğretim Desteği Verilmesine İlişkin Tebliğ (s. 15)": {
+   "ne_getiriyor": [
+    "Organize sanayi bölgeleri içinde açılan özel meslekî ve teknik Anadolu liseleri için Tablo-1'de, organize sanayi bölgeleri dışında açılanlar için Tablo-2'de yer alan alan/dallardaki Türkiye Cumhuriyeti vatandaşı 9, 10, 11 ve 12 nci sınıf öğrencilerine eğitim ve öğretim desteği verilecektir.",
+    "Eğitim öğretim desteği süresi okulun toplam öğretim süresini aşamayacak, nakil yoluyla gelen öğrenciler için ise bu süre okulun kalan öğretim süresinden fazla olamayacaktır.",
+    "Öğrencinin desteği alabilmesi için eğitim öğretim yılının başlamasından en geç otuz gün içinde okula kaydının ya da naklinin yapılmış olması, okula devam etmesi ve devamsızlıktan başarısız duruma düşmemesi şarttır.",
+    "Organize sanayi bölgesi dışında açılacak liseler için okulun bulunduğu il veya ilçe nüfusunun 20.000 ve üzerinde olması şartı aranacaktır.",
+    "Organize sanayi bölgesi dışındaki okullarda takviye kursları, yemek, servis ve pansiyon hariç, destek kapsamındaki öğrencilerden tebliğde belirlenen destek tutarı kadar eğitim öğretim ücreti alınabilmesi koşuluyla destek sağlanacaktır.",
+    "Gerçek dışı beyanla fazladan ödemeye yol açılması durumunda tutarlar, 6183 sayılı Kanunun 51 inci maddesine göre gecikme zammıyla birlikte bir ay içinde tahsil edilecek, ödenmezse vergi dairelerince takip edilecek ve fiilin tekrarında kurum açma izinleri iptal edilecektir.",
+    "Destek tutarları Millî Eğitim Bakanlığı bütçesine konulan ödenekten karşılanacak olup ödeme usullerini belirlemeye Millî Eğitim Bakanlığı, tebliğde yer almayan hususları düzenlemeye ise Millî Eğitim Bakanlığı ile Hazine ve Maliye Bakanlığı yetkilidir."
+   ],
+   "yururluk": "2026-2027 eğitim öğretim yılı için geçerli olmak üzere yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-06T02:03:47+00:00"
+}
