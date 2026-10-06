@@ -12,8 +12,23 @@
    ],
    "yururluk": "2026-2027 eğitim öğretim yılı için geçerli olmak üzere yayımı tarihinde yürürlüğe girer.",
    "surum": 2
+  },
+  "Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)": {
+   "ne_getiriyor": [
+    "Çevre yönetimi hizmeti alacak işletmelerin hizmet alma süreleri düzenlenmiş; Çevre İzin ve Lisans Yönetmeliği EK-1 listesindekiler ayda en az iki iş günü, EK-2 listesindekiler ve diğerleri ayda en az bir iş günü hizmet almak zorundadır.",
+    "Çevre danışmanlık firması yeterlik belgesi başvuru şartları değiştirilmiş, tam süreli istihdam edilen en az beş personelin tecrübe koşulları ile TMMOB Çevre Mühendisleri Odasından alınan geçerli büro tescil belgesi şartı getirilmiştir.",
+    "Çevre danışmanlık firmalarının ortaklık yapısının değişmesi halinde, değişikliğin Türkiye Ticaret Sicili Gazetesinde yayımlandığı tarihten itibaren en geç 30 gün içinde ortakların yüzde ellisinden fazlasının yeterlik belgesine sahip olması şartının sağlanması zorunlu kılınmıştır.",
+    "Çevre danışmanlık firmalarının yükümlülükleri arasında, işletmelerde tespit edilen aykırılık ve uygunsuzlukları aylık faaliyet raporuna yazma, süresi içinde giderilmeyenler için yetkili makama bildirimde bulunma ve MELBES üzerinden emisyon ölçüm başvurusu yapma görevleri eklenmiştir.",
+    "Yeterlik belgelerinin denetimler sonucunda yanlış/yanıltıcı bilgi verilmesi veya son dört yıl içinde 200 ceza puanına ulaşılması hallerinde iki yıl süreyle iptal edileceği hükme bağlanmıştır.",
+    "Aylık asgari hizmet fiyatının hesaplanmasında esas alınacak oranlar yeniden belirlenmiş; EK-1 listesindeki işletmeler için net asgari ücretin 3/4'üne, EK-2 listesindekiler için 1/2'sine izin belgesi birim fiyatlarının yüzde beşi eklenerek hesaplanacağı düzenlenmiştir.",
+    "Çevre yönetimi hizmeti almayan işletmelere, aykırılıkları bildirmeyen danışmanlık firmalarına ve bilgi/belge sunmayan işletmelere 2872 sayılı Kanunun ilgili maddeleri gereğince idari para cezası verileceği eklenmiştir.",
+    "Mevcut çevre danışmanlık firmalarının büro tescil belgesi şartını 1/1/2027 tarihine kadar sağlamakla yükümlü olduğu ve mevcut sözleşmelerin en geç 1/1/2027 tarihine kadar asgari fiyat tarifesine göre yenileneceği geçici hüküm olarak getirilmiştir.",
+    "Çalışma ve Sosyal Güvenlik Bakanlığınca üç farklı işyerinin (şoförlük ve ulaştırma, otopark ve garaj, öğretmen evi yemek üretimi) işkolları tespiti kararları yayımlanmıştır."
+   ],
+   "yururluk": "YAYIMI TARİHİ",
+   "surum": 2
   }
  },
- "model": "gemini-flash-latest",
- "guncelleme": "2026-10-06T02:03:47+00:00"
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-06T16:14:07+00:00"
 }
