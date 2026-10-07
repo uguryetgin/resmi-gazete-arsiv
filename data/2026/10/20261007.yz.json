@@ -1,0 +1,34 @@
+{
+ "kalemler": {
+  "Suç Gelirlerinin Aklanmasının ve Terörün Finansmanının Önlenmesine Dair Tedbirler Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (Karar Sayısı: 11845) (s. 9)": {
+   "ne_getiriyor": [
+    "Yönetmeliğin 5 inci maddesinin birinci fıkrasının (b) bendinde yer alan \"yüzseksenbeşbin TL\" ibaresi \"üçyüzyetmişbin TL\" şeklinde, \"onbeşbin TL\" ibareleri \"otuzbin TL\" şeklinde değiştirilmiştir.",
+    "Aynı fıkranın (c) bendinde yer alan \"onbeşbin TL\" ibaresi \"otuzbin TL\" şeklinde değiştirilmiştir.",
+    "Finansal kuruluşlarca internet, mobil hizmet kanalları veya SMS OTP yoluyla doğrulama yapılması durumunda imza örneği alınmayabilir.",
+    "Doğrulamanın işlemin niteliği ve risk düzeyine uygun olması, müşteri olduğuna yeterli güvence sağlaması ve yetkisiz işlem riskine karşı uygun güvenlik tedbirleri içermesi gerekir.",
+    "Yönetmeliğin 24 üncü maddesinin birinci ve ikinci fıkralarında yer alan \"Onbeşbin TL\" ibareleri \"Otuzbin TL\" şeklinde değiştirilmiştir.",
+    "Yönetmeliğin 24/A maddesinin birinci ve ikinci fıkralarında yer alan \"Onbeşbin TL\" ibareleri \"Otuzbin TL\" şeklinde değiştirilmiştir.",
+    "3 üncü maddenin birinci fıkrasının (f) bendi dışında kalan yükümlüler bakımından yalnızca yükümlülük uyum denetimi raporu düzenlenir.",
+    "Denetim sırasında ihlal tespit edilmesi durumunda raporda bu ihlallere yer verilir ve rapor, yükümlülük ihlali inceleme raporu yerine geçer."
+   ],
+   "yururluk": "Bu Yönetmelik yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Kentsel Dönüşüm Başkanlığı Personelinin Atama ve Yer Değiştirme Yönetmeliği (s. 80)": {
+   "ne_getiriyor": [
+    "Yönetmelik, Kentsel Dönüşüm Başkanlığı bünyesinde 657 sayılı Kanun kapsamında görev yapan kentsel dönüşüm müdürleri, şube müdürleri ile merkez ve taşra teşkilatındaki teknik ve idari personelin yer değiştirme ve atama usullerini kapsar.",
+    "Türkiye altı hizmet bölgesine ayrılmış olup yer değiştirmelerde hizmet puanı, personel doluluk oranı ve birimlerdeki yüzde 75 asgari personel sayısı esas alınır; çalışma sürelerinin tespitinde 1 Haziran tarihi baz alınır.",
+    "Atama kadroları her yıl en geç Nisan ayı sonuna kadar duyurulur; duyurudan itibaren en geç on iş günü içinde başlayıp beş ila on iş günü süren başvurularda memurlar en fazla üç tercihte bulunabilir.",
+    "Bulunduğu yerde en az üç yıl çalışan personelin becayiş talepleri, üst bölgelerden 5 veya 6 ncı bölgelere atanma istekleri ile beş yıl hizmeti bulunanların merkez veya alt bölgelere geçiş talepleri ilan dönemine bağlı kalmaksızın yapılabilir.",
+    "Soruşturma neticesinde birimde kalması sakıncalı bulunanlar resen atanabilir; görevde yükselme veya ünvan değişikliği sınavı sonucu atananların ise mazeret halleri dışında atandıkları yerde en az beş yıl görev yapması zorunludur.",
+    "Kentsel dönüşüm müdürü kadrolarına atanabilmek için üniversitelerin mühendislik, hukuk, mimarlık, iktisadi ve idari bilimler fakülteleri veya fen fakültelerinin fizik, kimya, biyoloji gibi ilgili bölümlerinden en az dört yıllık lisans mezuniyeti aranır.",
+    "Yılda toplam 90 günü geçmeyen geçici görevler ile altı ayı aşmayan sağlık izinleri bölge hizmetinden sayılır; proje, afet veya yabancı dil/doktora şartlarına bağlı kurum içi geçici görevlendirmeler üç yılı geçemez.",
+    "Emeklilik hakkı kazananlar en geç Mart ayında başvurarak emeklilik tarihine kadar yerinde kalabilir; mazeretinde gerçek dışı beyan saptananların atamaları iptal edilirken, Bakanlıktan Başkanlığa devredilen personelin Bakanlıktaki süreleri Başkanlıkta geçmiş sayılır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-07T01:01:56+00:00"
+}

@@ -1,0 +1,146 @@
+[
+ {
+  "temel": null,
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "10/12/2007 tarihli ve 2007/13012 sayılı Bakanlar Kurulu Kararı ile yürürlüğe konulan Suç Gelirlerinin Aklanmasının ve Terörün Finansmanının Önlenmesine Dair Tedbirler Hakkında Yönetmeliğin 5 inci maddesinin birinci fıkrasının (b) bendinde yer alan “yüzseksenbeşbin TL” ibaresi “üçyüzyetmişbin TL” şeklinde, “onbeşbin TL” ibaresi “otuzbin TL” şeklinde ve aynı fıkranın (c) bendinde yer alan “onbeşbin TL” ibaresi “otuzbin TL” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "5",
+     "fikra": 1,
+     "bent": "b"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "yüzseksenbeşbin TL",
+      "yeni": "üçyüzyetmişbin TL",
+      "birimler": [
+       {
+        "madde": "5",
+        "fikra": 1,
+        "bent": "b"
+       }
+      ],
+      "cogul": false
+     },
+     {
+      "eski": "onbeşbin TL",
+      "yeni": "otuzbin TL",
+      "birimler": [
+       {
+        "madde": "5",
+        "fikra": 1,
+        "bent": "b"
+       },
+       {
+        "madde": "5",
+        "fikra": 1,
+        "bent": "c"
+       }
+      ],
+      "cogul": false
+     }
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 16 ncı maddesinin birinci fıkrasına ikinci cümlesinden sonra gelmek üzere aşağıdaki cümleler eklenmiştir.",
+    "birim": {
+     "madde": "16",
+     "fikra": 1,
+     "cumle": 2
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "16",
+     "fikra": 1,
+     "cumle": 2
+    },
+    "yeni_metin": "Finansal kuruluşlarca; internet veya mobil hizmet kanalları üzerinden ya da müşterinin yükümlü nezdinde kayıtlı ve daha önce doğrulanmış cep telefonu numarasına kısa mesaj servisi ile gönderilen tek kullanımlık doğrulama kodu (SMS OTP) yoluyla doğrulama yapılması durumunda imza örneği alınmayabilir. Yapılacak doğrulamanın, işlemin niteliği ve risk düzeyine uygun olması, işlem yaptıranın daha önce kimliği tespit edilen müşteri olduğuna yeterli güvence sağlaması ve yetkisiz kişilerin müşteri adına işlem yapması riskine karşı uygun güvenlik tedbirlerini içermesi gerekir.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 24 üncü maddesinin birinci ve ikinci fıkralarında yer alan “Onbeşbin TL” ibareleri “Otuzbin TL” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "24"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "Onbeşbin TL",
+      "yeni": "Otuzbin TL",
+      "birimler": [
+       {
+        "madde": "24",
+        "fikra": 2
+       }
+      ],
+      "cogul": true
+     }
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 24/A maddesinin birinci ve ikinci fıkralarında yer alan “Onbeşbin TI” ibareleri “Otuzbin TL” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "24/A"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "Onbeşbin TI",
+      "yeni": "Otuzbin TL",
+      "birimler": [
+       {
+        "madde": "24/A",
+        "fikra": 2
+       }
+      ],
+      "cogul": true
+     }
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 38 inci maddesine ikinci fıkradan sonra gelmek üzere aşağıdaki fıkra eklenmiş ve diğer fikralar buna göre teselsül ettirilmiştir.",
+    "birim": {
+     "madde": "38",
+     "fikra": 2
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "38",
+     "fikra": 2
+    },
+    "yeni_metin": "(3) 3 üncü maddenin birinci fıkrasının (f) bendi dışında kalan yükümlüler bakımından yalnızca yükümlülük uyum denetimi raporu düzenlenir. Denetim sırasında yükümlülük ihlali tespit edilmesi durumunda raporda bu ihlallere yer verilir ve bu rapor aynı zamanda yükümlülük ihlali inceleme raporu yerine geçer.",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Suç Gelirlerinin Aklanmasının ve Terörün Finansmanının Önlenmesine Dair Tedbirler Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (Karar Sayısı: 11845)",
+  "sayfa": 9,
+  "alan": "Ekonomi ve Finans",
+  "temel_baslik": "Suç Gelirlerinin Aklanmasının ve Terörün Finansmanının Önlenmesine Dair Tedbirler Hakkında Yönetmelik",
+  "ocr": true,
+  "kesilen": 0
+ }
+]
