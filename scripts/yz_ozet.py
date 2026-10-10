@@ -29,6 +29,7 @@ SON_MODEL = MODEL          # son basarili cagrinin modeli (kayit/etiket icin)
 METIN_SINIR = 30000        # karakter (Gemini girdisi genis; uzun kalemlerin tamami ozetlensin)
 SURUM = 2                  # ozet bicimi; eski surumdeki ozetler yeniden uretilir
 BEKLE = 12                 # istekler arasi saniye (ucretsiz katman dakikalik kotasi dusuk)
+ZAMAN_ASIMI = 120          # saniye; asilirsa ayni model yeniden denenmez, sonraki modele gecilir
 GUN_SINIR = int(os.environ.get("YZ_GUN_SINIR", "30") or 30)
 
 SISTEM = ("Türkçe hukuk metinlerini özetleyen dikkatli bir asistansın. Yalnız verilen metinde yazanı "
@@ -50,22 +51,35 @@ def yol(ymd):
 
 def istek(token, govde, deneme=3):
     """POST; kota (429) ve gecici sunucu hatalarinda (5xx) bekleyip yeniden dener, olmazsa ya da
-       model bulunamazsa (404) YEDEKLER'deki sonraki modele gecer (her modelin kotasi ayri)."""
+       model bulunamazsa (404) YEDEKLER'deki sonraki modele gecer (her modelin kotasi ayri).
+       Zaman asimi / baglanti hatasinda ayni modeli yeniden denemez, hemen sonraki modele gecer
+       (10.10.2026: flash-latest bazi kalemlerde 120 sn'de yanit vermedi, 3 kalem ozetsiz kaldi)."""
     global SON_MODEL
+    r, son_hata = None, None
     for model in dict.fromkeys([govde.get("model") or MODEL] + YEDEKLER):
         govde = dict(govde, model=model)
+        r = None
         for i in range(deneme):
-            r = requests.post(URL, json=govde, timeout=120, headers={
-                "Authorization": f"Bearer {token}", "Accept": "application/json",
-                "Content-Type": "application/json"})
+            try:
+                r = requests.post(URL, json=govde, timeout=ZAMAN_ASIMI, headers={
+                    "Authorization": f"Bearer {token}", "Accept": "application/json",
+                    "Content-Type": "application/json"})
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+                son_hata = e
+                print(f"::warning::{model}: {e.__class__.__name__}, sonraki model deneniyor")
+                break
             if r.status_code not in (429, 500, 502, 503, 504):
                 break
             if i < deneme - 1:      # 429: dakikalik kota; ucretsiz katmanda ~1 dk beklemek yeter
                 time.sleep(30 * (i + 1) if r.status_code == 429 else 10 * (i + 1))
+        if r is None:
+            continue
         if r.status_code not in (404, 429, 500, 502, 503, 504):
             SON_MODEL = model
             return r
         print(f"::warning::{model}: HTTP {r.status_code}, sonraki model deneniyor")
+    if r is None:
+        raise son_hata
     return r
 
 def sor(token, baslik, metin):
