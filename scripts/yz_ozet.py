@@ -122,11 +122,18 @@ def gun_isle(ymd, token, alanlar, haric):
     if not eksik:
         return 0
     tam = rt.tam_metinler(f"Resmî Gazete {meta['tarih']}", eksik, 10 ** 7, METIN_SINIR)
-    yeni = 0
+    yeni, degisti = 0, False
+    for k in eksik:                   # fihristte var ama sayfa metninde yok (gorsel/taranmis kalem):
+        if k not in {t[0] for t in tam}:   # kaydedilir ki her gun yeniden denenmesin ve kontrol dogru soylesin
+            print(f"::warning::{ymd} '{k[:60]}': gazete metninde bulunamadı (görsel/taranmış sayfa?), özet üretilemiyor")
+            kayit["kalemler"][k] = {"surum": SURUM, "hata": "metin gazetede bulunamadı (görsel/taranmış sayfa)"}
+            degisti = True
     try:
         for k, metin, _ in tam:
             if rg.temiz_oran(metin) < rg.BOZUK_ESIK:   # PDF metin katmani bozuk, OCR'lanmamis
                 print(f"::warning::{ymd} '{k[:60]}': metin bozuk (OCR yok), ozet atlandi")
+                kayit["kalemler"][k] = {"surum": SURUM, "hata": "metin bozuk (OCR yok)"}
+                degisti = True
                 continue
             if len(metin) > METIN_SINIR:
                 metin = metin[:METIN_SINIR].rsplit(" ", 1)[0] + " …"
@@ -140,7 +147,7 @@ def gun_isle(ymd, token, alanlar, haric):
                 print(f"::warning::{ymd} '{k[:60]}': {e}")
             time.sleep(BEKLE)
     finally:
-        if yeni:
+        if yeni or degisti:
             kaydet(ymd, kayit)
     return yeni
 

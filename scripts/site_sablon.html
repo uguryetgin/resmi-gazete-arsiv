@@ -358,6 +358,7 @@ function tablo(k){
 }
 
 function yzKutu(y){
+  if (y && y.hata && !y.ne_getiriyor) return '<div class="yz"><small>Otomatik özet yok: ' + kac(y.hata) + ". Tam metin için PDF.</small></div>";
   if (!y || !y.ne_getiriyor) return "";
   return '<div class="yz"><div class="yz-bas">Ne getiriyor · otomatik özet</div><ul>' +
     y.ne_getiriyor.map(function(m){ return "<li>" + vurgula(m, durum.ara) + "</li>"; }).join("") + "</ul>" +

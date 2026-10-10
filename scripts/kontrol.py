@@ -43,6 +43,11 @@ def sorunlar(token, repo, ymd, yorumlar):
         if eksik:
             out.append(f"{len(eksik)}/{len(yildiz)} ilgi alanı kaleminin otomatik özeti yok "
                        "(Gemini kotası ya da hata; \"GitHub Models özetleri\" iş akışını elle çalıştırın).")
+        metinsiz = [k for k in yildiz if (yz.get(k) or {}).get("hata")]
+        if metinsiz:      # fihristte var, sayfa metninde yok (gorsel basilmis karar vb.): is akisi cozmez
+            out.append(f"{len(metinsiz)}/{len(yildiz)} ilgi alanı kaleminin metni gazete metninde bulunamadı "
+                       "(görsel/taranmış sayfa), özeti üretilemiyor; PDF'e bakın: "
+                       + "; ".join(k[:70] for k in metinsiz))
         kesit = oku(f"{ymd}.kesit.json")
         eksik = [k for k in yildiz if k not in kesit]
         if eksik:
