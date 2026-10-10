@@ -156,8 +156,12 @@
    ],
    "yururluk": "1 Ocak 2027 tarihinde yürürlüğe girer.",
    "surum": 2
+  },
+  "Parakolay Elektronik Para A.Ş.’nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 59)": {
+   "surum": 2,
+   "hata": "metin gazetede bulunamadı (görsel/taranmış sayfa)"
   }
  },
- "model": "gemini-flash-lite-latest",
- "guncelleme": "2026-10-10T16:35:40+00:00"
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-10T17:04:51+00:00"
 }
