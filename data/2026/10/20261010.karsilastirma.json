@@ -1,0 +1,290 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2015-08-05",
+   "rg_sayi": "29436",
+   "mevzuatId": "107198",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=21027&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "TMMOB HARİTA VE KADASTRO MÜHENDİSLERİ ODASI LİSANSLI HARİTA VE KADASTRO MÜHENDİSLERİ VE BÜROLARI TESCİL YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "5/8/2015 tarihli ve 29436 sayılı Resmî Gazete’de yayımlanan TMMOB Harita ve Kadastro Mühendisleri Odası Lisanslı Harita ve Kadastro Mühendisleri ve Büroları Tescil Yönetmeliğinin 4 üncü maddesinin birinci fıkrasının (a) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "4",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "4",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "yeni_metin": "a) Mühendis: Harita Mühendisi, Harita ve Kadastro Mühendisi, Jeodezi ve Fotogrametri Mühendisi, Geomatik Mühendisi veya yüksek mühendisini,",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "a) HKM: Harita Mühendisi, Harita ve Kadastro Mühendisi, Jeodezi ve Fotogrametri Mühendisi, Geomatik Mühendisi veya yüksek mühendisini,",
+    "fark": [
+     [
+      "a) HKM:",
+      "a) Mühendis:"
+     ]
+    ]
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin ikinci bölümünün başlığı “LİHKAB Tescili, Tescil İçin Gerekli Koşullar, Tescil Yenilemesi, Kapanış İşlemleri” şeklinde değiştirilmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "diger"
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 5 inci maddesinin birinci fıkrasında yer alan “Ocak ayı sonuna kadar yıllık onayını yaptırmak” ibaresi “tescilini yenilemek” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "5",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "Ocak ayı sonuna kadar yıllık onayını yaptırmak",
+      "yeni": "tescilini yenilemek",
+      "birimler": [
+       {
+        "madde": "5",
+        "fikra": 1
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…çevesinde lisans belgesi alan Lisanslı Mühendis LİHKAB hizmetlerini yapabilmek için HKMO'ya kayıt ve tescil yaptırarak LİHKAB Tescil Belgesini almak ve her yıl Ocak ayı sonuna kadar yıllık onayını yaptırmak zorundadır. LİHKAB'ın tescili için gerekli koşullar, belgelendirme ve tescilin yenilenmesi…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 6 ncı maddesi başlığı ile birlikte aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "6"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "6"
+    },
+    "yeni_metin": "LİHKAB’ın tescili için gerekli koşullar, belgelendirme, tescilin yenilenmesi ve kapanış işlemleri” MADDE 6- (1) LİHKAB yetki alanı içerisinde LİHKAB hizmetlerini yapmak üzere tescil yenileme belgesi her yılın 1 Aralık-31 Aralık tarihleri arasında, bir sonraki yıl geçerli olmak üzere tescil yenileme bedeli karşılığında düzenlenir. Bu tarihten sonra yapılan başvurularda; başvuru tarihinden yıl sonuna kadar geçerli tescil yenileme belgesi verilir. LİHKAB’ın ilk tescil, yıllık tescil yenileme ve kapanış işlemlerinde aşağıdaki belgeler istenir: a) İlk tescil için; 1) Tip başvuru formu. 2) Lisans …",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "MADDE 6 – (Değişik:RG-7/12/2022-32036) (1) LİHKAB yetki alanı içerisinde LİHKAB hizmetlerini yapmak üzere LİHKAB’ın tescil edilmesinde ve yıllık onaylarının yapılmasında aşağıdaki belgeler istenir: a) Tescil edilmesinde; 1) Başvuru formu. 2) Lisans belgesi örneği. 3) Yemin tutanağının örneği. 4) İşyerinde bulundurulması zorunlu asgarî personel ve donanım listesi. 5) Tescil işleminin yapılacağı yıl içerisinde alınmış vergi mükellefi olduğuna dair belge. 6) 1 adet vesikalık fotoğraf (Son altı ay içinde çekilmiş). 7) Tescil ücreti (İlk açılış). b) Tescilin yenilenmesinde; 1) LİHKAB tescilinde …",
+    "fark": [
+     [
+      "",
+      "LİHKAB'ın tescili için gerekli koşullar, belgelendirme, tescilin yenilenmesi ve kapanış işlemleri”"
+     ],
+     [
+      "yapmak üzere LİHKAB'ın tescil edilmesinde ve yıllık onaylarının yapılmasında",
+      "yapmak üzere tescil yenileme belgesi her yılın 1 Aralık-31 Aralık tarihleri arasında, bir sonraki yıl geçerli olmak üzere tescil yenileme bedeli karşılığında …"
+     ],
+     [
+      "istenir: a) Tescil edilmesinde; 1)",
+      "istenir: a) İlk tescil için; 1) Tip"
+     ],
+     [
+      "belge. 6) 1",
+      "belge. 6) 2 (iki)"
+     ],
+     [
+      "fotoğraf (Son altı ay içinde",
+      "fotoğraf (son üç ay içerisinde"
+     ],
+     [
+      "7) Tescil ücreti (İlk açılış). b) Tescilin yenilenmesinde; 1) LİHKAB tescilinde",
+      "7) Tescil ücretinin ödendiğine ilişkin belge. b) Yıllık tescil yenileme için; 1) Lisans belgesinde"
+     ],
+     [
+      "2) Yıllık onay",
+      "2) Yıllık tescil yenileme"
+     ],
+     [
+      "dair belge.",
+      "dair belge. 4) Oda Yönetim Kurulunca belirlenen usul ve esaslar doğrultusunda mesleki faaliyet denetimine ilişkin sorumluluklarının yerine getirildiğine dair …"
+     ]
+    ],
+    "fark_kuyruk": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 7 nci maddesi başlığıyla birlikte aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "7"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "7"
+    },
+    "yeni_metin": "LİHKAB personeli ve listesi MADDE 7- (1) LİHKAB’da ücretli çalışan her mühendisin Odaya kayıtlı olması zorunludur.",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "MADDE 7 – (1) LİHKAB’da ücretli çalışan her HKM’nin Odaya kayıtlı olmaları zorunludur. (2) (Mülga:RG-7/11/2024-32715)",
+    "fark": [
+     [
+      "",
+      "LİHKAB personeli ve listesi"
+     ],
+     [
+      "çalışan her HKM'nin Odaya kayıtlı olmaları",
+      "çalışan her mühendisin Odaya kayıtlı olması"
+     ]
+    ],
+    "fark_kuyruk": true
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 8 inci maddesinin birinci fıkrasında yer alan “Lisanslı HKM Bürolarının” ibaresi “LİHKAB’ların” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "8",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "Lisanslı HKM Bürolarının",
+      "yeni": "LİHKAB’ların",
+      "birimler": [
+       {
+        "madde": "8",
+        "fikra": 1
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "(1) Lisanslı HKM Bürolarının hizmet üretimi HKMO mevzuatı çerçevesinde denetime tabidir.…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Yönetmeliğin 9 uncu maddesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "9"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "9"
+    },
+    "yeni_metin": "MADDE 9- (1) Lisanslı mühendis ile iş sahibi arasında LİHKAB Yönetmeliğinin 34 üncü maddesinde düzenlenen Tip Sözleşme doldurularak iş sahibiyle karşılıklı imzalanır. Sözleşmenin aslı LİHKAB’da arşivlenir. Kadastro teknik hizmetlerine ilişkin iş listesi, aylık olarak ve izleyen ayın ilk haftasında OBS’ye yüklenir ve mesleki faaliyet denetim görevlisi tarafından onaylanır.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "MADDE 9 – (Değişik:RG-7/12/2022-32036) (1) Lisanslı HKM ile iş sahibi arasında LİHKAB Yönetmeliğinin 34 üncü maddesinde düzenlenen Tip Sözleşme doldurularak iş sahibiyle karşılıklı imzalanır. Sözleşmenin aslı LİHKAB’da arşivlenir. EK-1 Form’da tanımlanan iş listesi doldurularak aylık olarak ve izleyen ayın ilk haftasında sorumlu Oda birimlerine verilir veya OBS’ye yüklenir.",
+    "fark": [
+     [
+      "(1) Lisanslı HKM",
+      "(1) Lisanslı mühendis"
+     ],
+     [
+      "LİHKAB'da arşivlenir. EK-1 Form'da tanımlanan iş listesi doldurularak",
+      "LİHKAB'da arşivlenir. Kadastro teknik hizmetlerine ilişkin iş listesi,"
+     ],
+     [
+      "ilk haftasında sorumlu Oda birimlerine verilir veya OBS'ye yüklenir.",
+      "ilk haftasında OBS'ye yüklenir ve mesleki faaliyet denetim görevlisi tarafından onaylanır."
+     ]
+    ]
+   },
+   {
+    "madde": 8,
+    "talimat": "Aynı Yönetmeliğin 12 nci maddesinin birinci fıkrasının (a) bendinde yer alan “bir bilgi sisteminde izlemekle” ibaresi “OBS üzerinden yönetmekle” şeklinde, aynı fıkranın (b) bendinde yer alan “Merkeze” ibareleri “merkeze” şeklinde ve (c) bendinde yer alan “HKMO’ca” ibaresi “HKMO tarafından” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "12",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "bir bilgi sisteminde izlemekle",
+      "yeni": "OBS üzerinden yönetmekle",
+      "birimler": [
+       {
+        "madde": "12",
+        "fikra": 1,
+        "bent": "a"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…önetim Kurulu, LİHKAB tescillerin yapılmasında, Büro Tescil Belgelerinin verilmesinde, yenilenmesinde, bunların iptalinde yetkili ve sorumlu olup, bu işlemleri bir bilgi sisteminde izlemekle görevlidir.…",
+      "kaynaktaki": null
+     },
+     {
+      "eski": "Merkeze",
+      "yeni": "merkeze",
+      "birimler": [
+       {
+        "madde": "12",
+        "fikra": 1,
+        "bent": "b"
+       }
+      ],
+      "cogul": true,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "b) HKMO Yönetim Kurulu, yetkilerini kısmen şube yönetim kurullarına veya Merkeze bağlı temsilciliklere devredebilir ya da geri alabilir. Yetkilerin devredilmesi hâlinde şube yönetim kurulları ve Merkeze bağlı temsilcilikler kayıt ve yenilem…",
+      "kaynaktaki": null
+     },
+     {
+      "eski": "HKMO’ca",
+      "yeni": "HKMO tarafından",
+      "birimler": [
+       {
+        "madde": "12",
+        "fikra": 1,
+        "bent": "c"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "c) HKMO'ca işin içeriği ve onayı ile ilgili bir denetim yapılmadığından, üretilen hizmetin bilim ve tekniğe, meslek gereklerine aykırı olması halinde sorumluluk hizmeti ü…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "TMMOB Harita ve Kadastro Mühendisleri Odası Lisanslı Harita ve Kadastro Mühendisleri ve Büroları Tescil Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 54,
+  "alan": "Mühendislik",
+  "temel_baslik": "TMMOB Harita ve Kadastro Mühendisleri Odası Lisanslı Harita ve Kadastro Mühendisleri ve Büroları Tescil Yönetmeliği",
+  "ocr": false,
+  "kesilen": 1
+ }
+]
