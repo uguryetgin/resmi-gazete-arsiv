@@ -97,7 +97,7 @@ jobs:
       - name: GitHub Models ile ★ özetleri
         if: steps.indir.outputs.code == '0'
         continue-on-error: true
-        timeout-minutes: 15
+        timeout-minutes: 40   # 10.10.2026: 15 ★ kalem 15 dk sınırını aştı, 3 kalem özetsiz kaldı (kalem başı ~1 dk + kota beklemeleri)
         env:
           YMD: ${{ steps.indir.outputs.ymd }}
           GITHUB_TOKEN: ${{ github.token }}
