@@ -138,8 +138,26 @@
    ],
    "yururluk": "Yayımı tarihinde yürürlüğe girer.",
    "surum": 2
+  },
+  "İller Bankası Anonim Şirketinin Sermayesinin 250.000.000.000 Türk Lirasına Çıkarılması Hakkında Karar (Karar Sayısı: 11856) (s. 1)": {
+   "ne_getiriyor": [
+    "İller Bankası Anonim Şirketinin sermayesi 250.000.000.000 Türk Lirasına çıkarılmıştır."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  },
+  "Enerji Piyasası Düzenleme Kurulunun 08/10/2026 Tarihli ve 14938 Sayılı Kararı (s. 60)": {
+   "ne_getiriyor": [
+    "6 Şubat 2023 depremlerinin etkilerinin devam etmesi nedeniyle, Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliği'nin 140 inci maddesi uyarınca 31 Aralık 2027 tarihine kadar erteleme hükümleri getirilmiştir.",
+    "Akedaş Elektrik Dağıtım A.Ş., Dicle Elektrik Dağıtım A.Ş., Fırat Elektrik Dağıtım A.Ş. ve Toroslar Elektrik Dağıtım A.Ş. ile bu bölgelerdeki görevli tedarik şirketlerinin ilgili mevzuat kapsamındaki kategorileri kapsam içine alınmıştır.",
+    "Organize Sanayi Bölgelerinin doğrudan veya dolaylı ortağı olduğu tedarik şirketlerinin ilgili Organize Sanayi Bölgesi sınırları içindeki elektrik satışları kapsama dâhil edilmiştir.",
+    "Yönetmeliğin 132/Ç maddesinin birinci fıkrasında belirtilen avans ödeme bildirimlerindeki bedellerin ilgili fatura döneminin son ödeme tarihine kadar ertelenmesi kararlaştırılmıştır.",
+    "Avans ödemelerinin ertelendiği süre boyunca piyasa işletmecisi ve piyasa katılımcısına temerrüt faizi uygulanmayacağı hükme bağlanmıştır."
+   ],
+   "yururluk": "1 Ocak 2027 tarihinde yürürlüğe girer.",
+   "surum": 2
   }
  },
- "model": "gemini-flash-latest",
- "guncelleme": "2026-10-10T01:21:54+00:00"
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-10T16:35:40+00:00"
 }
