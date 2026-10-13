@@ -1,0 +1,31 @@
+{
+ "kalemler": {
+  "Elektrikli Skuter Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)": {
+   "ne_getiriyor": [
+    "Yönetmeliğin 6 ncı maddesinin üçüncü fıkrasına aykırı davrananlara 2918 sayılı Kanunun 66 ncı maddesinin altıncı fıkrası uyarınca 86.900 TL idari para cezası verilir ve tutanak İdare tarafından düzenlenir.",
+    "Yönetmeliğin 10 uncu maddesinin birinci fıkrasına veya 16 ncı maddesinin on dördüncü fıkrasına aykırı hareket edenlere Kararnamenin 28/A maddesi kapsamında 86.900 TL idari para cezası uygulanır.",
+    "Yönetmeliğin 6 ncı, 15 inci ve 16 ncı maddelerinde sayılan belirli fıkralara aykırı davrananlara Kararnamenin 28/A maddesinin birinci fıkrasının (i) bendine göre 8.687 TL idari para cezası kesilir.",
+    "Yönetmeliğin 16 ncı maddesinin on birinci fıkrasına aykırılıkta ilkinde 8.687 TL, ikincisinde 86.900 TL, üçüncüsünde 170.000 TL ceza uygulanır; ayrıca üçüncü ihlalde yetki belgesi kapsamındaki faaliyetler 6 ay süreyle geçici olarak durdurulur.",
+    "Yönetmeliğin 16 ncı maddesinin on ikinci fıkrasına aykırılıkta 43.447 TL; denetim yetkililerine bilgi veya belge ibraz etmeyenlere ise 50.000 TL idari para cezası verilir.",
+    "İdarenin düzenleyeceği özel ceza hariç olmak üzere, Yönetmelikteki kusurları işleyenler hakkında idari para cezası tutanakları Yönetmeliğin 21 inci maddesinin birinci fıkrasında belirtilen görevliler tarafından tanzim edilir.",
+    "Birden fazla kusurun bir arada işlenmesi halinde her kabahat için ayrı tutanak tutulur; e-skuter ile gerçekleştirilen ihlallerde her bir e-skuter için ayrı ayrı idari para cezası uygulanır.",
+    "İdari para cezası tutanaklarının elektronik olarak da düzenlenebilmesine imkân sağlanmış olup elektronik tutanaklara ilişkin usul ve esasları belirleme yetkisi İdareye verilmiştir."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Yükseköğretim Kurumları Teknoloji Transfer Ofisi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 6)": {
+   "ne_getiriyor": [
+    "7/12/2017 tarihli ve 30263 sayılı Resmî Gazete'de yayımlanan Yükseköğretim Kurumları Teknoloji Transfer Ofisi Yönetmeliğinin 6 ncı maddesinin birinci fıkrasına (k) bendi eklenmiştir.",
+    "Yükseköğretim kurumlarında gerçekleştirilen araştırma ve geliştirme faaliyetleri sonucunda ortaya çıkan bilgi, buluş ve teknolojilerin ölçeklendirilmesi, seri üretimi veya doğrudan ticarileştirilmesi amaçlanmaktadır.",
+    "Teknoloji transfer ofislerine, ilgili mevzuat hükümleri saklı kalmak kaydıyla sınai ve ticari nitelikteki üretim tesislerini bizzat kurma ve şube açma yetkisi tanınmıştır.",
+    "Ar-Ge çıktılarının seri üretimi veya ticarileştirilmesi amacıyla sınai ve ticari nitelikteki üretim tesislerinin devralınabilmesi ve işletilebilmesi hükme bağlanmıştır.",
+    "İlgili mevzuat hükümleri saklı kalmak kaydıyla, teknoloji transfer ofislerinin söz konusu sınai ve ticari nitelikteki tesislere ortak olabilmesine olanak sağlanmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-13T02:44:59+00:00"
+}
