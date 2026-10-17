@@ -1,0 +1,20 @@
+{
+ "kalemler": {
+  "Ataşehir Adıgüzel Meslek Yüksekokulu Gıda ve Bitkisel Üretim Uygulama ve Araştırma Merkezi Yönetmeliği (s. 1)": {
+   "ne_getiriyor": [
+    "Ataşehir Adıgüzel Meslek Yüksekokulu Gıda ve Bitkisel Üretim Uygulama ve Araştırma Merkezi'nin amaçlarına, faaliyet alanlarına, yönetim organlarına ve çalışma şekline ilişkin usul ve esasları düzenlemektedir.",
+    "Merkez; gıda, bitkisel üretim, yapay zekâ destekli tarımsal sistemler, hassas ve dijital tarım, akıllı sera ve dikey tarım uygulamaları alanlarında araştırma, eğitim, proje ve danışmanlık faaliyetleri yürütmektedir.",
+    "Merkezin yönetim organları Müdür, Yönetim Kurulu ve Danışma Kurulu'ndan oluşmaktadır.",
+    "Müdür, Merkezin faaliyet alanlarıyla ilgili çalışmaları bulunan Meslek Yüksekokulu öğretim elemanları arasından Yüksekokul Müdürü tarafından üç yıllık süre için görevlendirilmektedir.",
+    "Müdüre çalışmalarında yardımcı olmak üzere en fazla iki müdür yardımcısı, Meslek Yüksekokulu öğretim elemanları arasından Müdürün önerisiyle Yüksekokul Müdürü tarafından üç yıllık süre için görevlendirilmektedir.",
+    "Yönetim Kurulu; Müdür, müdür yardımcıları ve Müdürün önerisiyle Yüksekokul Müdürü tarafından görevlendirilen dört üye olmak üzere toplam en fazla yedi üyeden oluşur ve yılda en az dört kez toplanmaktadır.",
+    "Danışma Kurulu; kamu, özel sektör, yerel yönetim ve teknopark temsilcileri, akademisyenler ile uzmanlar arasından görevlendirilen üyelerle birlikte en fazla on üç üyeden oluşur ve yılda en az bir kez toplanmaktadır.",
+    "Merkezin akademik, teknik ve idari personel ihtiyacı, ilgili mevzuat hükümlerine göre Yüksekokul Müdürü tarafından görevlendirilen personel ile karşılanmaktadır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-17T23:20:20+00:00"
+}
