@@ -1,0 +1,1230 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2014-01-28",
+   "rg_sayi": "28896",
+   "mevzuatId": "108248",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=19357&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASI BAĞLANTI VE SİSTEM KULLANIM YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "28/1/2014 tarihli ve 28896 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliğinin 14 üncü maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "14"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "14"
+    },
+    "yeni_metin": "(10) Anlaşma gücünden daha fazla kurulu güçte depolama tesisi kurmak isteyen tüketiciler, şebekeye enerji verilmesinin önlenmesine ve şebekeden enerji çekilmesinde mevcut anlaşma gücünün aşılmamasına yönelik otomatik güç kontrol ünitesi ile enerji kesme sistemi tesis etmek ve gerekli tüm tedbirleri almak ile yükümlüdür.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 16 ncı maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "16"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "16"
+    },
+    "yeni_metin": "(4) Üretim lisansı sahibi kullanıcılar lisansları iptal edilmediği veya sona ermediği sürece dağıtım sisteminden ayrılmayı talep edemezler. Ancak, dağıtım sistemine bağlı bir üretim tesisinin ilgili mevzuat kapsamında iletim sistemine bağlanmasının talep edilmesi durumunda, ilgili lisans sahibi tüzel kişinin lisansındaki bağlantı noktasının tadil edilmesinden sonra ilgili dağıtım şirketine dağıtım sisteminden ayrılma talebinde bulunabilir.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 21 inci maddesinin ikinci fıkrasında yer alan “bağlantı anlaşması ile eş zamanlı olarak,” ibaresi “bağlantı anlaşmasının imzalanmasından sonra en geç otuz gün içerisinde” olarak değiştirilmiştir.",
+    "birim": {
+     "madde": "21",
+     "fikra": 2
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "bağlantı anlaşması ile eş zamanlı olarak,",
+      "yeni": "bağlantı anlaşmasının imzalanmasından sonra en geç otuz gün içerisinde",
+      "birimler": [
+       {
+        "madde": "21",
+        "fikra": 2
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "(2) Başvuru sahibinin gerekli dağıtım şebekesinin yapımını üstlenmeyi tercih etmesi durumunda; dağıtım şirketi ile başvuru sahibi arasında bağlantı anlaşması ile eş zamanlı olarak, ilgili dağıtım tesisine ilişkin finansman ve bağlantı koşulları gibi hususların düzenlendiği tesis yapım sözleşmesi imzalanır. Bu durumda söz konusu dağıtım te…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 24 üncü maddesinin dördüncü fıkrası aşağıdaki şekilde değiştirilmiş ve aynı maddeye aşağıdaki fıkralar eklenmiştir.",
+    "birim": {
+     "madde": "24",
+     "fikra": 4
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {
+     "madde": "24",
+     "fikra": 4
+    },
+    "ekleme_birim": {
+     "madde": "24",
+     "fikra": 4
+    },
+    "yeni_metin": "(4) Kullanıcılar, Dağıtım Sistem Kullanım Anlaşmasının 14 üncü maddesi kapsamında belirlenen teminat tutarı kadar kesin ve süresiz banka teminat mektubunu ya da nakit teminatı dağıtım şirketine sunmakla yükümlüdür. Kullanıcı tarafından tercih edilmesi halinde bu yükümlülük e-teminat mektubu sunularak yerine getirilebilir. İlgili madde kapsamında teminat artırımının gerekmesi halinde, dağıtım şirketi tarafından kullanıcıya yapılan yazılı bildirimi müteakip on iş günü içerisinde ek teminat verilmek sureti ile teminat yükümlülüğü yerine getirilir. Kullanıcının dağıtım şirketi uhdesinde …",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(4) (Ek:RG-9/5/2021-31479) Dağıtım şirketlerinin dağıtım sistem kullanımı kapsamında teminat almasına ilişkin hususlar Kurum tarafından çıkarılacak usul ve esaslarda düzenlenir. Ödeme prosedürü"
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğe aşağıdaki geçici madde eklenmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {},
+    "yeni_metin": "Teminatların iade edilmesi GEÇİCİ MADDE 15- (1) 24 üncü maddenin altıncı fıkrası kapsamında oluşan fazla teminatlar, bu maddenin yürürlüğe girdiği tarihten itibaren bir ay içerisinde dağıtım şirketi tarafından ilgili kullanıcılara iade edilir.",
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 1,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2009-04-14",
+   "rg_sayi": "27200",
+   "mevzuatId": "110847",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=12985&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASI DENGELEME VE UZLAŞTIRMA YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "14/4/2009 tarihli ve 27200 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin 4 üncü maddesinin birinci fıkrasının (aa) bendinde yer alan “saatlik” ibaresi yürürlükten kaldırılmış, (şş) bendi aşağıdaki şekilde değiştirilmiş, (tttt) bendinde yer alan “Uzlaştırmaya esas veriş-çekiş birimi” ibaresinden sonra gelmek üzere “(UEVÇB)” ibaresi eklenmiş ve (ccccc), (eeece), (ggggg) ve (ın) bentlerinde yer alan “ya da” ibareleri “ve/veya” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "4",
+     "fikra": 1
+    },
+    "coklu": true,
+    "turler": [
+     "ibare",
+     "ibare-kaldirma",
+     "ibare-ekleme",
+     "yeniden",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "ya da",
+      "yeni": "ve/veya",
+      "birimler": [
+       {
+        "madde": "4",
+        "fikra": 1
+       }
+      ],
+      "cogul": true,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…dirimlerine istinaden gerçekleştirilen ödemeyi, e) Bağlantı noktası: Piyasa katılımcılarının ve/veya serbest tüketicilerin bağlantı anlaşmaları uyarınca iletim ya da dağıtım sistemine bağlandıkları saha veya irtibat noktasını, f) Bakanlık: Enerji ve Tabii Kaynaklar Bakanlığını, g) Başkan: Enerji Piyasası Düzenleme Kurulu Ba…",
+      "kaynaktaki": null
+     }
+    ],
+    "kaldirilan_ibareler": [
+     "saatlik"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "Uzlaştırmaya esas veriş-çekiş birimi",
+      "eklenen": "(UEVÇB)"
+     }
+    ],
+    "yeniden_birim": {},
+    "ekleme_birim": {
+     "madde": "4",
+     "fikra": 1
+    },
+    "yeni_metin": "$ş) Kesinleşmiş gün öncesi üretim/tüketim programı (KGÜDP): Bir uzlaştırmaya esas veriş-çekiş biriminin bağlı olduğu piyasa katılımcısının yükümlülüklerine bağlı olarak bir sonraki güne ilişkin gerçekleştirmeyi öngördüğü ve Sistem İşletmecisine dengeleme güç piyasasının başlangıcında bildirdiği üretim ve/veya tüketim değerlerini,",
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 9 uncu maddesinin birinci fıkrasının (c) bendinde yer alan “saatlik” ibaresi yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "9",
+     "fikra": 1,
+     "bent": "c"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-kaldirma"
+    ],
+    "kaldirilan_ibareler": [
+     "saatlik"
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 22 nci maddesinin dördüncü fıkrasında yer alan “uygun bulunması halinde” ibaresinden sonra gelmek üzere “yük alma ve/veya yük atma yönünde” ibaresi eklenmiştir.",
+    "birim": {
+     "madde": "22",
+     "fikra": 4
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-ekleme",
+     "ekleme"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "uygun bulunması halinde",
+      "eklenen": "yük alma ve/veya yük atma yönünde"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "22",
+     "fikra": 4
+    },
+    "talimat_goster": false
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 23 üncü maddesinin birinci fıkrasına aşağıdaki bent eklenmiştir.",
+    "birim": {
+     "madde": "23",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "23",
+     "fikra": 1
+    },
+    "yeni_metin": "f) Lisanssız elektrik üretim tesisi ile ilişkilendirilen tüketim noktasından çekilen elektrik enerjisi.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 32/C maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "32/C"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "32/C"
+    },
+    "yeni_metin": "(9) Üretim tesisinin toplayıcı portföyüne kaydettirilebilmesi için, tesisin en az bir ünitesinin Bakanlık kabulünün yapılmış olması ve devrin gerçekleşeceği tarihte kendisi ile ilişkili uzlaştırmaya esas veriş-çekiş birimlerine ilişkin kayıtların tamamlanmış olması gereklidir.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 66/C maddesinin altıncı fıkrası aşağıdaki şekilde degiştirilmiştir.",
+    "birim": {
+     "madde": "66/C",
+     "fikra": 6
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "66/C",
+     "fikra": 6
+    },
+    "yeni_metin": "(6) Gün içi piyasası teklifleri için fiyat alt limiti olarak Gün Öncesi Piyasasında ve Dengeleme Güç Piyasasında Asgari ve Azami Fiyat Limitlerinin Belirlenmesine İlişkin Usul ve Esaslarda belirtilen alt fiyat limiti uygulanır. Fiyat üst limiti, söz konusu Usul ve Esaslarda belirtilen üst fiyat limitinin, pozitif ve negatif dengesizlik katsayılarının minimumu ile çarpılıp bu limite eklenmesi suretiyle belirlenir. Fiyat alt ve üst limiti PYS aracılığıyla piyasa katılımcılarına bildirilir.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(6) (Değişik:RG-19/12/2023-32404)(35) Gün içi piyasası teklifleri için fiyat alt ve üst limitleri Gün Öncesi Piyasasında ve Dengeleme Güç Piyasasında Asgari ve Azami Fiyat Limitlerinin Belirlenmesine İlişkin Usul ve Esaslarda belirtilen fiyat limitlerinin en düşüğü ve en yükseğinin, pozitif ve negatif dengesizlik katsayıları ile çarpılması suretiyle belirlenir. Fiyat alt ve üst limiti PYS aracılığıyla piyasa katılımcılarına bildirilir. Saatlik tekliflerin yapısı ve içeriği",
+    "fark": [
+     [
+      "fiyat alt ve üst limitleri",
+      "fiyat alt limiti olarak"
+     ],
+     [
+      "Esaslarda belirtilen fiyat limitlerinin en düşüğü ve en yükseğinin,",
+      "Esaslarda belirtilen alt fiyat limiti uygulanır. Fiyat üst limiti, söz konusu Usul ve Esaslarda belirtilen üst fiyat limitinin,"
+     ],
+     [
+      "negatif dengesizlik katsayıları ile çarpılması",
+      "negatif dengesizlik katsayılarının minimumu ile çarpılıp bu limite eklenmesi"
+     ]
+    ],
+    "fark_kuyruk": true,
+    "fark_ocr": true
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Yönetmeliğin 67 nci maddesinin birinci fıkrasının (a) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "67",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "67",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "yeni_metin": "a) Dengeleme güç piyasası teklifleri günlük olarak, uzlaştırma dönemi bazında verilir. Her bir gün, 00:00”dan başlayıp, ertesi gün 00:00”da sona eren uzlaştırma dönemlerinden oluşur.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "a) Dengeleme güç piyasası teklifleri günlük olarak, saatlik bazda verilir. Her bir gün, 00:00’dan başlayıp, ertesi gün 00:00’da sona eren saatlik zaman dilimlerinden oluşur,",
+    "fark": [
+     [
+      "günlük olarak, saatlik bazda",
+      "günlük olarak, uzlaştırma dönemi bazında"
+     ],
+     [
+      "sona eren saatlik zaman dilimlerinden",
+      "sona eren uzlaştırma dönemlerinden"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 8,
+    "talimat": "Aynı Yönetmeliğin 68 inci maddesinin birinci fıkrasının (a), (c) ve (e) bentleri aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "68",
+     "fikra": 1
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {},
+    "yeni_metin": "a) Her gün saat 15:30'a kadar, dengeleme güç piyasasına katılan her bir piyasa katılımcısı, kendi adına kayıtlı üretim, elektrik depolama ünitesi veya tesisi ve tüketim tesisi niteliğindeki tüm uzlaştırmaya esas veriş-çekiş birimleri için uzlaştırma dönemi bazında üretim ve/veya tüketim değerlerini içeren kesinleşmiş gün öncesi üretim/tüketim programlarını ve dengeleme güç piyasasına ilişkin yük alma, yük atma tekliflerini PYS aracılığıyla Sistem İşletmecisine bildirir.” “c) Dengeleme güç piyasası kapsamında sunulan yük alma, yük atma teklifleri Sistem İşletmecisi tarafından her bir teklif …",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 3,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliği",
+  "ocr": true,
+  "kesilen": 8
+ },
+ {
+  "temel": {
+   "rg_tarih": "2013-11-02",
+   "rg_sayi": "28809",
+   "mevzuatId": "108386",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=18985&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASI LİSANS YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "2/11/2013 tarihli ve 28809 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasası Lisans Yönetmeliğinin 12 nci maddesinin beşinci fıkrasının (f) bendinde yer alan “kapasitesine” ibaresi “gücüne” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "12",
+     "fikra": 5,
+     "bent": "f"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "kapasitesine",
+      "yeni": "gücüne",
+      "birimler": [
+       {
+        "madde": "12",
+        "fikra": 5,
+        "bent": "f"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…anın (a) ve (b) bentleri kapsamındaki yükümlülüklerin belirlenmesinde, rüzgar veya güneş enerjisine dayalı mekanik kurulu gücü ile elektrik depolama ünitesinin kapasitesine denk gelen bedeller toplanarak birlikte değerlendirilir.…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 18 inci maddesinin beşinci fıkrasına aşağıdaki cümle eklenmiştir.",
+    "birim": {
+     "madde": "18",
+     "fikra": 5
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "18",
+     "fikra": 5
+    },
+    "yeni_metin": "Depolamalı elektrik üretim tesisleri için (a) bendi kapsamında sunulacak belgelerde elektrik depolama ünitesinin gücü dikkate alınır.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 20 nci maddesinin dördüncü fıkrasının (ç) bendinde yer alan “kapasitesi” ibaresi “gücü” şeklinde, aynı maddenin altıncı fıkrasında yer alan “kapasitesine” ibaresi “gücüne” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "20",
+     "fikra": 4,
+     "bent": "ç"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "kapasitesi",
+      "yeni": "gücü",
+      "birimler": [
+       {
+        "madde": "20",
+        "fikra": 4,
+        "bent": "ç"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…üzde yirmisinin eklenmesi ile birlikte belirlenen tutarda sermaye yeterliliğinin sağlandığına ilişkin bilgi veya belgeler ile müstakil elektrik depolama tesisi kapasitesi bazında Kurul kararı ile belirlenen oranlara karşılık gelen tutarda teminatın sunulması zorunludur. Talebin Kurul tarafından uygun bulunması halinde, Çevresel …",
+      "kaynaktaki": null
+     },
+     {
+      "eski": "kapasitesine",
+      "yeni": "gücüne",
+      "birimler": [
+       {
+        "madde": "20",
+        "fikra": 6
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…ıkranın (b) ve (d) bendi kapsamındaki yükümlülüklerin belirlenmesinde, rüzgar veya güneş enerjisine dayalı mekanik kurulu gücü ile elektrik depolama ünitesinin kapasitesine denk gelen bedeller toplanarak birlikte değerlendirilir.…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 24 üncü maddesinin on dokuzuncu fıkrasının (b) bendinde yer alan “kapasitesi” ibaresi “gücü” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "24",
+     "fikra": 19,
+     "bent": "b"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "kapasitesi",
+      "yeni": "gücü",
+      "birimler": [
+       {
+        "madde": "24",
+        "fikra": 19,
+        "bent": "b"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "b) Müstakil elektrik depolama tesisi kapasitesi bazında Kurul kararı ile belirlenen oranlara karşılık gelen tutardaki teminatın, Kuruma sunulması zorunludur. Başvurunun Kurul tarafından uygun bulunması halin…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 34 üncü maddesinin on beşinci fıkrasında yer alan “aynı” ibaresi “ilişkili olduğu izlenimi verebilecek ünvan,” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "34",
+     "fikra": 15
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "aynı",
+      "yeni": "ilişkili olduğu izlenimi verebilecek ünvan,",
+      "birimler": [
+       {
+        "madde": "34",
+        "fikra": 15
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…irketleri dışındaki tedarik lisansı sahibi tüzel kişiler, şirket ünvanında dağıtım lisansı sahibi şirketlerin bölge adına yer veremez ve dağıtım şirketleri ile aynı marka ve logoyu kullanamaz. Toplayıcı lisansı sahibinin hak ve yükümlülükleri…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 34/A maddesinin yedinci fıkrasında yer alan “aynı” ibaresi “ilişkili olduğu izlenimi verebilecek ünvan,” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "34/A",
+     "fikra": 7
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "aynı",
+      "yeni": "ilişkili olduğu izlenimi verebilecek ünvan,",
+      "birimler": [
+       {
+        "madde": "34/A",
+        "fikra": 7
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "(7) Toplayıcı lisansı sahibi tüzel kişiler, şirket ünvanında dağıtım lisansı sahibi şirketlerin bölge adına yer veremez ve dağıtım şirketleri ile aynı marka ve logoyu kullanamaz. Yükümlülüklerin ertelenmesi, askıya alınması ve kaldırılması…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Yönetmeliğin 35 inci maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "35"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "35"
+    },
+    "yeni_metin": "(6) Kurul tarafından daha önce bu madde kapsamında mücbir sebep olarak kabul edilen bir olayın, yatırımın tamamlanmasını engelleyici nitelikte sürekli hale gelmesi durumunda, söz konusu olay Kurul tarafından bu madde kapsamında değerlendirilmez.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 8,
+    "talimat": "Aynı Yönetmeliğin 45 inci maddesinin yedinci fıkrasının son cümlesi aşağıdaki şekilde değiştirilmiş ve aynı fıkraya aşağıdaki cümle eklenmiştir.",
+    "birim": {
+     "madde": "45",
+     "fikra": 7,
+     "cumle": "son"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {
+     "madde": "45",
+     "fikra": 7,
+     "cumle": "son"
+    },
+    "ekleme_birim": {
+     "madde": "45",
+     "fikra": 7,
+     "cumle": "son"
+    },
+    "yeni_metin": "Depolamalı elektrik üretim tesisine ilişkin lisans başvurusunda sunulan teminat, üretim tesisinin tamamı işletmeye geçinceye kadar iade edilmez.” “Bu kapsamda depolama ünitelerine ilişkin teminat iadesinde, kabulü yapılan depolama ünitesinin gücü dikkate alınır.",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin); son cümle kaynakta ayrılamadı, 45. madde, 7. fıkra gösteriliyor",
+    "eski_metin": "(7) (Ek:RG-19/11/2022-32018) Depolamalı elektrik üretim tesisi için önlisans başvuru aşamasında Kuruma sunulan teminat, lisans alınıncaya kadar iade edilmez. Depolamalı elektrik üretim tesisinin elektrik depolama ünitesine ilişkin lisans başvurusunda sunulan teminat, söz konusu elektrik depolama ünitesinin tamamı işletmeye geçinceye kadar iade edilmez. Kamulaştırma, irtifak hakkı tesisi, kullanma izni veya kiralama"
+   }
+  ],
+  "baslik": "Elektrik Piyasası Lisans Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 11,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasası Lisans Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2017-11-26",
+   "rg_sayi": "30252",
+   "mevzuatId": "106201",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=24112&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASI YAN HİZMETLER YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "26/11/2017 tarihli ve 30252 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasası Yan Hizmetler Yönetmeliğinin 31/C maddesinin üçüncü fıkrasının (a) bendine (13) numaralı alt bentten sonra gelmek üzere aşağıdaki (14) numaralı alt bent eklenmiş, sonraki alt bent buna göre teselsül ettirilmiş ve aynı maddenin altıncı fıkrasında yer alan “eşit miktarda” ibaresi “eşit oranda” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "31/C",
+     "fikra": 3,
+     "bent": "a"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "eşit miktarda",
+      "yeni": "eşit oranda",
+      "birimler": [
+       {
+        "madde": "31/C",
+        "fikra": 6
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…ni kontrol etmek amacıyla kapasite tedarik süreci sonucunda hizmeti sağlamaya hak kazanan toplayıcılara en fazla iki defa ve en fazla birer saat olacak şekilde eşit miktarda yük düşme talimatı verebilir. (7) Aktivasyon talimatları, tedarik süreci sonucunda hizmeti tedarik etmeye hak kazanan toplayıcılar arasında ayrım gözetilmeyece…",
+      "kaynaktaki": null
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "31/C",
+     "fikra": 3,
+     "bent": "a"
+    },
+    "yeni_metin": "14) Dağıtım sisteminden bağlı tüketim tesislerinin sayaç bilgileri ile anlaşma gücü degerini içeren ve ilgili dağıtım lisansı sahibi tüzel kişi tarafından onaylanacak belge,",
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 31/E maddesinin üçüncü fıkrası aşağıdaki şekilde degiştirilmiş ve aynı maddenin dördüncü fıkrasına aşağıdaki bentler eklenmiştir.",
+    "birim": {
+     "madde": "31/E",
+     "fikra": 3
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {
+     "madde": "31/E",
+     "fikra": 3
+    },
+    "ekleme_birim": {
+     "madde": "31/E",
+     "fikra": 4
+    },
+    "yeni_metin": "(3) Toplayıcılara kritik ayları takip eden fatura dönemlerinde talep tarafı katılımı hizmeti kapsamında yapılacak ödemeler, aylık kapasite bedeli ile aktivasyon talimatı alıp yerine getirilmesi halinde oluşan aktivasyon bedelinin toplamından oluşur ve aşağıdaki formüller uyarınca hesaplanır: TTKÖT,r - (KBÖT,X (1 - 2) 4 ABÖT,p” “m) c: Kritik ay içerisindeki izleme sonucu katılmadı olan toplam saat sayısını, n) p: Kritik ay içerisindeki talimat verilen toplam saat sayısını,",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(3) Toplayıcılara kritik ayları takip eden fatura dönemlerinde talep tarafı katılımı hizmeti kapsamında yapılacak ödemeler, aylık kapasite bedeli ile aktivasyon talimatı alıp yerine getirilmesi halinde oluşan aktivasyon bedelinin toplamından oluşur ve aşağıdaki formüller uyarınca hesaplanır:",
+    "fark": [
+     [
+      "uyarınca hesaplanır:",
+      "uyarınca hesaplanır: TTKÖT,r (KBÖT,X (1 2) 4 ABÖT,p"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 31/F maddesinin altıncı fıkrası aşağıdaki şekilde degiştirilmiştir.",
+    "birim": {
+     "madde": "31/F",
+     "fikra": 6
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "31/F",
+     "fikra": 6
+    },
+    "yeni_metin": "(6) Toplayıcının toplayıcılık hizmeti anlaşması yaptıkları tüketim tesislerinin, TEİAŞ tarafından talimat verilen her bir saat için sağladıkları toplam talep tarafı katılım miktarının, verilen talimat miktarına oranına göre izleme sonuçları; a) Verilen aktivasyon talimatı miktarından daha az yük düşülmesi durumunda, talimat verilen miktar ile düşülen yük miktarı arasındaki fark talimat miktarının; 1) ol0'una eşit veya daha küçük ise “sağladı”, 2) YolO'u ile 9625 arasında ise “sağlamadı”, 3) W25'ine eşit veya daha büyük ise “katılmadı”, b) Verilen aktivasyon talimatı miktarından daha fazla yük …",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(6) Toplayıcının toplayıcılık hizmeti anlaşması yaptıkları tüketim tesislerinin, TEİAŞ tarafından talimat verilen her bir saat için sağladıkları toplam talep tarafı katılım miktarının, verilen talimat miktarına oranına göre izleme sonuçları; a) Talimat verilen aktivasyon miktarı ile düşülen yük miktarı arasındaki fark, talimat miktarının %10’una eşit veya daha küçük ise “sağladı”, b) Talimat verilen aktivasyon miktarı ile düşülen yük miktarı arasındaki fark, talimat miktarının %10’u ile %25 arasında ise “sağlamadı”, c) Talimat verilen aktivasyon miktarı ile düşülen yük miktarı arasındaki …",
+    "fark": [
+     [
+      "sonuçları; a)",
+      "sonuçları; a) Verilen aktivasyon talimatı miktarından daha az yük düşülmesi durumunda, talimat verilen miktar ile düşülen yük miktarı arasındaki fark talimat …"
+     ],
+     [
+      "talimat miktarının %10'una",
+      "talimat miktarının; 1) 9050”sine"
+     ],
+     [
+      "ise “sağladı”, b) Talimat verilen aktivasyon miktarı ile düşülen yük miktarı arasındaki fark, talimat miktarının %10'u ile %25 arasında",
+      "ise “sağladı”, 2) Y50'sinden daha büyük"
+     ],
+     [
+      "“sağlamadı”, c) Talimat verilen aktivasyon miktarı ile düşülen yük miktarı arasındaki fark, talimat miktarının %25'ine eşit veya daha büyük ise “katılmadı”,",
+      "“sağlamadı”, c) Aktivasyon talimatının başlangıcından en az saat öncesinde iletim sistemi işletmecisinden onay alınmak şartıyla aktivasyon talimat miktarının …"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 3 1/G maddesinin birinci fıkrasında yer alan “kapasite bedeli ödenir ancak” ibaresi yürürlükten kaldırılmış ve aynı maddenin ikinci fıkrasında yer alan “uzlaştırma dönemi için de” ibaresi “kritik ay içerisindeki izleme sonucu “katılmadı” olan toplam saat sayısının talimat verilen toplam saat sayısına oranı kadar” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "1/G",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-kaldirma"
+    ],
+    "kaldirilan_ibareler": [
+     "kapasite bedeli ödenir ancak"
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin geçici 12 nci maddesinde yer alan “1/9/2026” ibaresi “31/12/2026” olarak değiştirilmiştir.",
+    "birim": {
+     "madde": "12",
+     "gecici": true
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "1/9/2026",
+      "yeni": "31/12/2026",
+      "birimler": [
+       {
+        "madde": "12",
+        "gecici": true
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "GEÇİCİ MADDE 12- (1) Yan hizmet performans testlerinin gerçekleştirilmesi ve test sertifikalarının ve/veya raporlarının düzenlenmesi, 1/9/2026 tarihinden itibaren TEİAŞ tarafından gerçekleştirilir. Bu tarihe kadar gerçekleştirilecek yan hizmet performans testlerinde, TEİAŞ gözlemcisi bulunması kaydıyl…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "Elektrik Piyasası Yan Hizmetler Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 12,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasası Yan Hizmetler Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2021-05-09",
+   "rg_sayi": "31479",
+   "mevzuatId": "104622",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=38588&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASINDA DEPOLAMA FAALİYETLERİ YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "9/5/2021 tarihli ve 31479 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasasında Depolama Faaliyetleri Yönetmeliğinin 6 ncı maddesinin birinci fıkrası aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "6",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "6",
+     "fikra": 1
+    },
+    "yeni_metin": "(1) Tüketiciler tarafından; ilgili şebeke işletmecisi tarafından uygun bağlantı görüşü verilmesi ve aynı ölçüm noktasında olması kaydıyla elektrik depolama tesisi kurulabilir. Ancak, anlaşma gücünden daha yüksek kurulu güçte depolama tesisi kurmak isteyen tüketiciler 28/1/2014 tarihli ve 28896 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliğinin 14 üncü maddesinde belirtilen ünite ve sistemleri kurmak ile yükümlüdür.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(1) Tüketiciler tarafından; ilgili şebeke işletmecisi tarafından uygun bağlantı görüşü verilmesi, kurulu gücünün ilgili tüketim tesisinin bağlantı anlaşmasındaki sözleşme gücünü aşmaması ve aynı ölçüm noktasında olması kaydıyla elektrik depolama tesisi kurulabilir."
+   }
+  ],
+  "baslik": "Elektrik Piyasasında Depolama Faaliyetleri Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 13,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasasında Depolama Faaliyetleri Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2019-05-12",
+   "rg_sayi": "30772",
+   "mevzuatId": "105583",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=31502&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASINDA LİSANSSIZ ELEKTRİK ÜRETİM YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "12/5/2019 tarihli ve 30772 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasasında Lisanssız Elektrik Üretim Yönetmeliğinin 21 inci maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "21"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "21"
+    },
+    "yeni_metin": "(8) Elektrik dağıtım şirketleri ve dağıtım lisansı sahibi OSB/EB”ler, dengeleme güç piyasası kapsamında verilen acil durum talimatlarının yerine getirilmesi için dağıtım sisteminden bağlı ve Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin 75 inci maddesinin dördüncü fıkrası kapsamında olan lisanssız elektrik üretim tesislerini uzaktan kontrol edebilir. İlgili şebeke işletmecisi, acil durumun sona erme zamanından itibaren 15 dakika içerisinde, acil durumun sona erdiğini lisanssız üretim tesisi sahibi gerçek veya tüzel kişilere telefon ve kalıcı veri saklayıcısı ile bildirmekle …",
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 26 ncı maddesinin altıncı fıkrasının (a) bendinde yer alan “ikinci” ibaresi “üçüncü” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "26",
+     "fikra": 6,
+     "bent": "a"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "ikinci",
+      "yeni": "üçüncü",
+      "birimler": [
+       {
+        "madde": "26",
+        "fikra": 6,
+        "bent": "a"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "a) Görevli tedarik şirketinin dördüncü fıkra kapsamında satın almakla yükümlü olduğu enerji miktarı için yapılacak ödemeyi; ikinci fıkraya göre her bir üretici için tespit edilen üretim miktarını ilgisine göre belirlenen fiyatla çarparak belirler.…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 28 inci maddesinin dördüncü fıkrası aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "28",
+     "fikra": 4
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "28",
+     "fikra": 4
+    },
+    "yeni_metin": "(4) Üretim ve tüketim tesisinin aynı dağıtım bölgesinde yer aldığı ancak aynı ölçüm noktasında yer almadığı durumlarda, üretim tesisinin üretim tesis sahasında yer alan her türlü yapı ve ekipmanın çalışmasına bağlı oluşacak iç tüketim miktarı, üretim tesisi ile ilişkilendirilen tüketim tesisi veya tesislerinin tüketimlerine eklenmek suretiyle mahsuplaşmaya dahil edilir. Üretim tesisi ile ilişkilendirilen aynı bölgede bir tüketim tesisinin bulunmaması durumunda; üretim tesisinin üretim tesis sahasında yer alan her türlü yapı ve ekipmanın çalışmasına bağlı olarak oluşacak iç tüketim miktarına …",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(4) Üretim ve tüketim tesisinin aynı ölçüm noktasında yer almadığı durumlarda, üretim tesisinin üretim tesis sahasında yer alan her türlü yapı ve ekipmanın çalışmasına bağlı oluşacak iç tüketim miktarı, üretim tesisi ile ilişkilendirilen tüketim tesisi veya tesislerinin tüketimlerine eklenmek suretiyle mahsuplaşmaya dahil edilir. Üretim tesisi ile ilişkilendirilen aynı bölgede bir tüketim tesisinin bulunmaması durumunda; üretim tesisinin üretim tesis sahasında yer alan her türlü yapı ve ekipmanın çalışmasına bağlı olarak oluşacak iç tüketim miktarına karşılık gelen tüketim miktarı; abonelik …",
+    "fark": [
+     [
+      "tüketim tesisinin",
+      "tüketim tesisinin aynı dağıtım bölgesinde yer aldığı ancak"
+     ],
+     [
+      "fatura edilir. Bu kapsamda tespit edilen tutar için, 19/11/2020 tarihli ve 31309 sayılı Resmî Gazete'de yayımlanan Dağıtım Tarifesinin Düzenlenmesi Hakkında …",
+      "fatura edilir. Üretim tesisi ile ilişkilendirilen aynı bölgede bir tüketim tesisinin bulunmaması ve ilişkili tüketim tesislerinin iletimden bağlı olması …"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin ek 3 üncü maddesinin birinci fıkrasında yer alan “elektriksel gücüne kadar” ibaresinden sonra gelmek üzere “kapasite sınırlaması olmaksızın” ibaresi eklenmiştir.",
+    "birim": {
+     "madde": "3",
+     "ek": true,
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-ekleme",
+     "ekleme"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "elektriksel gücüne kadar",
+      "eklenen": "kapasite sınırlaması olmaksızın"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "3",
+     "ek": true,
+     "fikra": 1
+    },
+    "talimat_goster": false
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğe aşağıdaki ek madde eklenmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {},
+    "yeni_metin": "Lisanssız elektrik üretim tesislerinin dengeleme güç piyasası kapsamında talimatlandırılması EK MADDE 4- (1) Sistem İşletmecisi tarafından verilen acil durum yük atma talimatlarına uymayan lisanssız elektrik üretim tesisleri için ilgili uzlaştırma döneminde verilen talimatın yerine getirilmeyen kısmına tekabül eden üretim miktarı için herhangi bir ödeme yapılmaz. Bu kapsamda ilgisine göre; a) YEK Kanununa ekli I sayılı Cetvelde yer alan fiyat, b) 12/6/2026 tarihli ve 11415 sayılı Cumhurbaşkanı Kararının Eki Kararı kapsamında uygulanacak fiyat, c) Lisanssız üretim tesisinin 28 inci madde …",
+    "talimat_goster": false
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğe aşağıdaki geçici madde eklenmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {},
+    "yeni_metin": "Dağıtım sistemine bağlantı anlaşmasına ilişkin ek hükümler GEÇİCİ MADDE 14- (1) Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin 75 inci maddesinin dördüncü fıkrası kapsamında olan lisanssız üreticiler, bu maddenin yürürlüğe girdiği tarihten itibaren altmış gün içerisinde, mevcut bağlantı anlaşmalarının Kurul tarafından onaylanmış olan Lisanssız Elektrik Üreticileri İçin Dağıtım Sistemine Bağlantı Anlaşmasının genel hükümlerine uygun olarak revize edilmesi için ilgili şebeke işletmecisine başvuruda bulunmakla yükümlüdür. Belirtilen süre içerisinde lisanssız üreticiler tarafından …",
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "Elektrik Piyasasında Lisanssız Elektrik Üretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 13,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasasında Lisanssız Elektrik Üretim Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2024-07-25",
+   "rg_sayi": "32612"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "25/7/2024 tarihli ve 32612 sayılı Resmi Gazete”de yayımlanan Organize Sanayi Bölgelerinin ve Endüstri Bölgelerinin Elektrik Piyasası Faaliyetlerine İlişkin Yönetmeliğin 7 nci maddesine aşağıdaki fıkralar eklenmiştir.",
+    "birim": {
+     "madde": "7"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "7"
+    },
+    "yeni_metin": "(3) Dağıtım lisansı sahibi OSB ve EB'den sorumlu tüzel kişi, 28/5/2014 tarihli ve 29013 mükerrer sayılı Resmi Gazete'de yayımlanan Elektrik Şebeke Yönetmeliği ve Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin acil durumlara ilişkin hükümleri çerçevesinde, görevli tedarik şirketleri tarafından kendilerine iletilen lisanssız elektrik üretim tesislerine ilişkin yük atma talimatlarını yerine getirmekle yükümlüdür. Talimatların yerine getirilmemesi durumunda Kanunun 16 ncı maddesi kapsamında öngörülen yaptırımlar uygulanır. (4) Dağıtım lisansı sahibi OSB ve EB”den sorumlu tüzel kişi, …",
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 11 inci maddesine aşağıdaki fıkralar eklenmiştir.",
+    "birim": {
+     "madde": "11"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "11"
+    },
+    "yeni_metin": "(4) Dağıtım lisansı sahibi OSB ve EB”den sorumlu tüzel kişi, Elektrik Şebeke Yönetmeliği ve Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin acil durumlara ilişkin hükümleri çerçevesinde, dağıtım sistemlerine bağlı olan lisanssız üretim tesislerine ilişkin bilgileri ve talimat kapsamındaki tesislerin talimatın yerine getirilmesine ilişkin bilgilerini görevli tedarik şirketleri ile paylaşmakla yükümlüdür. Veri iletim yükümlülüğünün yerine getirilmemesi durumunda Kanunun 16 ncı maddesi kapsamında öngörülen yaptırımlar uygulanır. (9) Dağıtım lisansı sahibi OSB ve EB'den sorumlu tüzel …",
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "Organize Sanayi Bölgelerinin ve Endüstri Bölgelerinin Elektrik Piyasası Faaliyetlerine İlişkin Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 15,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Organize Sanayi Bölgelerinin ve Endüstri Bölgelerinin Elektrik Piyasası Faaliyetlerine İlişkin Yönetmelik",
+  "ocr": true,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2013-10-01",
+   "rg_sayi": "28782",
+   "mevzuatId": "108424",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=18907&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "YENİLENEBİLİR ENERJİ KAYNAKLARININ BELGELENDİRİLMESİ VE DESTEKLENMESİNE İLİŞKİN YÖNETMELİK"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "1/10/2013 tarihli ve 28782 sayılı Resmi Gazete'de yayımlanan Yenilenebilir Enerji Kaynaklarının Belgelendirilmesi ve Desteklenmesine İlişkin Yönetmeliğin 3 üncü maddesinin birinci fıkrasının (aa) bendinde yer alan “aylık” ibaresi yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "3",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-kaldirma"
+    ],
+    "kaldirilan_ibareler": [
+     "aylık"
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 8 inci maddesinin yedinci fıkrası aşağıdaki şekilde degiştirilmiş ve aynı maddeye aşağıdaki fıkralar eklenmiştir.",
+    "birim": {
+     "madde": "8",
+     "fikra": 7
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {
+     "madde": "8",
+     "fikra": 7
+    },
+    "ekleme_birim": {
+     "madde": "8",
+     "fikra": 7
+    },
+    "yeni_metin": "(7) Depolamalı elektrik üretim tesisi bünyesinde kurulan elektrik depolama ünitesi ile YEKDEM kapsamındaki üretim tesisine bütünleşik elektrik depolama ünitesinin uzlaştırmaya esas veriş miktarına ilişkin olarak; a) Üretim tesisinde üretilerek depolandıktan sonra şebekeye verilen enerjinin, depolama ünitesi ya da tesisleri için tutulan sanal kayıtlarda, YEKDEM katılımı sonrası üretilerek depolandığının belirtilmesi halinde, YEKDEM kapsamında olduğu, b) Depolamalı elektrik üretim tesisi bünyesinde kurulan elektrik depolama ünitesi ile üretim tesisine bütünleşik elektrik depolama ünitesine …",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(7) (Ek:RG-19/11/2022-32018) Depolamalı elektrik üretim tesisi bünyesinde kurulan elektrik depolama ünitesi ile YEKDEM kapsamındaki üretim tesisine bütünleşik elektrik depolama ünitesinin uzlaştırmaya esas veriş miktarına ilişkin olarak; a) Üretim tesisinde üretilerek depolandıktan sonra şebekeye verilen enerjinin YEKDEM kapsamında olduğu, b) (Değişik:RG-29/12/2025-33122)(7) Depolamalı elektrik üretim tesisi bünyesinde kurulan elektrik depolama ünitesi ile üretim tesisine bütünleşik elektrik depolama ünitesine herhangi bir uzlaştırma döneminde şebekeden enerji çekilmesi halinde, şebekeden …",
+    "fark": [
+     [
+      "verilen enerjinin",
+      "verilen enerjinin, depolama ünitesi ya da tesisleri için tutulan sanal kayıtlarda, YEKDEM katılımı sonrası üretilerek depolandığının belirtilmesi halinde,"
+     ],
+     [
+      "çekilmesi halinde, şebekeden çekilen",
+      "çekilmesi halinde, depolama ünitesi ya da tesisleri için tutulan sanal kayıtlarda on ikinci fıkra kapsamında şebekeden çekilen miktar olarak belirlenen"
+     ],
+     [
+      "verilen enerjinin",
+      "verilen enerjinin depolama ünitesi ya da tesisleri için tutulan sanal kayıtlar göz önüne alınarak"
+     ],
+     [
+      "depolama ünitelerinin,",
+      "depolama ünitelerinin, 9/5/2021 tarihli ve 31479 sayılı Resmi Gazete”de yayımlanan"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 12 nci maddesinin birinci ve beşinci fıkraları aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "12"
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "12",
+     "fikra": 5
+    },
+    "yeni_metin": "(1) YEKDEM katılımcılarına her bir fatura dönemi için ödenecek YEK toplam bedeli (YEKTOB) aşağıdaki formül uyarınca hesaplanır: YEKTOB -( 0 a L k D > > UEVMiyeu X Vie X YEKE pu) itsluzi DA izi o in * Ks (LÜYTOB; — TELMT)) 1 li J Bu formülde geçen; YEKTOB LÜYTOB; UEVM, i,b.tu YEKE, TELMT; Vibçu k m ifade eder.” : Her bir fatura dönemi için hesaplanan YEK toplam bedelini (TL), 64193 : Her bir fatura dönemi için “j” toplayıcısı ya da görevli tedarik şirketi tarafından bölgesindeki muafiyetli üretime ilişkin olarak hesaplanan ve bölgesindeki gerçek ve/veya tüzel kişilere ödenecek toplam bedeli …",
+    "talimat_goster": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 18 inci maddesinin ikinci fıkrası aşağıdaki şekilde degiştirilmiş, aynı maddeye ikinci fıkrasından sonra gelmek üzere aşağıdaki fıkra eklenmiş ve diğer fıkra buna göre teselsül ettirilmiş ve aynı maddenin mevcut üçüncü fıkrasının son cümlesi yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "18",
+     "fikra": 2
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme",
+     "mulga"
+    ],
+    "yeniden_birim": {
+     "madde": "18",
+     "fikra": 2
+    },
+    "ekleme_birim": {
+     "madde": "18",
+     "fikra": 2
+    },
+    "yeni_metin": "(2) LÜY kapsamında yenilenebilir enerji kaynaklarından elektrik üretimi yapan kişiler nam ve hesabına YEKDEM katılımcısı olan her bir toplayıcı veya görevli tedarik şirketine ödenecek ya da toplayıcı veya görevli tedarik şirketi tarafından Piyasa İşletmecisine ödenecek YEK bedeli (YEKBED) aşağıdaki formül uyarınca hesaplanır: YEKBED,, — LÜYTOB,, — TELMT,, — Sik, Xk (LÜNET mg X PTF X p) (10) Bu formülde geçen; YEKBED), ; Bir fatura dönemi için m YEKDEM katılımcısı toplayıcı veya görevli tedarik şirketine ödenecek ya da katılımcı tarafından Piyasa İşletmecisine ödenecek YEK bedelini (TL), …",
+    "mulga_birim": {
+     "madde": "18",
+     "fikra": 3,
+     "cumle": "son"
+    },
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(2) LÜY kapsamında yenilenebilir enerji kaynaklarından elektrik üretimi yapan kişiler nam ve hesabına YEKDEM katılımcısı olan her bir toplayıcı veya görevli tedarik şirketine ödenecek ya da toplayıcı veya görevli tedarik şirketi tarafından piyasa işletmecisine ödenecek YEK bedeli (YEKBED) aşağıdaki formül uyarınca hesaplanır: (10) Bu formülde geçen; YEKBEDm: Bir fatura dönemi için m YEKDEM katılımcısı toplayıcı veya görevli tedarik şirketine ödenecek ya da katılımcı tarafından piyasa işletmecisine ödenecek YEK bedelini (TL), LÜYTOBm: Her bir fatura dönemi için m YEKDEM katılımcısı toplayıcı …",
+    "fark": [
+     [
+      "uyarınca hesaplanır:",
+      "uyarınca hesaplanır: YEKBED,, LÜYTOB,, TELMT,, Sik, Xk (LÜNET mg X PTF X p)"
+     ],
+     [
+      "formülde geçen; YEKBEDm:",
+      "formülde geçen; YEKBED),"
+     ],
+     [
+      "bedelini (TL), LÜYTOBm:",
+      "bedelini (TL), LÜYTOB),,:"
+     ],
+     [
+      "bedeli (TL), LÜNETm,t,u:",
+      "bedeli (TL), TELMT,: Her bir fatura dönemi için “m” YEKDEM katılımcısı toplayıcı veya görevli tedarik şirketi tarafından bölgesindeki teslim edilemeyen talimat …"
+     ],
+     [
+      "değerini (MWh), PTFt,u:",
+      "değerini (MWh), PTF,"
+     ],
+     [
+      "dönemlerinin sayısını, l:",
+      "dönemlerinin sayısını, 1:"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 23 üncü maddesinin altıncı fıkrası aşağıdaki şekilde değiştirilmiş ve dokuzuncu fıkrası yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "23",
+     "fikra": 6
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "mulga"
+    ],
+    "yeniden_birim": {
+     "madde": "23",
+     "fikra": 6
+    },
+    "yeni_metin": "(6) Lisanslı elektrik üretim tesislerine Sistem İşletmecisi tarafından acil durum ve/veya dengeleme güç piyasası kapsamında yük atma talimatı verilmesi ve/veya piyasa takas fiyatının veya sistem marjinal fiyatının Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin 110 uncu maddesinde yer alan “V, ” fiyatının altında ve sistem yönünün enerji fazlasını gösterdiği uzlaştırma dönemleri için; piyasa katılımcısının lisanslı elektrik üretim tesislerine bildirdiği KGÜP değerinden varsa verilen YAT talimat miktarı düşülüp, varsa YAL talimat miktarları, net sekonder frekans kontrol rezerv …",
+    "mulga_birim": {
+     "madde": "23",
+     "fikra": 9
+    },
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(6) (Ek:RG-9/5/2021-31479) (Değişik:RG-17/12/2024-32755)(6) Sistem İşletmecisi tarafından verilen acil durum ve/veya dengeleme güç piyasası yük atma talimatlarına uymayan YEKDEM katılımcıları için ilgili uzlaştırma döneminde verilen talimatın yerine getirilmeyen kısmına tekabül eden üretim miktarı YEKDEM hesaplamalarına dâhil edilmez ve ilgili piyasa katılımcısına YEK bedeli ödemesi yapılmaz. Bu fıkra kapsamında yapılan hesaplamalarda, piyasa katılımcıları tarafından ilgili mevzuatta belirtilen talimat mutabakat süresi içerisinde bildirilen ve yerine getirilmeyen enerji miktarı, verilen …"
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 27 nci maddesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "27"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "27"
+    },
+    "yeni_metin": "MADDE 27- (1) Başvuru sahibi tarafından bu Yönetmelik kapsamındaki haklardan yararlandırılma koşullarına ilişkin olarak, önlisans ve lisans süreçleri ile kabul işlemleri konusunda Kuruma veya ilgili kurum ve kuruluşlara yapılan başvurularda yanıltıcı veya sahte belge verdiğinin ve/veya düzenlediğinin tespiti halinde, üretim lisansı sahibi tüzel kişi ilgili yılın nihai YEK listesinden çıkarılır. Bu kişiye, geçmişe dönük olarak YEKDEM kapsamında bulunduğu her bir uzlaştırma dönemi için 18 inci madde uyarınca ödenen YEK bedelleri ödeme tarihi itibarıyla, 21/7/1953 tarihli ve 6183 sayılı Amme …",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "MADDE 27 – (Başlığı ile Birlikte Değişik:RG-9/5/2021-31479) (1) Bu Yönetmelik hükümleri uyarınca Kuruma ve ilgili kurum ve kuruluşlara yapılan başvurularda başvuru sahibinin yanıltıcı bilgi ve/veya belge verdiğinin ve/veya düzenlediğinin tespiti halinde üretim lisansı sahibi tüzel kişi bu Yönetmelik kapsamındaki haklardan yararlandırılmaz ve üretilen elektrik enerjisi miktarlarının YEK Fiyatıyla çarpılması sonucu hesaplanan tutar, 21/7/1953 tarihli ve 6183 sayılı Amme Alacaklarının Tahsil Usulü Hakkında Kanunun 51 inci maddesine göre belirlenen faiz oranı ile güncellenerek Piyasa İşletmecisi …",
+    "fark": [
+     [
+      "27 (1) Bu Yönetmelik hükümleri uyarınca Kuruma ve",
+      "27- (1) Başvuru sahibi tarafından bu Yönetmelik kapsamındaki haklardan yararlandırılma koşullarına ilişkin olarak, önlisans ve lisans süreçleri ile kabul …"
+     ],
+     [
+      "yapılan başvurularda başvuru sahibinin yanıltıcı bilgi ve/veya",
+      "yapılan başvurularda yanıltıcı veya sahte"
+     ],
+     [
+      "tüzel kişi bu Yönetmelik kapsamındaki haklardan yararlandırılmaz ve üretilen elektrik enerjisi miktarlarının YEK Fiyatıyla çarpılması sonucu hesaplanan tutar,",
+      "tüzel kişi ilgili yılın nihai YEK listesinden çıkarılır. Bu kişiye, geçmişe dönük olarak YEKDEM kapsamında bulunduğu her bir uzlaştırma dönemi için 18 inci …"
+     ],
+     [
+      "Hakkında Kanunun 51",
+      "Hakkında Kanunun 31"
+     ],
+     [
+      "İşletmecisi tarafından ilgili tüzel kişiye fatura edilir. Söz konusu üretim lisansı sahibi tüzel kişi",
+      "İşletmecisi tarafından fatura edilir. Bu fikra kapsamında işlem tesis edilenler"
+     ],
+     [
+      "YEK bedelleri",
+      "YEK bedelleri, ödeme tarihi itibarıyla"
+     ],
+     [
+      "edilir. (3)",
+      "edilir. (3) Birinci ve ikinci fıkralar kapsamında yapılacak işlemlerde 18 inci maddenin birinci fıkrasında yer alan YEKBED hesaplamasında, YEKBED'in sıfırdan …"
+     ],
+     [
+      "edilecek tutar",
+      "edilecek tutar, ödeme tarihi itibarıyla"
+     ],
+     [
+      "fatura edilir. (4)",
+      "fatura edilir. (5) Yerli Aksam Yönetmeliği kapsamında Bakanlık tarafından yerli aksama ilişkin ilgili aksam/bütünleştirici parçanın yerli aksam destek …"
+     ],
+     [
+      "ödeme tutarları,",
+      "ödeme tutarları, ödeme tarihi itibarıyla"
+     ],
+     [
+      "tahsil edilir.",
+      "tahsil edilir. Bu kapsamda"
+     ],
+     [
+      "işletmecisine bildirilir. (5)",
+      "İşletmecisine bildirilir. (7)"
+     ]
+    ],
+    "fark_kuyruk": true,
+    "fark_ocr": true
+   }
+  ],
+  "baslik": "Yenilenebilir Enerji Kaynaklarının Belgelendirilmesi ve Desteklenmesine İlişkin Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 16,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Yenilenebilir Enerji Kaynaklarının Belgelendirilmesi ve Desteklenmesine İlişkin Yönetmelik",
+  "ocr": true,
+  "kesilen": 0
+ }
+]

@@ -1,0 +1,120 @@
+{
+ "kalemler": {
+  "Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)": {
+   "ne_getiriyor": [
+    "Anlaşma gücünden daha fazla kurulu güçte depolama tesisi kurmak isteyen tüketicilere; şebekeye enerji verilmesinin önlenmesi ve enerji çekişinde anlaşma gücünün aşılmaması için otomatik güç kontrol ünitesi ile enerji kesme sistemi tesis etme yükümlülüğü getirildi.",
+    "Üretim lisansı sahiplerinin lisansları iptal edilmedikçe veya sona ermedikçe dağıtım sisteminden ayrılma talep edemeyeceği, iletim sistemine bağlanma taleplerinde ise lisanstaki bağlantı noktası tadil edildikten sonra dağıtım şirketine ayrılabileceği düzenlendi.",
+    "Yönetmeliğin 21 inci maddesinin ikinci fıkrasındaki süre, 'bağlantı anlaşması ile eş zamanlı olarak' yerine 'bağlantı anlaşmasının imzalanmasından sonra en geç otuz gün içerisinde' olarak değiştirildi.",
+    "Dağıtım Sistem Kullanım Anlaşması teminatının nakit, kesin ve süresiz banka veya e-teminat mektubuyla sunulacağı; teminat artırımlarının bildirimi izleyen on iş gününde karşılanacağı, fazla teminatların ise kullanıcının talebi üzerine on iş günü içinde iade edileceği hükme bağlandı.",
+    "Dağıtım şirketi uhdesinde bulundurulması gereken teminat tutarında %20 (metindeki ifadesiyle '9020') ve üzerinde eksiklik bulunması ve yükümlülüğün yerine getirilmemesi halinde kullanıcının Kuruma bildirileceği düzenlendi.",
+    "Son yirmi dört ay içinde sistem kullanım faturalarını eksiksiz ödeyen ve teminat temerrüdüne düşmeyen kullanıcılar için Dağıtım Sistem Kullanım Anlaşması teminatı hesaplamasına esas azami oranın en fazla 1 kat olarak uygulanacağı belirlendi.",
+    "Yeni teminat oranı düzenlemesi kapsamında oluşan fazla teminatların, yürürlük tarihinden itibaren bir ay içerisinde dağıtım şirketi tarafından ilgili kullanıcılara iade edilmesi zorunluluğu getirildi."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer; 24 üncü maddenin altıncı fıkrası kapsamında oluşan fazla teminatların iadesi için yürürlük tarihinden itibaren bir aylık süre öngörülmüştür.",
+   "surum": 2
+  },
+  "Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 3)": {
+   "ne_getiriyor": [
+    "Üretim tesislerinin toplayıcı portföyüne kaydettirilebilmesi için en az bir ünitesinin Bakanlık kabulünün yapılmış olması ve devir tarihinde ilgili uzlaştırmaya esas veriş-çekiş birimi kayıtlarının tamamlanmış olması şartı getirilmiştir.",
+    "Dengeleme güç piyasası tekliflerinin günlük ve uzlaştırma dönemi bazında verileceği düzenlenmiş; piyasa katılımcılarının kesinleşmiş gün öncesi üretim/tüketim programlarını ve tekliflerini her gün saat 15:30’a kadar Sistem İşletmecisine bildirmeleri zorunlu tutulmuştur.",
+    "Kesinleşmiş gün öncesi programlarını bildirmemeyi alışkanlık edinen veya talimatlara aykırı üretim/tüketim yapan katılımcılara yaptırım uygulanması için Kuruma bildirim kuralı getirilmiş, dağıtıma bağlı lisanssız tesis bildirimlerinin görevli tedarik şirketleri veya toplayıcılar üzerinden yapılacağı hükme bağlanmıştır.",
+    "Dengeleme güç piyasası tekliflerinin 15 dakika içinde gerçekleştirilebilecek şekilde 15 miktar seviyesinde ve asgari 10 MW (1 MW katları) olarak sunulması kararlaştırılmış; termik santrallerin yük eğrilerini yılda en fazla 4 defa güncelleyebileceği belirlenmiştir.",
+    "Dengeleme güç piyasasında KGÜP üzerinde üretim yapan UEVÇB’lerin uyarılacağı ve uymayanların Kuruma raporlanacağı kurala bağlanmış; talimat mutabakatlarının her uzlaştırma dönemini takip eden 4 saat içerisinde tamamlanması ve süresi bitince değiştirilememesi hüküm altına alınmıştır.",
+    "Teklif sunmamış dengeleme birimlerine, lisanssız tesislere ve müstakil depolama tesislerine acil durum talimatı verilebileceği ve uzlaştırma fiyatı belirlenmesi düzenlenmiş; dağıtım sistemine bağlı lisanssız tesislerde 900 kW ve üzeri santrallerden başlayan öncelik sıralaması getirilmiştir.",
+    "Toplayıcı portföyündeki dengeleme birimi olmayan lisanslı ve lisanssız üretim tesisleri ile müstakil elektrik depolama tesislerinin KÜPST hesaplama yöntemleri ve UEVÇB bazlı kuralları belirlenmiştir.",
+    "Taşınmaz ve kamulaştırma kaynaklı mahkeme veya icra borçlarını ödemeyen önlisans/lisans sahiplerinin piyasa alacaklarının Kuruma aktarılacağı, satış yönlü ikili anlaşma bildirimlerinin kısıtlanıp iptal edileceği ve bu kişilerin dengeden sorumlu grup veya toplayıcı portföyünden çıkarılacağı düzenlenmiştir.",
+    "Devrede olan termik kaynaklı UEVÇB’lere yük değişim eğrilerine göre talimat verilmesine ilişkin uygulamanın 1/1/2027 tarihinden itibaren geçerli olacağı hükme bağlanmıştır."
+   ],
+   "yururluk": "Yönetmelik yayımı tarihinde yürürlüğe girer; devrede olan termik kaynaklı UEVÇB'lere yük değişim eğrilerine göre talimat verilmesine ilişkin Geçici 41 inci madde hükmü 1/1/2027 tarihinden itibaren uygulanır.",
+   "surum": 2
+  },
+  "Elektrik Piyasası Lisans Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 11)": {
+   "ne_getiriyor": [
+    "Yönetmeliğin 12 nci maddesinin beşinci fıkrasının (f) bendinde yer alan 'kapasitesine' ibaresi 'gücüne' şeklinde değiştirilmiştir.",
+    "Depolamalı elektrik üretim tesisleri için Yönetmeliğin 18 inci maddesinin beşinci fıkrasının (a) bendi kapsamında sunulacak belgelerde elektrik depolama ünitesinin gücünün dikkate alınacağı hükme bağlanmıştır.",
+    "Yönetmeliğin 20 nci maddesinin dördüncü fıkrasının (ç) bendi ve altıncı fıkrası ile 24 üncü maddesinin on dokuzuncu fıkrasının (b) bendinde geçen 'kapasitesi' ve 'kapasitesine' ibareleri sırasıyla 'gücü' ve 'gücüne' olarak değiştirilmiştir.",
+    "Yönetmeliğin 34 üncü maddesinin on beşinci fıkrası ile 34/A maddesinin yedinci fıkrasında yer alan 'aynı' ibareleri 'ilişkili olduğu izlenimi verebilecek ünvan,' şeklinde değiştirilmiştir.",
+    "Kurul tarafından daha önce mücbir sebep olarak kabul edilen bir olayın, yatırımın tamamlanmasını engelleyici nitelikte sürekli hale gelmesi durumunda, söz konusu olayın Kurul tarafından mücbir sebep kapsamında değerlendirilmeyeceği düzenlenmiştir.",
+    "Depolamalı elektrik üretim tesisine ilişkin lisans başvurusunda sunulan teminatın tesisin tamamı işletmeye geçinceye kadar iade edilmeyeceği ve bu kapsamda depolama ünitelerine ilişkin teminat iadesinde kabulü yapılan depolama ünitesinin gücünün dikkate alınacağı hüküm altına alınmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Elektrik Piyasası Yan Hizmetler Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 12)": {
+   "ne_getiriyor": [
+    "Dağıtım sistemine bağlı tüketim tesislerinin sayaç bilgileri ile anlaşma gücü değerini içeren ve ilgili dağıtım lisansı sahibi tüzel kişi tarafından onaylanacak belgenin sunulması şartı getirilmiş, ilgili düzenlemedeki “eşit miktarda” ibaresi “eşit oranda” şeklinde değiştirilmiştir.",
+    "Toplayıcılara kritik ayları takip eden fatura dönemlerinde talep tarafı katılımı hizmeti kapsamında yapılacak ödemelerin, aylık kapasite bedeli ile aktivasyon talimatı sonucunda oluşan aktivasyon bedeli toplamı üzerinden belirlenecek yeni hesaplama formülü tanımlanmıştır.",
+    "Talep tarafı katılımı ödeme hesaplamasına, kritik ay içerisindeki izleme sonucu 'katılmadı' olan toplam saat sayısı (c) ile talimat verilen toplam saat sayısı (p) parametreleri eklenmiştir.",
+    "Aktivasyon talimatından daha az yük düşüldüğünde; gerçekleşen fark talimat miktarının %10'una eşit veya küçükse 'sağladı', %10 ile %25 arasında ise 'sağlamadı', %25'ine eşit veya büyükse 'katılmadı' olarak değerlendirilecektir.",
+    "Talimattan daha fazla yük düşülmesinde fark talimatın %50'sine eşit veya küçükse 'sağladı', %50'den büyükse 'sağlamadı' sayılacak; başlangıçtan en az 1 saat önce iletim sistemi işletmecisinden onay alınmışsa %50'den büyük yük düşüşleri de 'sağladı' kabul edilecektir.",
+    "Yönetmeliğin 31/G maddesinde yer alan 'kapasite bedeli ödenir ancak' ibaresi yürürlükten kaldırılmış ve yaptırım/kesinti hesabında kritik aydaki izleme sonucu 'katılmadı' olan saat sayısının talimat verilen toplam saat sayısına oranı esas alınmıştır.",
+    "Yönetmeliğin geçici 12 nci maddesinde yer alan geçiş tarihi 1/9/2026 yerine 31/12/2026 olarak değiştirilmiştir."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer; geçici 12 nci maddedeki tarih 31/12/2026 olarak güncellenmiştir.",
+   "surum": 2
+  },
+  "Elektrik Piyasasında Depolama Faaliyetleri Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 13)": {
+   "ne_getiriyor": [
+    "9/5/2021 tarihli ve 31479 sayılı Resmî Gazete'de yayımlanan Elektrik Piyasasında Depolama Faaliyetleri Yönetmeliğinin 6 ncı maddesinin birinci fıkrası yeniden düzenlenmiştir.",
+    "Tüketiciler tarafından elektrik depolama tesisi kurulabilmesi için ilgili şebeke işletmecisinden uygun bağlantı görüşü alınması şartı getirilmiştir.",
+    "Tüketicilerin kuracağı elektrik depolama tesisinin aynı ölçüm noktasında bulunması zorunlu kılınmıştır.",
+    "Tüketicilere, mevcut anlaşma gücünden daha yüksek kurulu güçte elektrik depolama tesisi kurabilme hakkı tanınmıştır.",
+    "Anlaşma gücünden daha yüksek kurulu güçte depolama tesisi kuracak tüketicilere, 28/1/2014 tarihli ve 28896 sayılı Resmî Gazete'de yayımlanan Yönetmeliğin 14 üncü maddesindeki ünite ve sistemleri kurma yükümlülüğü getirilmiştir."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Elektrik Piyasasında Lisanssız Elektrik Üretim Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 13)": {
+   "ne_getiriyor": [
+    "Elektrik dağıtım şirketleri ve dağıtım lisansı sahibi OSB'ler, acil durum talimatlarının uygulanması amacıyla kapsamdaki lisanssız elektrik üretim tesislerini uzaktan kontrol edebilecek; durumun sona ermesi 15 dakika içinde bildirilecek ve yeniden enerjilendirme üreticinin sorumluluğunda olacaktır.",
+    "Üretim ve tüketim tesisleri aynı dağıtım bölgesinde ancak farklı ölçüm noktasında olduğunda iç tüketim mahsuplaşmaya dahil edilecek; aynı bölgede ilişkili tüketim tesisi yoksa iç tüketim abonelik aranmaksızın belirlenen perakende tek zamanlı bedeller üzerinden üreticiye faturalandırılacaktır.",
+    "Yönetmeliğin ek 3 üncü maddesinin birinci fıkrasındaki elektriksel güç kuralına 'kapasite sınırlaması olmaksızın' ibaresi eklenmiş, 26 ncı maddenin altıncı fıkrasının (a) bendinde yer alan fıkra atfı ise 'üçüncü' olarak değiştirilmiştir.",
+    "Sistem İşletmecisinin acil durum yük atma talimatlarına uymayan lisanssız üretim tesislerine yerine getirilmeyen üretim miktarı için ödeme yapılmayacak; belirlenen yaptırım tutarları üreticilerden tahsil edilerek YEK bedeline dahil edilmek üzere piyasa işletmecisine bildirilecektir.",
+    "Kapsamdaki lisanssız üreticilerin mevcut bağlantı anlaşmalarını Kurul onaylı genel hükümlere uygun şekilde revize ettirmek üzere 60 gün içinde şebeke işletmecisine başvurması zorunlu kılınmış, başvuru yapılmaması halinde Kurul onaylı yürürlükteki hükümlerin uygulanacağı düzenlenmiştir.",
+    "Lisanssız Elektrik Üreticileri İçin Dağıtım Sistemine Bağlantı Anlaşmasının 16 ncı maddesinin birinci fıkrasının (f) ve (g) bentlerinde yer alan cezai şartların 30/4/2027 tarihine kadar uygulanmayacağı hükme bağlanmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer; bağlantı anlaşması revizyonu için yürürlükten itibaren 60 günlük başvuru süresi ve bağlantı anlaşmasındaki belirli cezai şartlar için 30/4/2027 tarihine kadar muafiyet öngörülmüştür.",
+   "surum": 2
+  },
+  "Organize Sanayi Bölgelerinin ve Endüstri Bölgelerinin Elektrik Piyasası Faaliyetlerine İlişkin Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 15)": {
+   "ne_getiriyor": [
+    "Dağıtım lisansı sahibi OSB ve EB'den sorumlu tüzel kişilere, acil durumlara ilişkin hükümler çerçevesinde görevli tedarik şirketlerince iletilen lisanssız elektrik üretim tesislerine yönelik yük atma talimatlarını yerine getirme yükümlülüğü getirilmiştir.",
+    "Görevli tedarik şirketleri tarafından iletilen yük atma talimatlarının yerine getirilmemesi durumunda, Kanunun 16 ncı maddesi kapsamında öngörülen yaptırımların uygulanacağı hükme bağlanmıştır.",
+    "Dağıtım lisansı sahibi OSB ve EB'den sorumlu tüzel kişilerin, Elektrik Şebeke Yönetmeliği acil durum önlemleri kapsamında TEİAŞ tarafından verilecek talimatlara uymakla yükümlü olduğu ve uyulmaması halinde Kanunun 16 ncı maddesi yaptırımlarının uygulanacağı düzenlenmiştir.",
+    "Dağıtım lisansı sahibi OSB ve EB'den sorumlu tüzel kişilere, dağıtım sistemine bağlı lisanssız üretim tesislerine ve talimatların icrasına ilişkin bilgileri görevli tedarik şirketleriyle paylaşma zorunluluğu getirilmiştir.",
+    "Elektrik Şebeke Yönetmeliği kapsamındaki acil durum önlemleri uyarınca talep edilen verilerin süresinde ve eksiksiz olarak TEİAŞ'a bildirilmesi zorunlu kılınmış, veri iletim yükümlülüğünü ihlal edenlere Kanunun 16 ncı maddesi yaptırımlarının uygulanması hükme bağlanmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Yenilenebilir Enerji Kaynaklarının Belgelendirilmesi ve Desteklenmesine İlişkin Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 16)": {
+   "ne_getiriyor": [
+    "Depolamalı elektrik üretim tesislerinde ve bütünleşik depolama ünitelerinde şebekeye verilen enerjinin sanal kayıtlar üzerinden YEKDEM kapsamına alınma koşulları ile depolamayla bütünleşik yardımcı kaynaklardan üretilen enerjinin YEKDEM kapsamı dışında tutulacağı düzenlenmiştir.",
+    "Depolama sanal kayıtlarının azami işletme kapasitesi kadar tutulabileceği, kapasite aşımında kayıtların oransal azaltılarak güncelleneceği ve YEKDEM'e sonradan katılan santrallerin önceki depolu enerjilerine kural olarak YEKDEM ödemesi yapılmayacağı hükme bağlanmıştır.",
+    "Fatura döneminde katılımcılara ödenecek YEK toplam bedelinin (YEKTOB) hesaplama formülü; teslim edilmeyen talimat lisanssız maliyet tutarı (TELMT), depolama ve kurulu güç artışı katsayıları dikkate alınacak şekilde yeniden düzenlenmiştir.",
+    "Lisanssız üretim kaynaklı YEKBED formülü revize edilmiş; 30/6/2021'den sonra işletmeye giren ve YEKDEM'e kayıt olmayan tesislerin yerli aksam kullanması halinde, 7189 sayılı Cumhurbaşkanı Kararı kapsamındaki destek tutarının YEK bedeli olarak ödeneceği belirlenmiştir.",
+    "Acil durum talimatı veya piyasa fiyatlarının taban fiyatın altında kaldığı dönemlerde, beklenen düzeyin üzerindeki üretimin YEKDEM kapsamında değerlendirilmesi piyasa takas fiyatının YEK ve yerli aksam destek fiyatı toplamıyla karşılaştırılması şartına bağlanmıştır.",
+    "Önlisans, lisans ve kabul süreçlerinde sahte veya yanıltıcı belge verenler ile haksız faydalananların YEK listesinden çıkarılacağı ve ödenen YEK bedellerinin 6183 sayılı Kanun faiziyle geri tahsil edilerek haklarında işlem yapılacağı hüküm altına alınmıştır.",
+    "Fazla ödeme yapılan, yargı kararıyla tahsili gereken veya mevzuata aykırı yerli aksam desteği aldığı anlaşılan lisanslı ve lisanssız üretim tesislerine ödenen tutarların 6183 sayılı Kanunun 51 inci maddesindeki faiz oranıyla güncellenerek geri alınması kurala bağlanmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer. Yönetmeliğin 3 üncü maddesinin birinci fıkrasının (aa) bendindeki 'aylık' ibaresi, 18 inci maddesinin üçüncü fıkrasının son cümlesi ve 23 üncü maddesinin dokuzuncu fıkrası yürürlükten kaldırılmıştır.",
+   "surum": 2
+  },
+  "Enerji Piyasası Düzenleme Kurulunun 24/09/2026 Tarihli ve 14907, 14908, 14909, 14910, 14911, 14912 ve 14913 Sayılı Kararları (s. 20)": {
+   "ne_getiriyor": [
+    "KGÜP bildirmekle yükümlü birimler için kesinleşmiş programdan sapma miktarı (KÜPSM) ve tutarı (KÜPST) hesaplama formülleri belirlenmiş; depolamalı tesislerde 0,10, topluluklarda 0,05, lisanssızlarda 0,01-0,02, diğer santrallerde ise arıza sayısına göre 0,05 veya 0,08 fiyat katsayısı getirilmiştir.",
+    "Sapma tolerans katsayıları rüzgarda 0,15, güneşte 0,08, depolamalı üretim ve diğer kaynaklarda 0,05, iletim lisanssızda 0,20, dağıtım lisanssızda 0,25, tüketim çekiş birimlerinde 0,25 ve 0,30 olarak düzenlenmiş; toplayıcı portföyündeki tesisler için ağırlıklandırılmış katsayı uygulaması kabul edilmiştir.",
+    "Dengeleme güç piyasasında yerine getirilmeyen talimatların TEİAŞ raporlamasında; 15 dakikadan kısa süreler, aylık 10 ve altı talimatlar ile aylık 500 MWh altı enerjiler değerlendirme dışı tutulmuş; rezervuarlı hidrolikte %85, doğalgazda %80, diğerlerinde %70 yerine getirme oranı eşikleri konulmuştur.",
+    "Lisanssız üreticilerde arızalı SCADA donanımının 1 ayda onarılmaması halinde günlük %1 ceza; SCADA entegrasyonu yapılmaması durumunda aylık sistem kullanım bedeli kadar; acil açmanın yapılamaması halinde ise ihlal başına bir aylık bedel (aylık en çok 3 kat) cezai şart öngörülmüştür.",
+    "Hidroelektrik santraller hariç, uzlaştırma dönemine ait yük alma ve yük atma tekliflerinde en yüksek ve en düşük fiyatlar arasındaki farkın, YAL yönünde en düşük teklif fiyatının, YAT yönünde ise en yüksek teklif fiyatının %50'sini aşamayacağı hükme bağlanmıştır.",
+    "Enerji dengesizlik tutarının hesabında kullanılan 'Vu' değeri 100 TL/MWh olarak belirlenmiştir.",
+    "Önlisans, üretim lisansı ve depolama tesisi sermaye yükümlülükleri ile teminat hesaplamalarında yer alan birim yatırım tutarı ve kapasite parametreleri 'TL/MWh' ve 'MWh'den 'TL/MWe' ve 'MWe' güç esasına dönüştürülmüştür.",
+    "Reaktif Güç Kontrolü Yan Hizmet Anlaşması kapsamında, bara gerilim set değeri uygulamalarında zorunlu reaktif güç yükümlülüğünün azami zorunlu reaktif güç değerinin %10 toleransı dahilinde yerine getirilmiş sayılacağı kabul edilmiştir."
+   ],
+   "yururluk": "KÜPSM/KÜPST Kararı ile 14911 sayılı Karar yayımlandığı günü takip eden fatura dönemi itibarıyla yürürlüğe girer; KÜPSM Kararının tüketim birimlerine ilişkin 2 nci maddesinin birinci fıkrasının (e) bendi ile 3 üncü maddesinin birinci fıkrasının (g) ve (ğ) bentleri 1/1/2027'den itibaren uygulanır. Diğer kararların yürürlük tarihi metinde belirtilmemiştir. 11/12/2025 tarihli ve 14029 sayılı ile 22/5/2025 tarihli ve 13527 sayılı Kurul Kararları yürürlükten kaldırılmıştır.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-18T23:35:28+00:00"
+}
