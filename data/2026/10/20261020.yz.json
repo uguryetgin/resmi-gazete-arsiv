@@ -1,0 +1,22 @@
+{
+ "kalemler": {
+  "Kamu İktisadi Teşebbüsleri ve Bağlı Ortaklıklarının 2027 Yılına Ait Genel Yatırım ve Finansman Programının Tespit Edilmesi Hakkında Karar (Karar Sayısı: 11898) (s. 1)": {
+   "ne_getiriyor": [
+    "Kamu teşebbüslerinde, 2026 yılında ayrılan personelin en fazla %100'ü kadar açıktan veya naklen, en fazla %10'u kadar da özelleştirme nakline tabi personelden atama yapılabilecek; KİT'lerde bu işlemler Hazine ve Maliye Bakanlığının uygun görüşüne tabi olacaktır.",
+    "İstisnalar hariç 2027 yılında emekli personel istihdam edilmeyecek; 2026 ve 2027'de açıktan atananların görevden bir yıl içinde ayrılması halinde yerlerine herhangi bir izne gerek olmaksızın yeni personel atanabilecektir.",
+    "Yeni tesis, üretim artışı veya Ar-Ge gibi ihtiyaçlar için Bakanlık veya ÖİB görüşü ve Cumhurbaşkanlığı Genel Sekreterliği onayıyla yapılabilecek ilave atama sayısı, 2026'da ayrılan personel sayısının %75'ini geçemeyecektir.",
+    "Zorunlu istihdam, mecburi hizmet, askerlik ve sendikacılık sonrası dönüşler genel kontenjan sınırlamalarından muaf tutulurken, engelli personel alımlarında kuruluşun eski çalışanı olup engelli kalanlara öncelik verilecektir.",
+    "KİT'ler Bakanlık onayıyla kurumsal sınav açarak KPSS taban puanı en az 70 olmak üzere personel alabilecek; ÇAYKUR ise yaş çay yükleme işinde 31/12/2026 itibarıyla en az 90 gün çalışanlardan kura ile %50'ye kadar geçici işçi alabilecektir.",
+    "1/1/2027 tarihinden sonra sözleşmeli atananlar, istisnalar dışında 3 yıl geçmedikçe başka kuruma atanamayacak ve merkezi sınav yerleştirmelerine başvuramayacaktır.",
+    "Taşeron sözleşmesiyle 4/12/2017 itibarıyla en az 2 yıl kesintisiz çalışmış ve halen çalışan işçiler, yapılacak sınavda başarılı olmaları ve Bakanlık kontenjanı dâhilinde sürekli işçi kadrolarına geçirilebilecektir.",
+    "Geçici işçiler yalnızca mevsimlik ve kampanya işlerinde vize edilen tavanı aşmamak üzere çalıştırılabilecek; fazla çalışma tavanını zorunlu hallerde %10'a kadar artırmaya kamu teşebbüsü yönetim kurulu yetkili olacaktır.",
+    "Özelleştirme İdaresi Başkanlığınca ücreti ödenen kuruluşlarda 2026'da ayrılan işçilerin pozisyonları 30/6/2027'ye kadar iptal edilecek; kamu teşebbüslerinin kendi vakıf, dernek ve sandık şirketlerinden hizmet alımı yapması yasaklanacaktır.",
+    "Kamu teşebbüsleri 2027-2029 dönemini kapsayan çok yıllı hizmet alımına çıkabilecek; hizmet alım tavanında %15'e kadar artışa yönetim kurulu, %15'i aşan artışlara ise Bakanlık veya ÖİB izin verebilecektir."
+   ],
+   "yururluk": "Kararın yürürlük maddesi metinde yer almamaktadır; hizmet alım süreçlerinin Kararın yayımı tarihinden itibaren başlatılabileceği, ÖİB kapsamındaki pozisyon iptallerinin 30/6/2027 tarihine kadar tamamlanacağı düzenlenmiştir.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-20T00:42:25+00:00"
+}
