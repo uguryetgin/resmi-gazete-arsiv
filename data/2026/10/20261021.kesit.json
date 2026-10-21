@@ -1,0 +1,102 @@
+{
+ "Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)": {
+  "dosya": "20261021-s2.pdf",
+  "ilk": 2,
+  "son": 2,
+  "isaret": [
+   [
+    0.0632,
+    0.6202,
+    0.8718,
+    0.017
+   ],
+   [
+    0.212,
+    0.6457,
+    0.5778,
+    0.017
+   ]
+  ]
+ },
+ "Türkiye Emisyon Ticaret Sistemi Piyasasının İşletilmesine İlişkin Yönetmelik (s. 3)": {
+  "dosya": "20261021-s3.pdf",
+  "ilk": 3,
+  "son": 29,
+  "isaret": [
+   [
+    0.1829,
+    0.0745,
+    0.6325,
+    0.0138
+   ],
+   [
+    0.2615,
+    0.0926,
+    0.4769,
+    0.017
+   ]
+  ]
+ },
+ "Enerji Piyasası Düzenleme Kurulunun 15/10/2026 Tarihli ve 14954 Sayılı Kararı (s. 34)": {
+  "dosya": "20261021-s34.pdf",
+  "ilk": 34,
+  "son": 35,
+  "isaret": [
+   [
+    0.3453,
+    0.0532,
+    0.3094,
+    0.0128
+   ],
+   [
+    0.1128,
+    0.1053,
+    0.4564,
+    0.017
+   ],
+   [
+    0.4051,
+    0.1489,
+    0.1795,
+    0.0106
+   ],
+   [
+    0.1162,
+    0.2,
+    0.7949,
+    0.0128
+   ],
+   [
+    0.1162,
+    0.2351,
+    0.8137,
+    0.016
+   ]
+  ]
+ },
+ "Nükleer Düzenleme Kurulunun 15/10/2026 Tarihli ve 2026-44/1 Sayılı Kararı (s. 35)": {
+  "dosya": "20261021-s35.pdf",
+  "ilk": 35,
+  "son": 40,
+  "isaret": [
+   [
+    0.1282,
+    0.0628,
+    0.3949,
+    0.0138
+   ],
+   [
+    0.412,
+    0.1032,
+    0.1744,
+    0.0117
+   ],
+   [
+    0.1282,
+    0.1649,
+    0.7692,
+    0.0128
+   ]
+  ]
+ }
+}

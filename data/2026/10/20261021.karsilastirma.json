@@ -1,0 +1,48 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2009-04-14",
+   "rg_sayi": "27200",
+   "mevzuatId": "110847",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=12985&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ELEKTRİK PİYASASI DENGELEME VE UZLAŞTIRMA YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "14/4/2009 tarihli ve 27200 sayılı Resmi Gazete'de yayımlanan Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinin 132/E maddesinin dördüncü fıkrasının (c) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "132/E",
+     "fikra": 4,
+     "bent": "c"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "132/E",
+     "fikra": 4,
+     "bent": "c"
+    },
+    "yeni_metin": "c) Kendisine Teminat Usul ve Esasları uyarınca teminat çağrısı yapılan bir piyasa katılımcısının yeterli miktarda teminatı sunmaması ve/veya temerrüt durumuna düşen bir piyasa katılımcısının temerrüt borcunu yatırmadan teminatını tamamlaması durumunda, katılımcı ikili anlaşmalar, vadeli elektrik piyasası, gün öncesi piyasası ve gün içi piyasası kapsamında faaliyetlerine devam edemez.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "c) (Değişik:RG-9/8/2019-30857) Kendisine (Ekk:RG-2/2/2020-31027) Teminat Usul ve Esasları uyarınca teminat çağrısı yapılan bir piyasa katılımcısının yeterli miktarda teminatı sunmaması ve/veya temerrüt durumuna düşen bir piyasa katılımcısının temerrüt borcunu yatırmadan teminatını tamamlaması durumunda, katılımcı gün öncesi piyasası ve gün içi piyasası kapsamında faaliyetlerine devam edemez.",
+    "fark": [
+     [
+      "durumunda, katılımcı",
+      "durumunda, katılımcı ikili anlaşmalar, vadeli elektrik piyasası,"
+     ]
+    ],
+    "fark_ocr": true
+   }
+  ],
+  "baslik": "Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 2,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Elektrik Piyasası Dengeleme ve Uzlaştırma Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ }
+]
