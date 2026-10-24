@@ -1,0 +1,38 @@
+{
+ "kalemler": {
+  "154 kV (Kızılırmak TM-Kırşehir TM) Bış.N-Alıç DGES TM (Girdi-Çıktı) Enerji İletim Hattı Projesi Kapsamında Bazı Taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü Tarafından Acele Kamulaştırılması Hakkında Karar (Karar Sayısı: 11922) (s. 4)": {
+   "ne_getiriyor": [
+    "154 kV (Kızılırmak TM-Kırşehir TM) Brş.N-Alıç DGES TM (Girdi-Çıktı) Enerji İletim Hattı Projesi kapsamındaki bazı taşınmazların Türkiye Elektrik İletim Anonim Şirketi Genel Müdürlüğü tarafından acele kamulaştırılması kararlaştırılmıştır.",
+    "Proje güzergâhına isabet eden taşınmazlarda direk yerleri mülkiyet şeklinde kamulaştırılacaktır.",
+    "İletken salınım gabarisi için ise taşınmazlar üzerinde irtifak hakkı kurulacaktır.",
+    "Kamulaştırma işlemi 2942 sayılı Kamulaştırma Kanununun 27 nci maddesi gereğince yapılacaktır."
+   ],
+   "yururluk": "23 Ekim 2026",
+   "surum": 2
+  },
+  "Enerji Piyasası Düzenleme Kurulunun 22/10/2026 Tarihli ve 14982 Sayılı Kararı (s. 21)": {
+   "ne_getiriyor": [
+    "Elektrik dağıtım şirketleri tarafından kullanıcılara sunulan Kullanıcı Mobil Uygulaması ve internet sitesine veri sağlanması amacıyla aylık performans kriterleri belirlenmiştir.",
+    "Ortalama yanıt süresinin ve p95 yanıt süresinin 3000 ms'den az olması kuralı getirilmiştir.",
+    "Dağıtım şirketlerinin sorumluluğundaki toplam işlem veya istek sayısı içinde başarısızlık ile sonuçlanan işlemlere ilişkin azami hata oranı dönemlere göre kademeli olarak düşürülmüştür.",
+    "Azami hata oranı 31/01/2027 tarihine kadar %4, 01/02/2027 ile 30/04/2027 arasında %2, 01/05/2027 tarihinden itibaren ise %1 olarak belirlenmiştir.",
+    "2026 yılı Aralık ayından itibaren entegrasyonuna ilişkin aylık performans raporlarında belirtilen performans kriterlerini sağlamayan şirketler hakkında 6446 sayılı Elektrik Piyasası Kanunu'nun 16 ncı maddesi kapsamında işlem tesis edilecektir."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  },
+  "Enerji Piyasası Düzenleme Kurulunun 22/10/2026 Tarihli ve 14985 Sayılı Kararı (s. 22)": {
+   "ne_getiriyor": [
+    "Torosgaz Kütahya Doğal Gaz Dağıtım Anonim Şirketi'nin 2022-2026 perakende satış tarifelerine ilişkin 18/7/2024 tarihli ve 12754 sayılı Kurul Kararının 1 inci maddesinin birinci fıkrasında yer alan yatırım tavanı tablosu revize edilmiştir.",
+    "Şirketin yıllık yatırım tavanı tutarı 2022 yılı için 37.205.205 TL olarak belirlenmiştir.",
+    "Şirketin yıllık yatırım tavanı tutarı 2023 yılı için 75.774.206 TL olarak revize edilmiştir.",
+    "Şirketin 2024 yılı yatırım tavanı 107.355.161 TL, 2025 yılı yatırım tavanı ise 94.392.239 TL olarak tespit edilmiştir.",
+    "Şirketin 2026 yılı yatırım tavanı 14.074.100 TL olarak belirlenirken, ilave yatırım tavanı tutarı 160.000.000 TL olarak kararlaştırılmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-10-24T00:05:51+00:00"
+}
