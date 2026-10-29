@@ -43,3 +43,28 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           python scripts/geri_bildirim.py
+
+  # Başka hesaptan açılan "Geri bildirim:" Issue'su: kaydedilmez (depo herkese açık, altın küme
+  # korunur), ama sessiz kalmasın diye kısa açıklama yazılıp kapatılır. Yapay zekâ ve commit yok;
+  # yalnız issues: write izni. Issue başlığı/gövdesi kabuğa hiç girmez, yalnız numarası kullanılır.
+  reddet:
+    if: >-
+      github.event_name == 'issues' && !github.event.issue.pull_request &&
+      github.event.issue.user.login != github.repository_owner &&
+      startsWith(github.event.issue.title, 'Geri bildirim:')
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions:
+      issues: write
+    steps:
+      - name: Açıklama yaz ve kapat
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NO: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+          SAHIP: ${{ github.repository_owner }}
+        run: |
+          gh issue comment "$NO" --repo "$REPO" --body "Bu işaret kaydedilmedi: ★/✗ geri bildirimini yalnızca depo sahibinin hesabı ($SAHIP) verebilir. Sayfadaki bağlantıyı o hesapla oturum açmışken kullanın.
+
+          <!-- rg-geri-bildirim -->"
+          gh issue close "$NO" --repo "$REPO" --reason "not planned"
