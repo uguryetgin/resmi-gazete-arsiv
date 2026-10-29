@@ -282,3 +282,4 @@
 
 # ===== GÜNLÜK GERİ BİLDİRİM (bildirim yorumlarındaki ★/✗) =====
 [★] 20261006 | YÖNETMELİK | - | Çevre Yönetimi Hizmetleri Hakkında Yönetmelikte Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
+[★] 20261028 | YÖNETMELİKLER | - | Binalar ile Yerleşmeler İçin Yeşil Sertifika Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)
