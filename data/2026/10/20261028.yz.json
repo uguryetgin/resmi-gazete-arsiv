@@ -1,0 +1,20 @@
+{
+ "kalemler": {
+  "Binalar ile Yerleşmeler İçin Yeşil Sertifika Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)": {
+   "ne_getiriyor": [
+    "12/6/2022 tarihli ve 31864 sayılı Resmî Gazete’de yayımlanan Binalar ile Yerleşmeler İçin Yeşil Sertifika Yönetmeliğinin Ek-1, Ek-2 ve Ek-3’ünü değiştirmiştir.",
+    "Bina ve yerleşmelerin sürdürülebilir çevresel, sosyal ve ekonomik performanslarının değerlendirilmesi ile sertifikalandırılması sürecine dair kılavuz, kapsam, modüller, kriterler ve kredi dağılımlarını yeniden düzenlemiştir.",
+    "Sertifikalandırma sürecinde binaları konut, ofis, eğitim, otel, sağlık, alışveriş ve ticaret ile diğer bina tipolojileri olmak üzere yeni bina ve mevcut bina kategorilerinde değerlendirmektedir.",
+    "Yeşil bina değerlendirme sürecinde Bütünleşik Bina Tasarım, Yapım ve Yönetimi (BBT), Yapı Malzemesi ve Yaşam Döngüsü (YMD), İç Ortam Kalitesi (İOK), Enerji Kullanımı ve Verimliliği (EKV), Su ve Atık Yönetimi (SAY) ve İnovasyon (İNO) modüllerini ve kredi esaslarını belirlemiştir.",
+    "Başvuruların Bakanlık yetkili Yeşil Sertifika Uzmanları (YESU) tarafından hazırlanarak YeS-TR üzerinden Değerlendirme Kuruluşuna iletileceğini ve Değerlendirme Uzmanları (YESDU) tarafından değerlendirileceğini hükme bağlamıştır.",
+    "Değerlendirme sürecinde en az üç farklı YESDUM olmak üzere yeterli sayıda YESDU görev alacağını ve her YESDU'nun İNO modülü hariç en fazla iki modülü değerlendirebileceğini düzenlemiştir.",
+    "Bina ana girişinin toplu taşıma duraklarına en fazla 500 metre mesafede olmasını veya bisiklet yolu bulunmasını, ayrıca sağlık ve eğitim kamusal hizmet tesislerine en fazla 3 km mesafede olmasını arazi ve ulaşım kriteri olarak getirmiştir.",
+    "Akustik performans ve çınlama süresi sınır değerlerinin sağlanmasında TS EN ISO standartları ile Binaların Gürültüye Karşı Korunması Hakkında Yönetmelik esaslarına uyulmasını zorunlu kılmıştır."
+   ],
+   "yururluk": "Bu Yönetmelik yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-10-29T17:56:37+00:00"
+}
