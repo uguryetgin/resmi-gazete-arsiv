@@ -1,0 +1,314 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2017-03-31",
+   "rg_sayi": "30024"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "31/3/2017 tarihli ve 30024 sayılı Resmî Gazete’de yayımlanan Organize Toptan Doğal Gaz Satış Piyasası Yönetmeliğinin 13 üncü maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "13"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "13"
+    },
+    "yeni_metin": "(4) 14/2/2026 tarihli ve 33168 sayılı Resmî Gazete’de yayımlanan Enerji Piyasalarında ve Çevresel Piyasalarda Şeffaflığa ve Piyasa Bozucu Davranışlara İlişkin Yönetmelik hükümleri saklıdır.",
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "Organize Toptan Doğal Gaz Satış Piyasası Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 143,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Organize Toptan Doğal Gaz Satış Piyasası Yönetmeliği",
+  "ocr": false,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2024-12-31",
+   "rg_sayi": "32769",
+   "bulunamadi": true
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "31/12/2024 tarihli ve 32769 beşinci mükerrer sayılı Resmî Gazete’de yayımlanan 2025-2027 Yıllarında Yapılacak Bitkisel Üretime Yönelik Desteklemeler ile Diğer Bazı Tarımsal Desteklemelere Ödeme Yapılmasına Dair Tebliğ (Tebliğ No: 2024/39)’in 4 üncü maddesinin ikinci fıkrasına aşağıdaki cümle eklenmiştir.",
+    "birim": {
+     "madde": "4",
+     "fikra": 2
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "4",
+     "fikra": 2
+    },
+    "yeni_metin": "Coğrafi Bilgi Sistemleri uzaktan algılama veya insansız hava aracı ile gerçekleştirilen kontroller neticesinde yapılan tespitler için Üretim Yılı Planlı Üretim Kontrol Tutanağı (Ek-40), yerinde yapılan tespitler için Üretim Yılı Planlı Üretim Arazi Tespit Tutanağı (Ek-41) düzenlenir.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Tebliğin 6 ncı maddesinin ikinci fıkrasının (c) bendi yürürlükten kaldırılmış ve (f) bendinin üçüncü cümlesinde yer alan “EK-9’da yer alan Kontrol Tutanağı” ibaresi “EK-41’de yer alan Üretim Yılı Planlı Üretim Arazi Tespit Tutanağı” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "6",
+     "fikra": 2,
+     "bent": "c"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare",
+     "mulga"
+    ],
+    "ibareler": [
+     {
+      "eski": "EK-9’da yer alan Kontrol Tutanağı",
+      "yeni": "EK-41’de yer alan Üretim Yılı Planlı Üretim Arazi Tespit Tutanağı",
+      "birimler": [
+       {
+        "madde": "6",
+        "fikra": 2,
+        "bent": "f",
+        "cumle": 3
+       }
+      ],
+      "cogul": false
+     }
+    ],
+    "mulga_birim": {
+     "madde": "6",
+     "fikra": 2,
+     "bent": "c"
+    },
+    "talimat_goster": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Tebliğin 8 inci maddesinin birinci fıkrasının (c) bendi yürürlükten kaldırılmış, (g) bendine “20 dekar” ibaresinden sonra gelmek üzere “, 2027 yılında en az 10 dekar” ibaresi eklenmiş, ikinci fıkrasına “destekleme ödeme miktarları” ibaresinden sonra gelmek üzere “üretim yılına ait” ibaresi eklenmiş ve aynı maddeye aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "8",
+     "fikra": 1,
+     "bent": "c"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare-ekleme",
+     "ekleme",
+     "mulga"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "20 dekar",
+      "eklenen": ", 2027 yılında en az 10 dekar"
+     },
+     {
+      "yer": "destekleme ödeme miktarları",
+      "eklenen": "üretim yılına ait"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "8",
+     "fikra": 2
+    },
+    "yeni_metin": "(5) Açık alanda, aynı üründe iki farklı zararlı organizma için ruhsatlı biyolojik ve biyoteknik mücadele ürünlerinin kullanılması durumunda, her iki zararlı organizma mücadelesi ayrı ayrı destek kapsamında değerlendirilir.",
+    "mulga_birim": {
+     "madde": "8",
+     "fikra": 1,
+     "bent": "c"
+    },
+    "talimat_goster": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Tebliğin 13 üncü maddesinin birinci fıkrasına aşağıdaki bent ve aynı fıkranın (ç) bendine aşağıdaki alt bent eklenmiştir.",
+    "birim": {
+     "madde": "13",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "13",
+     "fikra": 1,
+     "bent": "ç"
+    },
+    "yeni_metin": "ı) Kuru tarım parsellerinde arpa, buğday, çavdar, tritikale ve yulaf ürünleri art arda ekilebilir.” “5) Hatay ilinin Kumlu ve Reyhanlı havzalarında üretilen patates ve havuç ürünleri için (2) numaralı alt bent uygulanır.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Tebliğin 17 nci maddesinin beşinci fıkrası yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "17",
+     "fikra": 5
+    },
+    "coklu": false,
+    "turler": [
+     "mulga"
+    ],
+    "mulga_birim": {
+     "madde": "17",
+     "fikra": 5
+    },
+    "talimat_goster": false,
+    "onceki_kaynak": "değiştirilen mevzuat kaynaklarda bulunamadı"
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Tebliğin 19 uncu maddesinin on ikinci fıkrasının ikinci cümlesinde yer alan “kontrol tutanağını” ibaresi “Üretim Yılı Planlı Üretim Kontrol Tutanağı (Ek-40) veya Üretim Yılı Planlı Üretim Arazi Tespit Tutanağı (Ek-41)” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "19",
+     "fikra": 12,
+     "cumle": 2
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "kontrol tutanağını",
+      "yeni": "Üretim Yılı Planlı Üretim Kontrol Tutanağı (Ek-40) veya Üretim Yılı Planlı Üretim Arazi Tespit Tutanağı (Ek-41)",
+      "birimler": [
+       {
+        "madde": "19",
+        "fikra": 12,
+        "cumle": 2
+       }
+      ],
+      "cogul": false
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Tebliğin EK-9’u yürürlükten kaldırılmıştır.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "diger"
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 8,
+    "talimat": "Aynı Tebliğin EK-20’si ekteki şekilde değiştirilmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "diger"
+    ],
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "2025-2027 Yıllarında Yapılacak Bitkisel Üretime Yönelik Desteklemeler ile Diğer Bazı Tarımsal Desteklemelere Ödeme Yapılmasına Dair Tebliğ (Tebliğ No: 2024/39)’de Değişiklik Yapılmasına İlişkin Tebliğ (No: 2026/30)",
+  "sayfa": 145,
+  "alan": "Sanayi ve Teknoloji",
+  "temel_baslik": "2025-2027 Yıllarında Yapılacak Bitkisel Üretime Yönelik Desteklemeler ile Diğer Bazı Tarımsal Desteklemelere Ödeme Yapılmasına Dair Tebliğ (Tebliğ No: 2024/39)",
+  "ocr": true,
+  "kesilen": 2
+ },
+ {
+  "temel": {
+   "rg_tarih": "2020-11-19",
+   "rg_sayi": "31309",
+   "mevzuatId": "107138",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=36089&MevzuatTur=9&MevzuatTertip=5",
+   "ad": "DAĞITIM TARİFESİNİN DÜZENLENMESİ HAKKINDA TEBLİĞ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "19/11/2020 tarihli ve 31309 sayılı Resmî Gazete’de yayımlanan Dağıtım Tarifesinin Düzenlenmesi Hakkında Tebliğin 9 uncu maddesinin birinci fıkrasında yer alan “%1,5’ine” ibaresi “%2’sine” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "9",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "%1,5’ine",
+      "yeni": "%2’sine",
+      "birimler": [
+       {
+        "madde": "9",
+        "fikra": 1
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "…la, dağıtım şirketlerinin kontrol edilemeyen işletme giderleri ve planlı bakım bütçesi hariç verimlilik uygulanmış yıllık düzenlemeye esas işletme giderlerinin %1,5'ine tekabül eden tutarı gelir gereksinimi hesaplamalarında Ar-Ge bütçesi olarak dikkate alınır.…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "Dağıtım Tarifesinin Düzenlenmesi Hakkında Tebliğde Değişiklik Yapılmasına Dair Tebliğ",
+  "sayfa": 150,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Dağıtım Tarifesinin Düzenlenmesi Hakkında Tebliğ",
+  "ocr": false,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2025-12-31",
+   "rg_sayi": "33124",
+   "bulunamadi": true
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "31/12/2025 tarihli ve 33124 beşinci mükerrer sayılı Resmî Gazete’de yayımlanan Türk Patent ve Marka Kurumunca 2026 Yılında Uygulanacak Ücret Tarifesine İlişkin Tebliğ (BİK/TÜRKPATENT: 2026/1)’in 9 uncu maddesinin ikinci fıkrası aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "9",
+     "fikra": 2
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "9",
+     "fikra": 2
+    },
+    "yeni_metin": "(2) TÜRKPATENT tarafından düzenlenen yarışmalar kapsamında yapılan başvurular 1 ve 4 sayılı cetvelde yer alan 1.01.01, 1.01.48, 1.01.49, 1.01.50, 1.01.51, 4.01.01, 4.01.02 ve 4.01.03 sayılı ücretlerden muaftır.",
+    "talimat_goster": false,
+    "onceki_kaynak": "değiştirilen mevzuat kaynaklarda bulunamadı"
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Tebliğin ekinde yer alan 1 sayılı cetvelin 01.01.01, 01.01.49, 01.01.51 ve 01.01.64 hizmet satırı aşağıdaki şekilde değiştirilmiş, aynı cetvele 01.01.65 hizmet satırından sonra gelmek üzere aşağıdaki hizmet satırları eklenmiştir.",
+    "birim": {},
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {},
+    "ekleme_birim": {},
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Türk Patent ve Marka Kurumunca 2026 Yılında Uygulanacak Ücret Tarifesine İlişkin Tebliğ (BİK/TÜRKPATENT: 2026/1)’de Değişiklik Yapılmasına Dair Tebliğ (BİK/TÜRKPATENT: 2026/2)",
+  "sayfa": 150,
+  "alan": "Enerji Piyasaları",
+  "temel_baslik": "Türk Patent ve Marka Kurumunca 2026 Yılında Uygulanacak Ücret Tarifesine İlişkin Tebliğ (BİK/TÜRKPATENT: 2026/1)",
+  "ocr": true,
+  "kesilen": 0
+ }
+]
