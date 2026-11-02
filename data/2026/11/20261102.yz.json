@@ -1,0 +1,15 @@
+{
+ "kalemler": {
+  "İzmir Yüksek Teknoloji Enstitüsü Biyoteknoloji ve Biyomühendislik Uygulama ve Araştırma Merkezi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 2)": {
+   "ne_getiriyor": [
+    "7/7/2011 tarihli ve 27987 sayılı Resmî Gazete'de yayımlanan Yönetmeliğin 10 uncu maddesinin birinci fıkrasının üçüncü cümlesinde değişiklik yapılmıştır.",
+    "İzmir Yüksek Teknoloji Enstitüsü Biyoteknoloji ve Biyomühendislik Uygulama ve Araştırma Merkezi Yönetim Kurulu üyelerinin görev süresi üç yıl olarak düzenlenmiştir.",
+    "Görev süresi sona eren Yönetim Kurulu üyelerinin yeniden görevlendirilebilmesine imkân tanınmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-11-02T00:59:19+00:00"
+}

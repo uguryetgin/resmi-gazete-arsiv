@@ -1,0 +1,41 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2011-07-07",
+   "rg_sayi": "27987",
+   "mevzuatId": "114975",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=15100&MevzuatTur=8&MevzuatTertip=5",
+   "ad": "İZMİR YÜKSEK TEKNOLOJİ ENSTİTÜSÜ BİYOTEKNOLOJİ VE BİYOMÜHENDİSLİK UYGULAMA VE ARAŞTIRMA MERKEZİ YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "7/7/2011 tarihli ve 27987 sayılı Resmî Gazete’de yayımlanan İzmir Yüksek Teknoloji Enstitüsü Biyoteknoloji ve Biyomühendislik Uygulama ve Araştırma Merkezi Yönetmeliğinin 10 uncu maddesinin birinci fıkrasının üçüncü cümlesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "10",
+     "fikra": 1,
+     "cumle": 3
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "10",
+     "fikra": 1,
+     "cumle": 3
+    },
+    "yeni_metin": "Yönetim Kurulu üyelerinin görev süresi üç yıl olup, görev süresi biten üye yeniden görevlendirilebilir.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin); 3. cümle kaynakta ayrılamadı, 10. madde, 1. fıkra gösteriliyor",
+    "eski_metin": "(1) Yönetim Kurulu; Enstitüde tam gün çalışan ve biyoteknoloji ve biyomühendislik ile ilgili konularda yayınları, araştırmaları, uygulama deneyimi ve çalışmaları bulunan, ilgili fakülte yönetim kurulu kararı ile önerilen ve Rektör tarafından Mühendislik Fakültesinden üç ve Fen Fakültesinden üç üye ile Enstitüdeki diğer öğretim üyeleri arasından görevlendirilen bir üye olmak üzere toplam yedi üyeden oluşur. Mühendislik ve Fen Fakülteleri kendilerine ayrılan üç kişilik kontenjanın iki katı kadar adayı Rektöre önerir. Yönetim Kurulu üyelerinin görev süresi üç yıl olup, bir üye üst üste en fazla …"
+   }
+  ],
+  "baslik": "İzmir Yüksek Teknoloji Enstitüsü Biyoteknoloji ve Biyomühendislik Uygulama ve Araştırma Merkezi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 2,
+  "alan": "Sanayi ve Teknoloji",
+  "temel_baslik": "İzmir Yüksek Teknoloji Enstitüsü Biyoteknoloji ve Biyomühendislik Uygulama ve Araştırma Merkezi Yönetmeliği",
+  "ocr": false,
+  "kesilen": 0
+ }
+]
