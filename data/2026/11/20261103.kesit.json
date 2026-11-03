@@ -1,0 +1,65 @@
+{
+ "Avukatlık Asgari Ücret Tarifesi (s. 7)": {
+  "dosya": "20261103-s7.pdf",
+  "ilk": 7,
+  "son": 17,
+  "isaret": [
+   [
+    0.2684,
+    0.0777,
+    0.4615,
+    0.0138
+   ]
+  ]
+ },
+ "Nitelikli Doğal Koruma Alanlarında Rüzgar Enerji Santrali (RES) Projelerinin Gerçekleştirilmesine Yönelik İlke Kararı (No: 157) (s. 19)": {
+  "dosya": "20261103-s19.pdf",
+  "ilk": 19,
+  "son": 20,
+  "isaret": [
+   [
+    0.0718,
+    0.7043,
+    0.8462,
+    0.034
+   ],
+   [
+    0.0735,
+    0.7309,
+    0.841,
+    0.016
+   ]
+  ]
+ },
+ "Sürdürülebilir Koruma ve Kontrollü Kullanım Alanlarında Hidroelektrik Santrali (HES) Projelerinin Gerçekleştirilmesine Yönelik İlke Kararı (No: 159) (s. 20)": {
+  "dosya": "20261103-s20.pdf",
+  "ilk": 20,
+  "son": 20,
+  "isaret": [
+   [
+    0.0701,
+    0.6957,
+    0.8496,
+    0.0149
+   ],
+   [
+    0.2034,
+    0.7138,
+    0.5846,
+    0.016
+   ],
+   [
+    0.2,
+    0.7298,
+    0.5897,
+    0.017
+   ],
+   [
+    0.1197,
+    0.7468,
+    0.8222,
+    0.0319
+   ]
+  ]
+ }
+}

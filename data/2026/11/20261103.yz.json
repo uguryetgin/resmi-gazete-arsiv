@@ -1,0 +1,41 @@
+{
+ "kalemler": {
+  "Avukatlık Asgari Ücret Tarifesi (s. 7)": {
+   "ne_getiriyor": [
+    "Mahkemelerde, tüm hukuki yardımlarda ve merci kararlarında 1136 sayılı Avukatlık Kanunu ile bu Tarife hükümleri uygulanır; taraflar arasında akdi ücret kararlaştırılmaması veya geçersiz sayılması halinde bu Tarife gereğince hesaplanacak ücretten azına hükmedilemez.",
+    "Tarifede yazılı avukatlık ücreti, dava dışı işlerde hukuki yardımın tamamlanmasına, davalarda ise kesin hüküm elde edilinceye kadarki bütün iş ve işlemlerin karşılığı olup icra takipleri, temyiz ve istinaf duruşmaları ayrı ücrete tabidir.",
+    "Yargı yerlerince avukata ait olmak üzere karşı tarafa yükletilecek avukatlık ücreti Tarifede yazılı miktardan az ve üç katından çok olamaz; birden çok avukatın yardımı durumunda karşı tarafa birden fazla ücret yükletilemez.",
+    "Anlaşmazlık, feragat, kabul, sulh veya davanın konusuz kalması durumunda ön inceleme tutanağı imzalanıncaya kadar ücretin yarısı, imzalandıktan sonra ise tamamı hükmolunur.",
+    "Tahliye davalarında bir yıllık kira bedeli, kira tespiti ve nafaka davalarında ise bir yıllık kira bedeli farkı veya nafaka tutarı üzerinden hesaplanan miktar avukatlık ücreti olarak belirlenir ve bu miktar maktu ücretten az olamaz.",
+    "İcra ve İflas Müdürlüklerindeki takip miktarı 78.125,00 TL'ye kadar olan takiplerde avukatlık ücreti maktu ücrettir; borçlunun ödeme süresi içinde borcunu ödemesi halinde belirlenecek ücretin dörtte üçü takdir edilir.",
+    "Arabuluculuğun dava şartı olması durumunda, arabuluculuk anlaşma belgesinin imzalanması halinde para olan işlerde üçüncü kısma göre hesaplanan ücretin dörtte bir fazlası, 62.500,00 TL'ye kadar olan faaliyetlerde ise maktu ücretin dörtte bir fazlası uygulanır.",
+    "Seri davalarda toplamda on dosyaya kadar her dosya için ayrı ayrı tam ücret, elli dosyaya kadar ilk on dosyadan sonraki her dosya için tam ücretin %50'si, yüz dosyaya kadar %40'ı, yüzden fazla dosyada ise %25'i oranında avukatlık ücretine hükmedilir.",
+    "Dava takipçileri tarafından takip olunan dava ve işlerde Tarifede belirtilen ücretin 1/4'ü uygulanır; kötü niyetli veya haksız dava açılması halinde yargılama giderlerinin yanı sıra vekalet ücretine de hükmedilebilir."
+   ],
+   "yururluk": "Bu Tarife yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Nitelikli Doğal Koruma Alanlarında Rüzgar Enerji Santrali (RES) Projelerinin Gerçekleştirilmesine Yönelik İlke Kararı (No: 157) (s. 19)": {
+   "ne_getiriyor": [
+    "Şehitlik ve/veya mezarlık alanları ile ilgili uygulamalarda, kamu yararı gereği ve diğer mevzuat hükümleri saklı kalmak üzere alternatif başka bir alan bulunmadığının ilgili idarelerce gerekçelendirilmesi şartı getirilmiştir.",
+    "Şehitlik ve mezarlık alanlarının toplam yüzölçümü, defin kapasitesi ile yapılabilecek yapı ve tesislere ait tür, büyüklük ve yapılaşma sınırları koruma amaçlı imar planı veya geçiş dönemi koruma esasları doğrultusunda belirlenecektir.",
+    "Şehitlik ve mezarlık alanlarına, ilgili Tabiat Varlıklarını Koruma Bölge Komisyonunca yapılacak değerlendirmeye göre izin verilebileceği kararlaştırılmıştır.",
+    "03.01.2017 tarihli ve 98 sayılı Doğal Sit Alanlarında Rüzgâr Enerjisi Santralleri İlke Kararının Nitelikli Doğal Koruma Alanları'na ilişkin 'türbin sayısı 20 adeti ve kurulu gücü 50 MWm'i geçmemek kaydıyla' ifadesi kaldırılmıştır.",
+    "İlgili mevzuat hükümleri saklı kalmak kaydıyla, nitelikli doğal koruma alanlarında kalan ve türbin sayısı 18 adeti geçmeyen rüzgar enerji santrali projelerine izin verilebilecektir.",
+    "Rüzgar enerji santrali projelerine izin verilmesinde alanın kaynak değerleri, ekolojik bütünlüğü, çevresel etkilerin önlenmesi veya en aza indirilmesine yönelik tedbirlerin yeterliliği ve projenin kamu yararı bakımından gerekliliği dikkate alınacaktır.",
+    "Rüzgar enerji santrali projeleri için hazırlanacak koruma amaçlı imar planları doğrultusunda ilgili Tabiat Varlıklarını Koruma Bölge Komisyonunca değerlendirme yapılacaktır."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  },
+  "Sürdürülebilir Koruma ve Kontrollü Kullanım Alanlarında Hidroelektrik Santrali (HES) Projelerinin Gerçekleştirilmesine Yönelik İlke Kararı (No: 159) (s. 20)": {
+   "ne_getiriyor": [
+    "Sürdürülebilir Koruma ve Kontrollü Kullanım Alanlarında hidroelektrik santrali (HES) projelerinin gerçekleştirilmesine yönelik uyulacak usul ve esaslar belirlenmiştir."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-03T03:10:02+00:00"
+}
