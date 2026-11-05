@@ -1,0 +1,36 @@
+{
+ "kalemler": {
+  "Haberleşme, Seyrüsefer ve Gözetim Sistemleri Mânia Kriterleri Hakkında Yönetmelik (SHY-CNS/MÂNİA) (s. 1)": {
+   "ne_getiriyor": [
+    "Türk hava sahasında hizmet veren tüm sivil haberleşme, seyrüsefer ve gözetim (CNS) sistemlerinin mânia kriterlerine ilişkin usul ve esasları düzenler.",
+    "CNS sistemlerinin etrafındaki yapılaşma değerlendirme sınırları (YTA) dahilindeki dış yüzey kaplamalarında radyo frekans sinyallerini yüksek oranda yansıtan malzemelerin kullanımından kaçınılmasını, zorunlu hallerde Aşama-2 Uzman Etki Analizi yapılmasını şart koşar.",
+    "Yapılaşma talepleri için Coğrafi Tabanlı Dijital Bilgi Platformu üzerinden Aşama-1 Genel Girdi Taraması yapılmasını; ihlal veya sınır durumu tespit edilirse veya hassas sahalarda Aşama-2 Uzman Etki Analizi uygulanmasını zorunlu kılar.",
+    "Vinç, beton pompası, iskele gibi geçici ekipman ve engeller için ön bildirim ve izin alınmasını, izin şartlarına uyulmaması halinde faaliyetlerin derhal durdurulmasını hükme bağlar.",
+    "Zeminden itibaren 100 metre ve üzerinde yüksekliğe sahip tüm yapılaşma ve rüzgâr enerji santralleri bilgilerinin AIP'de yayımlanmak üzere mânia nitelikleriyle birlikte ilgili CNS hizmet sağlayıcısına iletilmesini öngörür.",
+    "CVOR ve DVOR seyrüsefer cihazlarının kurulumu için 65 metreden 3000 metreye kadar değişen yarıçap alanlarında arazi eğimi, tabii ve suni engeller ile ağaç ve enerji nakil hatlarına ilişkin sınırlamalar getirir.",
+    "DME cihazı için 300 metre yarıçaplı hassas sahada yapıların deniz seviyesine göre tepe kotunun anten üst kotunu aşamayacağını ve 2000 metre yarıçaplı YTA içinde yükseklik sınırlarını belirler.",
+    "Bu Yönetmelik hükümlerine aykırı hareket edenler hakkında 2920 sayılı Kanunun 27 nci ve 143 üncü maddeleri ile Sivil Havacılık Genel Müdürlüğü Tarafından Verilecek İdari Para Cezaları Hakkında Yönetmelik (SHY-İPC) hükümleri uygulanır.",
+    "23/8/2013 tarihli ve 28744 sayılı Resmî Gazete’de yayımlanan Haberleşme, Seyrüsefer, Gözetim Sistemleri Mânia Kriterleri Hakkında Yönetmelik yürürlükten kaldırılmıştır."
+   ],
+   "yururluk": "Yayınlandığı tarih olan Resmî Gazete yayım tarihinde yürürlüğe girer. Yönetmeliğin yürürlük tarihinden itibaren iki yıl içerisinde AIP'de yayımlanmış cihaz bilgileri mânia planı notlarına işlenir ve faaliyet gösteren tüm rüzgâr enerji santrallerinin 100 metre ve üzeri yükseklik bilgileri CNS hizmet sağlayıcısına iletilir.",
+   "surum": 2
+  },
+  "Türk Mühendis ve Mimar Odaları Birliği Harita ve Kadastro Mühendisleri Odası Eğitim ve Belgelendirme Merkezi Yönetmeliği (s. 19)": {
+   "ne_getiriyor": [
+    "Bu Yönetmelik, TMMOB Harita ve Kadastro Mühendisleri Odası Eğitim ve Belgelendirme Merkezinin (EBM) çalışma esaslarını, organizasyon yapısını, görev, yetki ve sorumluluklarını kapsamaktadır.",
+    "EBM; meslek mensupları başta olmak üzere bireylerin bilgi, beceri ve yetkinliklerini geliştirmek, bilimsel ve teknik bilgiyi yaygınlaştırmak amacıyla yüz yüze, çevrim içi ve hibrit eğitim faaliyetleri ile belgelendirme süreçlerini yürütür.",
+    "Eğitim konuları, programları, süreleri, eğitici görevlendirmeleri ve ücretler EBM Koordinatörünün görüşü alınarak Oda Yönetim Kurulu tarafından belirlenir.",
+    "Katılımcı başvuruları Odanın kurumsal internet sitesi üzerinden alınır; yüz yüze eğitimler EBM'de, diğer eğitim türleri dijital platformlarda veya talep halinde şube ve temsilciliklerde gerçekleştirilir.",
+    "Eğitim ve belgelendirme koşulları arasında belirlenen ücreti ödemek, programı başarıyla tamamlamak, başvuru şartlarını sağlamak ve %80 devam zorunluluğunu yerine getirmek yer alır.",
+    "Gerçeğe aykırı beyanda bulunduğu tespit edilenlerin eğitim veya belgelendirme hakları iptal edilir.",
+    "EBM Koordinatörü; eğitim ve belgelendirme süreçlerini planlamak, ISO standartları kapsamında kalite yönetim sistemini yürütmek ve sınav takvimlerini hazırlamakla sorumludur.",
+    "Onaylanan eğitim programları Odanın kurumsal iletişim kanalları aracılığıyla duyurulur.",
+    "17/2/2007 tarihli ve 26437 sayılı Resmî Gazete’de yayımlanan Türk Mühendis ve Mimar Odaları Birliği Harita ve Kadastro Mühendisleri Odası Meslek İçi Eğitim ve Belgelendirme Yönetmeliği yürürlükten kaldırılmıştır."
+   ],
+   "yururluk": "Bu Yönetmelik yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-05T01:41:34+00:00"
+}

@@ -1,0 +1,46 @@
+{
+ "Haberleşme, Seyrüsefer ve Gözetim Sistemleri Mânia Kriterleri Hakkında Yönetmelik (SHY-CNS/MÂNİA) (s. 1)": {
+  "dosya": "20261105-s1.pdf",
+  "ilk": 1,
+  "son": 18,
+  "isaret": [
+   [
+    0.1162,
+    0.4255,
+    0.7692,
+    0.017
+   ],
+   [
+    0.1487,
+    0.4457,
+    0.7026,
+    0.017
+   ]
+  ]
+ },
+ "Türk Mühendis ve Mimar Odaları Birliği Harita ve Kadastro Mühendisleri Odası Eğitim ve Belgelendirme Merkezi Yönetmeliği (s. 19)": {
+  "dosya": "20261105-s19.pdf",
+  "ilk": 19,
+  "son": 21,
+  "isaret": [
+   [
+    0.1128,
+    0.2468,
+    0.8479,
+    0.0138
+   ],
+   [
+    0.0376,
+    0.2681,
+    0.9248,
+    0.0138
+   ],
+   [
+    0.0376,
+    0.2883,
+    0.9231,
+    0.0138
+   ]
+  ]
+ }
+}
