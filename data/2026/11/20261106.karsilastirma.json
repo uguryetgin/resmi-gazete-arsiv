@@ -1,0 +1,225 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2019-02-02",
+   "rg_sayi": "30674",
+   "mevzuatId": "105727",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=31245&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "ORGANİZE SANAYİ BÖLGELERİ UYGULAMA YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "2/2/2019 tarihli ve 30674 sayılı Resmî Gazete’de yayımlanan Organize Sanayi Bölgeleri Uygulama Yönetmeliğinin 19 uncu maddesinin birinci fıkrasının dördüncü cümlesinde yer alan “yılı içinde alınmış” ibaresinden sonra gelmek üzere “tüzel kişiyi sınırlandırılmamış şekilde müştereken veya münferiden temsile yetkili olduğunu gösterir” ibaresi ve aynı fıkraya aşağıda yer alan cümle eklenmiş, aynı maddenin altıncı fıkrasının (c) bendinde yer alan “İmar planında” ibaresi “Yapı kullanma izni alınmış olması şartıyla, imar planında” şeklinde değiştirilmiş, aynı maddenin on üçüncü fıkrasında yer alan “Tüzel kişiliği temsil ve ilzama müşterek yetkili olanlar ile birden fazla” ibaresi “Birden fazla” şeklinde değiştirilmiştir. “Tüzel kişiyi müştereken temsile yetkili kişilerden biri, diğer müşterek yetkililer tarafından imzalanmış muvafakatnameyi ibraz ederek genel kurula katılabilir.”",
+    "birim": {
+     "madde": "19",
+     "fikra": 1,
+     "cumle": 4
+    },
+    "coklu": false,
+    "turler": [
+     "ibare",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "İmar planında",
+      "yeni": "Yapı kullanma izni alınmış olması şartıyla, imar planında",
+      "birimler": [
+       {
+        "madde": "19",
+        "fikra": 6,
+        "bent": "c"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "c) İmar planında yer alan ve her birinde bir işletmenin yer alacağı en az 3000 m² büyüklükteki müstakil sanayi parsel sahiplerinin her biri,…",
+      "kaynaktaki": null
+     },
+     {
+      "eski": "Tüzel kişiliği temsil ve ilzama müşterek yetkili olanlar ile birden fazla",
+      "yeni": "Birden fazla",
+      "birimler": [
+       {
+        "madde": "19",
+        "fikra": 13
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "(13) Tüzel kişiliği temsil ve ilzama müşterek yetkili olanlar ile birden fazla hisseli parsellerdeki hissedarlar, en az yarıdan fazla hissedarın imzaladığı muvafakatname ile içlerinden bir kişiye yetki verebilir. Yetki verilen gerçek veya…",
+      "kaynaktaki": null
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "19",
+     "fikra": 1,
+     "cumle": 4
+    },
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 42 nci maddesinin birinci fıkrasına aşağıdaki cümle eklenmiştir.",
+    "birim": {
+     "madde": "42",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "42",
+     "fikra": 1
+    },
+    "yeni_metin": "İş yeri açma ve çalışma ruhsatlarının çevrim içi sistemde elektronik ortamda imzalanması zorunludur.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 54/A maddesinin birinci fıkrasında yer alan “OSB’nin tüzel kişilik kazanmasından parselasyon planının onaylanmasına kadar” ibaresi “Tüzel kişilik kazanmış OSB’lerin yer seçimi kesinleştirilen alanlarında kamulaştırma ve altyapı inşa süreci tamamlanana kadar” şeklinde değiştirilmiş ve aynı maddenin sekizinci fıkrası aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "54/A",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare",
+     "yeniden"
+    ],
+    "ibareler": [
+     {
+      "eski": "OSB’nin tüzel kişilik kazanmasından parselasyon planının onaylanmasına kadar",
+      "yeni": "Tüzel kişilik kazanmış OSB’lerin yer seçimi kesinleştirilen alanlarında kamulaştırma ve altyapı inşa süreci tamamlanana kadar",
+      "birimler": [
+       {
+        "madde": "54/A",
+        "fikra": 1
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "(1) OSB'nin tüzel kişilik kazanmasından parselasyon planının onaylanmasına kadar Bakanlığın izni alınarak ön tahsis yapılabilir.…",
+      "kaynaktaki": null
+     }
+    ],
+    "yeniden_birim": {
+     "madde": "54/A",
+     "fikra": 8
+    },
+    "yeni_metin": "(8) Ön tahsis, 61 inci maddenin üçüncü ve dördüncü fıkralarında belirtilen şartlarda devredilebilir. Ön tahsis devri amacıyla Bakanlık izni alınmaksızın şirket hisselerinin devrinin yapıldığının tespit edilmesi halinde ön tahsis iptal edilir. Ön tahsisin iptal veya iade edilmesi halinde geri ödenecek bedelin belirlenmesi ve ödenmesine ilişkin hususlar ön tahsis sözleşmesinde belirlenir.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(8) Ön tahsis hiçbir şekilde devredilemez. Ön tahsis devri amacıyla şirket hisselerinin devrinin yapıldığının tespit edilmesi halinde ön tahsis iptal edilir ve bedel güncellenmesi yapılmadan ödenen bedel geri ödenir. Ön tahsis sözleşmesinde devir yasağı belirtilir.",
+    "fark": [
+     [
+      "Ön tahsis hiçbir şekilde devredilemez.",
+      "Ön tahsis, 61 inci maddenin üçüncü ve dördüncü fıkralarında belirtilen şartlarda devredilebilir."
+     ],
+     [
+      "devri amacıyla",
+      "devri amacıyla Bakanlık izni alınmaksızın"
+     ],
+     [
+      "iptal edilir ve bedel güncellenmesi yapılmadan ödenen bedel geri ödenir.",
+      "iptal edilir. Ön tahsisin iptal veya iade edilmesi halinde geri ödenecek bedelin belirlenmesi ve ödenmesine ilişkin hususlar"
+     ],
+     [
+      "tahsis sözleşmesinde devir yasağı belirtilir.",
+      "tahsis sözleşmesinde belirlenir."
+     ]
+    ]
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 55 inci maddesine dördüncü fıkrasından sonra gelmek üzere aşağıdaki fıkra eklenmiş ve diğer fıkralar buna göre teselsül ettirilmiştir.",
+    "birim": {
+     "madde": "55",
+     "fikra": 4
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "55",
+     "fikra": 4
+    },
+    "yeni_metin": "(5) İlana çıkılan parsele doğrudan ortak sınırı bulunan parsellerde iş yeri açma ve çalışma ruhsatı alarak üretime geçmiş katılımcılar tarafından tahsis başvurusunda bulunulması hâlinde, bahse konu katılımcıya tahsiste öncelik verilebilmesi için ihale yapılır ve tahsis, ihale sonucunda oluşan bedel üzerinden gerçekleştirilir. Tahsis yöntemi olarak kura belirlenmiş olsa dahi, söz konusu önceliğin uygulanabilmesi için ihale yapılması zorunludur. Benzer durumda olan birden fazla başvuru varsa herhangi bir öncelik tanınmaz. Parsel tahsis ilanlarında bu fıkrada düzenlenen hususlara yer verilir.",
+    "talimat_goster": true
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 60 ıncı maddesinin üçüncü fıkrasına aşağıdaki cümle eklenmiş, aynı maddenin altıncı fıkrası aşağıdaki şekilde değiştirilmiş ve aynı maddeye aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "60",
+     "fikra": 3
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "60",
+     "fikra": 3
+    },
+    "yeni_metin": "Katılımcının süre uzatım başvurusunun Bakanlıkça değerlendirildiği aşamada OSB tarafından tahsis iptal edilmiş olsa dahi, Bakanlıkça süre uzatım talebinin uygun bulunması hâlinde hukuki ve fiili engel bulunmaması kaydıyla, tahsisin iptali işlemi hükümsüz sayılır.” “(6) İkinci ve üçüncü fıkralarda belirlenen sürelerin bitmesi nedeniyle tahsisi iptal edilen katılımcı tarafından tahsis bedeli iadesi gerçekleştirilmeden önce OSB’den yeniden tahsis talep edilebilir. Yeniden tahsis talebinin OSB tarafından uygun görülmesi durumunda tahsisi iptal edilen parsel, tahsis ilanına çıkılmadan, Bakanlık …",
+    "talimat_goster": true
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 61 inci maddesinin beşinci fıkrasının birinci cümlesi aşağıdaki şekilde yeniden düzenlenmiştir. “Spekülatif amaçlı işlemlerin önlenmesi amacıyla, ön tahsis veya arsa tahsisi yapılan şirketin paylarında Bakanlık onayı alınmadan toplam %49’unu aşan ortaklık payı değişikliği yapılması halinde ön tahsis veya arsa tahsisi iptal edilir. Bu hususa ön tahsis ve arsa tahsis sözleşmelerinde yer verilir.”",
+    "birim": {
+     "madde": "61",
+     "fikra": 5,
+     "cumle": 1
+    },
+    "coklu": false,
+    "turler": [
+     "diger"
+    ],
+    "talimat_goster": true
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Yönetmeliğin 63 üncü maddesine aşağıdaki fıkra eklenmiştir.",
+    "birim": {
+     "madde": "63"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "63"
+    },
+    "yeni_metin": "(8) Parselin tahsis aşamasında katılımcı ile kiracısının tahsis başvurusunu birlikte yapması ve bu durumun tahsis sözleşmesinde belirtilmesi şartıyla kiralamanın yapılabilmesi için birinci fıkranın (a) bendindeki şart aranmaz.",
+    "talimat_goster": false
+   },
+   {
+    "madde": 8,
+    "talimat": "Aynı Yönetmeliğe 63 üncü maddesinden sonra gelmek üzere aşağıdaki madde eklenmiştir.",
+    "birim": {
+     "madde": "63"
+    },
+    "coklu": false,
+    "turler": [
+     "ekleme"
+    ],
+    "ekleme_birim": {
+     "madde": "63"
+    },
+    "yeni_metin": "Üst hakkı MADDE 63/A- (1) OSB mülkiyetinde bulunan ve katılımcıya ön tahsis veya tahsis edilen parsellerde belirlenen alanlarda, tahsis hakkı sahibi tarafından bildirilen ve OSB yönetim kurulunca uygun görülen gerçek veya tüzel kişiler lehine, bağımsız ve sürekli nitelikte olmayacak şekilde üst hakkı tesis edilebilir. Bu şekilde tesis edilen üst hakkı, tapu kütüğünün ayrı bir sayfasına taşınmaz olarak kaydedilmez ve devredilemez. Üst hakkının süresi, 60 ıncı madde çerçevesinde katılımcıya verilen tahsis süresini aşmayacak şekilde belirlenir. (2) Üst hakkı tesis edilmesi, katılımcının 4562 …",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Organize Sanayi Bölgeleri Uygulama Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 1,
+  "alan": "Sanayi ve Teknoloji",
+  "temel_baslik": "Organize Sanayi Bölgeleri Uygulama Yönetmeliği",
+  "ocr": false,
+  "kesilen": 0
+ }
+]

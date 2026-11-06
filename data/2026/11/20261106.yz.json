@@ -1,0 +1,31 @@
+{
+ "kalemler": {
+  "Organize Sanayi Bölgeleri Uygulama Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)": {
+   "ne_getiriyor": [
+    "Genel kurula katılımda tüzel kişiyi sınırlandırılmamış temsile yetki belgesi şart koşulmuş, müşterek yetkililerden birinin diğerlerinin imzalı muvafakatnamesiyle katılabileceği hükme bağlanmış ve imar planı uygulamalarında yapı kullanma izni alınmış olması şartı getirilmiştir.",
+    "İş yeri açma ve çalışma ruhsatlarının çevrim içi sistem üzerinden elektronik ortamda imzalanması zorunlu hale getirilmiştir.",
+    "Bakanlık izni olmaksızın şirket hisselerinin devredildiği tespit edilen ön tahsislerin iptal edileceği, iptal veya iade durumunda ödenecek bedelin ön tahsis sözleşmesinde düzenleneceği belirlenmiştir.",
+    "Ortak sınırı olan parselde üretime geçmiş katılımcılara tahsis önceliği sağlanabilmesi için kura yöntemi belirlenmiş olsa dahi ihale yapılması ve tahsisin ihale sonucundaki bedelden yapılması zorunlu kılınmıştır.",
+    "Süre aşımı nedeniyle tahsisi iptal edilenlere, bedel iadesinden önce OSB onayı ve Bakanlık izniyle ilana çıkılmaksızın güncel bedelden yeniden tahsis imkânı getirilmiş; ancak yeniden tahsis edilen bu parsellere ek süre verilmeyeceği düzenlenmiştir.",
+    "Spekülatif işlemlerin önlenmesi gerekçesiyle, Bakanlık onayı alınmadan toplam yüzde 49'u aşan ortaklık payı değişikliği yapılması halinde şirketin ön tahsisi veya arsa tahsisi iptal edilecektir.",
+    "Katılımcı ile kiracısının tahsis başvurusunu birlikte yapması ve sözleşmede belirtilmesi şartıyla, kiralama yapılabilmesi için aranan ilgili şarttan muafiyet tanınmıştır.",
+    "OSB veya katılımcı mülkiyetindeki parsellerde, devredilemeyen, tapu kütüğüne müstakil kaydedilemeyen ve tahsis süresini aşmayan, bağımsız ve sürekli nitelikte olmayan üst hakkı tesis edilebilmesine imkân tanınmıştır."
+   ],
+   "yururluk": "Yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  },
+  "Bankacılık Düzenleme ve Denetleme Kurulunun 04/11/2026 Tarihli ve 11593 Sayılı Kararı (s. 9)": {
+   "ne_getiriyor": [
+    "Bankacılık Düzenleme ve Denetleme Kurulu, 04.11.2026 tarihli ve 11593 sayılı kararıyla Golden Global Yatırım Bankası A.Ş. hakkında karar almıştır.",
+    "Karar doğrultusunda Golden Global Yatırım Bankası A.Ş.'nin faaliyet izni kaldırılmıştır.",
+    "Faaliyet izninin kaldırılması işlemi, 5411 sayılı Bankacılık Kanunu'nun 71 inci maddesinin birinci fıkrasının (c) bendi çerçevesinde tesis edilmiştir.",
+    "Söz konusu karar, Kurul tarafından 04.11.2026 tarihli ve E-43890421-101.01.01-208313 sayılı yazı ve eklerinin incelenmesi neticesinde verilmiştir.",
+    "Metinde ayrıca Anayasa Mahkemesi'nin 16/7/2026 tarihli, E.2026/23 ve K.2026/162 sayılı 4721 sayılı Türk Medeni Kanunu'na ilişkin itiraz ve iptal başvurusu kayıtları yer almaktadır."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-11-06T01:54:01+00:00"
+}

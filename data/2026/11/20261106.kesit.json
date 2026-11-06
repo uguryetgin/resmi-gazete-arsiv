@@ -1,0 +1,46 @@
+{
+ "Organize Sanayi Bölgeleri Uygulama Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 1)": {
+  "dosya": "20261106-s1.pdf",
+  "ilk": 1,
+  "son": 3,
+  "isaret": [
+   [
+    0.1094,
+    0.4723,
+    0.7812,
+    0.0138
+   ],
+   [
+    0.212,
+    0.5011,
+    0.5761,
+    0.017
+   ]
+  ]
+ },
+ "Bankacılık Düzenleme ve Denetleme Kurulunun 04/11/2026 Tarihli ve 11593 Sayılı Kararı (s. 9)": {
+  "dosya": "20261106-s9.pdf",
+  "ilk": 9,
+  "son": 10,
+  "isaret": [
+   [
+    0.3778,
+    0.0532,
+    0.2427,
+    0.0128
+   ],
+   [
+    0.1265,
+    0.0915,
+    0.5846,
+    0.0128
+   ],
+   [
+    0.1521,
+    0.1234,
+    0.6957,
+    0.0149
+   ]
+  ]
+ }
+}
