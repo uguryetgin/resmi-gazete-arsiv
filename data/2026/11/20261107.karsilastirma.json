@@ -1,0 +1,345 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2022-07-29",
+   "rg_sayi": "31907"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "29/7/2022 tarihli ve 31907 sayılı Resmî Gazete’de yayımlanan Çevresel Etki Değerlendirmesi Yönetmeliğinin EK-1’inde yer alan listenin 2 nci maddesi aşağıdaki şekilde değiştirilmiş ve aynı listeye aşağıdaki madde eklenmiştir.",
+    "birim": {
+     "madde": "2"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden",
+     "ekleme"
+    ],
+    "yeniden_birim": {
+     "madde": "2"
+    },
+    "nesne": true,
+    "ekleme_birim": {
+     "madde": "2"
+    },
+    "yeni_metin": "2- Termik ve nükleer güç santralleri ile diğer yakma tesisleri; a) Toplam ısıl gücü 300 MWt ve üzeri olan termik güç santralleri, b) Toplam ısıl gücü 300 MWt ve üzeri olan, gaz, buhar ve sıcak su elde edilmesi amacıyla kurulan endüstriyel tesisler, c) Nükleer güç santralleri veya diğer nükleer tesislerin kurulması veya sökümü (maksimum gücü sürekli termik yük bakımından 1 kilovatı aşmayan, atom çekirdeği parçalanabilen ve çoğalan maddelerin dönüşümü ve üretimi amacıyla gerçekleştirilen araştırma projeleri hariç),” “55- Akarsu havzaları arasında su aktarma projeleri (boru ile gerçekleştirilen …",
+    "talimat_goster": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin EK-2’sinde yer alan listenin 40 ıncı ve 44 üncü maddeleri aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "44"
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "44"
+    },
+    "yeni_metin": "40- Termik güç santralleri ile diğer yakma tesisleri; a) Toplam ısıl gücü 20 MWt ve üzeri olan termik güç santralleri, b) Toplam ısıl gücü 20 MWt ve üzeri olan, gaz, buhar ve sıcak su elde edilmesi amacıyla kurulan endüstriyel tesisler,” “44- Sürekli akış gösteren akarsuların yataklarında 5 km ve üzerinde düzenleme yapılan projeler,",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Çevresel Etki Değerlendirmesi Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 45,
+  "alan": "Çevre",
+  "temel_baslik": "Çevresel Etki Değerlendirmesi Yönetmeliği",
+  "ocr": false,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2005-02-14",
+   "rg_sayi": "25727",
+   "mevzuatId": "113122",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=7500&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "TÜRK MÜHENDİS VE MİMAR ODALARI BİRLİĞİ METALURJİ VE MALZEME MÜHENDİSLERİ ODASI ANA YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "14/2/2005 tarihli ve 25727 sayılı Resmî Gazete’de yayımlanan Türk Mühendis ve Mimar Odaları Birliği Metalurji ve Malzeme Mühendisleri Odası Ana Yönetmeliğinin 4 üncü maddesinde yer alan “Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve Seramik Mühendisliği” ibaresi “Metalurji ve Malzeme Mühendisleri Odasına üye olan Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği, Mühendisi, Yüksek Mühendisi” şeklinde …",
+    "birim": {
+     "madde": "4"
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve Seramik Mühendisliği",
+      "yeni": "Metalurji ve Malzeme Mühendisleri Odasına üye olan Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği, Mühendisi, Yüksek Mühendisi",
+      "birimler": [
+       {
+        "madde": "4"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "Madde 4 — Yurt içinde ve dışında, Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve Seramik Mühendisliği öğretimi yapan kuruluşların fakülte ve bölümlerinden mezun olarak diploma veya ruhsatname almış, böylece Türkiye sınırları içinde meslek ve sanatlarını uygulam…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 6 ncı maddesinde yer alan “Üye” tanımı aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "6"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "6"
+    },
+    "yeni_metin": "Üye: Metalurji ve Malzeme Mühendisleri Odasına üye olan Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği ve hizmetlerini Yüksek Mühendis veya Mühendis ünvanı ile yapmaya yasal olarak yetkili olanı,",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "Madde 6 — (Değişik:RG-2/10/2014-29137) Bu Yönetmelikte geçen; Birlik : Türk Mühendis ve Mimar Odaları Birliğini (TMMOB), Oda : Metalurji ve Malzeme Mühendisleri Odasını, Şube : Metalurji ve Malzeme Mühendisleri Odası Şubelerini, Üye : Metalurji ve Malzeme Mühendisleri Odasına üye olan Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve Seramik Mühendis veya Yüksek Mühendislerini, (Ek:RG-20/12/2022-32049) Temsilcilik: Metalurji ve Malzeme Mühendisleri Odası temsilciliklerini, ifade eder."
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 7 nci maddesinin birinci fıkrasının (r) bendi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "7",
+     "fikra": 1,
+     "bent": "r"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "7",
+     "fikra": 1,
+     "bent": "r"
+    },
+    "yeni_metin": "r) Uzmanlık ve meslek alanına giren konularda her seviyede eğitim, vasıflandırma ve sertifikalandırma faaliyetleri yürütmek, ülkemizin kamu yararına çalışan benzer örgütler ve sivil toplum kuruluşları ile kurumsal ilişkiler kurarak yapılan uygulamaları sorgulamak, strateji ve politikalar geliştirmek, çözümler üretmek ve bunları gerek bölgesel gerekse ulusal düzeyde düzenlenecek platformlar, yayınlar ve diğer iletişim araçları vasıtasıyla kamuoyuna iletmektir.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "r) Uzmanlık ve ilgi alanına giren güncel konularda ülkemizin kamu yararına çalışan benzer örgütler ve sivil toplum kuruluşları ile kurumsal ilişkiler kurarak yapılan uygulamaları sorgulamak, strateji ve politikalar geliştirmek, çözümler üretmek ve bunları gerek bölgesel gerekse ulusal düzeyde düzenlenecek platformlar, yayınlar ve diğer iletişim araçları vasıtasıyla kamuoyuna iletmektir. İKİNCİ BÖLÜM Üyeler Üyelik Madde 8 —(Değişik:RG-2/10/2014-29137) Odaya asil üye olabilmek için, Türkiye Cumhuriyeti uyruğunda olmak, Türkiye sınırları içinde Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve …",
+    "fark": [
+     [
+      "Uzmanlık ve ilgi alanına giren güncel konularda",
+      "Uzmanlık ve meslek alanına giren konularda her seviyede eğitim, vasıflandırma ve sertifikalandırma faaliyetleri yürütmek,"
+     ]
+    ],
+    "fark_kuyruk": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 8 inci maddesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "8"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "8"
+    },
+    "yeni_metin": "Madde 8- Odaya asil üye olabilmek için, Türkiye Cumhuriyeti uyruğunda olmak, Türkiye sınırları içinde Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği ve hizmetlerini Yüksek Mühendis veya Mühendis ünvanı ile yapmaya yasal olarak yetkili bulunmak gereklidir. Ayrıca Türkiye’de mesleki faaliyetlerde bulunmak için yasalar gereğince çalışmak isteyen yabancı uyruklu ve Türkiye’de oturan yabancı uyruklu Türk soylu Metalurji ve Malzeme Mühendisleri Odasına üye olan Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği, Mühendisi, …",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "Madde 8 —(Değişik:RG-2/10/2014-29137) Odaya asil üye olabilmek için, Türkiye Cumhuriyeti uyruğunda olmak, Türkiye sınırları içinde Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve Seramik Mühendisliği ve hizmetlerini Yüksek Mühendis veya Mühendis unvanı ile yapmaya yasal olarak yetkili bulunmak gereklidir. Ayrıca Türkiye'de mesleki faaliyetlerde bulunmak için yasalar gereğince çalışmak isteyen yabancı uyruklu ve Türkiye'de oturan yabancı uyruklu Türk soylu Metalurji, Metalurji ve Malzeme, Malzeme Bilimi ve Seramik Yüksek Mühendis ve Mühendisleri, Odaya geçici üye olmak zorundadır.",
+    "fark": [
+     [
+      "ve Malzeme,",
+      "ve Malzeme, Seramik,"
+     ],
+     [
+      "Bilimi ve Seramik",
+      "Bilimi ve Nanoteknoloji"
+     ],
+     [
+      "veya Mühendis unvanı",
+      "veya Mühendis ünvanı"
+     ],
+     [
+      "soylu Metalurji,",
+      "soylu Metalurji ve Malzeme Mühendisleri Odasına üye olan Metalurji,"
+     ],
+     [
+      "ve Malzeme,",
+      "ve Malzeme, Seramik,"
+     ],
+     [
+      "Bilimi ve Seramik Yüksek Mühendis ve",
+      "Bilimi ve Nanoteknoloji Mühendisliği, Mühendisi, Yüksek Mühendisi veya Yüksek"
+     ]
+    ]
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 9 uncu maddesinin birinci fıkrasının üçüncü cümlesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "9",
+     "fikra": 1,
+     "cumle": 3
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "9",
+     "fikra": 1,
+     "cumle": 3
+    },
+    "yeni_metin": "Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği öğrenimi yapan öğrencilerden Odaya başvuranların \"öğrenci üye\" olarak Odaya kaydı yapılır.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin); 1. fıkra, 3. cümle kaynakta ayrılamadı, 9. madde gösteriliyor",
+    "eski_metin": "Madde 9 — Odanın amaçlarına uygun olarak, yurt içinde ve dışında çalışma ve yardımları görülen ve Odanın çalışmalarına katılmak isteyen gerçek veya tüzel kişilere, Oda Yönetim Kurulunun önerisi ve Oda Genel Kurulu kararı ile \"fahri üyelik\" veya \"onur üyeliği\" verilebilir. Bu üyelikler, Oda Onur Kurulunun görüşü alınarak Oda Genel Kurulunca geri alınabilir. Metalurji Mühendisliği öğrenimi yapan öğrencilerden Odaya başvuranların \"öğrenci üye\" olarak Odaya kaydı yapılır. Üyelerin Hak ve Yükümlülükleri Madde 10 —(Değişik:RG-2/10/2014-29137) Üyelik için aşağıdaki hükümler geçerlidir: a) Türkiye’de …"
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 10 uncu maddesinin birinci fıkrasının (a) bendi aşağıdaki şekilde değiştirilmiş, (b) bendinin birinci cümlesi “Kamu kurum ve kuruluşlarında, asli ve sürekli görevlerde çalışan veya Silahlı Kuvvetler mensubu Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji mühendisi ve yüksek mühendislerinin Odaya üye olmaları isteklerine bağlıdır.” şeklinde, aynı bendin son cümlesi “Silahlı Kuvvetler mensubu Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji mühendisi ve yüksek mühendisleri, oda organlarında görev alamaz.” şeklinde değiştirilmiş ve (ç) bendinin birinci cümlesi “Diploma veya denklik belgesi almak suretiyle Türkiye’de mesleklerini uygulayabilecek duruma gelmiş olanlardan, bu fıkranın (b) bendi kapsamı dışında kalan Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji mühendisi ve yüksek mühendisleri, …",
+    "birim": {
+     "madde": "10",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "coklu": true,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "10",
+     "fikra": 1,
+     "bent": "a"
+    },
+    "yeni_metin": "a) Türkiye’de Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisliği mesleğinde çalışabilmek ve mesleki öğretim yaptırabilmek için Metalurji, Metalurji ve Malzeme, Seramik, Malzeme Bilimi ve Nanoteknoloji Mühendisi veya yüksek mühendisleri Odaya üye olmak ve üyelik koşullarını korumak zorundadırlar.",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Türk Mühendis ve Mimar Odaları Birliği Metalurji ve Malzeme Mühendisleri Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 46,
+  "alan": "Mühendislik",
+  "temel_baslik": "Türk Mühendis ve Mimar Odaları Birliği Metalurji ve Malzeme Mühendisleri Odası Ana Yönetmeliği",
+  "ocr": false,
+  "kesilen": 0
+ },
+ {
+  "temel": {
+   "rg_tarih": "2005-09-08",
+   "rg_sayi": "25930",
+   "mevzuatId": "112666",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=9401&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "TÜRK MÜHENDİS VE MİMAR ODALARI BİRLİĞİ METEOROLOJİ MÜHENDİSLERİ ODASI ANA YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "8/9/2005 tarihli ve 25930 sayılı Resmî Gazete’de yayımlanan Türk Mühendis ve Mimar Odaları Birliği Meteoroloji Mühendisleri Odası Ana Yönetmeliğinin 33 üncü maddesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "33"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "33"
+    },
+    "yeni_metin": "Madde 33- Oda Yönetim Kurulu, Oda Genel Kurulunca iki (2) yıl için seçilen yedi (7) asil ve yedi (7) yedek üyeden oluşur.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "Madde 33 — Oda Yönetim Kurulu, Oda Genel Kurulunca iki (2) yıl için seçilen beş (5) asil ve beş (5) yedek üyeden oluşur.",
+    "fark": [
+     [
+      "için seçilen beş (5) asil ve beş (5)",
+      "için seçilen yedi (7) asil ve yedi (7)"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 34 üncü maddesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "34"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "34"
+    },
+    "yeni_metin": "Madde 34- Seçim sonuçlarının kesinleşmesinden sonra, en çok yedi (7) gün içinde, Oda Yönetim Kurulu üyeleri, en yaşlı üyesinin başkanlığında ilk toplantısını yapar ve kendi aralarından, başkan, ikinci başkan, Genel Sekreter, sayman, örgütlenme sekreteri, eğitim sekreteri ve basın yayın sekreteri üyelerini çoğunlukla seçerek göreve başlar. Oda Yönetim Kurulu, gerek duyduğunda kendi görev bölümünü yenileyebilir.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "Madde 34 — Seçim sonuçlarının kesinleşmesinden sonra, en çok yedi (7) gün içinde, Oda Yönetim Kurulu üyeleri, en yaşlı üyesinin başkanlığında ilk toplantısını yapar ve kendi aralarından, başkan, ikinci başkan, sekreter üye, sayman üye ve sosyal işler üyesini çoğunlukla seçerek göreve başlar. Oda Yönetim Kurulu, gerek duyduğunda kendi görev bölümünü yenileyebilir.",
+    "fark": [
+     [
+      "ikinci başkan, sekreter üye, sayman üye ve sosyal işler üyesini",
+      "ikinci başkan, Genel Sekreter, sayman, örgütlenme sekreteri, eğitim sekreteri ve basın yayın sekreteri üyelerini"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 38 inci maddesinin birinci fıkrasının (c) bendinde yer alan “Sekreter üye” ibaresi “Genel Sekreter” şeklinde değiştirilmiş, (ç) bendinde yer alan “üye” ibaresi yürürlükten kaldırılmış, (d) bendi aşağıdaki şekilde değiştirilmiş ve aynı fıkraya aşağıdaki bentler eklenmiştir.",
+    "birim": {
+     "madde": "38",
+     "fikra": 1,
+     "bent": "c"
+    },
+    "coklu": true,
+    "turler": [
+     "ibare",
+     "ibare-kaldirma",
+     "yeniden",
+     "ekleme"
+    ],
+    "ibareler": [
+     {
+      "eski": "Sekreter üye",
+      "yeni": "Genel Sekreter",
+      "birimler": [
+       {
+        "madde": "38",
+        "fikra": 1,
+        "bent": "c"
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "c) Sekreter üye; Oda işlerini, Oda Yönetim Kurulu kararlarına uygun olarak yönetir, Yönetim Kurulu toplantılarının gündemini hazırlar, Odanın tüm yazışmalarını yürütür ve imza…",
+      "kaynaktaki": null
+     }
+    ],
+    "kaldirilan_ibareler": [
+     "üye"
+    ],
+    "yeniden_birim": {
+     "madde": "38",
+     "fikra": 1,
+     "bent": "d"
+    },
+    "ekleme_birim": {
+     "madde": "38",
+     "fikra": 1,
+     "bent": "d"
+    },
+    "yeni_metin": "d) Örgütlenme Sekreteri; Odanın organları arasındaki ilişkileri düzenleyen idari işlemler konusunda araştırma yapmak ve gerektiğinde değişiklik tasarıları hazırlamak, üyelerin, Odanın tüm çalışmalarına katılımını sağlayacak düzenlemeleri yapmak, Oda çalışmaları ile ilgili yapılan Genel Kurul, kurultay, seminer, sempozyum, panel ve benzeri etkinliklere katılım bakımından istatistiki sonuçlar çıkartmak, çalışmaların katılımcı, temsil etme ve sağlıklı yürütülmesini sağlayacak öneri ve önlemler konusunda rapor hazırlamak ve Yönetim Kuruluna sunmak, Genel Sekreterin olmadığı durumlarda Genel …",
+    "talimat_goster": true
+   }
+  ],
+  "baslik": "Türk Mühendis ve Mimar Odaları Birliği Meteoroloji Mühendisleri Odası Ana Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 47,
+  "alan": "Mühendislik",
+  "temel_baslik": "Türk Mühendis ve Mimar Odaları Birliği Meteoroloji Mühendisleri Odası Ana Yönetmeliği",
+  "ocr": true,
+  "kesilen": 0
+ }
+]
