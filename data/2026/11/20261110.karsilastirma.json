@@ -1,0 +1,245 @@
+[
+ {
+  "temel": {
+   "rg_tarih": "2021-03-05",
+   "rg_sayi": "31414",
+   "mevzuatId": "104762",
+   "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=38376&MevzuatTur=7&MevzuatTertip=5",
+   "ad": "İLLER BANKASI ANONİM ŞİRKETİ İNSAN KAYNAKLARI YÖNETMELİĞİ"
+  },
+  "degisiklikler": [
+   {
+    "madde": 1,
+    "talimat": "5/3/2021 tarihli ve 31414 sayılı Resmi Gazete'de yayımlanan İller Bankası Anonim Şirketi İnsan Kaynakları Yönetmeliğinin 23 üncü maddesinin ikinci fıkrasında yer alan “mezun olup,” ibaresinden sonra gelmek üzere “bu yükseköğretim mezuniyet tarihinden itibaren sosyal güvenlik kurumlarına prim ödenmek suretiyle geçirilen” ibaresi eklenmiştir.",
+    "birim": {
+     "madde": "23",
+     "fikra": 2
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-ekleme",
+     "ekleme"
+    ],
+    "eklenen_ibareler": [
+     {
+      "yer": "mezun olup,",
+      "eklenen": "bu yükseköğretim mezuniyet tarihinden itibaren sosyal güvenlik kurumlarına prim ödenmek suretiyle geçirilen"
+     }
+    ],
+    "ekleme_birim": {
+     "madde": "23",
+     "fikra": 2
+    },
+    "talimat_goster": false
+   },
+   {
+    "madde": 2,
+    "talimat": "Aynı Yönetmeliğin 25 inci maddesi başlığı ile beraber aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "25"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "25"
+    },
+    "yeni_metin": "Başvuru ve başvuruların incelenmesi MADDE 25-(1) Sınava girmek isteyenler, son başvuru tarihi mesai bitimine kadar duyuruda belirtilen yöntemle ve istenilecek belgelerle başvurularını yaparlar. (2) Başvurular, İnsan Kaynakları Dairesi Başkanlığınca sınava girebilmek için gerekli şartların mevcut olup olmadığı açısından incelenir. Şartları uygun olmayanlar sınava alınmazlar.",
+    "talimat_goster": true,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "MADDE 25 – (1) Sınava girmek isteyenler, Bankadan alacakları iş talep formunu, gerçeğe uygun olarak doldurup en son başvuru tarihi mesai bitimine kadar son altı ay içerisinde çekilmiş vesikalık bir adet fotoğraf ve istenilecek diğer belgelerle birlikte ilgili birime teslim ederler. (2) İş talep formları İnsan Kaynakları Dairesi Başkanlığınca sınava girebilmek için gerekli şartların mevcut olup olmadığı açısından incelenir. Şartları uygun olmayanlar sınava alınmazlar.",
+    "fark": [
+     [
+      "MADDE 25 (1)",
+      "Başvuru ve başvuruların incelenmesi MADDE 25-(1)"
+     ],
+     [
+      "girmek isteyenler, Bankadan alacakları iş talep formunu, gerçeğe uygun olarak doldurup en",
+      "girmek isteyenler,"
+     ],
+     [
+      "bitimine kadar son altı ay içerisinde çekilmiş vesikalık bir adet fotoğraf ve istenilecek diğer belgelerle birlikte ilgili birime teslim ederler. (2) İş talep …",
+      "bitimine kadar duyuruda belirtilen yöntemle ve istenilecek belgelerle başvurularını yaparlar. (2) Başvurular,"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 3,
+    "talimat": "Aynı Yönetmeliğin 30 uncu maddesi aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "30"
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "30"
+    },
+    "yeni_metin": "MADDE 30- (1) Ataması yapılacaklardan aşağıdaki belgeler istenir: a) T.C. kimlik numarası yazılı beyanı. b) Adli sicil kaydını gösterir e-Devletten alınan kare kodlu belge. c) Öğrenim belgesinin aslı ya da e-Devletten alınan kare kodlu mezun belgesi. ç) Görevini yapmasına engel herhangi bir sağlık sorunu olmadığına dair yazılı beyanı. d) e-Devletten alınan kare kodlu askerlik durum belgesi. e) Başka kurum veya kuruluşlarda çalışmış olanlardan hizmet belgesi. f) Pozisyonun özelliklerine uygun olarak Bankaca istenilen diğer belgeler.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "MADDE 30 – (1) Ataması yapılacaklardan aşağıdaki belgeler istenir: a) T.C. kimlik numarası yazılı beyanı. b) Adli sicil kaydı olmadığına dair yazılı beyanı. c) Öğrenim belgesinin aslı ya da Bankaca onaylı örneği. ç) Görevini yapmasına engel herhangi bir sağlık sorunu olmadığına dair yazılı beyanı. d) Askerlikle ilgisi bulunmadığına dair yazılı beyanı. e) Başka kurum veya kuruluşlarda çalışmış olanlardan hizmet belgesi. f) Pozisyonun özelliklerine uygun olarak Bankaca istenilen diğer belgeler. Atamada işe başlama süresi",
+    "fark": [
+     [
+      "Adli sicil kaydı olmadığına dair yazılı beyanı.",
+      "Adli sicil kaydını gösterir e-Devletten alınan kare kodlu belge."
+     ],
+     [
+      "ya da Bankaca onaylı örneği.",
+      "ya da e-Devletten alınan kare kodlu mezun belgesi."
+     ],
+     [
+      "beyanı. d) Askerlikle ilgisi bulunmadığına dair yazılı beyanı.",
+      "beyanı. d) e-Devletten alınan kare kodlu askerlik durum belgesi."
+     ]
+    ],
+    "fark_kuyruk": true,
+    "fark_ocr": true
+   },
+   {
+    "madde": 4,
+    "talimat": "Aynı Yönetmeliğin 32 nci maddesinin birinci fıkrasında yer alan “görüp görmediğini” ibaresi “görmüyor ise” şeklinde değiştirilmiştir.",
+    "birim": {
+     "madde": "32",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare"
+    ],
+    "ibareler": [
+     {
+      "eski": "görüp görmediğini",
+      "yeni": "görmüyor ise",
+      "birimler": [
+       {
+        "madde": "32",
+        "fikra": 1
+       }
+      ],
+      "cogul": false,
+      "baglam_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+      "baglam": "(1) Ataması yapılan personel, bir yıllık deneme süreli ve geçici olarak atanır. İlgili birim yöneticisi, adayın hizmete devamında yarar görüp görmediğini, deneme süresi sona ermeden en geç onbeş gün önce yazılı olarak İnsan Kaynakları Dairesi Başkanlığına bildirir.…",
+      "kaynaktaki": null
+     }
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 5,
+    "talimat": "Aynı Yönetmeliğin 39 uncu maddesinin üçüncü fıkrasında yer alan “6 yılı geçmemek üzere” ibaresi yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "39",
+     "fikra": 3
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-kaldirma"
+    ],
+    "kaldirilan_ibareler": [
+     "6 yılı geçmemek üzere"
+    ],
+    "talimat_goster": false
+   },
+   {
+    "madde": 6,
+    "talimat": "Aynı Yönetmeliğin 40 ıncı maddesinin üçüncü fıkrası aşağıdaki şekilde değiştirilmiştir.",
+    "birim": {
+     "madde": "40",
+     "fikra": 3
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "40",
+     "fikra": 3
+    },
+    "yeni_metin": "(3) Çalıştığı birim ya da bölgede çalışma ahengini bozucu ya da verimliliği düşürücü tutum ve davranışları somut bilgi ve belgeye dayalı olarak tespit edilen personel, birim amirince yazılı olarak uyarılmasına rağmen aynı tutum ve davranışlarını tekrarlaması halinde, birim amiri söz konusu personelin başka bir birim veya bölgeye naklini talep edebilir. Gerekli inceleme ve değerlendirme sonucunda uygun görülürse söz konusu personel başka bir bölge veya birime atanabilir.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(3) Çalıştığı birim ya da bölgede çalışma ahengini bozucu ya da verimliliği düşürücü tutum ve davranışları somut bilgi ve belgeye dayalı olarak tespit edilen Banka personeli, birim amirince yazılı olarak uyarılmasına rağmen aynı tutum ve davranışlarını tekrarlaması halinde, birim amiri, Genel Müdürden söz konusu personelin başka bir birim veya bölgeye naklini talep edebilir. Genel Müdür gerekli inceleme ve değerlendirme sonucunda uygun görürse söz konusu personeli başka bir bölge veya birime atayabilir. Yer değiştirmede göreve başlama süresi",
+    "fark": [
+     [
+      "tespit edilen Banka personeli,",
+      "tespit edilen personel,"
+     ],
+     [
+      "birim amiri, Genel Müdürden",
+      "birim amiri"
+     ],
+     [
+      "talep edebilir. Genel Müdür",
+      "talep edebilir."
+     ],
+     [
+      "sonucunda uygun görürse söz konusu personeli",
+      "sonucunda uygun görülürse söz konusu personel"
+     ],
+     [
+      "veya birime atayabilir. Yer değiştirmede göreve başlama süresi",
+      "veya birime atanabilir."
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 7,
+    "talimat": "Aynı Yönetmeliğin 41 inci maddesinin birinci fıkrası aşağıdaki şekilde degiştirilmiştir.",
+    "birim": {
+     "madde": "41",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "yeniden"
+    ],
+    "yeniden_birim": {
+     "madde": "41",
+     "fikra": 1
+    },
+    "yeni_metin": "(1) Yer değiştirme suretiyle yeni bir göreve atananlar, görev yeri aynı il sınırları içinde ise atama onayının tebliğini izleyen iş günü, başka il sınırları içinde ise tebliğ tarihinden itibaren en geç beş iş günü sonunda yeni görevlerine başlamak zorundadır.",
+    "talimat_goster": false,
+    "onceki_kaynak": "mevzuat.gov.tr (değişiklikten önceki güncel metin)",
+    "eski_metin": "(1) Yer değiştirme suretiyle yeni bir göreve atananlar, görev yeri aynı il sınırları içinde ise atama onayının tebliğini izleyen iş günü, başka il sınırları içinde ise tebliğ tarihinden itibaren (Değişik ibare:RG-17/7/2024-32604) beş iş günü içinde yeni görevlerine başlamak zorundadır.",
+    "fark": [
+     [
+      "tarihinden itibaren",
+      "tarihinden itibaren en geç"
+     ],
+     [
+      "iş günü içinde",
+      "iş günü sonunda"
+     ]
+    ],
+    "fark_ocr": true
+   },
+   {
+    "madde": 8,
+    "talimat": "Aynı Yönetmeliğin 50 nci maddesinin birinci fıkrasında yer alan “görev istek formu ve” ibaresi yürürlükten kaldırılmıştır.",
+    "birim": {
+     "madde": "50",
+     "fikra": 1
+    },
+    "coklu": false,
+    "turler": [
+     "ibare-kaldirma"
+    ],
+    "kaldirilan_ibareler": [
+     "görev istek formu ve"
+    ],
+    "talimat_goster": false
+   }
+  ],
+  "baslik": "İller Bankası Anonim Şirketi İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik",
+  "sayfa": 33,
+  "alan": "Ekonomi ve Finans",
+  "temel_baslik": "İller Bankası Anonim Şirketi İnsan Kaynakları Yönetmeliği",
+  "ocr": true,
+  "kesilen": 14
+ }
+]

@@ -1,0 +1,22 @@
+{
+ "kalemler": {
+  "İller Bankası Anonim Şirketi İnsan Kaynakları Yönetmeliğinde Değişiklik Yapılmasına Dair Yönetmelik (s. 33)": {
+   "ne_getiriyor": [
+    "Sınav başvuru şartları arasına yükseköğretim mezuniyet tarihinden itibaren sosyal güvenlik kurumlarına prim ödenmek suretiyle geçirilen süre şartı eklenmiştir.",
+    "Ataması yapılacak adaylardan istenecek belgeler güncellenmiş; T.C. kimlik numarası beyanı, kare kodlu adli sicil ve öğrenim belgeleri, sağlık beyanı, askerlik durum belgesi, hizmet belgesi ve pozisyona uygun diğer belgeler talep edilmiştir.",
+    "Personelin nakil şartları, biriminde çalışma ahengini bozucu tutum ve davranışlarının somut belgeyle tespiti ve uyarılmasına rağmen tekrarlaması durumuna bağlanmıştır.",
+    "Yer değiştirme suretiyle atananların yeni görevlerine başlama süreleri aynı il içinde atama onayının tebliğini izleyen iş günü, başka illerde ise en geç beş iş günü olarak belirlenmiştir.",
+    "Engelli veya süreğen hastalığı olan çocuğu bulunan personele, raporuna dayalı olarak bir yılda toplam veya bölümler hâlinde on güne kadar mazeret izni hakkı tanınmıştır.",
+    "Doğum sonrası analık izni süresi bitiminde kadın personele, süt izni verilmeksizin birinci doğumda iki, ikinci doğumda dört, sonraki doğumlarda altı ay süreyle yarı zamanlı çalışma hakkı getirilmiştir; çoğul ve engelli doğumlar için ek süreler öngörülmüştür.",
+    "Doğum yapan personele doğum öncesi 8 ve doğum sonrası 16 hafta olmak üzere toplam 24 hafta ücretli doğum izni verilmiş, koruyucu aile olan personele ise 10 gün izin hakkı tanınmıştır.",
+    "Disiplin amirlerince verilen uyarma ve kınama cezalarına karşı Disiplin Kuruluna, ücretten kesme ve yıllık ücret artışından yararlandırılmama cezalarına karşı ise Yüksek Disiplin Kuruluna itiraz edimesi kararlaştırılmıştır.",
+    "Disiplin cezalarının özlük dosyasından silinme süreleri uyarma ve kınama için 5 yıl, ücretten kesme ve yıllık ücret artışından yararlandırılmama cezaları için ise 10 yıl olarak yeniden düzenlenmiştir.",
+    "Yönetmeliğin pozisyon sayılarını gösteren EK-1 cetveli ile yükselme şartlarını belirleyen EK-2 tablosu yenilenmiştir."
+   ],
+   "yururluk": "10 Kasım 2026 tarihinde yayımı tarihinde yürürlüğe girer.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-10T03:49:34+00:00"
+}
