@@ -1,0 +1,18 @@
+{
+ "kalemler": {
+  "Ozan Elektronik Para A.Ş.'nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 8)": {
+   "surum": 2,
+   "hata": "metin gazetede bulunamadı (görsel/taranmış sayfa)"
+  },
+  "A Ödeme ve Elektronik Para Hizmetleri A.Ş.'nin Faaliyet İzninin İptal Edilmesine İlişkin Karar (s. 8)": {
+   "ne_getiriyor": [
+    "A Ödeme ve Elektronik Para Hizmetleri A.Ş.'ye 20/6/2013 tarih ve 6493 sayılı Kanun kapsamında verilen elektronik para kuruluşu olarak faaliyette bulunma izni, Kanunun 16 ncı maddesinin birinci fıkrasının (ç) bendi ile 19 uncu maddesi uyarınca 10/11/2026 tarihli ve 12113/21712 sayılı Karar ile iptal edilmiştir.",
+    "Ozan Elektronik Para A.Ş.'ye 20/6/2013 tarih ve 6493 sayılı Kanun kapsamında verilen elektronik para kuruluşu olarak faaliyette bulunma izni, Kanunun 16 ncı maddesinin birinci fıkrasının (ç) ve (e) bentleri, 19 uncu maddesi ve 21 inci maddesinin sekizinci fıkrası uyarınca 10/11/2026 tarihli ve 12111/21710 sayılı Karar ile iptal edilmiştir."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-11T01:26:57+00:00"
+}
