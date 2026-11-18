@@ -1,0 +1,14 @@
+{
+ "kalemler": {
+  "Bankacılık Düzenleme ve Denetleme Kurulunun 17/11/2026 Tarihli ve 11601 Sayılı Kararı (s. 56)": {
+   "ne_getiriyor": [
+    "Adil Katılım Bankası A.Ş.'nin temettü hariç ortaklık hakları ile yönetim ve denetimi Tasarruf Mevduatı Sigorta Fonuna devredilmiştir.",
+    "Bu karar, 5411 sayılı Bankacılık Kanununun 71 inci maddesinin birinci fıkrasının (a), (6) ve (d) bendi çerçevesinde alınmıştır."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-18T03:10:29+00:00"
+}
