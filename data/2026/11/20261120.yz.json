@@ -1,0 +1,47 @@
+{
+ "kalemler": {
+  "Enerji Piyasası Düzenleme Kurulunun 19/11/2026 Tarihli ve 15055 Sayılı Kararı (s. 4)": {
+   "ne_getiriyor": [
+    "Akpet Akaryakıt Dağıtım A.Ş.’nin 5.850 metreküp kapasiteli Samsun Terminali’nde LPG Karışım, Otogaz ve Standardize LPG ürünlerinin teslim alınması, depolanması ve teslim edilmesine dair depolama tarifesi tadil edilerek onaylanmıştır.",
+    "Terminale yönelik erişim ve diğer depolama hizmeti talepleri, 1500 ton ve 90 günden az olması halinde kabul edilmeyecektir.",
+    "Hizmet alanlar yalnızca kendi ihtiyaçlarına yönelik hizmet alabilecek, üçüncü şahıslar adına hizmet talep edemeyecek ve başvurular ilk gelen ilk hizmet görür esasına göre karşılanacaktır.",
+    "Teslim alma ve teslim etme işlemleri kural olarak iş günleri mesai saatlerinde gerçekleştirilecek; acil hallerde yazılı talep ve lisans sahibinin onayıyla mesai saatleri dışında da hizmet sunulabilecektir.",
+    "Depolama kaynaklı fireler dönem sonlarında mevzuat limitlerini aşmayacak şekilde kullanım oranlarına göre hesaplanacak; emniyet ve güvenlik kurallarına aykırılıktan kaynaklanan zararlar hizmet alan tarafından tazmin edilecektir.",
+    "Aylık KDV’li faturaların 10 iş günü içinde ödenmesi zorunlu olup, gecikmelerde TCMB cari reeskont oranında temerrüt faizi işletilecek ve ödeme yapılmaması durumunda hizmete son verilecektir.",
+    "LPG Karışım, Otogaz ve Standardize LPG için günlük depolama bedeli ton başına 20 TL; teslim alma ve teslim etme hizmet bedelleri ise ayrı ayrı ton başına 200 TL (KDV hariç) olarak uygulanacaktır.",
+    "Tarifede yer alan tavan hizmet bedelleri artırılamayacak ve bu bedeller üzerinden herhangi bir indirim uygulanmayacaktır."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  },
+  "Enerji Piyasası Düzenleme Kurulunun 19/11/2026 Tarihli ve 15056 Sayılı Kararı (s. 9)": {
+   "ne_getiriyor": [
+    "Rafinerici lisansı sahiplerinin akaryakıt satış fiyatının takibinde, Platts European Market Scan'de CIF MED başlığı altında yayımlanan günlük fiyatların TCMB döviz satış kuru ile TL'ye çevrilen tutarı dikkate alınır.",
+    "TL/litre değerinin hesaplanmasında yoğunluk değeri motorin için 0,845 ton/m3 ve benzin için 0,755 ton/m3 olarak alınır.",
+    "Rafinerici lisansı sahipleri ürün fiyatını belirlerken uluslararası piyasa fiyatının TL karşılığına ek olarak ülke içi pazara sunum maliyetlerini de dikkate alır.",
+    "Nükleer tesislerin imalat, montaj, işletmeye alma, işletme ve işletmeden çıkarma aşamalarındaki kaynak işlemlerinin nükleer güvenlik ve kalite uygunluğu ile izlenebilirliğini sağlamak amacıyla 'Nükleer Tesisler İçin Kaynak Uygulamalarına İlişkin Gerekler' belirlenmiştir.",
+    "Kaynak uygulamalarını yapacak kişiler, Kararın yayımından itibaren altı ay içinde bu Karara uyum sağlamak zorundadır."
+   ],
+   "yururluk": "Akaryakıt Fiyatlarının Takibine İlişkin Kurul Kararında Değişiklik Yapılmasına Dair Kurul Kararı yayımı tarihinde yürürlüğe girer; nükleer tesislerde kaynak uygulamaları için Kararın yayımından itibaren altı aylık uyum süresi öngörülmüştür.",
+   "surum": 2
+  },
+  "Nükleer Düzenleme Kurulunun 17/11/2026 Tarihli ve 2026-49/1-1, 1-2, 1-3, 1-4, 1-5 ve 1-6 Sayılı Kararları (s. 10)": {
+   "ne_getiriyor": [
+    "Nükleer tesislerin imalat, montaj, işletmeye alma, işletme ve işletmeden çıkarma aşamalarındaki kaynak işlemlerinin güvenlik ve kalite uygunluğu ile izlenebilirliğini düzenler.",
+    "Atölye ve saha koşullarındaki ergitme, kaplama, tamir kaynaklarını, puntalamayı, ısıl işlem ve kaynak sonrası muayeneleri kapsar.",
+    "Kuruluş, tesiste TS EN ISO 3834-2, NP-090 veya eşdeğer standartları karşılayan bir Kaynak Kalite Temin Programı oluşturmak zorundadır.",
+    "Kaynak işlemleri, onaylı kaynak prosedür şartnamelerine (KPS) ve kaynak yöntem vasıflandırma kayıtlarına (KYVK) dayanmak zorundadır; başka kuruluşların KYVK'ları teknik gerekçe olmadan kullanılamaz.",
+    "Kuruluş bünyesinde KPS'lerin hazırlanması, uygulanması ve gözetiminden sorumlu en az bir kaynak koordinatörü atanır.",
+    "Kaynak işlemlerinde TS EN ISO 9606 serisi, TS EN ISO 14732, ASME BPVC veya eşdeğer standartlara göre belgelendirilmiş kaynakçı ve kaynak operatörleri görevlendirilir.",
+    "Altı aydan uzun süre kaynak yapmayan personelin belgeleri askıya alınır; personel her yıl görsel keskinlik ve renk körlüğü testine tabi tutulur.",
+    "Karbon çeliği ile paslanmaz çelik kaynak işlemleri aynı bölgede eş zamanlı yürütülemez; paslanmaz çelik yüzeylere kimyasal temizleme ve pasivasyon uygulanır.",
+    "Tam penetrasyonlu kaynaklarda kök paso, Kuruluş ve bağımsız gözetim şirketi tarafından gözle muayene edilmeden devam edilemez; tamir uzunluğu dikiş uzunluğunun yüzde 20'sini aşamaz ve en fazla üç defa tamir yapılabilir.",
+    "Kaynakçı belgeleri, KPS, KYVK ve malzeme sertifikaları fiziksel ortama ek olarak elektronik ortamda muhafaza edilir ve Kurumun erişimine açılır."
+   ],
+   "yururluk": "Kararın yayımından itibaren altı ay içerisinde uyum sağlanması zorunludur.",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-20T02:43:28+00:00"
+}
