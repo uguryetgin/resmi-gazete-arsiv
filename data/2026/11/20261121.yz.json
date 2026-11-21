@@ -1,0 +1,30 @@
+{
+ "kalemler": {
+  "Türkiye Cumhuriyeti Adına 19 Haziran 2026 Tarihinde Ankara'da İmzalanan Ekli Katılım Öncesi Yardım Aracı IPA II Kapsamında Tarım ve Kırsal Kalkınma İçin IPARD Il Yardımı Çerçevesinde Türkiye Cumhuriyeti Hükümeti ile Avrupa Komisyonu Arasında 8 Nisan 2024 Tarihinde Yürürlüğe Giren ve En Son 23 Aralık 2024 Tarihinde Değiştirilen 2021-2027 Finansman Anlaşmasını Değiştiren Anlaşmanın Onaylanması Hakkında Karar (Karar Sayısı: 12012) (s. 1)": {
+   "ne_getiriyor": [
+    "Türkiye Cumhuriyeti Hükümeti ile Avrupa Komisyonu arasında 8 Nisan 2024'te yürürlüğe giren ve 23 Aralık 2024'te değiştirilen 2021-2027 Finansman Anlaşmasını değiştiren Anlaşma onaylanmıştır.",
+    "Katılım Öncesi Yardım Aracı (IPA III) Kapsamında Tarım ve Kırsal Kalkınma İçin IPARD III Yardımı çerçevesinde, bütçe uygulama görevleri Türkiye'ye devredilmektedir.",
+    "Komisyon, tedbir 6 kırsal kamusal altyapı yatırımları için bütçe uygulama yetkilerini Türkiye'ye devretmiştir.",
+    "IPARD III programının 2021-2027 dönemi için Türkiye'deki uygulanmasına yönelik toplam endikatif maliyet, Birlik, ulusal ve özel katkılar dahil 1.012.554.622 Avro olarak belirlenmiştir.",
+    "Türkiye tarafından IPARD III programının uygulanması için gösterge niteliğindeki en yüksek Avrupa Birliği katkısı 430.000.000 Avro olarak belirlenmiştir.",
+    "IPARD III programı kapsamındaki harcamaların son uygunluk tarihi 31 Aralık 2030 olarak belirlenmiştir.",
+    "Birlik'in bütçe taahhütleri yıllık taksitler halinde yapılacak olup, fon kaybı kuralları (nt3 kuralı) gereğince 2021-2027 bütçe taahhütleri için 31 Aralık 2025 ile 31 Aralık 2030 arasında değişen son harcama tarihleri belirlenmiştir."
+   ],
+   "yururluk": "Taraflardan sonuncusunun, iç mevzuatına veya prosedürüne uygun olarak onayını yazılı olarak diğer tarafa bildirdiği tarihte yürürlüğe girer.",
+   "surum": 2
+  },
+  "Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/389, 390, 391, 392, 393) (s. 53)": {
+   "ne_getiriyor": [
+    "Aile ve Sosyal Hizmetler Bakanlığı Ordu İl Müdürü Harun TAN, 3 sayılı Cumhurbaşkanlığı Kararnamesinin 2 nci maddesi gereğince görevden alınmıştır.",
+    "Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Coğrafi Bilgi Sistemleri Genel Müdürü Ömer ALAN görevden alınmış, yerine Mekânsal Planlama Genel Müdür Yardımcısı Selçuk AYDEMİR atanmıştır.",
+    "Kentsel Dönüşüm Başkanlığı Taşınmaz ve Kaynak Geliştirme Genel Müdürü Oğuzhan YAYLACI görevden alınmış, yerine Dursun BAŞTÜRK atanmıştır.",
+    "Kültür ve Turizm Bakanlığı Yaşayan Miras ve Kültürel Etkinlikler Genel Müdürü Selim TERZİ görevden alınmıştır.",
+    "Kıyı Emniyeti Genel Müdürlüğünde açık bulunan Yönetim Kurulu Üyeliğine Mustafa ÇANKAYA atanmıştır."
+   ],
+   "yururluk": "20 Kasım 2026",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-lite-latest",
+ "guncelleme": "2026-11-21T02:45:54+00:00"
+}
