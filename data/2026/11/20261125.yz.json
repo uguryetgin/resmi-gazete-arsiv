@@ -1,0 +1,20 @@
+{
+ "kalemler": {
+  "Cumhurbaşkanlığı Tarafından Yapılan Atamalar Hakkında Kararlar (Karar: 2026/398, 399) (s. 1)": {
+   "ne_getiriyor": [
+    "2026/398 sayılı Karar kapsamında Kars, Sakarya, Sivas, Bolu, Kırklareli, Şırnak, Elazığ, Kahramanmaraş, Çanakkale, Burdur, Amasya, Iğdır, Giresun ve Muğla valileri olmak üzere 14 vali İçişleri Bakanlığı emrine çekilmiştir.",
+    "Kayseri Valisi Gökmen Çiçek Şanlıurfa'ya, Tekirdağ Valisi Recep Soytürk Kayseri'ye, Hatay Valisi Mustafa Masatlı Tekirdağ'a ve Gaziantep Valisi Kemal Çeber Balıkesir Valiliğine atanmıştır.",
+    "Mardin Valisi Tuncay Akkoyun Gaziantep'e, İzmir Valisi Süleyman Elban Mardin'e, Balıkesir Valisi İsmail Ustaoğlu İzmir'e, Tokat Valisi Abdullah Köklü Kars'a ve İstanbul Vali Yardımcısı Ahmet Süheyl Üçer Tokat Valiliğine nakledilmiştir.",
+    "Batman Valisi Ekrem Canalp Sakarya'ya, Edirne Valisi Yunus Sezer Batman'a, Bitlis Valisi Ahmet Karakaya Edirne'ye, Karabük Valisi Oktay Çağatay Sivas'a ve Çorum Valisi Ali Çalgan Bartın Valiliğine atanmıştır.",
+    "Muş Valisi Avni Çakır Kütahya'ya, Kastamonu Valisi Meftun Dallı Muş'a, Isparta Valisi Abdullah Erin Malatya'ya, Bartın Valisi Nurtaç Arslan Isparta'ya ve Yozgat Valisi Mehmet Ali Özkan Kırklareli Valiliğine getirilmiştir.",
+    "Mülkiye Başmüfettişleri Kadir Çakır Kastamonu'ya, Osman Ahsen Bolu'ya, Mehmet Mut Çorum'a, Ali Arslantaş Yozgat'a, Yusuf Güni Bayburt'a ve Yılmaz Doruk Zonguldak Valiliğine atanmıştır.",
+    "Şanlıurfa Valisi Hasan Şıldak Giresun'a, Malatya Valisi Seddar Yavuz Muğla'ya, Kilis Valisi Ömer Kalaylı Ağrı'ya verilirken; Pendik Kaymakamı Mehmet Yıldız Burdur Valisi, Cumhurbaşkanlığı Koruma Hizmetleri Genel Müdürü Ramazan Bal Karabük Valisi olmuştur.",
+    "2026/399 sayılı Karar ile Polis Akademisi Başkanı Prof. Dr. Murat Balcı görevden alınmış, yerine Doç. Dr. Mehmet İlker Haktankaçmaz atanmıştır."
+   ],
+   "yururluk": "metinde belirtilmemiş",
+   "surum": 2
+  }
+ },
+ "model": "gemini-flash-latest",
+ "guncelleme": "2026-11-25T04:29:39+00:00"
+}
